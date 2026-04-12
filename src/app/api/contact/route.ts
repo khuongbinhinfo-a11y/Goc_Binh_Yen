@@ -18,6 +18,16 @@ const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value
 
 const normalize = (value: unknown) => (typeof value === "string" ? value.trim() : "");
 
+const normalizeEmail = (value: unknown) =>
+  typeof value === "string"
+    ? value
+        .normalize("NFKC")
+        .replace(/[\u200B-\u200D\uFEFF]/g, "")
+        .replace(/\s+/g, "")
+        .trim()
+        .toLowerCase()
+    : "";
+
 export async function POST(request: Request) {
   let payload: ContactPayload;
 
@@ -33,7 +43,7 @@ export async function POST(request: Request) {
 
   const full_name = normalize(payload.full_name);
   const phone = normalize(payload.phone);
-  const email = normalize(payload.email);
+  const email = normalizeEmail(payload.email);
   const subject = normalize(payload.subject);
   const message = normalize(payload.message);
   const contact_type = normalize(payload.contact_type);

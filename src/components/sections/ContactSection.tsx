@@ -40,6 +40,14 @@ export default function ContactSection() {
     };
   }, []);
 
+  const normalizeEmail = (value: string) =>
+    value
+      .normalize("NFKC")
+      .replace(/[\u200B-\u200D\uFEFF]/g, "")
+      .replace(/\s+/g, "")
+      .trim()
+      .toLowerCase();
+
   const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
   const showToast = (type: ToastType, message: string) => {
@@ -68,7 +76,7 @@ export default function ContactSection() {
 
     const full_name = String(data.get("full_name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
-    const email = String(data.get("email") || "").trim();
+    const email = normalizeEmail(String(data.get("email") || ""));
     const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
     const contact_type = String(data.get("contact_type") || "").trim();
