@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #f3eadf;
+  --bg-sub: #e9dac9;
+  --brown-main: #8b5e3c;
+  --brown-dark: #4a2f20;
+  --text-main: #3d2a1f;
+  --sunset: #b8794f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 8% 14%, rgba(184, 121, 79, 0.12), transparent 34%),
+    radial-gradient(circle at 86% 4%, rgba(74, 47, 32, 0.08), transparent 36%),
+    var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-body), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@layer components {
+  .site-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply mb-3 inline-block text-xs font-semibold uppercase tracking-[0.22em] text-[#9a6e4e];
+  }
+
+  .soft-panel {
+    @apply rounded-3xl border border-[#d8b89b] bg-white/70 shadow-soft;
+  }
+
+  .soft-button {
+    @apply rounded-full border border-transparent bg-gradient-to-r from-[#c28557] to-[#9e613c] px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:-translate-y-0.5;
+  }
+
+  .outline-button {
+    @apply rounded-full border border-[#c49a78] bg-transparent px-6 py-3 text-sm font-semibold text-[#7c5339] transition hover:bg-[#f4e4d3];
+  }
+}

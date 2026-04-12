@@ -1,16 +1,22 @@
 # Goc_Binh_Yen
 
-Demo concept trang chủ đã được dựng tại file:
+Nền tảng hiện tại:
 
-- `index.html`
-- `utils/contactForm.js` (helper gửi form sang Google Apps Script)
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
 
-Cách xem nhanh:
+## Chạy local
 
-1. Mở trực tiếp file `index.html` bằng trình duyệt.
-2. Hoặc chạy local server bất kỳ tại thư mục này rồi truy cập trang chủ.
+1. Cài dependencies:
+   - `npm install`
+2. Chạy môi trường dev:
+   - `npm run dev`
+3. Mở trình duyệt:
+   - `http://localhost:3000`
 
-Form liên hệ:
+## Mục tiêu bản hiện tại
 
-- Nằm ở section `#lien-he` trong `index.html`
-- Submit trực tiếp tới Google Apps Script Web App bằng `fetch` + `FormData`
+- Hoàn thiện khung giao diện và trang chủ demo theo tone nâu đất, chiều tà, sông nước quê hương.
+- Tách section thành component độc lập để dễ mở rộng các trang con ở bước tiếp theo.
+- Có sẵn section liên hệ với đầy đủ UI form để chuẩn bị tích hợp logic gửi dữ liệu.
