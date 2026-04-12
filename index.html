@@ -442,11 +442,139 @@
       margin-bottom: 10px;
     }
 
-    .final-actions {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .contact-text p {
+      line-height: 1.8;
+    }
+
+    .contact-form-box {
+      border: 1px solid rgba(175, 133, 101, 0.35);
+      border-radius: 24px;
+      background: #fff9f2;
+      padding: clamp(18px, 3vw, 24px);
+      box-shadow: 0 12px 26px rgba(96, 64, 44, 0.1);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-grid {
+      display: grid;
       gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field-full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #704d38;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .required-mark {
+      color: #a15e39;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid #d9b79a;
+      background: #fff;
+      color: #3e2d22;
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.4;
+      padding: 12px 13px;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      outline: none;
+      border-color: #a56e47;
+      box-shadow: 0 0 0 3px rgba(165, 110, 71, 0.16);
+    }
+
+    .field-error {
+      min-height: 18px;
+      font-size: 12px;
+      color: #b14327;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .submit-btn[disabled] {
+      opacity: 0.75;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .status-msg {
+      margin: 0;
+      padding: 11px 13px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      display: none;
+    }
+
+    .status-msg.show {
+      display: block;
+    }
+
+    .status-msg.sending {
+      background: #f8ebdc;
+      border: 1px solid #e4c7a7;
+      color: #825a3f;
+    }
+
+    .status-msg.success {
+      background: #edf8ef;
+      border: 1px solid #b6d9bc;
+      color: #2e6a3d;
+    }
+
+    .status-msg.error {
+      background: #fdeeed;
+      border: 1px solid #efb8b0;
+      color: #903022;
+    }
+
+    .hp-wrap {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
     }
 
     .btn-outline {
@@ -508,7 +636,8 @@
 
     @media (max-width: 900px) {
       .intro-wrap,
-      .memory-grid {
+      .memory-grid,
+      .contact-layout {
         grid-template-columns: 1fr;
       }
 
@@ -535,6 +664,10 @@
 
       .section {
         padding: 72px 0;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -757,19 +890,203 @@
   <section id="lien-he" class="section">
     <div class="container">
       <article class="final-box fade-in">
-        <p class="eyebrow">Chốt concept với khách hàng</p>
-        <h2>Demo này phù hợp để trình bày ý tưởng trước khi vào thiết kế chi tiết</h2>
-        <p>
-          Khi khách đã chốt hướng hình ảnh, chúng ta triển khai tiếp các trang con như thư viện thơ, trang kể chuyện,
-          trang video, trang cảm nhận và trang liên hệ. Mục tiêu của bản demo là chốt cảm xúc, màu sắc và bố cục.
-        </p>
-        <div class="final-actions">
-          <button class="btn btn-main" type="button">Duyệt concept này</button>
-          <button class="btn btn-outline" type="button">Xem phương án khác</button>
+        <div class="contact-layout">
+          <div class="contact-text">
+            <p class="eyebrow">Liên hệ nhanh</p>
+            <h2>Gửi thông tin để đội ngũ phản hồi trong thời gian sớm nhất</h2>
+            <p>
+              Bạn có thể liên hệ chung, góp ý hoặc gửi thơ, truyện để chia sẻ cùng cộng đồng Góc Bình Yên.
+              Mẫu form này gửi trực tiếp đến hệ thống tiếp nhận nội bộ để xử lý nhanh và gọn.
+            </p>
+          </div>
+
+          <div class="contact-form-box">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="contact-grid">
+                <div class="field">
+                  <label for="full_name">Họ và tên <span class="required-mark">*</span></label>
+                  <input id="full_name" name="full_name" type="text" autocomplete="name" required />
+                  <div class="field-error" data-error-for="full_name"></div>
+                </div>
+
+                <div class="field">
+                  <label for="phone">Số điện thoại</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" />
+                  <div class="field-error" data-error-for="phone"></div>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" />
+                  <div class="field-error" data-error-for="email"></div>
+                </div>
+
+                <div class="field">
+                  <label for="contact_type">Loại liên hệ</label>
+                  <select id="contact_type" name="contact_type">
+                    <option value="Liên hệ chung">Liên hệ chung</option>
+                    <option value="Góp ý">Góp ý</option>
+                    <option value="Gửi thơ / truyện">Gửi thơ / truyện</option>
+                    <option value="Hợp tác">Hợp tác</option>
+                  </select>
+                  <div class="field-error" data-error-for="contact_type"></div>
+                </div>
+
+                <div class="field field-full">
+                  <label for="subject">Chủ đề</label>
+                  <input id="subject" name="subject" type="text" />
+                  <div class="field-error" data-error-for="subject"></div>
+                </div>
+
+                <div class="field field-full">
+                  <label for="message">Nội dung <span class="required-mark">*</span></label>
+                  <textarea id="message" name="message" required></textarea>
+                  <div class="field-error" data-error-for="message"></div>
+                </div>
+              </div>
+
+              <div class="hp-wrap" aria-hidden="true">
+                <label for="website">Website</label>
+                <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-actions">
+                <button id="submitButton" class="btn btn-main submit-btn" type="submit">Gửi thông tin</button>
+                <button id="resetButton" class="btn btn-outline" type="reset">Làm mới</button>
+              </div>
+
+              <p id="formStatus" class="status-msg" role="status" aria-live="polite"></p>
+            </form>
+          </div>
         </div>
       </article>
       <div class="signature">Góc Bình Yên · Thơ (Lê Dũng) · Giọng Đọc (Hồng Tâm)</div>
     </div>
   </section>
+
+  <script src="./utils/contactForm.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById("contactForm");
+      if (!form || typeof window.submitContactForm !== "function") {
+        return;
+      }
+
+      const submitButton = document.getElementById("submitButton");
+      const statusNode = document.getElementById("formStatus");
+      const errorNodes = form.querySelectorAll("[data-error-for]");
+      let isSubmitting = false;
+
+      function setFieldError(name, message) {
+        const node = form.querySelector('[data-error-for="' + name + '"]');
+        if (node) {
+          node.textContent = message || "";
+        }
+      }
+
+      function clearFieldErrors() {
+        errorNodes.forEach(function (node) {
+          node.textContent = "";
+        });
+      }
+
+      function setStatus(type, message) {
+        statusNode.className = "status-msg show " + type;
+        statusNode.textContent = message;
+      }
+
+      function clearStatus() {
+        statusNode.className = "status-msg";
+        statusNode.textContent = "";
+      }
+
+      function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function setSubmitting(state) {
+        isSubmitting = state;
+        if (submitButton) {
+          submitButton.disabled = state;
+          submitButton.textContent = state ? "Đang gửi..." : "Gửi thông tin";
+        }
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (isSubmitting) {
+          return;
+        }
+
+        clearFieldErrors();
+        clearStatus();
+
+        const payload = {
+          full_name: (form.full_name.value || "").trim(),
+          phone: (form.phone.value || "").trim(),
+          email: (form.email.value || "").trim(),
+          subject: (form.subject.value || "").trim(),
+          message: (form.message.value || "").trim(),
+          contact_type: (form.contact_type.value || "").trim(),
+          page_url: window.location.href,
+          website: (form.website.value || "").trim(),
+        };
+
+        let hasError = false;
+        if (!payload.full_name) {
+          setFieldError("full_name", "Vui lòng nhập họ và tên.");
+          hasError = true;
+        }
+
+        if (!payload.message) {
+          setFieldError("message", "Vui lòng nhập nội dung liên hệ.");
+          hasError = true;
+        }
+
+        if (payload.email && !isValidEmail(payload.email)) {
+          setFieldError("email", "Định dạng email chưa hợp lệ.");
+          hasError = true;
+        }
+
+        if (hasError) {
+          setStatus("error", "Vui lòng kiểm tra lại thông tin bắt buộc.");
+          return;
+        }
+
+        // Honeypot field: nếu có dữ liệu thì dừng submit thật.
+        if (payload.website) {
+          setStatus("success", "Đã ghi nhận thông tin.");
+          form.reset();
+          return;
+        }
+
+        try {
+          setSubmitting(true);
+          setStatus("sending", "Đang gửi thông tin, vui lòng chờ...");
+          const result = await window.submitContactForm(payload);
+
+          if (result && result.ok) {
+            form.reset();
+            setStatus("success", result.message || "Gửi thành công. Cảm ơn bạn đã liên hệ.");
+            return;
+          }
+
+          setStatus("error", (result && result.message) || "Gửi thất bại, vui lòng thử lại.");
+        } catch (error) {
+          setStatus("error", "Có lỗi kết nối, vui lòng thử lại.");
+        } finally {
+          setSubmitting(false);
+        }
+      });
+
+      form.addEventListener("reset", function () {
+        clearFieldErrors();
+        clearStatus();
+        if (isSubmitting) {
+          setSubmitting(false);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
