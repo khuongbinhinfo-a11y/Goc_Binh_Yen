@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dòng Quê Chiều - Demo Concept</title>
+  <title>Góc Bình Yên - Demo Concept</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
@@ -93,9 +93,24 @@
       margin-bottom: 2px;
     }
 
-    .brand-sub {
-      font-size: 13px;
-      color: #7f5c45;
+    .brand-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(173, 126, 93, 0.35);
+      background: rgba(255, 255, 255, 0.56);
+      color: #79543a;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.2;
     }
 
     .nav {
@@ -539,6 +554,15 @@
       .brand-title {
         font-size: 28px;
       }
+
+      .brand-pill {
+        font-size: 11px;
+        padding: 4px 8px;
+      }
+
+      .signature {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -546,8 +570,11 @@
   <header class="site-header">
     <div class="container header-inner">
       <div>
-        <h2 class="brand-title">Dòng Quê Chiều</h2>
-        <div class="brand-sub">Demo concept đọc thơ & kể chuyện</div>
+        <h2 class="brand-title">Góc Bình Yên</h2>
+        <div class="brand-roles" aria-label="Thông tin thương hiệu">
+          <span class="brand-pill">Thơ (Lê Dũng)</span>
+          <span class="brand-pill">Giọng Đọc (Hồng Tâm)</span>
+        </div>
       </div>
       <nav class="nav" aria-label="Điều hướng chính">
         <a href="#gioi-thieu">Giới thiệu</a>
@@ -741,7 +768,7 @@
           <button class="btn btn-outline" type="button">Xem phương án khác</button>
         </div>
       </article>
-      <div class="signature">By Khương Bình</div>
+      <div class="signature">Góc Bình Yên · Thơ (Lê Dũng) · Giọng Đọc (Hồng Tâm)</div>
     </div>
   </section>
 </body>
