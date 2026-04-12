@@ -9,7 +9,7 @@ export const BRAND_SIGNATURE = {
 };
 
 export const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=2200&q=80";
+  "/images/4.webp";
 
 export const navItems = [
   { label: "Trang chủ", href: "#trang-chu" },

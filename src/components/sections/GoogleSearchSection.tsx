@@ -16,12 +16,22 @@ export default function GoogleSearchSection() {
     }
 
     const query = encodeURIComponent(trimmed);
-    window.open(`https://www.google.com/search?q=${query}`, "_blank", "noopener,noreferrer");
-    setHint("");
+    const popup = window.open(
+      `https://www.google.com/search?q=${query}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+
+    if (!popup) {
+      setHint("Trình duyệt đang chặn tab mới. Vui lòng cho phép pop-up để tiếp tục.");
+      return;
+    }
+
+    setHint("Đã mở Google ở tab mới.");
   };
 
   return (
-    <section className="pb-16">
+    <section id="tim-kiem-google" className="pb-16">
       <div className="site-shell">
         <article className="soft-panel border-[#d9bda2] bg-[#f8efe5] p-6 sm:p-8">
           <p className="eyebrow">Tìm kiếm với Google</p>
@@ -40,7 +50,13 @@ export default function GoogleSearchSection() {
               </span>
               <input
                 value={keyword}
-                onChange={(event) => setKeyword(event.target.value)}
+                onChange={(event) => {
+                  setKeyword(event.target.value);
+                  if (hint) {
+                    setHint("");
+                  }
+                }}
+                name="keyword"
                 placeholder="Ví dụ: thơ chiều tà, truyện chữa lành, quê hương..."
                 className="w-full rounded-2xl border border-[#d8b89b] bg-white py-3 pl-10 pr-4 text-sm text-[#3f2c20] outline-none transition focus:border-[#a56e47] focus:ring-2 focus:ring-[#a56e47]/20"
               />

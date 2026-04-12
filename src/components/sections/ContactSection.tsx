@@ -5,9 +5,6 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import ToastNotice from "@/components/ui/ToastNotice";
 import { contactTypeOptions } from "@/data/homepageData";
 
-const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbysc5ICahR4FZ52E1SY4CRWGjLbS0on_1MQ8QUqKkFgfl4bVLlStZsF3WrFVO3Wk79n/exec";
-
 type FieldErrors = {
   full_name?: string;
   email?: string;
@@ -16,17 +13,16 @@ type FieldErrors = {
 
 type ToastType = "success" | "error";
 
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null);
   const statusRef = useRef<HTMLDivElement>(null);
-  const hasSubmittedRef = useRef(false);
   const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const [pageUrl, setPageUrl] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success" | "error">(
-    "idle",
-  );
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
 
@@ -60,21 +56,26 @@ export default function ContactSection() {
     }, 4000);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    const formElement = event.currentTarget;
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
     if (isSubmitting) {
-      event.preventDefault();
       return;
     }
 
+    const formElement = event.currentTarget;
     const data = new FormData(formElement);
-    const fullName = String(data.get("full_name") || "").trim();
+
+    const full_name = String(data.get("full_name") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
     const email = String(data.get("email") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
+    const contact_type = String(data.get("contact_type") || "").trim();
     const website = String(data.get("website") || "").trim();
 
     const nextErrors: FieldErrors = {};
-    if (!fullName) {
+    if (!full_name) {
       nextErrors.full_name = "Vui lòng nhập họ và tên.";
     }
     if (!message) {
@@ -85,7 +86,6 @@ export default function ContactSection() {
     }
 
     if (Object.keys(nextErrors).length > 0) {
-      event.preventDefault();
       setFieldErrors(nextErrors);
       setSubmitStatus("error");
       setSubmitMessage("Vui lòng kiểm tra lại thông tin bắt buộc.");
@@ -93,9 +93,7 @@ export default function ContactSection() {
       return;
     }
 
-    // Honeypot có giá trị thì dừng submit thật.
     if (website) {
-      event.preventDefault();
       setFieldErrors({});
       setSubmitStatus("error");
       setSubmitMessage("Không thể gửi thông tin. Vui lòng thử lại.");
@@ -105,32 +103,57 @@ export default function ContactSection() {
 
     const currentUrl = window.location.href;
     setPageUrl(currentUrl);
-    const pageUrlInput = formElement.elements.namedItem("page_url") as HTMLInputElement | null;
-    if (pageUrlInput) {
-      pageUrlInput.value = currentUrl;
-    }
-
     setFieldErrors({});
     setIsSubmitting(true);
     setSubmitStatus("sending");
     setSubmitMessage("Đang gửi...");
-    hasSubmittedRef.current = true;
-  };
 
-  const handleFrameLoad = () => {
-    // Iframe load lần đầu được bỏ qua; chỉ xử lý khi submit vừa diễn ra.
-    if (!hasSubmittedRef.current) {
-      return;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          full_name,
+          phone,
+          email,
+          subject,
+          message,
+          contact_type,
+          page_url: currentUrl,
+          website,
+        }),
+      });
+
+      let result: { ok?: boolean; message?: string } | null = null;
+      try {
+        result = (await response.json()) as { ok?: boolean; message?: string };
+      } catch {
+        result = null;
+      }
+
+      if (response.ok && result?.ok === true) {
+        setSubmitStatus("success");
+        setSubmitMessage("Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
+        formRef.current?.reset();
+        showToast("success", "Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
+        statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        return;
+      }
+
+      const errorMessage = result?.message || "Gửi thất bại, vui lòng thử lại.";
+      setSubmitStatus("error");
+      setSubmitMessage(errorMessage);
+      showToast("error", errorMessage);
+    } catch {
+      const networkErrorMessage = "Có lỗi kết nối, vui lòng thử lại.";
+      setSubmitStatus("error");
+      setSubmitMessage(networkErrorMessage);
+      showToast("error", networkErrorMessage);
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
-    setSubmitStatus("success");
-    setSubmitMessage("Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
-    formRef.current?.reset();
-    hasSubmittedRef.current = false;
-
-    showToast("success", "Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
-    statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   return (
@@ -151,9 +174,6 @@ export default function ContactSection() {
 
             <form
               ref={formRef}
-              method="POST"
-              action={APPS_SCRIPT_URL}
-              target="contact-submit-frame"
               onSubmit={handleSubmit}
               className="rounded-[1.5rem] border border-[#d8b89b] bg-white p-5 shadow-soft sm:p-6"
             >
@@ -243,38 +263,45 @@ export default function ContactSection() {
               </button>
 
               {submitStatus !== "idle" && (
-                <div
-                  ref={statusRef}
-                  className={`mt-4 flex items-start gap-2 rounded-xl border px-4 py-3 text-sm font-medium leading-6 ${
-                    submitStatus === "success"
-                      ? "border-[#9ad0b0] bg-[#e8f7ee] text-[#2b6d44]"
-                      : submitStatus === "sending"
-                        ? "border-[#e4c7a7] bg-[#f8ebdc] text-[#825a3f]"
-                        : "border-[#efb8b0] bg-[#fdeeed] text-[#903022]"
-                  }`}
-                >
-                  <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/65">
-                    {submitStatus === "success" ? (
-                      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3" fill="none">
-                        <path
-                          d="m5 10 3.1 3.1L15 6.2"
-                          stroke="currentColor"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    ) : submitStatus === "error" ? (
-                      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3" fill="none">
-                        <path d="M10 5.5v4.8M10 14h.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-                      </svg>
-                    ) : (
-                      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3 animate-spin" fill="none">
-                        <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.8" strokeDasharray="20 20" />
-                      </svg>
-                    )}
-                  </span>
-                  <p>{submitMessage}</p>
+                <div className="mt-4" ref={statusRef}>
+                  <div
+                    className={`flex items-start gap-2 rounded-xl border px-4 py-3 text-sm font-medium leading-6 ${
+                      submitStatus === "success"
+                        ? "border-[#9ad0b0] bg-[#e8f7ee] text-[#2b6d44]"
+                        : submitStatus === "sending"
+                          ? "border-[#e4c7a7] bg-[#f8ebdc] text-[#825a3f]"
+                          : "border-[#efb8b0] bg-[#fdeeed] text-[#903022]"
+                    }`}
+                  >
+                    <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/65">
+                      {submitStatus === "success" ? (
+                        <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3" fill="none">
+                          <path
+                            d="m5 10 3.1 3.1L15 6.2"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      ) : submitStatus === "error" ? (
+                        <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3" fill="none">
+                          <path d="M10 5.5v4.8M10 14h.01" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                        </svg>
+                      ) : (
+                        <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3 w-3 animate-spin" fill="none">
+                          <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.8" strokeDasharray="20 20" />
+                        </svg>
+                      )}
+                    </span>
+                    <p>{submitMessage}</p>
+                  </div>
+
+                  {submitStatus === "error" && (
+                    <p className="mt-2 text-sm text-[#8f4a34]">
+                      Chưa thể gửi thông tin tới hệ thống tiếp nhận. Vui lòng thử lại sau.
+                    </p>
+                  )}
                 </div>
               )}
             </form>
@@ -283,13 +310,6 @@ export default function ContactSection() {
       </div>
 
       <ToastNotice visible={toastVisible} type={toastType} message={toastMessage} />
-
-      <iframe
-        id="contact-submit-frame"
-        name="contact-submit-frame"
-        onLoad={handleFrameLoad}
-        style={{ display: "none" }}
-      />
     </section>
   );
 }
