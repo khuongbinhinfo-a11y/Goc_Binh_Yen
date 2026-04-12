@@ -9,19 +9,19 @@
     "lint": "echo \"Lint script is optional in this starter. Use npm run build for full validation.\""
   },
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest"
+    "next": "16.2.3",
+    "react": "19.2.5",
+    "react-dom": "19.2.5"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@types/node": "25.6.0",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
     "autoprefixer": "^10.4.20",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.2.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
-    "typescript": "latest"
+    "typescript": "6.0.2"
   }
 }
