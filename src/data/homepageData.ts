@@ -1,6 +1,16 @@
 export const FACEBOOK_URL =
   "https://www.facebook.com/profile.php?id=61561724806320";
 
+export const BRAND_NAME = "Góc Bình Yên";
+
+export const BRAND_SIGNATURE = {
+  poetry: "Thơ · Lê Dũng",
+  voice: "Giọng đọc · Hồng Tâm",
+};
+
+export const HERO_IMAGE =
+  "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=2200&q=80";
+
 export const navItems = [
   { label: "Trang chủ", href: "#trang-chu" },
   { label: "Đọc thơ", href: "#doc-tho" },

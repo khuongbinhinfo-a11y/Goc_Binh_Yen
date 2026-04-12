@@ -1,26 +1,28 @@
-import Image from "next/image";
+﻿import Image from "next/image";
+
+import { HERO_IMAGE } from "@/data/homepageData";
 
 export default function HeroSection() {
   return (
-    <section id="trang-chu" className="relative min-h-[84vh] overflow-hidden scroll-mt-24">
+    <section id="trang-chu" className="relative min-h-[82vh] overflow-hidden scroll-mt-24">
       <Image
-        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80"
-        alt="Sông nước quê hương lúc chiều tà"
+        src={HERO_IMAGE}
+        alt="Chiều tà bên dòng sông quê"
         fill
         priority
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#4c3122]/35 via-[#3f281d]/45 to-[#301f17]/78" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/24 via-[#4d3022]/42 to-[#2e1e16]/72" />
 
-      <div className="site-shell relative z-10 flex min-h-[84vh] items-center py-14">
-        <article className="max-w-3xl rounded-[2rem] border border-white/20 bg-[#4b2f20]/35 p-7 text-[#f9ead8] shadow-2xl backdrop-blur-sm sm:p-9">
-          <p className="eyebrow text-[#f4d8b8]">Sông nước · chiều tà · ký ức quê hương</p>
-          <h1 className="mb-4 text-5xl leading-[1.06] text-white sm:text-6xl lg:text-7xl">
+      <div className="site-shell relative z-10 flex min-h-[82vh] items-center py-14">
+        <article className="max-w-3xl rounded-[2rem] border border-[#ffe7ce]/30 bg-gradient-to-br from-[#5a3a2a]/30 to-[#3e281d]/34 p-7 text-[#f9ead8] shadow-[0_22px_48px_rgba(34,22,16,0.35)] backdrop-blur-[5px] sm:p-9">
+          <p className="eyebrow text-[#f2d6b7]">Sông nước quê · nắng cuối ngày · chạm vào ký ức</p>
+          <h1 className="mb-4 text-5xl leading-[1.07] text-white sm:text-6xl lg:text-7xl">
             Một góc lắng lại giữa dòng đời vội
           </h1>
-          <p className="max-w-2xl text-base leading-8 text-[#f4e2cf] sm:text-lg">
-            Góc Bình Yên là nơi thơ, chuyện và những xúc cảm nhẹ nhàng được cất lên giữa sắc chiều quê hương.
-            Không gian này được tạo ra để người xem có thể thở chậm, đọc sâu và lắng nghe chính mình.
+          <p className="max-w-2xl text-base leading-8 text-[#f7e7d5] sm:text-lg">
+            Góc Bình Yên là nơi thơ, chuyện và những xúc cảm nhẹ được cất lên trong sắc chiều bên dòng sông quê,
+            để mỗi người có thể thở chậm và tìm lại một khoảng yên cho riêng mình.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -29,7 +31,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#lien-he"
-              className="rounded-full border border-[#f5dabc]/40 bg-white/10 px-6 py-3 text-sm font-semibold text-[#fff1e0] transition hover:bg-white/20"
+              className="rounded-full border border-[#f0d5ba]/45 bg-[#fff9f0]/10 px-6 py-3 text-sm font-semibold text-[#fff4e7] transition hover:bg-[#fff8ef]/18"
             >
               Gửi lời nhắn
             </a>
