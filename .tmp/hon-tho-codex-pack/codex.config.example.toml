@@ -1,0 +1,18 @@
+# Ví dụ cấu hình cục bộ cho Codex CLI / IDE
+# Chỉ dùng các key được tài liệu OpenAI hỗ trợ chính thức.
+
+model = "gpt-5.4"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "live"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+
+[shell_environment_policy]
+include_only = ["PATH", "HOME", "SHELL"]
+
+# Ghi chú:
+# - web_search = "live" giúp Codex lấy kết quả web mới nhất.
+# - Không có cấu hình chính thức để ép backend tìm kiếm thành Google.
+# - Nếu muốn ưu tiên Google / Pinterest / MXH công khai, hãy mô tả điều đó trong task prompt và AGENTS.md.
+# - Nếu dùng Codex Web / Cloud, domain allowlist được cấu hình ở environment settings, không phải ở file này.
