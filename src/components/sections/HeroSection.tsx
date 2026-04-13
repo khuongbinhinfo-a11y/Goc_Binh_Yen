@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="site-shell relative z-10 flex min-h-[82vh] items-center py-14">
         <article className="max-w-3xl rounded-[2rem] border border-[#ffe7ce]/30 bg-gradient-to-br from-[#5a3a2a]/30 to-[#3e281d]/34 p-7 text-[#f9ead8] shadow-[0_22px_48px_rgba(34,22,16,0.35)] backdrop-blur-[5px] sm:p-9">
           <p className="eyebrow text-[#f2d6b7]">Sông nước quê · nắng cuối ngày · chạm vào ký ức</p>
-          <h1 className="mb-4 text-5xl font-bold leading-[1.03] tracking-[-0.025em] text-white sm:text-6xl lg:text-7xl">
+          <h1 className="mb-4 text-5xl font-bold leading-[1.1] tracking-[-0.01em] text-white sm:text-6xl lg:text-7xl">
             Một góc lắng lại giữa dòng đời vội
           </h1>
           <p className="max-w-2xl text-base leading-8 text-[#f7e7d5] sm:text-lg">

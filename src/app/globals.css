@@ -23,6 +23,9 @@ body {
     var(--bg-main);
   color: var(--text-main);
   font-family: var(--font-body), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -30,7 +33,8 @@ h2,
 h3,
 h4 {
   font-family: var(--font-body), sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  line-height: 1.12;
   color: var(--text-main);
 }
 
