@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -8,79 +8,22 @@ import { useParams } from "next/navigation";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { CONTACT_FORM_URL } from "@/data/homepageData";
-import { getSpiritualPostBySlug, spiritualPosts } from "@/data/contentLibrary";
+import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
+import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function SpiritualDetailPage() {
   const params = useParams<{ slug: string }>();
   const { locale } = useLocale();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
-  const post = getSpiritualPostBySlug(slug);
+  const post = getLocalizedContentBySlug("spiritual", slug, locale);
+  const copy = getReadingCopy(locale, "spiritual").detail;
+  const routePrefix = getContentRoutePrefix("spiritual");
 
   const relatedPosts = useMemo(() => {
     if (!post) return [];
-
-    const byIds = post.relatedPosts
-      .map((relatedSlug) => spiritualPosts.find((candidate) => candidate.slug === relatedSlug))
-      .filter((item): item is (typeof spiritualPosts)[number] => Boolean(item));
-
-    return byIds.length > 0
-      ? byIds.slice(0, 3)
-      : spiritualPosts.filter((candidate) => candidate.slug !== post.slug).slice(0, 3);
-  }, [post]);
-
-  const labels =
-    locale === "en"
-      ? {
-          breadcrumb: "Spirituality",
-          notFound: "This piece is not available yet.",
-          notFoundBack: "Back to Spirituality",
-          metaVoice: "Voice",
-          metaReadTime: "Reading time",
-          metaDate: "Published",
-          actionRead: "Read",
-          actionListen: "Listen",
-          actionWatch: "Watch",
-          actionShare: "Share",
-          mediaEyebrow: "Listen and watch",
-          mediaTitle: "Listen to or watch this piece",
-          audioTitle: "Voice reading",
-          audioButton: "Open audio",
-          videoTitle: "Visual storytelling",
-          videoButton: "Open video",
-          relatedTitle: "Related pieces",
-          readButton: "Read piece",
-          contactEyebrow: "Stay connected",
-          contactTitle: "Leave a reflection or message for Hồn Thơ",
-          contactDescription:
-            "If you would like to share a thought, a reflection, or a calm note, please use the contact form.",
-          contactButton: "Open contact form",
-        }
-      : {
-          breadcrumb: "Tâm linh",
-          notFound: "Nội dung tâm linh này chưa sẵn sàng hiển thị.",
-          notFoundBack: "Quay về Tâm linh",
-          metaVoice: "Giọng đọc",
-          metaReadTime: "Thời gian đọc",
-          metaDate: "Ngày đăng",
-          actionRead: "Đọc bài",
-          actionListen: "Nghe bản đọc",
-          actionWatch: "Xem bản kể",
-          actionShare: "Chia sẻ",
-          mediaEyebrow: "Nghe và xem",
-          mediaTitle: "Nghe và xem nội dung này",
-          audioTitle: "Nghe bản đọc",
-          audioButton: "Mở bản nghe",
-          videoTitle: "Xem bản kể",
-          videoButton: "Mở video",
-          relatedTitle: "Nội dung liên quan",
-          readButton: "Đọc bài",
-          contactEyebrow: "Lời mời tương tác",
-          contactTitle: "Gửi lời nhắn hoặc chia sẻ một góc chiêm nghiệm của bạn",
-          contactDescription:
-            "Nếu bạn muốn gửi góp ý, chia sẻ cảm nhận hoặc đề xuất chủ đề tâm linh, hãy mở biểu mẫu liên hệ để để lại thông tin.",
-          contactButton: "Mở biểu mẫu liên hệ",
-        };
+    return getLocalizedRelatedContent(post, locale, 3);
+  }, [post, locale]);
 
   if (!post) {
     return (
@@ -88,12 +31,12 @@ export default function SpiritualDetailPage() {
         <SiteHeader />
         <main className="site-shell py-16 sm:py-20">
           <div className="soft-panel max-w-2xl bg-[#fff9f2] p-6 sm:p-8">
-            <p className="text-base leading-7 text-[#654939]">{labels.notFound}</p>
+            <p className="text-base leading-7 text-[#654939]">{copy.notFound}</p>
             <Link
-              href="/tam-linh"
+              href={routePrefix}
               className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
             >
-              {labels.notFoundBack}
+              {copy.notFoundBack}
             </Link>
           </div>
         </main>
@@ -104,15 +47,15 @@ export default function SpiritualDetailPage() {
 
   const mediaItems = [
     post.hasAudio && post.audioUrl
-      ? { title: labels.audioTitle, href: post.audioUrl, button: labels.audioButton }
+      ? { title: copy.audioTitle, href: post.audioUrl, button: copy.audioButton }
       : null,
     post.hasVideo && post.youtubeUrl
-      ? { title: labels.videoTitle, href: post.youtubeUrl, button: labels.videoButton }
+      ? { title: copy.videoTitle, href: post.youtubeUrl, button: copy.videoButton }
       : null,
   ].filter((item): item is { title: string; href: string; button: string } => Boolean(item));
 
   const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    `https://hon-tho.vercel.app/tam-linh/${post.slug}`
+    `https://hon-tho.vercel.app${routePrefix}/${post.slug}`,
   )}`;
 
   return (
@@ -129,8 +72,8 @@ export default function SpiritualDetailPage() {
           <div className="site-shell relative z-10 py-16 sm:py-20 lg:py-24">
             <article className="max-w-4xl rounded-[2rem] border border-[#f2dcc3]/35 bg-[#4b2f20]/38 p-6 text-[#f6eadb] shadow-[0_24px_56px_rgba(34,22,16,0.38)] backdrop-blur-[5px] sm:p-8 lg:p-10">
               <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-[#f3ddc2]">
-                <Link href="/tam-linh" className="transition hover:text-white">
-                  {labels.breadcrumb}
+                <Link href={routePrefix} className="transition hover:text-white">
+                  {copy.breadcrumb}
                 </Link>
                 <span aria-hidden="true">/</span>
                 <span>{post.title}</span>
@@ -145,15 +88,20 @@ export default function SpiritualDetailPage() {
 
               <div className="mt-6 grid gap-2 text-sm text-[#f2dbc2] sm:grid-cols-2 lg:grid-cols-4">
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaVoice}:</span> {post.voiceBy}
+                  <span className="font-semibold text-[#f8e8d5]">{copy.metaVoice}:</span> {post.voiceBy}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaReadTime}:</span> {post.readingTime}
+                  <span className="font-semibold text-[#f8e8d5]">{copy.metaReadTime}:</span> {post.readingTime}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaDate}:</span> {post.publishedAt}
+                  <span className="font-semibold text-[#f8e8d5]">{copy.metaDate}:</span> {post.publishedAt}
                 </p>
               </div>
+              {locale === "en" && post.i18nStatus.hasFallback ? (
+                <p className="mt-4 rounded-xl border border-[#f2dcc3]/40 bg-white/10 px-3 py-2 text-xs text-[#f6e7d4]">
+                  {copy.fallbackNotice}
+                </p>
+              ) : null}
             </article>
           </div>
         </section>
@@ -165,14 +113,14 @@ export default function SpiritualDetailPage() {
                 href="#noi-dung-bai"
                 className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
               >
-                {labels.actionRead}
+                {copy.actionRead}
               </a>
               {post.hasAudio && post.audioUrl && (
                 <a
                   href="#nghe-xem"
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
                 >
-                  {labels.actionListen}
+                  {copy.actionListen}
                 </a>
               )}
               {post.hasVideo && post.youtubeUrl && (
@@ -180,7 +128,7 @@ export default function SpiritualDetailPage() {
                   href="#nghe-xem"
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
                 >
-                  {labels.actionWatch}
+                  {copy.actionWatch}
                 </a>
               )}
               <a
@@ -189,7 +137,7 @@ export default function SpiritualDetailPage() {
                 rel="noreferrer"
                 className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
               >
-                {labels.actionShare}
+                {copy.actionShare}
               </a>
             </nav>
           </div>
@@ -206,8 +154,8 @@ export default function SpiritualDetailPage() {
         {mediaItems.length > 0 && (
           <section id="nghe-xem" className="bg-[#e9dac9] py-14">
             <div className="site-shell">
-              <p className="eyebrow">{labels.mediaEyebrow}</p>
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.mediaTitle}</h2>
+              <p className="eyebrow">{copy.mediaEyebrow}</p>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.mediaTitle}</h2>
 
               <div className="mt-6 grid gap-5 md:grid-cols-2">
                 {mediaItems.map((media) => (
@@ -231,7 +179,7 @@ export default function SpiritualDetailPage() {
         <section className="py-14">
           <div className="site-shell">
             <div className="mb-6">
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.relatedTitle}</h2>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.relatedTitle}</h2>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
@@ -247,10 +195,10 @@ export default function SpiritualDetailPage() {
                     <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[#654939]">{item.excerpt}</p>
                     <Link
-                      href={`/tam-linh/${item.slug}`}
+                      href={`${routePrefix}/${item.slug}`}
                       className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                     >
-                      {labels.readButton}
+                      {copy.readButton}
                     </Link>
                   </div>
                 </article>
@@ -262,16 +210,16 @@ export default function SpiritualDetailPage() {
         <section className="pb-20">
           <div className="site-shell">
             <div className="rounded-[1.8rem] border border-[#d8b89b] bg-[#f8efe5] p-7 shadow-soft sm:p-9">
-              <p className="eyebrow mb-2">{labels.contactEyebrow}</p>
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.contactTitle}</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{labels.contactDescription}</p>
+              <p className="eyebrow mb-2">{copy.contactEyebrow}</p>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.contactTitle}</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{copy.contactDescription}</p>
               <a
                 href={CONTACT_FORM_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-flex rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
               >
-                {labels.contactButton}
+                {copy.contactButton}
               </a>
             </div>
           </div>
