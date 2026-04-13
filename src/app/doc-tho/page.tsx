@@ -1,14 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { featuredPoem, poems } from "@/data/poems";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function DocThoPage() {
   const { t } = useLocale();
   const poetry = t.poetryPage;
+  const featured = featuredPoem;
+  const listItems = poems.filter((item) => item.slug !== featured.slug);
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -36,8 +40,8 @@ export default function DocThoPage() {
             <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
               <div className="relative min-h-[260px]">
                 <Image
-                  src={poetry.featured.image}
-                  alt={poetry.featured.title}
+                  src={featured.heroImage}
+                  alt={featured.title}
                   fill
                   className="object-cover"
                 />
@@ -45,13 +49,15 @@ export default function DocThoPage() {
               </div>
               <div className="p-6 sm:p-7">
                 <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
-                  {poetry.featured.tag}
+                  {featured.tag}
                 </span>
-                <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{poetry.featured.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{poetry.featured.description}</p>
-                <a href={poetry.featured.href} className="soft-button mt-6 inline-flex">
-                  {poetry.featured.button}
-                </a>
+                <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{featured.summary}</p>
+                <p className="mt-2 text-sm text-[#745646]">{featured.author}</p>
+                <p className="mt-1 text-xs text-[#876756]">{featured.locationDate}</p>
+                <Link href={`/doc-tho/${featured.slug}`} className="soft-button mt-6 inline-flex">
+                  {poetry.cardButton}
+                </Link>
               </div>
             </article>
           </div>
@@ -64,20 +70,30 @@ export default function DocThoPage() {
             </div>
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {poetry.items.map((item) => (
-                <article key={item.title} className="soft-panel overflow-hidden bg-white/85">
+              {listItems.map((item) => (
+                <article key={item.slug} className="soft-panel overflow-hidden bg-white/85">
                   <div className="relative h-56">
-                    <Image src={item.image} alt={item.title} fill className="object-cover" />
+                    <Image src={item.cardImage} alt={item.title} fill className="object-cover" />
                   </div>
                   <div className="p-5">
                     <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
                       {item.tag}
                     </span>
                     <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#654939]">{item.description}</p>
-                    <a href={item.href} className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]">
-                      {poetry.cardButton}
-                    </a>
+                    <p className="mt-2 text-sm leading-7 text-[#654939]">{item.summary}</p>
+                    <p className="mt-3 text-xs text-[#876756]">{item.locationDate}</p>
+                    {item.status === "published" ? (
+                      <Link
+                        href={`/doc-tho/${item.slug}`}
+                        className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                      >
+                        {poetry.cardButton}
+                      </Link>
+                    ) : (
+                      <span className="mt-5 inline-flex rounded-full border border-[#d9c3af] bg-[#f6eee6] px-4 py-2 text-sm font-semibold text-[#9b7e69]">
+                        {item.tag}
+                      </span>
+                    )}
                   </div>
                 </article>
               ))}
