@@ -1,18 +1,22 @@
+"use client";
+
 import Image from "next/image";
 
-import { moodboardItems } from "@/data/homepageData";
+import { useLocale } from "@/hooks/useLocale";
 
 export default function MoodboardSection() {
+  const { t } = useLocale();
+
   return (
     <section className="py-20">
       <div className="site-shell">
         <div className="mb-8 text-center">
-          <p className="eyebrow">Mood quê hương</p>
-          <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Những nhóm hình ảnh chốt hồn thương hiệu</h2>
+          <p className="eyebrow">{t.moodboard.eyebrow}</p>
+          <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.moodboard.title}</h2>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {moodboardItems.map((item) => (
+          {t.moodboard.items.map((item) => (
             <article key={item.title} className="overflow-hidden rounded-[1.7rem] border border-[#d8b89b] bg-white shadow-soft">
               <div className="relative h-64">
                 <Image src={item.image} alt={item.title} fill className="object-cover" />

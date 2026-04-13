@@ -1,24 +1,25 @@
+"use client";
+
 import Image from "next/image";
 
-import { featuredCards } from "@/data/homepageData";
+import { useLocale } from "@/hooks/useLocale";
 
 export default function FeaturedContentSection() {
+  const { t } = useLocale();
+
   return (
     <section id="noi-dung-noi-bat" className="scroll-mt-24 bg-[#e9dac9] py-20">
       <div className="site-shell">
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="eyebrow">Nội dung nổi bật</p>
-            <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Những điểm chạm cảm xúc giữa trang</h2>
+            <p className="eyebrow">{t.featured.eyebrow}</p>
+            <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.featured.title}</h2>
           </div>
-          <p className="max-w-2xl text-sm leading-7 text-[#604536] sm:text-base">
-            Khối này giúp khách nhìn vào là hiểu rõ website có gì: thơ, chuyện và chuyên mục nghe nhẹ nhàng để giữ sự
-            kết nối lâu dài.
-          </p>
+          <p className="max-w-2xl text-sm leading-7 text-[#604536] sm:text-base">{t.featured.description}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {featuredCards.map((card) => (
+          {t.featured.items.map((card) => (
             <article
               key={card.title}
               className="group overflow-hidden rounded-[2rem] border border-[#d7b89b]/60 bg-white shadow-soft"

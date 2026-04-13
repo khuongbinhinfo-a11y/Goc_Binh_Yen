@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
+import { LocaleProvider } from "@/components/providers/LocaleProvider";
+
 import "./globals.css";
 
 const bodyFont = Be_Vietnam_Pro({
@@ -23,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${bodyFont.variable} antialiased`}>
-        {children}
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

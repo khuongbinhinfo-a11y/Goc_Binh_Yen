@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useState } from "react";
 
-import { BRAND_NAME, BRAND_SIGNATURE, FACEBOOK_URL, navItems } from "@/data/homepageData";
+import { FACEBOOK_URL } from "@/data/homepageData";
+import { Locale } from "@/data/i18n";
+import { useLocale } from "@/hooks/useLocale";
 
 function PenIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
@@ -41,9 +44,51 @@ function FacebookIcon() {
   );
 }
 
+function LocaleSwitch({
+  locale,
+  setLocale,
+  compact = false,
+}: {
+  locale: Locale;
+  setLocale: (value: Locale) => void;
+  compact?: boolean;
+}) {
+  const baseClass = compact
+    ? "rounded-full px-2 py-1 text-[10px] font-semibold"
+    : "rounded-full px-2.5 py-1 text-[11px] font-semibold";
+
+  return (
+    <div className="inline-flex items-center gap-1 rounded-full border border-[#d8b89b] bg-[#fff9f1] p-1">
+      {(["vi", "en"] as Locale[]).map((item) => {
+        const isActive = locale === item;
+        return (
+          <button
+            key={item}
+            type="button"
+            onClick={() => setLocale(item)}
+            className={`${baseClass} transition ${
+              isActive ? "bg-[#8b5e3c] text-white" : "text-[#6b4a35] hover:bg-[#f2e1cf]"
+            }`}
+          >
+            {item.toUpperCase()}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function SiteHeader() {
+  const pathname = usePathname();
+  const { locale, setLocale, t } = useLocale();
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("#trang-chu");
+
+  const menuLabel = locale === "vi" ? "Mở menu" : "Open menu";
+  const closeLabel = locale === "vi" ? "Đóng menu" : "Close menu";
+  const mobileNavLabel = locale === "vi" ? "Điều hướng mobile" : "Mobile navigation";
+  const mainNavLabel = locale === "vi" ? "Điều hướng chính" : "Main navigation";
 
   useEffect(() => {
     const updateCurrentHash = () => {
@@ -85,63 +130,81 @@ export default function SiteHeader() {
     setIsMobileMenuOpen(false);
   };
 
+  const navItems = useMemo(() => t.nav.items, [t.nav.items]);
+
+  const isItemActive = (href: string) => {
+    if (href === "/doc-tho") {
+      return pathname === "/doc-tho";
+    }
+
+    if (href.startsWith("/#")) {
+      const targetHash = href.slice(1);
+      return pathname === "/" && (currentHash || "#trang-chu") === targetHash;
+    }
+
+    return pathname === href;
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#ceb195]/70 bg-[#f3eadf]/88 backdrop-blur-sm">
       <div className="site-shell">
         <div className="flex items-center justify-between gap-3 py-2 md:hidden">
-          <a href="#trang-chu" className="group flex min-w-0 items-center gap-2.5" onClick={closeMobileMenu}>
+          <a href="/#trang-chu" className="group flex min-w-0 items-center gap-2.5" onClick={closeMobileMenu}>
             <Image
               src="/images/logo-4.jpg"
-              alt={`Logo ${BRAND_NAME}`}
+              alt={`Logo ${t.brandName}`}
               width={42}
               height={42}
               className="h-10 w-10 rounded-xl border border-[#d8b89b] object-cover shadow-[0_6px_14px_rgba(74,47,32,0.12)]"
               priority
             />
             <span className="truncate text-[27px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
-              {BRAND_NAME}
+              {t.brandName}
             </span>
           </a>
 
-          <button
-            type="button"
-            aria-label={isMobileMenuOpen ? "Đóng menu" : "Mở menu"}
-            aria-expanded={isMobileMenuOpen}
-            aria-controls="mobile-nav-panel"
-            onClick={() => setIsMobileMenuOpen((value) => !value)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#d8b79b] bg-[#fff8ef]/85 text-[#5f4331] transition hover:bg-[#fff2e4]"
-          >
-            {isMobileMenuOpen ? (
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-                <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-              </svg>
-            ) : (
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none">
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-              </svg>
-            )}
-          </button>
+          <div className="flex items-center gap-1.5">
+            <LocaleSwitch locale={locale} setLocale={setLocale} compact />
+            <button
+              type="button"
+              aria-label={isMobileMenuOpen ? closeLabel : menuLabel}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav-panel"
+              onClick={() => setIsMobileMenuOpen((value) => !value)}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#d8b79b] bg-[#fff8ef]/85 text-[#5f4331] transition hover:bg-[#fff2e4]"
+            >
+              {isMobileMenuOpen ? (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                  <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                </svg>
+              ) : (
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none">
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+                </svg>
+              )}
+            </button>
+          </div>
         </div>
 
         <div className="mb-2 flex flex-wrap gap-1.5 pb-1 md:hidden">
           <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
             <PenIcon className="h-3 w-3" />
-            {BRAND_SIGNATURE.poetry}
+            {t.signature.poetry}
           </span>
           <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
             <VoiceIcon className="h-3 w-3" />
-            {BRAND_SIGNATURE.voice}
+            {t.signature.voice}
           </span>
         </div>
 
         {isMobileMenuOpen && (
           <div id="mobile-nav-panel" className="pb-3 md:hidden">
             <nav
-              aria-label="Điều hướng mobile"
+              aria-label={mobileNavLabel}
               className="rounded-2xl border border-[#d8b89b] bg-[#fff9f1] p-2 shadow-[0_14px_30px_rgba(74,47,32,0.14)]"
             >
               {navItems.map((item) => {
-                const isActive = currentHash === item.href;
+                const isActive = isItemActive(item.href);
                 return (
                   <a
                     key={item.href}
@@ -156,24 +219,28 @@ export default function SiteHeader() {
                 );
               })}
 
+              <div className="mt-1.5 border-t border-[#e2c7ad] px-3 py-2.5">
+                <LocaleSwitch locale={locale} setLocale={setLocale} />
+              </div>
+
               <a
                 href={FACEBOOK_URL}
                 target="_blank"
                 rel="noreferrer"
                 onClick={closeMobileMenu}
-                className="mt-1.5 block rounded-xl border-t border-[#e2c7ad] px-3 py-2.5 text-sm font-semibold text-[#6f4c38] transition hover:bg-[#f6e7d7]"
+                className="block rounded-xl px-3 py-2.5 text-sm font-semibold text-[#6f4c38] transition hover:bg-[#f6e7d7]"
               >
-                Facebook
+                {t.nav.facebook}
               </a>
             </nav>
           </div>
         )}
 
         <div className="hidden min-h-[74px] items-center justify-between gap-4 py-2.5 md:flex">
-          <a href="#trang-chu" className="group flex items-center gap-3">
+          <a href="/#trang-chu" className="group flex items-center gap-3">
             <Image
               src="/images/logo-4.jpg"
-              alt={`Logo ${BRAND_NAME}`}
+              alt={`Logo ${t.brandName}`}
               width={58}
               height={58}
               className="h-[52px] w-[52px] rounded-2xl border border-[#d8b89b] object-cover shadow-[0_8px_18px_rgba(74,47,32,0.12)]"
@@ -181,25 +248,25 @@ export default function SiteHeader() {
             />
             <div>
               <div className="text-[29px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
-                {BRAND_NAME}
+                {t.brandName}
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">
                 <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1">
                   <PenIcon />
-                  {BRAND_SIGNATURE.poetry}
+                  {t.signature.poetry}
                 </span>
                 <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1">
                   <VoiceIcon />
-                  {BRAND_SIGNATURE.voice}
+                  {t.signature.voice}
                 </span>
               </div>
             </div>
           </a>
 
           <div className="items-center gap-6 md:flex">
-            <nav aria-label="Điều hướng chính" className="flex items-center gap-7 text-sm">
+            <nav aria-label={mainNavLabel} className="flex items-center gap-7 text-sm">
               {navItems.map((item) => {
-                const isActive = currentHash === item.href;
+                const isActive = isItemActive(item.href);
                 return (
                   <a
                     key={item.href}
@@ -216,6 +283,8 @@ export default function SiteHeader() {
               })}
             </nav>
 
+            <LocaleSwitch locale={locale} setLocale={setLocale} />
+
             <a
               href={FACEBOOK_URL}
               target="_blank"
@@ -223,7 +292,7 @@ export default function SiteHeader() {
               className="inline-flex items-center gap-1.5 rounded-full border border-[#d9bda3] bg-[#fffdf9]/80 px-3 py-1.5 text-[11px] font-semibold text-[#6f4c38] transition hover:bg-[#fffaf3] hover:text-[#4f3223]"
             >
               <FacebookIcon />
-              Facebook
+              {t.nav.facebook}
             </a>
           </div>
         </div>
