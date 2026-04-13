@@ -30,6 +30,10 @@ export type ContentItem = {
   isFeatured: boolean;
 };
 
+export function shouldRenderAuthor(content: Pick<ContentItem, "contentType" | "author">) {
+  return content.contentType === "poem" && Boolean(content.author?.trim());
+}
+
 function estimateReadingTime(content: string) {
   const words = content
     .replace(/\n/g, " ")
@@ -191,6 +195,123 @@ export const storyPosts: ContentItem[] = [
   },
 ];
 
+export const spiritualPosts: ContentItem[] = [
+  {
+    title: "Mùa chuông chiều trong sân chùa nhỏ",
+    slug: "mua-chuong-chieu-trong-san-chua-nho",
+    contentType: "spiritual",
+    category: "Tâm linh",
+    excerpt:
+      "Một buổi chiều mưa nhẹ, tiếng chuông ngân đã kéo người kể trở về với cảm giác tĩnh tâm lâu rồi mới gặp lại.",
+    coverImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+    voiceBy: "Hồng Tâm",
+    readingTime: "5 phút",
+    publishedAt: "Mỹ Tho, tháng 06/2022",
+    content:
+      "Cơn mưa đi qua rất nhẹ. Sân chùa còn ướt, lá bồ đề đọng nước và rung khẽ trong gió chiều.\n\nTôi ngồi dưới mái hiên, nghe tiếng chuông buông từng nhịp. Mỗi tiếng ngân như mở thêm một khoảng trống trong lòng, để những điều nặng nề có chỗ đi qua.\n\nNgày trước, tôi cứ nghĩ bình an là phải giải quyết xong mọi thứ. Sau này mới hiểu, bình an có khi chỉ là ngồi yên vài phút, nghe một âm thanh quen, và chấp nhận rằng có những chuyện cần thời gian hơn mình muốn.\n\nChiều xuống dần. Mưa cũng thưa. Tiếng chuông cuối cùng khép lại, nhưng dư âm của nó còn ở lại rất lâu trong ngực.",
+    analysis: {
+      emotionFlow:
+        "Mạch kể đi từ cảnh mưa và tiếng chuông đến một sự nhận ra sâu hơn về bình an nội tâm.",
+      standoutImages:
+        "Sân chùa ướt mưa, lá bồ đề và tiếng chuông chiều là những điểm neo cảm xúc xuyên suốt.",
+      meaning:
+        "Bình an không phải đích đến vội, mà là khả năng dừng lại và ở cùng hiện tại trong một nhịp thở chậm.",
+      memorableLine:
+        "Bình an có khi chỉ là ngồi yên vài phút.",
+    },
+    relatedPosts: ["dot-nhang-truoc-hien-nha", "mot-ngay-im-lang-ben-song", "hoc-tho-cham-giua-ngay-dai"],
+    hasAudio: false,
+    hasVideo: false,
+    isFeatured: true,
+  },
+  {
+    title: "Đốt nhang trước hiên nhà",
+    slug: "dot-nhang-truoc-hien-nha",
+    contentType: "spiritual",
+    category: "Tâm linh",
+    excerpt:
+      "Một nén nhang chiều không cầu điều lớn, chỉ là lời nhắc sống hiền và giữ lòng sáng giữa bao bộn bề.",
+    coverImage: "https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=1400&q=80",
+    voiceBy: "Hồng Tâm",
+    readingTime: "4 phút",
+    publishedAt: "Cai Lậy, tháng 10/2022",
+    content:
+      "Chiều nào má cũng châm một nén nhang trước bàn thờ nhỏ cạnh hiên. Khói nhang mảnh, đi lên chậm rồi tan vào khoảng trời vừa sẫm.\n\nTôi từng hỏi má cầu gì. Má cười: 'Cầu cho nhà mình sống cho phải đạo, vậy là đủ.'\n\nCâu trả lời ấy đi theo tôi rất lâu. Tâm linh ở quê không tách khỏi đời sống. Nó nằm trong cách người ta nhường nhịn nhau một câu, nói nhẹ hơn một lời, và giữ lòng ngay cả khi chẳng ai nhìn thấy.\n\nMỗi lần châm nhang, tôi không xin thêm điều gì lớn. Chỉ tự nhắc mình sống tử tế hơn hôm qua một chút.",
+    analysis: {
+      emotionFlow:
+        "Bài viết bắt đầu từ thói quen gia đình, rồi mở ra tầng nghĩa đạo sống rất gần gũi.",
+      standoutImages:
+        "Khói nhang mảnh, hiên nhà chiều và nụ cười của má tạo nên không khí tâm linh đời thường.",
+      meaning:
+        "Tâm linh không nằm ở điều huyền bí, mà ở cách sống có trước có sau và giữ lòng ngay thẳng.",
+      memorableLine:
+        "Chỉ tự nhắc mình sống tử tế hơn hôm qua một chút.",
+    },
+    relatedPosts: ["mua-chuong-chieu-trong-san-chua-nho", "mot-ngay-im-lang-ben-song", "hoc-tho-cham-giua-ngay-dai"],
+    hasAudio: true,
+    hasVideo: false,
+    audioUrl: "https://www.facebook.com/profile.php?id=61561724806320",
+    isFeatured: false,
+  },
+  {
+    title: "Một ngày im lặng bên sông",
+    slug: "mot-ngay-im-lang-ben-song",
+    contentType: "spiritual",
+    category: "Tâm linh",
+    excerpt:
+      "Giữa nhiều âm thanh của cuộc sống, người kể chọn một ngày nói ít hơn để nghe rõ tiếng lòng mình.",
+    coverImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80",
+    voiceBy: "Hồng Tâm",
+    readingTime: "6 phút",
+    publishedAt: "Tân Phong, tháng 03/2023",
+    content:
+      "Sáng đó tôi ra bờ sông sớm hơn thường lệ, ngồi xuống bậc đá cũ và tự hứa sẽ nói ít trong ngày.\n\nBan đầu thật khó. Trong đầu vẫn có quá nhiều câu trả lời, quá nhiều điều muốn chứng minh. Nhưng càng ngồi lâu, tôi càng thấy rõ một chuyện: phần lớn mệt mỏi đến từ việc ta luôn muốn phản ứng ngay lập tức.\n\nCon nước chảy không vội. Mây trôi cũng không vội. Chỉ có mình thường tự đẩy mình đi nhanh hơn mức cần thiết.\n\nĐến cuối ngày, tôi vẫn chưa giải quyết hết mọi việc. Nhưng lòng nhẹ hơn. Và tôi biết, im lặng đúng lúc cũng là một cách tự thương mình.",
+    analysis: {
+      emotionFlow:
+        "Mạch cảm xúc chuyển từ căng thẳng nội tâm sang sự thả lỏng khi người kể học được cách chậm lại.",
+      standoutImages:
+        "Bậc đá ven sông, con nước chảy và mây trôi tạo cảm giác chiêm nghiệm nhẹ nhàng.",
+      meaning:
+        "Im lặng không phải trốn tránh, mà là khoảng nghỉ cần thiết để chọn phản hồi sáng suốt hơn.",
+      memorableLine:
+        "Im lặng đúng lúc cũng là một cách tự thương mình.",
+    },
+    relatedPosts: ["mua-chuong-chieu-trong-san-chua-nho", "dot-nhang-truoc-hien-nha", "hoc-tho-cham-giua-ngay-dai"],
+    hasAudio: false,
+    hasVideo: false,
+    isFeatured: false,
+  },
+  {
+    title: "Học thở chậm giữa ngày dài",
+    slug: "hoc-tho-cham-giua-ngay-dai",
+    contentType: "spiritual",
+    category: "Tâm linh",
+    excerpt:
+      "Một bài chiêm nghiệm ngắn về việc trở về hơi thở, để giữ tâm thế sáng và vững giữa nhịp sống nhiều xáo động.",
+    coverImage: "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1400&q=80",
+    voiceBy: "Hồng Tâm",
+    readingTime: "5 phút",
+    publishedAt: "Mỹ Tho, tháng 11/2023",
+    content:
+      "Có những ngày lịch làm việc dày đến mức ta quên mất mình đã thở gấp từ bao giờ.\n\nTôi tập một thói quen nhỏ: cứ mỗi khi thấy lòng bắt đầu nóng, dừng lại ba nhịp thở thật chậm. Hít vào sâu một chút, giữ yên một chút, rồi thở ra dài hơn.\n\nBa nhịp thở không làm công việc biến mất. Nhưng nó giúp tôi trở lại với thân và tâm trong hiện tại, trước khi nói một lời hay đưa ra một quyết định.\n\nSau nhiều lần như vậy, tôi nhận ra bình tĩnh cũng là một kỹ năng. Và kỹ năng ấy bắt đầu từ một việc rất đơn giản: thở chậm lại.",
+    analysis: {
+      emotionFlow:
+        "Bài viết đi từ nhịp sống căng đến giải pháp nhỏ, rồi kết ở một nhận thức thực hành hằng ngày.",
+      standoutImages:
+        "Ba nhịp thở được mô tả cụ thể, tạo điểm bám rõ ràng cho người đọc áp dụng ngay.",
+      meaning:
+        "Tâm linh trong đời sống hiện đại có thể bắt đầu từ các thực hành nhỏ, đều và chân thật.",
+      memorableLine:
+        "Bình tĩnh cũng là một kỹ năng.",
+    },
+    relatedPosts: ["mua-chuong-chieu-trong-san-chua-nho", "dot-nhang-truoc-hien-nha", "mot-ngay-im-lang-ben-song"],
+    hasAudio: false,
+    hasVideo: true,
+    youtubeUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
+    isFeatured: false,
+  },
+];
+
 export const poetryPosts: ContentItem[] = poetryBase.map((item) => {
   const fallbackRelated = poetryBase
     .filter((candidate) => candidate.slug !== item.slug)
@@ -212,6 +333,12 @@ export function getStoryPostBySlug(slug: string) {
   return storyPosts.find((item) => item.slug === slug);
 }
 
+export function getSpiritualPostBySlug(slug: string) {
+  return spiritualPosts.find((item) => item.slug === slug);
+}
+
 export function getContentBySlug(type: ContentType, slug: string) {
-  return type === "poem" ? getPoetryPostBySlug(slug) : getStoryPostBySlug(slug);
+  if (type === "poem") return getPoetryPostBySlug(slug);
+  if (type === "story") return getStoryPostBySlug(slug);
+  return getSpiritualPostBySlug(slug);
 }

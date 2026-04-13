@@ -141,6 +141,10 @@ export default function SiteHeader() {
       return pathname === "/ke-chuyen" || pathname.startsWith("/ke-chuyen/");
     }
 
+    if (href === "/tam-linh") {
+      return pathname === "/tam-linh" || pathname.startsWith("/tam-linh/");
+    }
+
     if (href.startsWith("/#")) {
       const targetHash = href.slice(1);
       return pathname === "/" && (currentHash || "#trang-chu") === targetHash;

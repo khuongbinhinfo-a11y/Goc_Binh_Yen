@@ -206,7 +206,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Trang chủ", href: "/#trang-chu" },
         { label: "Đọc thơ", href: "/doc-tho" },
         { label: "Kể chuyện", href: "/ke-chuyen" },
-        { label: "Tâm linh", href: "/#chua-lanh" },
+        { label: "Tâm linh", href: "/tam-linh" },
         { label: "Liên hệ", href: "/#lien-he" },
       ],
       facebook: "Facebook",
@@ -231,14 +231,14 @@ export const translations: Record<Locale, TranslationSchema> = {
       brandCardTags: ["sông nước", "chiều quê", "ký ức"],
     },
     contentPillars: {
-      eyebrow: "Ba trụ nội dung",
-      title: "Những khoảng nội dung giữ nhịp cảm xúc cho toàn bộ website",
+      eyebrow: "Ba nhịp nội dung",
+      title: "Những miền chữ giữ nhịp lắng cho Hồn Thơ",
       cta: "Xem thêm",
       items: [
         {
           id: "doc-tho",
           title: "Đọc thơ giữa chiều quê",
-          description: "Những bài thơ nhẹ, sâu và mộc như hơi thở buổi chiều trên mặt sông quê nhà.",
+          description: "Những câu thơ mộc và sâu, neo lại ở nắng cuối ngày và hơi nước của miền sông cũ.",
           image:
             "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1200&q=80",
           href: "/doc-tho",
@@ -246,47 +246,47 @@ export const translations: Record<Locale, TranslationSchema> = {
         {
           id: "ke-chuyen",
           title: "Kể chuyện bên dòng sông",
-          description: "Chuyện đời thường, chuyện cũ và những ký ức chạm vào lòng người bằng giọng kể ấm.",
+          description: "Những lát cắt đời thường được kể lại bằng giọng chậm, ấm và giàu tình người quê nhà.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
           href: "/ke-chuyen",
         },
         {
-          id: "chua-lanh",
-          title: "Góc chữa lành bằng câu chữ",
-          description: "Một khoảng lặng để đọc, nghe và thở chậm hơn giữa guồng quay bận rộn mỗi ngày.",
+          id: "tam-linh",
+          title: "Tâm linh giữa chiều lặng",
+          description: "Một khoảng chiêm nghiệm nhẹ, nơi lòng người tìm về sự tĩnh tại qua chữ nghĩa và hơi thở chậm.",
           image:
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-          href: "/#chua-lanh",
+          href: "/tam-linh",
         },
       ],
     },
     featured: {
       eyebrow: "Nội dung nổi bật",
-      title: "Những điểm chạm cảm xúc giữa trang",
+      title: "Những trang chữ được nhớ nhiều",
       description:
-        "Khối này giúp khách nhìn vào là hiểu rõ website có gì: thơ, chuyện và chuyên mục nghe nhẹ nhàng để giữ sự kết nối lâu dài.",
+        "Mỗi nội dung là một khoảng lặng riêng: có thơ, có chuyện, có giọng đọc để người nghe và người đọc tìm lại nhịp yên của mình.",
       items: [
         {
-          tag: "Thơ quê hương",
-          title: "Bài thơ nổi bật",
+          tag: "Đọc thơ",
+          title: "Chiều lắng bên hiên sông",
           description:
-            "Một bài thơ về con nước, bến đò và nỗi nhớ nhà len vào sắc nâu cam của hoàng hôn.",
+            "Những câu thơ chạm vào bến cũ, tiếng nước và nỗi nhớ dịu trong một buổi chiều nâu ấm.",
           image:
             "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1400&q=80",
         },
         {
           tag: "Kể chuyện",
-          title: "Câu chuyện mới",
+          title: "Người về qua bến cũ",
           description:
-            "Một câu chuyện tuổi thơ miền sông nước, nơi nhịp sống chậm và tình người luôn ấm áp.",
+            "Một câu chuyện quê nhà đi qua mưa chiều, giữ lại tiếng gọi đò và tình người rất đỗi bình dị.",
           image:
             "https://images.unsplash.com/photo-1533049022226-84f52f1ff4bd?auto=format&fit=crop&w=1400&q=80",
         },
         {
-          tag: "Chữa lành",
-          title: "Nghe trong đêm",
-          description: "Chuyên mục giọng đọc dịu, hợp để nghe khi chiều xuống hoặc trước khi nghỉ ngơi.",
+          tag: "Giọng đọc",
+          title: "Lời đọc cho đêm yên",
+          description: "Một giọng đọc chậm, ấm và đủ nhẹ để ru dịu những ngày lòng còn nhiều xao động.",
           image:
             "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1400&q=80",
         },
@@ -335,7 +335,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Cùng đồng hành với Hồn Thơ trên Facebook",
       description: "Tụi mình cập nhật bài mới, lời đọc mới và những chia sẻ gần gũi hằng tuần tại fanpage chính thức.",
       button: "Theo dõi trên Facebook",
-      note: "Các kênh khác sẽ được cập nhật sau.",
+      note: "Mỗi tuần, mình hẹn nhau một khoảng lặng ở đó.",
     },
     contact: {
       eyebrow: "Lời mời tương tác",
@@ -522,7 +522,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Home", href: "/#trang-chu" },
         { label: "Poetry", href: "/doc-tho" },
         { label: "Stories", href: "/ke-chuyen" },
-        { label: "Spirituality", href: "/#chua-lanh" },
+        { label: "Spirituality", href: "/tam-linh" },
         { label: "Contact", href: "/#lien-he" },
       ],
       facebook: "Facebook",
@@ -547,14 +547,14 @@ export const translations: Record<Locale, TranslationSchema> = {
       brandCardTags: ["riverside", "dusk", "memory"],
     },
     contentPillars: {
-      eyebrow: "Three content pillars",
-      title: "Core spaces that hold the emotional rhythm of the website",
+      eyebrow: "Three content rhythms",
+      title: "Three spaces of words that hold Hồn Thơ's gentle pace",
       cta: "Read more",
       items: [
         {
           id: "doc-tho",
           title: "Poetry at dusk",
-          description: "Soft, deep poems that feel like evening breath over the water back home.",
+          description: "Gentle, deep verses shaped by late sunlight and the riverside breath of home.",
           image:
             "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1200&q=80",
           href: "/doc-tho",
@@ -562,45 +562,45 @@ export const translations: Record<Locale, TranslationSchema> = {
         {
           id: "ke-chuyen",
           title: "Stories by the river",
-          description: "Everyday tales and old memories told in a warm, familiar voice.",
+          description: "Everyday stories and old memories told in a warm, unhurried voice.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
           href: "/ke-chuyen",
         },
         {
-          id: "chua-lanh",
-          title: "Healing through words",
-          description: "A gentle corner to read, listen, and breathe more slowly in busy days.",
+          id: "tam-linh",
+          title: "Spiritual stillness",
+          description: "A quiet contemplative corner where words and breath return the heart to calm.",
           image:
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-          href: "/#chua-lanh",
+          href: "/tam-linh",
         },
       ],
     },
     featured: {
       eyebrow: "Featured content",
-      title: "Emotional highlights across the page",
+      title: "Often-returned pieces",
       description:
-        "This block helps visitors quickly understand the site: poetry, stories, and soft listening pieces that keep them connected.",
+        "Each piece carries a different quiet mood: poetry, stories, and voice readings for unhurried moments.",
       items: [
         {
-          tag: "Homeland poetry",
-          title: "Featured poem",
-          description: "A poem of river water, old docks, and homesickness under amber dusk light.",
+          tag: "Poetry",
+          title: "Still dusk by the riverside",
+          description: "Verses that hold old docks, river sounds, and homesickness in warm amber light.",
           image:
             "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1400&q=80",
         },
         {
           tag: "Stories",
-          title: "New story",
-          description: "A short story from a riverside childhood, with a slow pace and warm hearts.",
+          title: "Returning by the old dock",
+          description: "A riverside memory story told slowly, with familiar voices and quiet tenderness.",
           image:
             "https://images.unsplash.com/photo-1533049022226-84f52f1ff4bd?auto=format&fit=crop&w=1400&q=80",
         },
         {
-          tag: "Healing",
-          title: "Listening at night",
-          description: "A gentle voice series for late afternoons and quiet moments before rest.",
+          tag: "Voice",
+          title: "Night readings in calm light",
+          description: "A warm voice made for evenings, when the heart needs a softer rhythm.",
           image:
             "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1400&q=80",
         },
@@ -649,7 +649,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Stay close with Hồn Thơ on Facebook",
       description: "We share new pieces, new voice readings, and gentle weekly notes on our official page.",
       button: "Follow on Facebook",
-      note: "Other channels will be added later.",
+      note: "A quiet weekly meeting place for readers and listeners.",
     },
     contact: {
       eyebrow: "An invitation to connect",
