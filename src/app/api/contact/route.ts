@@ -29,37 +29,22 @@ const normalizeEmail = (value: unknown) =>
     : "";
 
 export async function POST(request: Request) {
-  console.info("[api/contact] Incoming request");
-
   let payload: ContactPayload;
 
   try {
     payload = (await request.json()) as ContactPayload;
-  } catch (error) {
-    console.error("[api/contact] Invalid JSON body:", error);
+  } catch {
     return NextResponse.json({ ok: false, message: "Du lieu gui len chua hop le." }, { status: 400 });
   }
 
   const full_name = normalizeText(payload.full_name);
   const phone = normalizeText(payload.phone);
-  console.error("[api/contact] raw email", payload.email);
   const emailToValidate = normalizeEmail(payload.email);
   const subject = normalizeText(payload.subject);
   const message = normalizeText(payload.message);
   const contact_type = normalizeText(payload.contact_type);
   const page_url = normalizeText(payload.page_url);
   const website = normalizeText(payload.website);
-
-  console.error("[api/contact] normalized payload", {
-    full_name,
-    phone,
-    email: emailToValidate,
-    subject,
-    messageLength: message.length,
-    contact_type,
-    page_url,
-    websiteLength: website.length,
-  });
 
   if (!full_name) {
     return NextResponse.json({ ok: false, message: "Vui long nhap ho va ten." }, { status: 400 });
@@ -70,10 +55,6 @@ export async function POST(request: Request) {
   }
 
   if (emailToValidate !== "" && !validateEmail(emailToValidate)) {
-    console.error("[api/contact] invalid email after normalize", {
-      rawEmail: payload.email,
-      normalizedEmail: emailToValidate,
-    });
     return NextResponse.json({ ok: false, message: "Email chua dung dinh dang." }, { status: 400 });
   }
 

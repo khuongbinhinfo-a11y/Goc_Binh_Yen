@@ -135,18 +135,6 @@ export default function ContactSection() {
     setSubmitStatus("sending");
     setSubmitMessage("Đang gửi...");
 
-    console.log("[contact] submitting payload", {
-      full_name,
-      phone,
-      rawEmail,
-      email,
-      subject: preparedSubject,
-      message,
-      contact_type,
-      page_url: currentUrl,
-      website,
-    });
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -174,20 +162,20 @@ export default function ContactSection() {
 
       if (response.ok && result?.ok === true) {
         setSubmitStatus("success");
-        setSubmitMessage("Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
+        setSubmitMessage("Gửi thành công. Thông tin của bạn đã được lưu.");
         formRef.current?.reset();
         setFieldErrors({});
-        showToast("success", "Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
+        showToast("success", "Gửi thành công. Thông tin của bạn đã được lưu.");
         statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
         return;
       }
 
-      const errorMessage = result?.message || "Gửi thất bại, vui lòng thử lại.";
+      const errorMessage = "Chưa thể gửi thông tin tới hệ thống tiếp nhận. Vui lòng thử lại sau.";
       setSubmitStatus("error");
       setSubmitMessage(errorMessage);
       showToast("error", errorMessage);
     } catch {
-      const networkErrorMessage = "Có lỗi kết nối, vui lòng thử lại.";
+      const networkErrorMessage = "Chưa thể gửi thông tin tới hệ thống tiếp nhận. Vui lòng thử lại sau.";
       setSubmitStatus("error");
       setSubmitMessage(networkErrorMessage);
       showToast("error", networkErrorMessage);
