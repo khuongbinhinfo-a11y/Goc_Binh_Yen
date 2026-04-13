@@ -13,7 +13,8 @@ const bodyFont = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: "Hồn Thơ",
-  description: "Hồn Thơ là nơi câu chữ, giọng đọc và những cảm xúc nhẹ được cất lên giữa sắc chiều quê hương.",
+  description:
+    "Hồn Thơ là nơi câu chữ, giọng đọc và những cảm xúc nhẹ được cất lên giữa sắc chiều quê hương.",
 };
 
 export default function RootLayout({

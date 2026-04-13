@@ -15,7 +15,7 @@ export default function DocThoPage() {
       <SiteHeader />
 
       <main>
-        <section className="relative overflow-hidden border-b border-[#dec2a7] bg-gradient-to-b from-[#f8efe4] to-[#f1e3d4] py-14 sm:py-16">
+        <section className="relative overflow-hidden border-b border-[#dec2a7] bg-gradient-to-b from-[#f8efe4] to-[#f1e3d4] py-12 sm:py-14">
           <div className="site-shell">
             <p className="eyebrow">{poetry.heroEyebrow}</p>
             <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">{poetry.title}</h1>
@@ -23,7 +23,15 @@ export default function DocThoPage() {
           </div>
         </section>
 
-        <section className="py-12 sm:py-14">
+        <section className="py-8">
+          <div className="site-shell">
+            <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
+              <p className="text-sm leading-7 text-[#654939] sm:text-base">{poetry.intro}</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-12 sm:pb-14">
           <div className="site-shell">
             <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
               <div className="relative min-h-[260px]">

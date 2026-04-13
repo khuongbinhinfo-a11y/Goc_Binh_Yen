@@ -177,6 +177,7 @@ export type TranslationSchema = {
     heroEyebrow: string;
     title: string;
     description: string;
+    intro: string;
     featured: {
       tag: string;
       title: string;
@@ -203,16 +204,16 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Trang chủ", href: "/#trang-chu" },
         { label: "Đọc thơ", href: "/doc-tho" },
         { label: "Kể chuyện", href: "/#ke-chuyen" },
-        { label: "Góc chữa lành", href: "/#chua-lanh" },
+        { label: "Tâm linh", href: "/#chua-lanh" },
         { label: "Liên hệ", href: "/#lien-he" },
       ],
       facebook: "Facebook",
     },
     hero: {
       eyebrow: "Sông nước quê · nắng cuối ngày · chạm vào ký ức",
-      title: "Một góc lắng lại giữa dòng đời vội",
+      title: "Hồn Thơ",
       description:
-        "Hồn Thơ là nơi thơ, chuyện và những xúc cảm nhẹ được cất lên trong sắc chiều bên dòng sông quê, để mỗi người có thể thở chậm và tìm lại một khoảng yên cho riêng mình.",
+        "Nơi câu chữ và giọng đọc cất lên giữa sắc chiều quê hương.",
       primaryCta: "Khám phá nội dung",
       secondaryCta: "Gửi lời nhắn",
     },
@@ -439,6 +440,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Đọc thơ",
       description:
         "Những bài thơ mang nhịp chậm của chiều quê, nơi ký ức và cảm xúc được nâng niu bằng câu chữ mộc mạc.",
+      intro:
+        "Mỗi bài thơ là một khoảng lặng nhỏ: có giọng quê, có chiều tà, có những xúc cảm được kể lại bằng nhịp điệu nhẹ nhàng.",
       featured: {
         tag: "Bài thơ nổi bật",
         title: "Chiều xuống bên bờ sông quê",
@@ -514,16 +517,16 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Home", href: "/#trang-chu" },
         { label: "Poetry", href: "/doc-tho" },
         { label: "Stories", href: "/#ke-chuyen" },
-        { label: "Healing Corner", href: "/#chua-lanh" },
+        { label: "Spirituality", href: "/#chua-lanh" },
         { label: "Contact", href: "/#lien-he" },
       ],
       facebook: "Facebook",
     },
     hero: {
       eyebrow: "Riverside homeland · late sunlight · touching memory",
-      title: "A quiet pause in the rush of life",
+      title: "Hồn Thơ",
       description:
-        "Hồn Thơ is a place for poetry, stories, and gentle emotions held in the light of evening by the riverside, so each person may breathe more slowly and find a quiet space within.",
+        "A place where words and voice readings rise in the evening light of home.",
       primaryCta: "Explore content",
       secondaryCta: "Leave a message",
     },
@@ -748,6 +751,8 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Poetry",
       description:
         "A collection of poems shaped by the slow rhythm of dusk, where memory and feeling are held with gentle words.",
+      intro:
+        "Each poem is a gentle pause: carrying the voice of home, the light of dusk, and emotions told with calm rhythm.",
       featured: {
         tag: "Featured poem",
         title: "Evening by the riverside of home",

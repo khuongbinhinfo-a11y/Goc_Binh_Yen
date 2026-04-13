@@ -264,14 +264,14 @@ export default function SiteHeader() {
           </a>
 
           <div className="items-center gap-6 md:flex">
-            <nav aria-label={mainNavLabel} className="flex items-center gap-7 text-sm">
+            <nav aria-label={mainNavLabel} className="flex items-center gap-6 text-[13.5px]">
               {navItems.map((item) => {
                 const isActive = isItemActive(item.href);
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    className={`relative pb-1 font-medium transition ${
+                    className={`relative whitespace-nowrap pb-1 font-medium leading-none tracking-[0.01em] transition ${
                       isActive ? "text-[#4a2f20]" : "text-[#5f4230] hover:text-[#4a2f20]"
                     } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:rounded-full after:bg-[#8b5e3c] after:transition-transform ${
                       isActive ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"
