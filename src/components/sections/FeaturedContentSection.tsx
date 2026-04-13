@@ -12,8 +12,8 @@ export default function FeaturedContentSection() {
             <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Những điểm chạm cảm xúc giữa trang</h2>
           </div>
           <p className="max-w-2xl text-sm leading-7 text-[#604536] sm:text-base">
-            Khối này giúp khách nhìn vào là hiểu rõ website có gì: thơ, chuyện và chuyên mục nghe nhẹ nhàng để giữ
-            sự kết nối lâu dài.
+            Khối này giúp khách nhìn vào là hiểu rõ website có gì: thơ, chuyện và chuyên mục nghe nhẹ nhàng để giữ sự
+            kết nối lâu dài.
           </p>
         </div>
 

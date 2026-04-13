@@ -16,11 +16,7 @@ export default function GoogleSearchSection() {
     }
 
     const query = encodeURIComponent(trimmed);
-    const popup = window.open(
-      `https://www.google.com/search?q=${query}`,
-      "_blank",
-      "noopener,noreferrer",
-    );
+    const popup = window.open(`https://www.google.com/search?q=${query}`, "_blank", "noopener,noreferrer");
 
     if (!popup) {
       setHint("Trình duyệt đang chặn tab mới. Vui lòng cho phép pop-up để tiếp tục.");
@@ -35,7 +31,7 @@ export default function GoogleSearchSection() {
       <div className="site-shell">
         <article className="soft-panel border-[#d9bda2] bg-[#f8efe5] p-6 sm:p-8">
           <p className="eyebrow">Tìm kiếm với Google</p>
-          <h2 className="mb-3 text-4xl text-[#3f2b20] sm:text-5xl">Tìm nhanh trên Google</h2>
+          <h2 className="mb-3 text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Tìm nhanh trên Google</h2>
           <p className="max-w-3xl text-sm leading-8 text-[#654939] sm:text-base">
             Bạn có thể tìm nhanh các bài viết, chủ đề hoặc nội dung liên quan qua Google.
           </p>

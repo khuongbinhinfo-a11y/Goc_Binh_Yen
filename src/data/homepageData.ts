@@ -1,57 +1,50 @@
-﻿export const FACEBOOK_URL =
+export const FACEBOOK_URL =
   "https://www.facebook.com/profile.php?id=61561724806320";
 
 export const CONTACT_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdlAhn7U4jXBjB814VpRY8hYlGnN22ejdOq0cfKe7xuG9p3IA/viewform?usp=dialog";
 
-export const BRAND_NAME = "GÃ³c BÃ¬nh YÃªn";
+export const BRAND_NAME = "Góc Bình Yên";
 
 export const BRAND_SIGNATURE = {
-  poetry: "ThÆ¡ Â· LÃª DÅ©ng",
-  voice: "Giá»ng Ä‘á»c Â· Há»“ng TÃ¢m",
+  poetry: "Thơ · Lê Dũng",
+  voice: "Giọng đọc · Hồng Tâm",
 };
 
-export const HERO_IMAGE =
-  "/images/4.webp";
+export const HERO_IMAGE = "/images/4.webp";
 
 export const navItems = [
-  { label: "Trang chá»§", href: "#trang-chu" },
-  { label: "Äá»c thÆ¡", href: "#doc-tho" },
-  { label: "Ká»ƒ chuyá»‡n", href: "#ke-chuyen" },
-  { label: "GÃ³c chá»¯a lÃ nh", href: "#chua-lanh" },
-  { label: "LiÃªn há»‡", href: "#lien-he" },
+  { label: "Trang chủ", href: "#trang-chu" },
+  { label: "Đọc thơ", href: "#doc-tho" },
+  { label: "Kể chuyện", href: "#ke-chuyen" },
+  { label: "Góc chữa lành", href: "#chua-lanh" },
+  { label: "Liên hệ", href: "#lien-he" },
 ];
 
-export const introKeywords = [
-  "sÃ´ng nÆ°á»›c",
-  "chiá»u tÃ ",
-  "quÃª hÆ°Æ¡ng",
-  "bÃ¬nh yÃªn",
-  "chá»¯a lÃ nh",
-];
+export const introKeywords = ["sông nước", "chiều tà", "quê hương", "bình yên", "chữa lành"];
 
 export const contentPillars = [
   {
     id: "doc-tho",
-    title: "Äá»c thÆ¡ giá»¯a chiá»u quÃª",
+    title: "Đọc thơ giữa chiều quê",
     description:
-      "Nhá»¯ng bÃ i thÆ¡ nháº¹, sÃ¢u vÃ  má»™c nhÆ° hÆ¡i thá»Ÿ buá»•i chiá»u trÃªn máº·t sÃ´ng quÃª nhÃ .",
+      "Những bài thơ nhẹ, sâu và mộc như hơi thở buổi chiều trên mặt sông quê nhà.",
     image:
       "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "ke-chuyen",
-    title: "Ká»ƒ chuyá»‡n bÃªn dÃ²ng sÃ´ng",
+    title: "Kể chuyện bên dòng sông",
     description:
-      "Chuyá»‡n Ä‘á»i thÆ°á»ng, chuyá»‡n cÅ© vÃ  nhá»¯ng kÃ½ á»©c cháº¡m vÃ o lÃ²ng ngÆ°á»i báº±ng giá»ng ká»ƒ áº¥m.",
+      "Chuyện đời thường, chuyện cũ và những ký ức chạm vào lòng người bằng giọng kể ấm.",
     image:
       "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "chua-lanh",
-    title: "GÃ³c chá»¯a lÃ nh báº±ng cÃ¢u chá»¯",
+    title: "Góc chữa lành bằng câu chữ",
     description:
-      "Má»™t khoáº£ng láº·ng Ä‘á»ƒ Ä‘á»c, nghe vÃ  thá»Ÿ cháº­m hÆ¡n giá»¯a guá»“ng quay báº­n rá»™n má»—i ngÃ y.",
+      "Một khoảng lặng để đọc, nghe và thở chậm hơn giữa guồng quay bận rộn mỗi ngày.",
     image:
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
   },
@@ -59,26 +52,26 @@ export const contentPillars = [
 
 export const featuredCards = [
   {
-    tag: "ThÆ¡ quÃª hÆ°Æ¡ng",
-    title: "BÃ i thÆ¡ ná»•i báº­t",
+    tag: "Thơ quê hương",
+    title: "Bài thơ nổi bật",
     description:
-      "Má»™t bÃ i thÆ¡ vá» con nÆ°á»›c, báº¿n Ä‘Ã² vÃ  ná»—i nhá»› nhÃ  len vÃ o sáº¯c nÃ¢u cam cá»§a hoÃ ng hÃ´n.",
+      "Một bài thơ về con nước, bến đò và nỗi nhớ nhà len vào sắc nâu cam của hoàng hôn.",
     image:
       "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    tag: "Ká»ƒ chuyá»‡n",
-    title: "CÃ¢u chuyá»‡n má»›i",
+    tag: "Kể chuyện",
+    title: "Câu chuyện mới",
     description:
-      "Má»™t cÃ¢u chuyá»‡n tuá»•i thÆ¡ miá»n sÃ´ng nÆ°á»›c, nÆ¡i nhá»‹p sá»‘ng cháº­m vÃ  tÃ¬nh ngÆ°á»i luÃ´n áº¥m Ã¡p.",
+      "Một câu chuyện tuổi thơ miền sông nước, nơi nhịp sống chậm và tình người luôn ấm áp.",
     image:
       "https://images.unsplash.com/photo-1533049022226-84f52f1ff4bd?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    tag: "Chá»¯a lÃ nh",
-    title: "Nghe trong Ä‘Ãªm",
+    tag: "Chữa lành",
+    title: "Nghe trong đêm",
     description:
-      "ChuyÃªn má»¥c giá»ng Ä‘á»c dá»‹u, há»£p Ä‘á»ƒ nghe khi chiá»u xuá»‘ng hoáº·c trÆ°á»›c khi nghá»‰ ngÆ¡i.",
+      "Chuyên mục giọng đọc dịu, hợp để nghe khi chiều xuống hoặc trước khi nghỉ ngơi.",
     image:
       "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1400&q=80",
   },
@@ -86,31 +79,25 @@ export const featuredCards = [
 
 export const moodboardItems = [
   {
-    title: "SÃ´ng nÆ°á»›c quÃª hÆ°Æ¡ng lÃºc chiá»u tÃ ",
+    title: "Sông nước quê hương lúc chiều tà",
     image:
       "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "Báº¿n Ä‘Ã² cÅ© trong Ã¡nh náº¯ng hoÃ ng hÃ´n",
+    title: "Bến đò cũ trong ánh nắng hoàng hôn",
     image:
       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "CÃ¡nh Ä‘á»“ng dÆ°á»›i ná»n trá»i nÃ¢u cam",
+    title: "Cánh đồng dưới nền trời nâu cam",
     image:
       "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
   },
   {
-    title: "KhÃ³i báº¿p chiá»u vÃ  máº·t nÆ°á»›c láº·ng",
+    title: "Khói bếp chiều và mặt nước lặng",
     image:
       "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 
-export const contactTypeOptions = [
-  "LiÃªn há»‡ chung",
-  "GÃ³p Ã½",
-  "Gá»­i thÆ¡ / truyá»‡n",
-  "Há»£p tÃ¡c",
-];
-
+export const contactTypeOptions = ["Liên hệ chung", "Góp ý", "Gửi thơ / truyện", "Hợp tác"];

@@ -1,4 +1,4 @@
-﻿import { CONTACT_FORM_URL } from "@/data/homepageData";
+import { CONTACT_FORM_URL } from "@/data/homepageData";
 
 export default function ContactSection() {
   return (
@@ -43,7 +43,7 @@ export default function ContactSection() {
                       <path d="M7 5h8v8M15 5 5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                     </svg>
                   </a>
-                  <p className="mt-2 text-xs text-[#8a6851]">Biểu mẫu sẽ mở ở tab mới.</p>
+                  <p className="mt-2 text-xs text-[#8a6851]">Biểu mẫu sẽ mở ở tab mới để bạn điền thông tin.</p>
                 </div>
               </div>
             </div>

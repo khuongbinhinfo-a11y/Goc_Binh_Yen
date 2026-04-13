@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -98,7 +98,7 @@ export default function SiteHeader() {
               className="h-10 w-10 rounded-xl border border-[#d8b89b] object-cover shadow-[0_6px_14px_rgba(74,47,32,0.12)]"
               priority
             />
-            <span className="truncate text-[27px] font-semibold leading-[1.08] tracking-[-0.01em] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+            <span className="truncate text-[27px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
               {BRAND_NAME}
             </span>
           </a>
@@ -180,7 +180,7 @@ export default function SiteHeader() {
               priority
             />
             <div>
-              <div className="text-[29px] font-semibold leading-[1.08] tracking-[-0.01em] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+              <div className="text-[29px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
                 {BRAND_NAME}
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">

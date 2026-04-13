@@ -49,7 +49,7 @@ export default function SampleArticlePage() {
                 Đọc thơ
               </p>
 
-              <h1 className="mb-4 text-4xl font-bold leading-[1.1] tracking-[-0.01em] text-white sm:text-5xl lg:text-6xl">
+              <h1 className="mb-4 text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">
                 Chiều xuống bên bờ sông quê
               </h1>
 
@@ -157,7 +157,10 @@ export default function SampleArticlePage() {
                   Dành cho lúc chiều muộn hoặc trước giờ nghỉ, khi bạn muốn lắng lại và nghe câu chữ chạm vào ký ức.
                 </p>
                 <p className="mt-2 text-sm font-medium text-[#7b563c]">Thời lượng: 08:20</p>
-                <a href="#" className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#75492c]">
+                <a
+                  href="#"
+                  className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#75492c]"
+                >
                   Mở bản nghe
                 </a>
               </article>
@@ -169,7 +172,10 @@ export default function SampleArticlePage() {
                   Phiên bản kể chuyện bằng hình ảnh chuyển động nhẹ, giữ trọn tinh thần chậm, sâu và bình yên.
                 </p>
                 <p className="mt-2 text-sm font-medium text-[#7b563c]">Thời lượng: 10:05</p>
-                <a href="#" className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#75492c]">
+                <a
+                  href="#"
+                  className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#75492c]"
+                >
                   Mở video
                 </a>
               </article>

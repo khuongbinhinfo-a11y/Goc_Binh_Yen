@@ -15,11 +15,7 @@ export default function ContentPillarsSection() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {contentPillars.map((pillar) => (
-            <article
-              key={pillar.id}
-              id={pillar.id}
-              className="soft-panel group scroll-mt-24 overflow-hidden bg-white/75"
-            >
+            <article key={pillar.id} id={pillar.id} className="soft-panel group scroll-mt-24 overflow-hidden bg-white/75">
               <div className="relative h-44 overflow-hidden">
                 <Image
                   src={pillar.image}
@@ -31,9 +27,7 @@ export default function ContentPillarsSection() {
               </div>
               <div className="p-6">
                 <h3 className="mb-3 text-3xl font-semibold leading-tight text-[#4a2f20]">{pillar.title}</h3>
-                <p className="mb-5 text-sm leading-7 text-[#654939] sm:text-base">
-                  {pillar.description}
-                </p>
+                <p className="mb-5 text-sm leading-7 text-[#654939] sm:text-base">{pillar.description}</p>
                 <a
                   href="#noi-dung-noi-bat"
                   className="inline-flex items-center rounded-full border border-[#c9a282] px-4 py-2 text-sm font-semibold text-[#7a5237] transition hover:bg-[#f5e6d6]"

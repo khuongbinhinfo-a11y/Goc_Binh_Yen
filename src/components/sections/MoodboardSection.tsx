@@ -13,16 +13,11 @@ export default function MoodboardSection() {
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {moodboardItems.map((item) => (
-            <article
-              key={item.title}
-              className="overflow-hidden rounded-[1.7rem] border border-[#d8b89b] bg-white shadow-soft"
-            >
+            <article key={item.title} className="overflow-hidden rounded-[1.7rem] border border-[#d8b89b] bg-white shadow-soft">
               <div className="relative h-64">
                 <Image src={item.image} alt={item.title} fill className="object-cover" />
               </div>
-              <p className="min-h-[82px] p-4 text-sm font-medium leading-6 text-[#5a3d2d] sm:text-base">
-                {item.title}
-              </p>
+              <p className="min-h-[82px] p-4 text-sm font-medium leading-6 text-[#5a3d2d] sm:text-base">{item.title}</p>
             </article>
           ))}
         </div>

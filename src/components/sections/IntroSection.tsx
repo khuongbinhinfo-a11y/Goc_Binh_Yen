@@ -11,9 +11,9 @@ export default function IntroSection() {
               Không gian mang hồn quê trong sắc chiều
             </h2>
             <p className="text-base leading-8 text-[#604536] sm:text-lg">
-              Góc Bình Yên hướng đến một trải nghiệm yên, ấm và có chiều sâu. Từng mảng nội dung đều ưu tiên sự
-              mộc mạc của thơ, chuyện và ký ức quê nhà, để người xem không chỉ đọc mà còn thật sự cảm được một nhịp
-              sống chậm giữa ngày dài.
+              Góc Bình Yên hướng đến một trải nghiệm yên, ấm và có chiều sâu. Từng mảng nội dung đều ưu tiên sự mộc
+              mạc của thơ, chuyện và ký ức quê nhà, để người xem không chỉ đọc mà còn thật sự cảm được một nhịp sống
+              chậm giữa ngày dài.
             </p>
           </div>
 
