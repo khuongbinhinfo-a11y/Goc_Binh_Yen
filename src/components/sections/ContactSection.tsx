@@ -25,7 +25,6 @@ export default function ContactSection() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
-  const [emailValue, setEmailValue] = useState("");
 
   const [toastVisible, setToastVisible] = useState(false);
   const [toastType, setToastType] = useState<ToastType>("success");
@@ -76,10 +75,7 @@ export default function ContactSection() {
   };
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const nextValue = event.target.value;
-    setEmailValue(nextValue);
-
-    const normalized = normalizeEmail(nextValue);
+    const normalized = normalizeEmail(event.target.value);
     if (!normalized || validateEmail(normalized)) {
       clearEmailError();
     }
@@ -97,7 +93,8 @@ export default function ContactSection() {
 
     const full_name = String(data.get("full_name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
-    const email = normalizeEmail(emailValue);
+    const rawEmail = String(data.get("email") || "");
+    const email = normalizeEmail(rawEmail);
     const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
     const contact_type = String(data.get("contact_type") || "").trim();
@@ -138,6 +135,18 @@ export default function ContactSection() {
     setSubmitStatus("sending");
     setSubmitMessage("Đang gửi...");
 
+    console.log("[contact] submitting payload", {
+      full_name,
+      phone,
+      rawEmail,
+      email,
+      subject: preparedSubject,
+      message,
+      contact_type,
+      page_url: currentUrl,
+      website,
+    });
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -167,7 +176,6 @@ export default function ContactSection() {
         setSubmitStatus("success");
         setSubmitMessage("Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
         formRef.current?.reset();
-        setEmailValue("");
         setFieldErrors({});
         showToast("success", "Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
         statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -234,9 +242,10 @@ export default function ContactSection() {
                 <label className="grid gap-1 text-sm font-medium text-[#6d4c38]">
                   Email
                   <input
-                    type="email"
+                    type="text"
                     name="email"
-                    value={emailValue}
+                    inputMode="email"
+                    autoComplete="email"
                     onChange={handleEmailChange}
                     className="rounded-xl border border-[#d9b79a] px-3 py-2.5 text-sm text-[#3f2c20] outline-none transition focus:border-[#a56e47] focus:ring-2 focus:ring-[#a56e47]/20"
                   />

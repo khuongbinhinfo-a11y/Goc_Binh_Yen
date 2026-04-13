@@ -42,12 +42,24 @@ export async function POST(request: Request) {
 
   const full_name = normalizeText(payload.full_name);
   const phone = normalizeText(payload.phone);
-  const email = normalizeEmail(payload.email);
+  console.error("[api/contact] raw email", payload.email);
+  const emailToValidate = normalizeEmail(payload.email);
   const subject = normalizeText(payload.subject);
   const message = normalizeText(payload.message);
   const contact_type = normalizeText(payload.contact_type);
   const page_url = normalizeText(payload.page_url);
   const website = normalizeText(payload.website);
+
+  console.error("[api/contact] normalized payload", {
+    full_name,
+    phone,
+    email: emailToValidate,
+    subject,
+    messageLength: message.length,
+    contact_type,
+    page_url,
+    websiteLength: website.length,
+  });
 
   if (!full_name) {
     return NextResponse.json({ ok: false, message: "Vui long nhap ho va ten." }, { status: 400 });
@@ -57,7 +69,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, message: "Vui long nhap noi dung." }, { status: 400 });
   }
 
-  if (email && !validateEmail(email)) {
+  if (emailToValidate !== "" && !validateEmail(emailToValidate)) {
+    console.error("[api/contact] invalid email after normalize", {
+      rawEmail: payload.email,
+      normalizedEmail: emailToValidate,
+    });
     return NextResponse.json({ ok: false, message: "Email chua dung dinh dang." }, { status: 400 });
   }
 
@@ -68,7 +84,7 @@ export async function POST(request: Request) {
   const formBody = new URLSearchParams();
   formBody.set("full_name", full_name);
   formBody.set("phone", phone);
-  formBody.set("email", email);
+  formBody.set("email", emailToValidate);
   formBody.set("subject", subject);
   formBody.set("message", message);
   formBody.set("contact_type", contact_type);
