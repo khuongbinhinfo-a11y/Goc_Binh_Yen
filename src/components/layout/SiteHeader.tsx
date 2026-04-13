@@ -134,7 +134,11 @@ export default function SiteHeader() {
 
   const isItemActive = (href: string) => {
     if (href === "/doc-tho") {
-      return pathname === "/doc-tho";
+      return pathname === "/doc-tho" || pathname.startsWith("/doc-tho/");
+    }
+
+    if (href === "/ke-chuyen") {
+      return pathname === "/ke-chuyen" || pathname.startsWith("/ke-chuyen/");
     }
 
     if (href.startsWith("/#")) {

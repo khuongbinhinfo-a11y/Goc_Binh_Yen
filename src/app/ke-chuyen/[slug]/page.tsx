@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -7,83 +7,84 @@ import { useParams } from "next/navigation";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import { getPoetryPostBySlug, poetryPosts } from "@/data/contentLibrary";
+import { CONTACT_FORM_URL } from "@/data/homepageData";
+import { getStoryPostBySlug, storyPosts } from "@/data/contentLibrary";
 import { useLocale } from "@/hooks/useLocale";
 
-export default function PoemDetailPage() {
+export default function StoryDetailPage() {
   const params = useParams<{ slug: string }>();
   const { locale } = useLocale();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
-  const poem = getPoetryPostBySlug(slug);
+  const story = getStoryPostBySlug(slug);
 
-  const relatedPoems = useMemo(() => {
-    if (!poem) return [];
+  const relatedStories = useMemo(() => {
+    if (!story) return [];
 
-    const byIds = poem.relatedPosts
-      .map((relatedSlug) => poetryPosts.find((candidate) => candidate.slug === relatedSlug))
-      .filter((item): item is (typeof poetryPosts)[number] => Boolean(item));
+    const byIds = story.relatedPosts
+      .map((relatedSlug) => storyPosts.find((candidate) => candidate.slug === relatedSlug))
+      .filter((item): item is (typeof storyPosts)[number] => Boolean(item));
 
     return byIds.length > 0
       ? byIds.slice(0, 3)
-      : poetryPosts.filter((candidate) => candidate.slug !== poem.slug).slice(0, 3);
-  }, [poem]);
+      : storyPosts.filter((candidate) => candidate.slug !== story.slug).slice(0, 3);
+  }, [story]);
 
   const labels =
     locale === "en"
       ? {
-          breadcrumb: "Poetry",
-          notFound: "This poem is not available yet.",
-          notFoundBack: "Back to Poetry",
+          breadcrumb: "Stories",
+          notFound: "This story is not available yet.",
+          notFoundBack: "Back to Stories",
           metaAuthor: "Author",
           metaVoice: "Voice",
           metaReadTime: "Reading time",
           metaDate: "Published",
-          analysisTitle: "Poem reflection",
-          analysisEmotion: "Emotional flow",
-          analysisImages: "Key imagery",
-          analysisMeaning: "Meaning and aftertaste",
-          analysisLine: "Memorable line",
+          actionRead: "Read",
+          actionListen: "Listen",
+          actionWatch: "Watch",
+          actionShare: "Share",
           mediaEyebrow: "Listen and watch",
           mediaTitle: "Listen to or watch this piece",
           audioTitle: "Voice reading",
           audioButton: "Open audio",
           videoTitle: "Visual storytelling",
           videoButton: "Open video",
-          relatedTitle: "Related poems",
-          readButton: "Read poem",
-          actionRead: "Read",
-          actionListen: "Listen",
-          actionWatch: "Watch",
-          actionShare: "Share",
+          relatedTitle: "Related stories",
+          readButton: "Read story",
+          contactEyebrow: "Stay connected",
+          contactTitle: "Share your story or message with Hồn Thơ",
+          contactDescription:
+            "If you have a story, memory, or a gentle note you would like to send, please use the contact form.",
+          contactButton: "Open contact form",
         }
       : {
-          breadcrumb: "Đọc thơ",
-          notFound: "Bài thơ này chưa sẵn sàng hiển thị.",
-          notFoundBack: "Quay về Đọc thơ",
+          breadcrumb: "Kể chuyện",
+          notFound: "Bài kể chuyện này chưa sẵn sàng hiển thị.",
+          notFoundBack: "Quay về Kể chuyện",
           metaAuthor: "Tác giả",
           metaVoice: "Giọng đọc",
           metaReadTime: "Thời gian đọc",
           metaDate: "Ngày đăng",
-          analysisTitle: "Phân tích bài thơ",
-          analysisEmotion: "Mạch cảm xúc",
-          analysisImages: "Hình ảnh nổi bật",
-          analysisMeaning: "Ý nghĩa / dư vị",
-          analysisLine: "Câu thơ đáng nhớ",
+          actionRead: "Đọc bài",
+          actionListen: "Nghe bản đọc",
+          actionWatch: "Xem bản kể",
+          actionShare: "Chia sẻ",
           mediaEyebrow: "Nghe và xem",
           mediaTitle: "Nghe và xem nội dung này",
           audioTitle: "Nghe bản đọc",
           audioButton: "Mở bản nghe",
           videoTitle: "Xem bản kể",
           videoButton: "Mở video",
-          relatedTitle: "Bài thơ liên quan",
+          relatedTitle: "Nội dung liên quan",
           readButton: "Đọc bài",
-          actionRead: "Đọc bài",
-          actionListen: "Nghe bản đọc",
-          actionWatch: "Xem bản kể",
-          actionShare: "Chia sẻ",
+          contactEyebrow: "Lời mời tương tác",
+          contactTitle: "Gửi lời nhắn hoặc chia sẻ câu chuyện của bạn",
+          contactDescription:
+            "Nếu bạn muốn gửi góp ý, đề xuất chủ đề hoặc kể lại một câu chuyện quê nhà, hãy mở biểu mẫu liên hệ để để lại thông tin.",
+          contactButton: "Mở biểu mẫu liên hệ",
         };
 
-  if (!poem) {
+  if (!story) {
     return (
       <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
         <SiteHeader />
@@ -91,7 +92,7 @@ export default function PoemDetailPage() {
           <div className="soft-panel max-w-2xl bg-[#fff9f2] p-6 sm:p-8">
             <p className="text-base leading-7 text-[#654939]">{labels.notFound}</p>
             <Link
-              href="/doc-tho"
+              href="/ke-chuyen"
               className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
             >
               {labels.notFoundBack}
@@ -104,24 +105,16 @@ export default function PoemDetailPage() {
   }
 
   const mediaItems = [
-    poem.hasAudio && poem.audioUrl
-      ? {
-          title: labels.audioTitle,
-          href: poem.audioUrl,
-          button: labels.audioButton,
-        }
+    story.hasAudio && story.audioUrl
+      ? { title: labels.audioTitle, href: story.audioUrl, button: labels.audioButton }
       : null,
-    poem.hasVideo && poem.youtubeUrl
-      ? {
-          title: labels.videoTitle,
-          href: poem.youtubeUrl,
-          button: labels.videoButton,
-        }
+    story.hasVideo && story.youtubeUrl
+      ? { title: labels.videoTitle, href: story.youtubeUrl, button: labels.videoButton }
       : null,
   ].filter((item): item is { title: string; href: string; button: string } => Boolean(item));
 
   const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    `https://hon-tho.vercel.app/doc-tho/${poem.slug}`
+    `https://hon-tho.vercel.app/ke-chuyen/${story.slug}`
   )}`;
 
   return (
@@ -131,39 +124,39 @@ export default function PoemDetailPage() {
       <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <Image src={poem.coverImage} alt={poem.title} fill priority className="object-cover" />
+            <Image src={story.coverImage} alt={story.title} fill priority className="object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/30 via-[#4c3022]/46 to-[#2b1b14]/76" />
 
           <div className="site-shell relative z-10 py-16 sm:py-20 lg:py-24">
             <article className="max-w-4xl rounded-[2rem] border border-[#f2dcc3]/35 bg-[#4b2f20]/38 p-6 text-[#f6eadb] shadow-[0_24px_56px_rgba(34,22,16,0.38)] backdrop-blur-[5px] sm:p-8 lg:p-10">
               <div className="mb-4 flex flex-wrap items-center gap-2 text-sm text-[#f3ddc2]">
-                <Link href="/doc-tho" className="transition hover:text-white">
+                <Link href="/ke-chuyen" className="transition hover:text-white">
                   {labels.breadcrumb}
                 </Link>
                 <span aria-hidden="true">/</span>
-                <span>{poem.title}</span>
+                <span>{story.title}</span>
               </div>
 
               <p className="mb-3 inline-flex rounded-full border border-[#f7e3cb]/30 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[#f4dcc0]">
-                {poem.category}
+                {story.category}
               </p>
 
-              <h1 className="mb-4 text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">{poem.title}</h1>
-              <p className="max-w-3xl text-base leading-8 text-[#f6e8d8] sm:text-lg">{poem.excerpt}</p>
+              <h1 className="mb-4 text-4xl font-bold leading-[1.1] text-white sm:text-5xl lg:text-6xl">{story.title}</h1>
+              <p className="max-w-3xl text-base leading-8 text-[#f6e8d8] sm:text-lg">{story.excerpt}</p>
 
               <div className="mt-6 grid gap-2 text-sm text-[#f2dbc2] sm:grid-cols-2 lg:grid-cols-4">
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaAuthor}:</span> {poem.author}
+                  <span className="font-semibold text-[#f8e8d5]">{labels.metaAuthor}:</span> {story.author}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaVoice}:</span> {poem.voiceBy}
+                  <span className="font-semibold text-[#f8e8d5]">{labels.metaVoice}:</span> {story.voiceBy}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaReadTime}:</span> {poem.readingTime}
+                  <span className="font-semibold text-[#f8e8d5]">{labels.metaReadTime}:</span> {story.readingTime}
                 </p>
                 <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaDate}:</span> {poem.publishedAt}
+                  <span className="font-semibold text-[#f8e8d5]">{labels.metaDate}:</span> {story.publishedAt}
                 </p>
               </div>
             </article>
@@ -172,14 +165,14 @@ export default function PoemDetailPage() {
 
         <section className="border-y border-[#dfc3a8] bg-[#efe0cf] py-4">
           <div className="site-shell">
-            <nav className="flex flex-wrap gap-2" aria-label={poem.title}>
+            <nav className="flex flex-wrap gap-2" aria-label={story.title}>
               <a
                 href="#noi-dung-bai"
                 className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
               >
                 {labels.actionRead}
               </a>
-              {poem.hasAudio && poem.audioUrl && (
+              {story.hasAudio && story.audioUrl && (
                 <a
                   href="#nghe-xem"
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
@@ -187,7 +180,7 @@ export default function PoemDetailPage() {
                   {labels.actionListen}
                 </a>
               )}
-              {poem.hasVideo && poem.youtubeUrl && (
+              {story.hasVideo && story.youtubeUrl && (
                 <a
                   href="#nghe-xem"
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
@@ -210,50 +203,13 @@ export default function PoemDetailPage() {
         <section id="noi-dung-bai" className="py-12 sm:py-14">
           <div className="site-shell">
             <article className="mx-auto max-w-3xl rounded-[1.8rem] border border-[#d9ba9d] bg-[#fffaf4] p-6 shadow-soft sm:p-8 lg:p-10">
-              <div className="whitespace-pre-line text-[18px] leading-9 text-[#51392b]">{poem.content}</div>
-
-              <div className="mt-8 border-t border-[#e4cdb7] pt-6 text-sm text-[#654939]">
-                <p>
-                  <span className="font-semibold text-[#4a2f20]">{labels.metaAuthor}:</span> {poem.author}
-                </p>
-                <p className="mt-1">{poem.publishedAt}</p>
-              </div>
+              <div className="whitespace-pre-line text-[18px] leading-9 text-[#51392b]">{story.content}</div>
             </article>
           </div>
         </section>
 
-        <section className="bg-[#efe1d1] py-14">
-          <div className="site-shell">
-            <div className="mb-6">
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.analysisTitle}</h2>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <article className="soft-panel bg-[#fff9f1] p-5">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#916448]">{labels.analysisEmotion}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#654939]">{poem.analysis.emotionFlow}</p>
-              </article>
-
-              <article className="soft-panel bg-[#fff9f1] p-5">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#916448]">{labels.analysisImages}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#654939]">{poem.analysis.standoutImages}</p>
-              </article>
-
-              <article className="soft-panel bg-[#fff9f1] p-5">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#916448]">{labels.analysisMeaning}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#654939]">{poem.analysis.meaning}</p>
-              </article>
-
-              <article className="soft-panel bg-[#fff9f1] p-5">
-                <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[#916448]">{labels.analysisLine}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#654939]">“{poem.analysis.memorableLine}”</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
         {mediaItems.length > 0 && (
-          <section id="nghe-xem" className="py-14">
+          <section id="nghe-xem" className="bg-[#e9dac9] py-14">
             <div className="site-shell">
               <p className="eyebrow">{labels.mediaEyebrow}</p>
               <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.mediaTitle}</h2>
@@ -277,14 +233,14 @@ export default function PoemDetailPage() {
           </section>
         )}
 
-        <section className="pb-20">
+        <section className="py-14">
           <div className="site-shell">
             <div className="mb-6">
               <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.relatedTitle}</h2>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3">
-              {relatedPoems.map((item) => (
+              {relatedStories.map((item) => (
                 <article key={item.slug} className="soft-panel overflow-hidden bg-white/85">
                   <div className="relative h-48">
                     <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
@@ -296,7 +252,7 @@ export default function PoemDetailPage() {
                     <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[#654939]">{item.excerpt}</p>
                     <Link
-                      href={`/doc-tho/${item.slug}`}
+                      href={`/ke-chuyen/${item.slug}`}
                       className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                     >
                       {labels.readButton}
@@ -304,6 +260,24 @@ export default function PoemDetailPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-20">
+          <div className="site-shell">
+            <div className="rounded-[1.8rem] border border-[#d8b89b] bg-[#f8efe5] p-7 shadow-soft sm:p-9">
+              <p className="eyebrow mb-2">{labels.contactEyebrow}</p>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{labels.contactTitle}</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{labels.contactDescription}</p>
+              <a
+                href={CONTACT_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
+              >
+                {labels.contactButton}
+              </a>
             </div>
           </div>
         </section>

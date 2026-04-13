@@ -72,8 +72,10 @@ export type TranslationSchema = {
     eyebrow: string;
     title: string;
     description: string;
-    keywordTitle: string;
-    keywords: string[];
+    brandCardTitle: string;
+    brandCardSlogan: string;
+    brandCardDescription: string;
+    brandCardTags: string[];
   };
   contentPillars: {
     eyebrow: string;
@@ -203,7 +205,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       items: [
         { label: "Trang chủ", href: "/#trang-chu" },
         { label: "Đọc thơ", href: "/doc-tho" },
-        { label: "Kể chuyện", href: "/#ke-chuyen" },
+        { label: "Kể chuyện", href: "/ke-chuyen" },
         { label: "Tâm linh", href: "/#chua-lanh" },
         { label: "Liên hệ", href: "/#lien-he" },
       ],
@@ -222,8 +224,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Không gian mang hồn quê trong sắc chiều",
       description:
         "Hồn Thơ hướng đến một trải nghiệm yên, ấm và có chiều sâu. Từng mảng nội dung đều ưu tiên sự mộc mạc của thơ, chuyện và ký ức quê nhà, để người xem không chỉ đọc mà còn thật sự cảm được một nhịp sống chậm giữa ngày dài.",
-      keywordTitle: "Từ khóa thương hiệu",
-      keywords: ["sông nước", "chiều tà", "quê hương", "bình yên", "chữa lành"],
+      brandCardTitle: "Dấu ấn thương hiệu",
+      brandCardSlogan: "Một miền sông nước cho câu thơ neo lại.",
+      brandCardDescription:
+        "Một không gian thơ mang hơi thở sông nước, quê hương và những rung động dịu dàng.",
+      brandCardTags: ["sông nước", "chiều quê", "ký ức"],
     },
     contentPillars: {
       eyebrow: "Ba trụ nội dung",
@@ -244,7 +249,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Chuyện đời thường, chuyện cũ và những ký ức chạm vào lòng người bằng giọng kể ấm.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-          href: "/#ke-chuyen",
+          href: "/ke-chuyen",
         },
         {
           id: "chua-lanh",
@@ -516,7 +521,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       items: [
         { label: "Home", href: "/#trang-chu" },
         { label: "Poetry", href: "/doc-tho" },
-        { label: "Stories", href: "/#ke-chuyen" },
+        { label: "Stories", href: "/ke-chuyen" },
         { label: "Spirituality", href: "/#chua-lanh" },
         { label: "Contact", href: "/#lien-he" },
       ],
@@ -535,8 +540,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "A space filled with the soul of home at dusk",
       description:
         "Hồn Thơ offers a calm, warm, and thoughtful experience. Each piece of content embraces the simplicity of poetry, storytelling, and memories of home, so readers do not only read, but truly feel a slower rhythm within the day.",
-      keywordTitle: "Brand keywords",
-      keywords: ["riverside", "dusk", "homeland", "peace", "healing"],
+      brandCardTitle: "Brand signature",
+      brandCardSlogan: "Where riverside memory lets every verse come to rest.",
+      brandCardDescription:
+        "A poetic space shaped by homeland textures, evening light, and gentle emotional depth.",
+      brandCardTags: ["riverside", "dusk", "memory"],
     },
     contentPillars: {
       eyebrow: "Three content pillars",
@@ -557,7 +565,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Everyday tales and old memories told in a warm, familiar voice.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-          href: "/#ke-chuyen",
+          href: "/ke-chuyen",
         },
         {
           id: "chua-lanh",

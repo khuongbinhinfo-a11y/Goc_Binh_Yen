@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useLocale } from "@/hooks/useLocale";
 
 export default function IntroSection() {
@@ -15,16 +17,30 @@ export default function IntroSection() {
             <p className="text-base leading-8 text-[#604536] sm:text-lg">{t.intro.description}</p>
           </div>
 
-          <aside className="soft-panel bg-[#eddccb] p-6">
-            <h3 className="mb-4 text-3xl font-semibold leading-tight text-[#4c3123]">{t.intro.keywordTitle}</h3>
-            <ul className="grid gap-2 text-sm leading-7 text-[#5a4030] sm:text-base">
-              {t.intro.keywords.map((keyword) => (
-                <li key={keyword} className="flex items-center gap-2">
-                  <span className="text-[#8b5e3c]">•</span>
-                  <span>{keyword}</span>
-                </li>
-              ))}
-            </ul>
+          <aside className="soft-panel overflow-hidden bg-[#efe0cf]">
+            <div className="relative h-[240px] sm:h-[260px]">
+              <Image src="/images/4.webp" alt={t.intro.brandCardTitle} fill className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#3b2519]/74 via-[#4c3122]/48 to-[#76513a]/12" />
+
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#efd6ba]">{t.intro.brandCardTitle}</p>
+                <h3 className="mt-2 text-2xl font-semibold leading-tight text-[#fff6ec] sm:text-3xl">{t.intro.brandCardSlogan}</h3>
+              </div>
+            </div>
+
+            <div className="p-5 sm:p-6">
+              <p className="text-sm leading-7 text-[#5a4030] sm:text-base">{t.intro.brandCardDescription}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {t.intro.brandCardTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex rounded-full border border-[#d2b394] bg-[#f9f0e6] px-3 py-1 text-xs font-semibold text-[#7a5237]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </aside>
         </div>
       </div>
