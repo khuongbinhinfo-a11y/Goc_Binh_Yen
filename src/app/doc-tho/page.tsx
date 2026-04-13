@@ -12,7 +12,7 @@ export default function DocThoPage() {
   const { t } = useLocale();
   const poetry = t.poetryPage;
   const featured = featuredPoem;
-  const listItems = poems.filter((item) => item.slug !== featured.slug);
+  const listItems = poems.filter((item) => item.status === "published" && item.slug !== featured.slug);
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -82,18 +82,12 @@ export default function DocThoPage() {
                     <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{item.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-[#654939]">{item.summary}</p>
                     <p className="mt-3 text-xs text-[#876756]">{item.locationDate}</p>
-                    {item.status === "published" ? (
-                      <Link
-                        href={`/doc-tho/${item.slug}`}
-                        className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                      >
-                        {poetry.cardButton}
-                      </Link>
-                    ) : (
-                      <span className="mt-5 inline-flex rounded-full border border-[#d9c3af] bg-[#f6eee6] px-4 py-2 text-sm font-semibold text-[#9b7e69]">
-                        {item.tag}
-                      </span>
-                    )}
+                    <Link
+                      href={`/doc-tho/${item.slug}`}
+                      className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                    >
+                      {poetry.cardButton}
+                    </Link>
                   </div>
                 </article>
               ))}
