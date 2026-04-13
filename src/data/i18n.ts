@@ -193,7 +193,7 @@ export type TranslationSchema = {
 
 export const translations: Record<Locale, TranslationSchema> = {
   vi: {
-    brandName: "Góc Bình Yên",
+    brandName: "Hồn Thơ",
     signature: {
       poetry: "Thơ · Lê Dũng",
       voice: "Giọng đọc · Hồng Tâm",
@@ -212,7 +212,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "Sông nước quê · nắng cuối ngày · chạm vào ký ức",
       title: "Một góc lắng lại giữa dòng đời vội",
       description:
-        "Góc Bình Yên là nơi thơ, chuyện và những xúc cảm nhẹ được cất lên trong sắc chiều bên dòng sông quê, để mỗi người có thể thở chậm và tìm lại một khoảng yên cho riêng mình.",
+        "Hồn Thơ là nơi thơ, chuyện và những xúc cảm nhẹ được cất lên trong sắc chiều bên dòng sông quê, để mỗi người có thể thở chậm và tìm lại một khoảng yên cho riêng mình.",
       primaryCta: "Khám phá nội dung",
       secondaryCta: "Gửi lời nhắn",
     },
@@ -220,7 +220,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "Tinh thần dự án",
       title: "Không gian mang hồn quê trong sắc chiều",
       description:
-        "Góc Bình Yên hướng đến một trải nghiệm yên, ấm và có chiều sâu. Từng mảng nội dung đều ưu tiên sự mộc mạc của thơ, chuyện và ký ức quê nhà, để người xem không chỉ đọc mà còn thật sự cảm được một nhịp sống chậm giữa ngày dài.",
+        "Hồn Thơ hướng đến một trải nghiệm yên, ấm và có chiều sâu. Từng mảng nội dung đều ưu tiên sự mộc mạc của thơ, chuyện và ký ức quê nhà, để người xem không chỉ đọc mà còn thật sự cảm được một nhịp sống chậm giữa ngày dài.",
       keywordTitle: "Từ khóa thương hiệu",
       keywords: ["sông nước", "chiều tà", "quê hương", "bình yên", "chữa lành"],
     },
@@ -326,7 +326,7 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     social: {
       eyebrow: "Theo dõi mạng xã hội",
-      title: "Cùng đồng hành với Góc Bình Yên trên Facebook",
+      title: "Cùng đồng hành với Hồn Thơ trên Facebook",
       description: "Tụi mình cập nhật bài mới, lời đọc mới và những chia sẻ gần gũi hằng tuần tại fanpage chính thức.",
       button: "Theo dõi trên Facebook",
       note: "Các kênh khác sẽ được cập nhật sau.",
@@ -427,7 +427,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         ],
       },
       closing: {
-        eyebrow: "Kết nối cùng Góc Bình Yên",
+        eyebrow: "Kết nối cùng Hồn Thơ",
         title: "Gửi lời nhắn hoặc chia sẻ nội dung bạn muốn chúng tôi lắng nghe",
         description:
           "Nếu bạn muốn gửi góp ý, đề xuất nội dung hoặc chia sẻ thơ và truyện của mình, hãy mở biểu mẫu liên hệ để điền thông tin.",
@@ -443,7 +443,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         tag: "Bài thơ nổi bật",
         title: "Chiều xuống bên bờ sông quê",
         description:
-          "Bài thơ mở đầu cho tinh thần Góc Bình Yên: chậm, ấm, sâu và giàu ký ức. Rất phù hợp để đọc trong những giờ chiều lặng.",
+          "Bài thơ mở đầu cho tinh thần Hồn Thơ: chậm, ấm, sâu và giàu ký ức. Rất phù hợp để đọc trong những giờ chiều lặng.",
         image:
           "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
         href: "/bai-viet-mau",
@@ -504,7 +504,7 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
   },
   en: {
-    brandName: "Góc Bình Yên",
+    brandName: "Hồn Thơ",
     signature: {
       poetry: "Poetry · Lê Dũng",
       voice: "Voice · Hồng Tâm",
@@ -523,7 +523,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "Riverside homeland · late sunlight · touching memory",
       title: "A quiet pause in the rush of life",
       description:
-        "Góc Bình Yên is a place for poetry, stories, and gentle emotions held in the light of evening by the riverside, so each person may breathe more slowly and find a quiet space within.",
+        "Hồn Thơ is a place for poetry, stories, and gentle emotions held in the light of evening by the riverside, so each person may breathe more slowly and find a quiet space within.",
       primaryCta: "Explore content",
       secondaryCta: "Leave a message",
     },
@@ -531,7 +531,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "Project spirit",
       title: "A space filled with the soul of home at dusk",
       description:
-        "Góc Bình Yên offers a calm, warm, and thoughtful experience. Each piece of content embraces the simplicity of poetry, storytelling, and memories of home, so readers do not only read, but truly feel a slower rhythm within the day.",
+        "Hồn Thơ offers a calm, warm, and thoughtful experience. Each piece of content embraces the simplicity of poetry, storytelling, and memories of home, so readers do not only read, but truly feel a slower rhythm within the day.",
       keywordTitle: "Brand keywords",
       keywords: ["riverside", "dusk", "homeland", "peace", "healing"],
     },
@@ -635,7 +635,7 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     social: {
       eyebrow: "Follow on social",
-      title: "Stay close with Góc Bình Yên on Facebook",
+      title: "Stay close with Hồn Thơ on Facebook",
       description: "We share new pieces, new voice readings, and gentle weekly notes on our official page.",
       button: "Follow on Facebook",
       note: "Other channels will be added later.",
@@ -736,7 +736,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         ],
       },
       closing: {
-        eyebrow: "Connect with Góc Bình Yên",
+        eyebrow: "Connect with Hồn Thơ",
         title: "Leave a message or share what you would like us to hear",
         description:
           "If you want to send feedback, propose topics, or share your poems and stories, open the contact form and leave your information.",
@@ -752,7 +752,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         tag: "Featured poem",
         title: "Evening by the riverside of home",
         description:
-          "A leading piece that captures the spirit of Góc Bình Yên: slow, warm, deep, and full of memory.",
+          "A leading piece that captures the spirit of Hồn Thơ: slow, warm, deep, and full of memory.",
         image:
           "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
         href: "/bai-viet-mau",

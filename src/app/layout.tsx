@@ -12,9 +12,8 @@ const bodyFont = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Góc Bình Yên",
-  description:
-    "Góc Bình Yên là nơi thơ, chuyện và những xúc cảm nhẹ nhàng được cất lên giữa sắc chiều quê hương.",
+  title: "Hồn Thơ",
+  description: "Hồn Thơ là nơi câu chữ, giọng đọc và những cảm xúc nhẹ được cất lên giữa sắc chiều quê hương.",
 };
 
 export default function RootLayout({
