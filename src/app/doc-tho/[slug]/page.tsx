@@ -153,9 +153,11 @@ export default function PoemDetailPage() {
               <p className="max-w-3xl text-base leading-8 text-[#f6e8d8] sm:text-lg">{poem.excerpt}</p>
 
               <div className="mt-6 grid gap-2 text-sm text-[#f2dbc2] sm:grid-cols-2 lg:grid-cols-4">
-                <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaAuthor}:</span> {poem.author}
-                </p>
+                {poem.contentType === "poem" && poem.author ? (
+                  <p>
+                    <span className="font-semibold text-[#f8e8d5]">{labels.metaAuthor}:</span> {poem.author}
+                  </p>
+                ) : null}
                 <p>
                   <span className="font-semibold text-[#f8e8d5]">{labels.metaVoice}:</span> {poem.voiceBy}
                 </p>
@@ -213,9 +215,11 @@ export default function PoemDetailPage() {
               <div className="whitespace-pre-line text-[18px] leading-9 text-[#51392b]">{poem.content}</div>
 
               <div className="mt-8 border-t border-[#e4cdb7] pt-6 text-sm text-[#654939]">
-                <p>
-                  <span className="font-semibold text-[#4a2f20]">{labels.metaAuthor}:</span> {poem.author}
-                </p>
+                {poem.contentType === "poem" && poem.author ? (
+                  <p>
+                    <span className="font-semibold text-[#4a2f20]">{labels.metaAuthor}:</span> {poem.author}
+                  </p>
+                ) : null}
                 <p className="mt-1">{poem.publishedAt}</p>
               </div>
             </article>

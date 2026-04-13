@@ -73,7 +73,6 @@ export default function KeChuyenPage() {
                 </span>
                 <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{featured.excerpt}</p>
-                <p className="mt-2 text-sm text-[#745646]">{featured.author}</p>
                 <p className="mt-1 text-xs text-[#876756]">{featured.publishedAt}</p>
                 <Link href={`/ke-chuyen/${featured.slug}`} className="soft-button mt-6 inline-flex">
                   {labels.readButton}

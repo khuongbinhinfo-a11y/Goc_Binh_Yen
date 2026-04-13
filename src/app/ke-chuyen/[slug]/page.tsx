@@ -35,7 +35,6 @@ export default function StoryDetailPage() {
           breadcrumb: "Stories",
           notFound: "This story is not available yet.",
           notFoundBack: "Back to Stories",
-          metaAuthor: "Author",
           metaVoice: "Voice",
           metaReadTime: "Reading time",
           metaDate: "Published",
@@ -61,7 +60,6 @@ export default function StoryDetailPage() {
           breadcrumb: "Kể chuyện",
           notFound: "Bài kể chuyện này chưa sẵn sàng hiển thị.",
           notFoundBack: "Quay về Kể chuyện",
-          metaAuthor: "Tác giả",
           metaVoice: "Giọng đọc",
           metaReadTime: "Thời gian đọc",
           metaDate: "Ngày đăng",
@@ -146,9 +144,6 @@ export default function StoryDetailPage() {
               <p className="max-w-3xl text-base leading-8 text-[#f6e8d8] sm:text-lg">{story.excerpt}</p>
 
               <div className="mt-6 grid gap-2 text-sm text-[#f2dbc2] sm:grid-cols-2 lg:grid-cols-4">
-                <p>
-                  <span className="font-semibold text-[#f8e8d5]">{labels.metaAuthor}:</span> {story.author}
-                </p>
                 <p>
                   <span className="font-semibold text-[#f8e8d5]">{labels.metaVoice}:</span> {story.voiceBy}
                 </p>

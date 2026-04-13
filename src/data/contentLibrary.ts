@@ -1,6 +1,6 @@
 import { poems as rawPoems } from "@/data/poems";
 
-export type ContentType = "poem" | "story";
+export type ContentType = "poem" | "story" | "spiritual";
 
 export type ContentAnalysis = {
   emotionFlow: string;
@@ -16,7 +16,7 @@ export type ContentItem = {
   category: string;
   excerpt: string;
   coverImage: string;
-  author: string;
+  author?: string;
   voiceBy: string;
   readingTime: string;
   publishedAt: string;
@@ -63,6 +63,17 @@ const poetryBase: ContentItem[] = rawPoems
     isFeatured: index === 0,
   }));
 
+const poemCoverOverrides: Record<string, string> = {
+  "khoang-cach-vo-hinh": "/images/poems/khoang-cach-vo-hinh.jpeg",
+  "hoa-luc-binh": "/images/poems/hoa-luc-binh.jpeg",
+  "em-mua-xuan-ve": "/images/poems/em-mua-xuan-ve.jpeg",
+  "em-trong-anh": "/images/poems/em-trong-anh.jpeg",
+  "anh-yeu-em": "/images/poems/anh-yeu-em.jpeg",
+  nho: "/images/poems/nho.jpeg",
+  "tieng-keu-chim-le-ban": "/images/poems/tieng-keu-chim-le-ban.jpeg",
+  "ngang-ben-song-xua": "/images/poems/ngang-ben-song-xua.jpeg",
+};
+
 export const storyPosts: ContentItem[] = [
   {
     title: "Bến đò cũ qua một mùa mưa",
@@ -72,7 +83,6 @@ export const storyPosts: ContentItem[] = [
     excerpt:
       "Một buổi chiều mưa, người kể chuyện trở lại bến đò xưa để tìm lại những gương mặt đã từng đi qua tuổi thơ.",
     coverImage: "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1400&q=80",
-    author: "Lê Dũng",
     voiceBy: "Hồng Tâm",
     readingTime: "6 phút",
     publishedAt: "Mỹ Tho, tháng 10/2020",
@@ -102,7 +112,6 @@ export const storyPosts: ContentItem[] = [
     excerpt:
       "Một đêm mất ngủ bên hiên nhà, tiếng nước vỗ bờ đã kéo người kể trở về với những ngày tháng yên lành nhất.",
     coverImage: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1400&q=80",
-    author: "Lê Dũng",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Cai Lậy, tháng 02/2021",
@@ -131,7 +140,6 @@ export const storyPosts: ContentItem[] = [
     excerpt:
       "Chỉ một làn khói bếp chiều cũng đủ kéo cả tuổi thơ trở về: tiếng gọi cơm, tiếng chén đũa và bàn tay mẹ.",
     coverImage: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1400&q=80",
-    author: "Lê Dũng",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Tân Phong, tháng 08/2021",
@@ -161,7 +169,6 @@ export const storyPosts: ContentItem[] = [
     excerpt:
       "Một cây cầu tre nhỏ nối hai bờ không chỉ đưa người qua sông, mà còn giữ lại cách người ta đợi nhau và thương nhau.",
     coverImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
-    author: "Lê Dũng",
     voiceBy: "Hồng Tâm",
     readingTime: "7 phút",
     publishedAt: "Mỹ Tho, tháng 03/2022",
@@ -192,6 +199,7 @@ export const poetryPosts: ContentItem[] = poetryBase.map((item) => {
 
   return {
     ...item,
+    coverImage: poemCoverOverrides[item.slug] ?? item.coverImage,
     relatedPosts: item.relatedPosts.length > 0 ? item.relatedPosts : fallbackRelated,
   };
 });
