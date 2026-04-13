@@ -2,7 +2,7 @@
   "https://www.facebook.com/profile.php?id=61561724806320";
 
 export const CONTACT_FORM_URL =
-  "https://docs.google.com/spreadsheets/d/1jdPbtes4qqeezPQfJHEWwagylEPvF3zWHMMY6qy32Xc/edit?gid=0#gid=0";
+  "https://docs.google.com/forms/d/e/1FAIpQLSdlAhn7U4jXBjB814VpRY8hYlGnN22ejdOq0cfKe7xuG9p3IA/viewform?usp=dialog";
 
 export const BRAND_NAME = "GÃ³c BÃ¬nh YÃªn";
 
