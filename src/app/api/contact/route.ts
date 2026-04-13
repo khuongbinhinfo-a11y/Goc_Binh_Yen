@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 
 const APPS_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbysc5ICahR4FZ52E1SY4CRWGjLbS0on_1MQ8QUqKkFgfl4bVLlStZsF3WrFVO3Wk79n/exec";
@@ -16,7 +16,7 @@ type ContactPayload = {
 
 const validateEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-const normalize = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+const normalizeText = (value: unknown) => (typeof value === "string" ? value.trim() : "");
 
 const normalizeEmail = (value: unknown) =>
   typeof value === "string"
@@ -29,44 +29,40 @@ const normalizeEmail = (value: unknown) =>
     : "";
 
 export async function POST(request: Request) {
+  console.info("[api/contact] Incoming request");
+
   let payload: ContactPayload;
 
   try {
     payload = (await request.json()) as ContactPayload;
   } catch (error) {
     console.error("[api/contact] Invalid JSON body:", error);
-    return NextResponse.json(
-      { ok: false, message: "Dữ liệu gửi lên chưa hợp lệ." },
-      { status: 400 },
-    );
+    return NextResponse.json({ ok: false, message: "Du lieu gui len chua hop le." }, { status: 400 });
   }
 
-  const full_name = normalize(payload.full_name);
-  const phone = normalize(payload.phone);
+  const full_name = normalizeText(payload.full_name);
+  const phone = normalizeText(payload.phone);
   const email = normalizeEmail(payload.email);
-  const subject = normalize(payload.subject);
-  const message = normalize(payload.message);
-  const contact_type = normalize(payload.contact_type);
-  const page_url = normalize(payload.page_url);
-  const website = normalize(payload.website);
+  const subject = normalizeText(payload.subject);
+  const message = normalizeText(payload.message);
+  const contact_type = normalizeText(payload.contact_type);
+  const page_url = normalizeText(payload.page_url);
+  const website = normalizeText(payload.website);
 
   if (!full_name) {
-    return NextResponse.json({ ok: false, message: "Vui lòng nhập họ và tên." }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Vui long nhap ho va ten." }, { status: 400 });
   }
 
   if (!message) {
-    return NextResponse.json({ ok: false, message: "Vui lòng nhập nội dung." }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Vui long nhap noi dung." }, { status: 400 });
   }
 
   if (email && !validateEmail(email)) {
-    return NextResponse.json({ ok: false, message: "Email chưa đúng định dạng." }, { status: 400 });
+    return NextResponse.json({ ok: false, message: "Email chua dung dinh dang." }, { status: 400 });
   }
 
   if (website) {
-    return NextResponse.json(
-      { ok: false, message: "Không thể gửi thông tin. Vui lòng thử lại." },
-      { status: 400 },
-    );
+    return NextResponse.json({ ok: false, message: "Khong the gui thong tin. Vui long thu lai." }, { status: 400 });
   }
 
   const formBody = new URLSearchParams();
@@ -97,19 +93,17 @@ export async function POST(request: Request) {
     } catch (error) {
       console.error("[api/contact] Apps Script invalid JSON response:", {
         error,
+        status: appsScriptResponse.status,
         responseText,
       });
       return NextResponse.json(
-        { ok: false, message: "Apps Script không trả về phản hồi hợp lệ" },
+        { ok: false, message: "Apps Script khong tra ve phan hoi hop le." },
         { status: 502 },
       );
     }
 
-    if (data?.ok === true) {
-      return NextResponse.json({
-        ok: true,
-        message: data.message || "Gửi thành công",
-      });
+    if (data.ok === true) {
+      return NextResponse.json({ ok: true, message: data.message || "Gui thanh cong" });
     }
 
     console.error("[api/contact] Apps Script returned failure:", {
@@ -118,13 +112,13 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(
-      { ok: false, message: data?.message || "Gửi thất bại" },
-      { status: 400 },
+      { ok: false, message: data.message || "Gui that bai." },
+      { status: appsScriptResponse.ok ? 400 : 502 },
     );
   } catch (error) {
     console.error("[api/contact] Unable to reach Apps Script:", error);
     return NextResponse.json(
-      { ok: false, message: "Không thể kết nối tới dịch vụ tiếp nhận" },
+      { ok: false, message: "Khong the ket noi toi dich vu tiep nhan." },
       { status: 502 },
     );
   }

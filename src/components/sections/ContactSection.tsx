@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react";
 
 import ToastNotice from "@/components/ui/ToastNotice";
 import { contactTypeOptions } from "@/data/homepageData";
@@ -25,6 +25,7 @@ export default function ContactSection() {
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [submitMessage, setSubmitMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [emailValue, setEmailValue] = useState("");
 
   const [toastVisible, setToastVisible] = useState(false);
   const [toastType, setToastType] = useState<ToastType>("success");
@@ -64,6 +65,26 @@ export default function ContactSection() {
     }, 4000);
   };
 
+  const clearEmailError = () => {
+    setFieldErrors((previous) => {
+      if (!previous.email) {
+        return previous;
+      }
+      const { email: _email, ...rest } = previous;
+      return rest;
+    });
+  };
+
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const nextValue = event.target.value;
+    setEmailValue(nextValue);
+
+    const normalized = normalizeEmail(nextValue);
+    if (!normalized || validateEmail(normalized)) {
+      clearEmailError();
+    }
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -76,7 +97,7 @@ export default function ContactSection() {
 
     const full_name = String(data.get("full_name") || "").trim();
     const phone = String(data.get("phone") || "").trim();
-    const email = normalizeEmail(String(data.get("email") || ""));
+    const email = normalizeEmail(emailValue);
     const subject = String(data.get("subject") || "").trim();
     const message = String(data.get("message") || "").trim();
     const contact_type = String(data.get("contact_type") || "").trim();
@@ -95,21 +116,22 @@ export default function ContactSection() {
 
     if (Object.keys(nextErrors).length > 0) {
       setFieldErrors(nextErrors);
-      setSubmitStatus("error");
-      setSubmitMessage("Vui lòng kiểm tra lại thông tin bắt buộc.");
-      showToast("error", "Thông tin chưa hợp lệ, vui lòng kiểm tra lại.");
+      setSubmitStatus("idle");
+      setSubmitMessage("");
       return;
     }
 
     if (website) {
       setFieldErrors({});
-      setSubmitStatus("error");
-      setSubmitMessage("Không thể gửi thông tin. Vui lòng thử lại.");
-      showToast("error", "Không thể gửi thông tin. Vui lòng thử lại.");
+      setSubmitStatus("idle");
+      setSubmitMessage("");
       return;
     }
 
     const currentUrl = window.location.href;
+    const preparedSubject =
+      subject || (process.env.NODE_ENV === "development" ? `TEST-${Date.now()}` : "");
+
     setPageUrl(currentUrl);
     setFieldErrors({});
     setIsSubmitting(true);
@@ -126,7 +148,7 @@ export default function ContactSection() {
           full_name,
           phone,
           email,
-          subject,
+          subject: preparedSubject,
           message,
           contact_type,
           page_url: currentUrl,
@@ -145,6 +167,8 @@ export default function ContactSection() {
         setSubmitStatus("success");
         setSubmitMessage("Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
         formRef.current?.reset();
+        setEmailValue("");
+        setFieldErrors({});
         showToast("success", "Gửi thành công. Cảm ơn bạn đã để lại lời nhắn.");
         statusRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
         return;
@@ -183,6 +207,7 @@ export default function ContactSection() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
+              noValidate
               className="rounded-[1.5rem] border border-[#d8b89b] bg-white p-5 shadow-soft sm:p-6"
             >
               <div className="grid gap-4 sm:grid-cols-2">
@@ -211,6 +236,8 @@ export default function ContactSection() {
                   <input
                     type="email"
                     name="email"
+                    value={emailValue}
+                    onChange={handleEmailChange}
                     className="rounded-xl border border-[#d9b79a] px-3 py-2.5 text-sm text-[#3f2c20] outline-none transition focus:border-[#a56e47] focus:ring-2 focus:ring-[#a56e47]/20"
                   />
                   <span className="min-h-4 text-xs text-[#a45035]">{fieldErrors.email || ""}</span>
