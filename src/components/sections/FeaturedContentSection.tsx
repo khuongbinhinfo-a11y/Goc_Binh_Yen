@@ -9,7 +9,7 @@ export default function FeaturedContentSection() {
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="eyebrow">Nội dung nổi bật</p>
-            <h2 className="text-4xl text-[#3f2b20] sm:text-5xl">Những điểm chạm cảm xúc giữa trang</h2>
+            <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Những điểm chạm cảm xúc giữa trang</h2>
           </div>
           <p className="max-w-2xl text-sm leading-7 text-[#604536] sm:text-base">
             Khối này giúp khách nhìn vào là hiểu rõ website có gì: thơ, chuyện và chuyên mục nghe nhẹ nhàng để giữ
@@ -35,7 +35,7 @@ export default function FeaturedContentSection() {
                 <span className="mb-3 inline-flex rounded-full bg-[#f1e0cd] px-3 py-1 text-xs font-semibold text-[#84583a]">
                   {card.tag}
                 </span>
-                <h3 className="mb-2 text-3xl text-[#4a2f20]">{card.title}</h3>
+                <h3 className="mb-2 text-3xl font-semibold leading-tight text-[#4a2f20]">{card.title}</h3>
                 <p className="text-sm leading-7 text-[#654939] sm:text-base">{card.description}</p>
               </div>
             </article>

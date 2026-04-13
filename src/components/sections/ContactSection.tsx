@@ -8,7 +8,7 @@ export default function ContactSection() {
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
             <div>
               <p className="eyebrow">Lời mời tương tác</p>
-              <h2 className="mb-4 text-4xl leading-tight text-[#3f2b20] sm:text-5xl sm:leading-tight">
+              <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl sm:leading-tight">
                 Gửi lời nhắn, góp ý hoặc chia sẻ thơ và truyện của bạn
               </h2>
               <p className="max-w-2xl text-sm leading-7 text-[#654939] sm:text-base">

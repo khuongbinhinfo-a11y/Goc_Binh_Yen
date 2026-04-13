@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Cormorant_Garamond } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 
 import "./globals.css";
 
@@ -7,12 +7,6 @@ const bodyFont = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
   variable: "--font-body",
   weight: ["300", "400", "500", "600", "700"],
-});
-
-const headingFont = Cormorant_Garamond({
-  subsets: ["latin", "vietnamese"],
-  variable: "--font-heading",
-  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${bodyFont.variable} ${headingFont.variable} antialiased`}>
+      <body className={`${bodyFont.variable} antialiased`}>
         {children}
       </body>
     </html>

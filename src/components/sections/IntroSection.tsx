@@ -7,7 +7,7 @@ export default function IntroSection() {
         <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
           <div>
             <p className="eyebrow">Tinh thần dự án</p>
-            <h2 className="mb-4 text-4xl text-[#3f2b20] sm:text-5xl">
+            <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">
               Không gian mang hồn quê trong sắc chiều
             </h2>
             <p className="text-base leading-8 text-[#604536] sm:text-lg">
@@ -18,7 +18,7 @@ export default function IntroSection() {
           </div>
 
           <aside className="soft-panel bg-[#eddccb] p-6">
-            <h3 className="mb-4 text-3xl text-[#4c3123]">Từ khóa thương hiệu</h3>
+            <h3 className="mb-4 text-3xl font-semibold leading-tight text-[#4c3123]">Từ khóa thương hiệu</h3>
             <ul className="grid gap-2 text-sm leading-7 text-[#5a4030] sm:text-base">
               {introKeywords.map((keyword) => (
                 <li key={keyword} className="flex items-center gap-2">

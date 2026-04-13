@@ -8,7 +8,7 @@ export default function ContentPillarsSection() {
       <div className="site-shell">
         <div className="mb-8">
           <p className="eyebrow">Ba trụ nội dung</p>
-          <h2 className="text-4xl text-[#3f2b20] sm:text-5xl">
+          <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">
             Những khoảng nội dung giữ nhịp cảm xúc cho toàn bộ website
           </h2>
         </div>
@@ -30,7 +30,7 @@ export default function ContentPillarsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3e281c]/45 to-transparent" />
               </div>
               <div className="p-6">
-                <h3 className="mb-3 text-3xl text-[#4a2f20]">{pillar.title}</h3>
+                <h3 className="mb-3 text-3xl font-semibold leading-tight text-[#4a2f20]">{pillar.title}</h3>
                 <p className="mb-5 text-sm leading-7 text-[#654939] sm:text-base">
                   {pillar.description}
                 </p>

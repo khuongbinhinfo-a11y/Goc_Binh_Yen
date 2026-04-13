@@ -98,7 +98,7 @@ export default function SiteHeader() {
               className="h-10 w-10 rounded-xl border border-[#d8b89b] object-cover shadow-[0_6px_14px_rgba(74,47,32,0.12)]"
               priority
             />
-            <span className="truncate text-[27px] leading-none text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+            <span className="truncate text-[27px] font-semibold leading-none tracking-[-0.02em] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
               {BRAND_NAME}
             </span>
           </a>
@@ -124,11 +124,11 @@ export default function SiteHeader() {
         </div>
 
         <div className="mb-2 flex flex-wrap gap-1.5 pb-1 md:hidden">
-          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] text-[#73503a]">
+          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
             <PenIcon className="h-3 w-3" />
             {BRAND_SIGNATURE.poetry}
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] text-[#73503a]">
+          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
             <VoiceIcon className="h-3 w-3" />
             {BRAND_SIGNATURE.voice}
           </span>
@@ -180,7 +180,7 @@ export default function SiteHeader() {
               priority
             />
             <div>
-              <div className="text-[29px] leading-none text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+              <div className="text-[29px] font-semibold leading-none tracking-[-0.02em] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
                 {BRAND_NAME}
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">

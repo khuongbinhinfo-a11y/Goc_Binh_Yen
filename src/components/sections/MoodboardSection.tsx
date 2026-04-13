@@ -8,7 +8,7 @@ export default function MoodboardSection() {
       <div className="site-shell">
         <div className="mb-8 text-center">
           <p className="eyebrow">Mood quê hương</p>
-          <h2 className="text-4xl text-[#3f2b20] sm:text-5xl">Những nhóm hình ảnh chốt hồn thương hiệu</h2>
+          <h2 className="text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">Những nhóm hình ảnh chốt hồn thương hiệu</h2>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
