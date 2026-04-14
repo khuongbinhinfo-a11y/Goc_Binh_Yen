@@ -23,11 +23,6 @@ export type FeaturedCard = {
   image: string;
 };
 
-export type MoodboardItem = {
-  title: string;
-  image: string;
-};
-
 export type ArticleMediaCard = {
   label: string;
   title: string;
@@ -88,23 +83,6 @@ export type TranslationSchema = {
     title: string;
     description: string;
     items: FeaturedCard[];
-  };
-  moodboard: {
-    eyebrow: string;
-    title: string;
-    items: MoodboardItem[];
-  };
-  googleSearch: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    placeholder: string;
-    button: string;
-    hints: {
-      empty: string;
-      blocked: string;
-      opened: string;
-    };
   };
   social: {
     eyebrow: string;
@@ -292,44 +270,6 @@ export const translations: Record<Locale, TranslationSchema> = {
         },
       ],
     },
-    moodboard: {
-      eyebrow: "Mood quê hương",
-      title: "Những nhóm hình ảnh chốt hồn thương hiệu",
-      items: [
-        {
-          title: "Sông nước quê hương lúc chiều tà",
-          image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "Bến đò cũ trong ánh nắng hoàng hôn",
-          image:
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "Cánh đồng dưới nền trời nâu cam",
-          image:
-            "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "Khói bếp chiều và mặt nước lặng",
-          image:
-            "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
-        },
-      ],
-    },
-    googleSearch: {
-      eyebrow: "Tìm kiếm với Google",
-      title: "Tìm nhanh trên Google",
-      description: "Bạn có thể tìm nhanh các bài viết, chủ đề hoặc nội dung liên quan qua Google.",
-      placeholder: "Ví dụ: thơ chiều tà, truyện chữa lành, quê hương...",
-      button: "Tìm trên Google",
-      hints: {
-        empty: "Vui lòng nhập từ khóa trước khi tìm kiếm.",
-        blocked: "Trình duyệt đang chặn tab mới. Vui lòng cho phép pop-up để tiếp tục.",
-        opened: "Đã mở Google ở tab mới.",
-      },
-    },
     social: {
       eyebrow: "Theo dõi mạng xã hội",
       title: "Cùng đồng hành với Hồn Thơ trên Facebook",
@@ -419,7 +359,7 @@ export const translations: Record<Locale, TranslationSchema> = {
             href: "#",
           },
           {
-            tag: "Góc chữa lành",
+            tag: "Tâm linh",
             title: "Đêm yên và lời ru của nước",
             description: "Một bài viết nhẹ, dành cho những ai muốn thở chậm và nghe lòng mình dịu lại.",
             href: "#",
@@ -606,44 +546,6 @@ export const translations: Record<Locale, TranslationSchema> = {
         },
       ],
     },
-    moodboard: {
-      eyebrow: "Homeland mood",
-      title: "Image groups that define the brand soul",
-      items: [
-        {
-          title: "Riverside homeland at dusk",
-          image:
-            "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "An old ferry dock in sunset light",
-          image:
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "Fields beneath an amber sky",
-          image:
-            "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          title: "Evening kitchen smoke and still water",
-          image:
-            "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
-        },
-      ],
-    },
-    googleSearch: {
-      eyebrow: "Search with Google",
-      title: "Quick search on Google",
-      description: "You can quickly look up related topics, writings, or themes through Google.",
-      placeholder: "For example: evening poems, healing stories, homeland...",
-      button: "Search on Google",
-      hints: {
-        empty: "Please enter a keyword before searching.",
-        blocked: "Your browser blocked the new tab. Please allow pop-ups to continue.",
-        opened: "Google has opened in a new tab.",
-      },
-    },
     social: {
       eyebrow: "Follow on social",
       title: "Stay close with Hồn Thơ on Facebook",
@@ -733,7 +635,7 @@ export const translations: Record<Locale, TranslationSchema> = {
             href: "#",
           },
           {
-            tag: "Healing Corner",
+            tag: "Spirituality",
             title: "A quiet night and water lullaby",
             description: "A gentle piece for slowing down and hearing your inner voice.",
             href: "#",

@@ -6,5 +6,5 @@ export const CONTACT_FORM_URL =
 
 export const HERO_IMAGE = "/images/4.webp";
 
-export const POET_BOOKCASE_URL = "/doc-tho";
-export const SUPPORT_HON_THO_URL = CONTACT_FORM_URL;
+export const POET_BOOKCASE_URL = "/tu-sach";
+export const SUPPORT_HON_THO_URL = "/ung-ho";

@@ -55,8 +55,6 @@ export default function BrandClosingSection() {
                 <p className="mt-3 text-sm leading-7 text-[#654939]">{copy.support.description}</p>
                 <a
                   href={SUPPORT_HON_THO_URL}
-                  target="_blank"
-                  rel="noreferrer"
                   className="mt-5 inline-flex rounded-full border border-[#c8a07f] bg-[#f6e7d7] px-5 py-2.5 text-sm font-semibold text-[#7a5237] transition hover:bg-[#efdcc8]"
                 >
                   {copy.support.button}
