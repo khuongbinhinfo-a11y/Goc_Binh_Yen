@@ -2,19 +2,21 @@
 
 import Image from "next/image";
 
+import { getHomepageBrandCopy } from "@/data/homepageBrandI18n";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function IntroSection() {
-  const { t } = useLocale();
+  const { locale, t } = useLocale();
+  const brandCopy = getHomepageBrandCopy(locale).intro;
 
   return (
     <section className="py-20">
       <div className="site-shell">
         <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-start">
           <div>
-            <p className="eyebrow">{t.intro.eyebrow}</p>
-            <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.intro.title}</h2>
-            <p className="text-base leading-8 text-[#604536] sm:text-lg">{t.intro.description}</p>
+            <p className="eyebrow">{brandCopy.eyebrow}</p>
+            <h2 className="mb-4 text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{brandCopy.title}</h2>
+            <p className="text-base leading-8 text-[#604536] sm:text-lg">{brandCopy.description}</p>
           </div>
 
           <aside className="soft-panel overflow-hidden bg-[#efe0cf]">

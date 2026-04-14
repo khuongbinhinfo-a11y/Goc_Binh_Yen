@@ -1,5 +1,6 @@
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import BrandClosingSection from "@/components/sections/BrandClosingSection";
 import ContactSection from "@/components/sections/ContactSection";
 import ContentPillarsSection from "@/components/sections/ContentPillarsSection";
 import FeaturedContentSection from "@/components/sections/FeaturedContentSection";
@@ -16,6 +17,7 @@ export default function HomePage() {
         <IntroSection />
         <ContentPillarsSection />
         <FeaturedContentSection />
+        <BrandClosingSection />
         <ContactSection />
         <SocialSection />
       </main>
