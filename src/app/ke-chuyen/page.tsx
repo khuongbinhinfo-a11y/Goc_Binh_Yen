@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import EditorialListingGrid from "@/components/content/EditorialListingGrid";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
@@ -72,29 +73,7 @@ export default function KeChuyenPage() {
               <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {listItems.map((item) => (
-                <article key={item.slug} className="soft-panel overflow-hidden bg-white/85">
-                  <div className="relative h-56">
-                    <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
-                  </div>
-                  <div className="p-5">
-                    <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
-                      {item.category}
-                    </span>
-                    <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#654939]">{item.excerpt}</p>
-                    <p className="mt-3 text-xs text-[#876756]">{item.publishedAt}</p>
-                    <Link
-                      href={`${routePrefix}/${item.slug}`}
-                      className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                    >
-                      {copy.readButton}
-                    </Link>
-                  </div>
-                </article>
-              ))}
-            </div>
+            <EditorialListingGrid items={listItems} routePrefix={routePrefix} readButtonLabel={copy.readButton} />
           </div>
         </section>
       </main>

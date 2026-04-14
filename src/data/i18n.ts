@@ -21,6 +21,7 @@ export type FeaturedCard = {
   title: string;
   description: string;
   image: string;
+  href: string;
 };
 
 export type ArticleMediaCard = {
@@ -241,32 +242,35 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     featured: {
       eyebrow: "Nội dung nổi bật",
-      title: "Những trang chữ được nhớ nhiều",
+      title: "Những trang chữ đang được lắng nghe",
       description:
-        "Mỗi nội dung là một khoảng lặng riêng: có thơ, có chuyện, có giọng đọc để người nghe và người đọc tìm lại nhịp yên của mình.",
+        "Ba mạch nội dung của Hồn Thơ gặp nhau trong những bài viết được bạn đọc tìm đến nhiều: một bài thơ, một câu chuyện và một góc chiêm nghiệm.",
       items: [
         {
           tag: "Đọc thơ",
-          title: "Chiều lắng bên hiên sông",
+          title: "Bến Đò",
           description:
-            "Những câu thơ chạm vào bến cũ, tiếng nước và nỗi nhớ dịu trong một buổi chiều nâu ấm.",
-          image:
-            "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1400&q=80",
+            "Nhịp chèo chậm, tiếng gọi bến đợi và nỗi thương nhớ bền bỉ tạo nên một dư âm rất quê.",
+          image: "/images/poems/ben-do.jpeg",
+          href: "/doc-tho/ben-do",
         },
         {
           tag: "Kể chuyện",
-          title: "Người về qua bến cũ",
+          title: "Bến Đò Cũ Qua Một Mùa Mưa",
           description:
-            "Một câu chuyện quê nhà đi qua mưa chiều, giữ lại tiếng gọi đò và tình người rất đỗi bình dị.",
+            "Một lát cắt miền sông nước đi từ cơn mưa chiều đến sự ấm áp của tình người bình dị.",
           image:
-            "https://images.unsplash.com/photo-1533049022226-84f52f1ff4bd?auto=format&fit=crop&w=1400&q=80",
+            "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1400&q=80",
+          href: "/ke-chuyen/ben-do-cu-qua-mot-mua-mua",
         },
         {
-          tag: "Giọng đọc",
-          title: "Lời đọc cho đêm yên",
-          description: "Một giọng đọc chậm, ấm và đủ nhẹ để ru dịu những ngày lòng còn nhiều xao động.",
+          tag: "Tâm linh",
+          title: "Mùa Chuông Chiều Trong Sân Chùa Nhỏ",
+          description:
+            "Âm chuông và mưa nhẹ mở ra một khoảng tĩnh, để lòng người tự dịu sau những ngày nhiều xao động.",
           image:
-            "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1400&q=80",
+            "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+          href: "/tam-linh/mua-chuong-chieu-trong-san-chua-nho",
         },
       ],
     },
@@ -394,7 +398,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           "Bài thơ mở đầu cho tinh thần Hồn Thơ: chậm, ấm, sâu và giàu ký ức. Rất phù hợp để đọc trong những giờ chiều lặng.",
         image:
           "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
-        href: "/bai-viet-mau",
+        href: "/doc-tho/ben-do",
         button: "Đọc bài",
       },
       gridTitle: "Tuyển chọn thơ",
@@ -405,7 +409,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Một đoạn thơ nhỏ về con nước, bến cũ và nỗi nhớ nhà sau những ngày xa.",
           image:
             "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/ban-tay",
         },
         {
           tag: "Thơ ký ức",
@@ -413,15 +417,15 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Câu chữ mộc mạc gợi mùi bếp lửa và sự bình yên của buổi chiều quê.",
           image:
             "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/cam-hoa",
         },
         {
-          tag: "Th\u01a1 chi\u00eam nghi\u1ec7m",
+          tag: "Thơ chiêm nghiệm",
           title: "Ngồi nghe nước kể",
           description: "Bài thơ ngắn cho những ngày cần nghỉ lại giữa guồng quay vội.",
           image:
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/cam-on-tinh-yeu",
         },
         {
           tag: "Thơ tình quê",
@@ -429,7 +433,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Sắc trời hoàng hôn và nhịp lòng người gặp nhau trong một khoảng lặng đẹp.",
           image:
             "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/mot-thoang",
         },
         {
           tag: "Thơ đêm",
@@ -437,7 +441,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Những câu thơ dành cho đêm muộn, khi ta muốn nghe lại tiếng lòng.",
           image:
             "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/hoa-buom",
         },
         {
           tag: "Thơ nhẹ",
@@ -445,7 +449,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           description: "Bài thơ dịu, ngắn và giàu hình ảnh, thích hợp để đọc trong vài phút yên tĩnh.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/hue-trang",
         },
       ],
       cardButton: "Đọc bài",
@@ -519,30 +523,32 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     featured: {
       eyebrow: "Featured content",
-      title: "Often-returned pieces",
+      title: "Pieces readers keep returning to",
       description:
-        "Each piece carries a different quiet mood: poetry, stories, and voice readings for unhurried moments.",
+        "These three pieces hold Hồn Thơ's core rhythm: one poem, one story, and one contemplative page.",
       items: [
         {
           tag: "Poetry",
-          title: "Still dusk by the riverside",
-          description: "Verses that hold old docks, river sounds, and homesickness in warm amber light.",
-          image:
-            "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1400&q=80",
+          title: "Bến Đò",
+          description: "A quiet ferry rhythm, a waiting shore, and a steady homesick tenderness.",
+          image: "/images/poems/ben-do.jpeg",
+          href: "/doc-tho/ben-do",
         },
         {
           tag: "Stories",
-          title: "Returning by the old dock",
-          description: "A riverside memory story told slowly, with familiar voices and quiet tenderness.",
+          title: "Old Dock Through a Rainy Season",
+          description: "A riverside memory shaped by rain, familiar voices, and everyday kindness.",
           image:
-            "https://images.unsplash.com/photo-1533049022226-84f52f1ff4bd?auto=format&fit=crop&w=1400&q=80",
+            "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1400&q=80",
+          href: "/ke-chuyen/ben-do-cu-qua-mot-mua-mua",
         },
         {
-          tag: "Voice",
-          title: "Night readings in calm light",
-          description: "A warm voice made for evenings, when the heart needs a softer rhythm.",
+          tag: "Spirituality",
+          title: "Evening Bell in a Small Pagoda Yard",
+          description: "A gentle bell and light rain invite the heart back to stillness.",
           image:
-            "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1400&q=80",
+            "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+          href: "/tam-linh/mua-chuong-chieu-trong-san-chua-nho",
         },
       ],
     },
@@ -670,58 +676,58 @@ export const translations: Record<Locale, TranslationSchema> = {
           "A leading piece that captures the spirit of Hồn Thơ: slow, warm, deep, and full of memory.",
         image:
           "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
-        href: "/bai-viet-mau",
+        href: "/doc-tho/ben-do",
         button: "Read",
       },
       gridTitle: "Poetry selections",
       items: [
         {
           tag: "Homeland poetry",
-          title: "Old winds by the ferry dock",
-          description: "A short poem about water, old docks, and homesickness after long days away.",
+          title: "Bàn Tay",
+          description: "A tender love poem that keeps the warmth of touch, home, and quiet devotion.",
           image:
             "https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/ban-tay",
         },
         {
           tag: "Memory poetry",
-          title: "Evening smoke by the porch",
-          description: "Simple lines that recall kitchen fire and the peace of home at dusk.",
+          title: "Cắm Hoa",
+          description: "A fragrant poem where white lily blossoms become memory, longing, and intimacy.",
           image:
             "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/cam-hoa",
         },
         {
           tag: "Reflective poetry",
-          title: "Listening to the water",
-          description: "A short, soothing poem for days when you need to pause.",
+          title: "Cảm Ơn Tình Yêu",
+          description: "A reflective piece on love after midlife, calm in tone yet deeply luminous.",
           image:
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/cam-on-tinh-yeu",
         },
         {
           tag: "Rural love",
-          title: "Amber sky at sunset",
-          description: "The dusk sky and the human heart meet in a beautiful still moment.",
+          title: "Một Thoáng",
+          description: "A brief encounter that lingers as lifelong longing and unfinished affection.",
           image:
             "https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/mot-thoang",
         },
         {
           tag: "Night poetry",
-          title: "Lullaby by the window",
-          description: "Lines written for quiet nights when you want to listen inward.",
+          title: "Hoa Bướm",
+          description: "Flower and butterfly imagery weave a dreamy, aching portrait of devoted love.",
           image:
             "https://images.unsplash.com/photo-1495563381401-ecfbcaaa67d1?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/hoa-buom",
         },
         {
           tag: "Light verse",
-          title: "A line of sun on water",
-          description: "A brief poem rich in image, for a few peaceful minutes.",
+          title: "Huệ Trắng",
+          description: "The scent of lily revives old memory and carries a deeply nostalgic aftertaste.",
           image:
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1200&q=80",
-          href: "/bai-viet-mau",
+          href: "/doc-tho/hue-trang",
         },
       ],
       cardButton: "Read",

@@ -160,7 +160,7 @@ export default function PoemDetailPage() {
         <section id="noi-dung-bai" className="py-12 sm:py-14">
           <div className="site-shell">
             <article className="mx-auto max-w-3xl rounded-[1.8rem] border border-[#d9ba9d] bg-[#fffaf4] p-6 shadow-soft sm:p-8 lg:p-10">
-              <div className="whitespace-pre-line text-[18px] leading-9 text-[#51392b]">{poem.content}</div>
+              <div className="whitespace-pre-wrap text-[18px] leading-9 text-[#51392b]">{poem.content}</div>
 
               <div className="mt-8 border-t border-[#e4cdb7] pt-6 text-sm text-[#654939]">
                 {shouldRenderAuthor(poem) ? (
@@ -283,3 +283,4 @@ export default function PoemDetailPage() {
     </div>
   );
 }
+

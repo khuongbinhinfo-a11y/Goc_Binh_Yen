@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { useLocale } from "@/hooks/useLocale";
 
@@ -20,26 +21,25 @@ export default function FeaturedContentSection() {
 
         <div className="grid gap-6 md:grid-cols-3">
           {t.featured.items.map((card) => (
-            <article
-              key={card.title}
-              className="group overflow-hidden rounded-[2rem] border border-[#d7b89b]/60 bg-white shadow-soft"
-            >
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src={card.image}
-                  alt={card.title}
-                  fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <span className="mb-3 inline-flex rounded-full bg-[#f1e0cd] px-3 py-1 text-xs font-semibold text-[#84583a]">
-                  {card.tag}
-                </span>
-                <h3 className="mb-2 text-3xl font-semibold leading-tight text-[#4a2f20]">{card.title}</h3>
-                <p className="text-sm leading-7 text-[#654939] sm:text-base">{card.description}</p>
-              </div>
-            </article>
+            <Link key={card.title} href={card.href} className="group block">
+              <article className="overflow-hidden rounded-[2rem] border border-[#d7b89b]/60 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={card.image}
+                    alt={card.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <span className="mb-3 inline-flex rounded-full bg-[#f1e0cd] px-3 py-1 text-xs font-semibold text-[#84583a]">
+                    {card.tag}
+                  </span>
+                  <h3 className="mb-2 text-3xl font-semibold leading-tight text-[#4a2f20]">{card.title}</h3>
+                  <p className="text-sm leading-7 text-[#654939] sm:text-base">{card.description}</p>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

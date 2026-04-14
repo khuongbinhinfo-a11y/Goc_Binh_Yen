@@ -1,6 +1,8 @@
-# Goc_Binh_Yen
+# Hồn Thơ
 
-Nền tảng hiện tại:
+Hồn Thơ là website chia sẻ thơ, kể chuyện và những nội dung chiêm nghiệm nhẹ, mang tinh thần chiều quê, sông nước và nhịp sống chậm.
+
+## Stack
 
 - Next.js (App Router)
 - TypeScript
@@ -15,8 +17,17 @@ Nền tảng hiện tại:
 3. Mở trình duyệt:
    - `http://localhost:3000`
 
-## Mục tiêu bản hiện tại
+## Các route chính
 
-- Hoàn thiện khung giao diện và trang chủ demo theo tone nâu đất, chiều tà, sông nước quê hương.
-- Tách section thành component độc lập để dễ mở rộng các trang con ở bước tiếp theo.
-- Có sẵn section liên hệ với đầy đủ UI form để chuẩn bị tích hợp logic gửi dữ liệu.
+- Trang chủ: `/`
+- Đọc thơ: `/doc-tho`
+- Kể chuyện: `/ke-chuyen`
+- Tâm linh: `/tam-linh`
+- Tủ sách: `/tu-sach`
+- Ủng hộ: `/ung-ho`
+
+## Ghi chú nội dung
+
+- Nhánh **Đọc thơ** có thể hiển thị tác giả khi dữ liệu có trường `author`.
+- Nhánh **Kể chuyện** và **Tâm linh** không hiển thị tác giả.
+- Link biểu mẫu liên hệ được quản lý tại `src/data/homepageData.ts` qua hằng số `CONTACT_FORM_URL`.

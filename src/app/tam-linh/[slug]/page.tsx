@@ -146,7 +146,7 @@ export default function SpiritualDetailPage() {
         <section id="noi-dung-bai" className="py-12 sm:py-14">
           <div className="site-shell">
             <article className="mx-auto max-w-3xl rounded-[1.8rem] border border-[#d9ba9d] bg-[#fffaf4] p-6 shadow-soft sm:p-8 lg:p-10">
-              <div className="whitespace-pre-line text-[18px] leading-9 text-[#51392b]">{post.content}</div>
+              <div className="whitespace-pre-wrap text-[18px] leading-9 text-[#51392b]">{post.content}</div>
             </article>
           </div>
         </section>
@@ -230,3 +230,4 @@ export default function SpiritualDetailPage() {
     </div>
   );
 }
+
