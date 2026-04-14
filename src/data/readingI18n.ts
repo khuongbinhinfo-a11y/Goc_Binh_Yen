@@ -87,10 +87,11 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         videoButton: "Mở video",
         relatedTitle: "Bài thơ liên quan",
         readButton: "Đọc bài",
-        contactEyebrow: "",
-        contactTitle: "",
-        contactDescription: "",
-        contactButton: "",
+        contactEyebrow: "Lời mời tương tác",
+        contactTitle: "Gửi lời nhắn hoặc chia sẻ cảm nhận của bạn cùng Hồn Thơ",
+        contactDescription:
+          "Nếu bạn muốn gửi góp ý, đề xuất chủ đề hoặc chia sẻ những câu chữ đồng điệu, hãy mở biểu mẫu liên hệ để để lại thông tin.",
+        contactButton: "Mở biểu mẫu liên hệ",
         fallbackNotice:
           "Bản dịch tiếng Anh của bài này đang được bổ sung, nên hiện có phần nội dung hiển thị tiếng Việt.",
         analysisTitle: "Phân tích bài thơ",
@@ -222,10 +223,11 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         videoButton: "Open video",
         relatedTitle: "Related poems",
         readButton: "Read poem",
-        contactEyebrow: "",
-        contactTitle: "",
-        contactDescription: "",
-        contactButton: "",
+        contactEyebrow: "Stay connected",
+        contactTitle: "Share your reflection or message with Hồn Thơ",
+        contactDescription:
+          "If you would like to send feedback, suggest a theme, or share a resonant piece of writing, please use the contact form.",
+        contactButton: "Open contact form",
         fallbackNotice:
           "This piece is partially shown in Vietnamese while the English translation is being prepared.",
         analysisTitle: "Poem reflection",

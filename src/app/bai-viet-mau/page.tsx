@@ -5,12 +5,13 @@ import Link from "next/link";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import { CONTACT_FORM_URL } from "@/data/homepageData";
+import { CONTACT_FORM_URL, FACEBOOK_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function SampleArticlePage() {
   const { t } = useLocale();
   const article = t.articleSample;
+  const mediaLinks = [FACEBOOK_URL, "/ke-chuyen"];
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -81,7 +82,7 @@ export default function SampleArticlePage() {
                 {article.actionBar.watch}
               </a>
               <a
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgoc-binh-yen.vercel.app%2Fbai-viet-mau"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhon-tho.vercel.app%2Fbai-viet-mau"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
@@ -117,14 +118,16 @@ export default function SampleArticlePage() {
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
-              {article.media.cards.map((card) => (
+              {article.media.cards.map((card, index) => (
                 <article key={card.title} className="soft-panel bg-[#fffaf5] p-6">
                   <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#916448]">{card.label}</p>
                   <h3 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20]">{card.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{card.description}</p>
                   <p className="mt-2 text-sm font-medium text-[#7b563c]">{card.duration}</p>
                   <a
-                    href="#"
+                    href={mediaLinks[index] ?? FACEBOOK_URL}
+                    target={index === 0 ? "_blank" : undefined}
+                    rel={index === 0 ? "noreferrer" : undefined}
                     className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#75492c]"
                   >
                     {card.button}

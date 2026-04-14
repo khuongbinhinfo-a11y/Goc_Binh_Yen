@@ -356,19 +356,19 @@ export const translations: Record<Locale, TranslationSchema> = {
             tag: "Kể chuyện",
             title: "Gió sớm trên bến đò cũ",
             description: "Những lát cắt nhỏ của tuổi thơ, nơi tiếng mái chèo còn vang trong ký ức.",
-            href: "#",
+            href: "/ke-chuyen/ben-do-cu-qua-mot-mua-mua",
           },
           {
             tag: "Tâm linh",
             title: "Đêm yên và lời ru của nước",
             description: "Một bài viết nhẹ, dành cho những ai muốn thở chậm và nghe lòng mình dịu lại.",
-            href: "#",
+            href: "/tam-linh/mua-chuong-chieu-trong-san-chua-nho",
           },
           {
             tag: "Đọc thơ",
             title: "Mùa lúa chín và mùi khói bếp",
             description: "Sắc vàng cuối vụ chạm vào miền nhớ, gợi nên cảm giác ấm áp rất quê nhà.",
-            href: "#",
+            href: "/doc-tho/ben-do",
           },
         ],
       },
@@ -416,7 +416,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           href: "/bai-viet-mau",
         },
         {
-          tag: "Thơ chữa lành",
+          tag: "Th\u01a1 chi\u00eam nghi\u1ec7m",
           title: "Ngồi nghe nước kể",
           description: "Bài thơ ngắn cho những ngày cần nghỉ lại giữa guồng quay vội.",
           image:
@@ -632,19 +632,19 @@ export const translations: Record<Locale, TranslationSchema> = {
             tag: "Stories",
             title: "Morning wind by the old dock",
             description: "Small slices of childhood where the rowing rhythm still echoes.",
-            href: "#",
+            href: "/ke-chuyen/ben-do-cu-qua-mot-mua-mua",
           },
           {
             tag: "Spirituality",
             title: "A quiet night and water lullaby",
             description: "A gentle piece for slowing down and hearing your inner voice.",
-            href: "#",
+            href: "/tam-linh/mua-chuong-chieu-trong-san-chua-nho",
           },
           {
             tag: "Poetry",
             title: "Harvest season and kitchen smoke",
             description: "Golden fields touch memory and return a warm feeling of home.",
-            href: "#",
+            href: "/doc-tho/ben-do",
           },
         ],
       },
@@ -692,7 +692,7 @@ export const translations: Record<Locale, TranslationSchema> = {
           href: "/bai-viet-mau",
         },
         {
-          tag: "Healing poetry",
+          tag: "Reflective poetry",
           title: "Listening to the water",
           description: "A short, soothing poem for days when you need to pause.",
           image:

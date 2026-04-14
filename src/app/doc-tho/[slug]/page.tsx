@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { shouldRenderAuthor } from "@/data/contentLibrary";
+import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
@@ -255,6 +256,24 @@ export default function PoemDetailPage() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pb-20">
+          <div className="site-shell">
+            <div className="rounded-[1.8rem] border border-[#d8b89b] bg-[#f8efe5] p-7 shadow-soft sm:p-9">
+              <p className="eyebrow mb-2">{copy.contactEyebrow}</p>
+              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.contactTitle}</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{copy.contactDescription}</p>
+              <a
+                href={CONTACT_FORM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 inline-flex rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
+              >
+                {copy.contactButton}
+              </a>
             </div>
           </div>
         </section>

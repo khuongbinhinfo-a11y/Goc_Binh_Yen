@@ -67,17 +67,6 @@ const poetryBase: ContentItem[] = rawPoems
     isFeatured: index === 0,
   }));
 
-const poemCoverOverrides: Record<string, string> = {
-  "khoang-cach-vo-hinh": "/images/poems/khoang-cach-vo-hinh.jpeg",
-  "hoa-luc-binh": "/images/poems/hoa-luc-binh.jpeg",
-  "em-mua-xuan-ve": "/images/poems/em-mua-xuan-ve.jpeg",
-  "em-trong-anh": "/images/poems/em-trong-anh.jpeg",
-  "anh-yeu-em": "/images/poems/anh-yeu-em.jpeg",
-  nho: "/images/poems/nho.jpeg",
-  "tieng-keu-chim-le-ban": "/images/poems/tieng-keu-chim-le-ban.jpeg",
-  "ngang-ben-song-xua": "/images/poems/ngang-ben-song-xua.jpeg",
-};
-
 export const storyPosts: ContentItem[] = [
   {
     title: "Bến đò cũ qua một mùa mưa",
@@ -320,7 +309,6 @@ export const poetryPosts: ContentItem[] = poetryBase.map((item) => {
 
   return {
     ...item,
-    coverImage: poemCoverOverrides[item.slug] ?? item.coverImage,
     relatedPosts: item.relatedPosts.length > 0 ? item.relatedPosts : fallbackRelated,
   };
 });
