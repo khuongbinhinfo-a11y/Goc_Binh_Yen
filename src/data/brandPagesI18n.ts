@@ -1,4 +1,4 @@
-import { CONTACT_FORM_URL, FACEBOOK_URL } from "@/data/homepageData";
+import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { Locale } from "@/data/i18n";
 
 type LinkAction = {
@@ -31,23 +31,31 @@ type BookcaseCopy = {
   closingButton: string;
 };
 
-type SupportWay = {
-  title: string;
-  description: string;
-  action: LinkAction;
+type SupportDetail = {
+  label: string;
+  value: string;
 };
 
 type SupportCopy = {
   heroEyebrow: string;
   heroTitle: string;
   heroDescription: string;
-  introTitle: string;
-  introDescription: string;
-  waysTitle: string;
-  ways: SupportWay[];
+  companionTitle: string;
+  companionDescription: string;
+  qrCardTitle: string;
+  qrCardDescription: string;
+  qrCardImage: string;
+  qrCardAlt: string;
+  transferInfoTitle: string;
+  transferDetails: SupportDetail[];
+  accountNumber: string;
+  copyButton: string;
+  copiedButton: string;
+  helperText: string;
   closingTitle: string;
   closingDescription: string;
   closingButton: string;
+  closingAction: LinkAction;
 };
 
 type BrandPagesCopy = {
@@ -139,47 +147,43 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroEyebrow: "Một lời đồng hành",
       heroTitle: "Ủng hộ Hồn Thơ",
       heroDescription:
-        "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng từng lời nhắn và sự đồng hành chân thành.",
-      introTitle: "Vì sao có thể ủng hộ?",
-      introDescription:
-        "Sự ủng hộ giúp Hồn Thơ duy trì nhịp xuất bản đều đặn, hoàn thiện bản đọc và chăm chút thêm cho những ấn phẩm in về sau.",
-      waysTitle: "Những cách đồng hành nhẹ nhàng",
-      ways: [
+        "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng.",
+      companionTitle: "Một lời đồng hành dịu dàng",
+      companionDescription:
+        "Mỗi sự ủng hộ, dù nhỏ, đều là một cách để những câu chữ, giọng đọc và khoảng lặng nơi đây được ở lại lâu hơn.",
+      qrCardTitle: "Biểu mẫu ủng hộ",
+      qrCardDescription:
+        "Quét mã để gửi một phần ủng hộ cho Hồn Thơ theo cách thuận tiện nhất dành cho bạn.",
+      qrCardImage: "/images/support/qr-bank.jpg",
+      qrCardAlt: "Mã QR ủng hộ Hồn Thơ",
+      transferInfoTitle: "Thông tin chuyển khoản",
+      transferDetails: [
         {
-          title: "Gửi một lời nhắn đồng hành",
-          description:
-            "Để lại đôi dòng chia sẻ, góp ý hoặc lời động viên để Hồn Thơ biết bạn đang ở đây cùng chúng tôi.",
-          action: {
-            label: "Mở biểu mẫu liên hệ",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
+          label: "Số tài khoản",
+          value: "100870892731",
         },
         {
-          title: "Lan tỏa nội dung bạn yêu thích",
-          description:
-            "Chia sẻ một bài thơ hay câu chuyện bạn thấy chạm lòng tới người thân và bạn bè.",
-          action: {
-            label: "Đến trang Facebook",
-            href: FACEBOOK_URL,
-            external: true,
-          },
+          label: "Chủ tài khoản",
+          value: "Nguyễn Ngọc Kim Ngân",
         },
         {
-          title: "Ngỏ ý ủng hộ ấn phẩm in",
-          description:
-            "Nếu bạn muốn góp một phần nhỏ cho các đợt in tiếp theo, hãy gửi lời ngỏ qua biểu mẫu liên hệ.",
-          action: {
-            label: "Gửi một lời ủng hộ",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
+          label: "Ngân hàng",
+          value: "VietinBank",
         },
       ],
-      closingTitle: "Mỗi sự nâng đỡ đều được trân quý",
+      accountNumber: "100870892731",
+      copyButton: "Sao chép số tài khoản",
+      copiedButton: "Đã sao chép",
+      helperText: "Bạn có thể dùng ứng dụng ngân hàng để quét mã và xác nhận chuyển khoản.",
+      closingTitle: "Gửi một lời nhắn cho Hồn Thơ",
       closingDescription:
-        "Dù là một lời chia sẻ hay một đóng góp nhỏ, Hồn Thơ luôn ghi nhận bằng sự biết ơn và trách nhiệm gìn giữ không gian này.",
-      closingButton: "Gửi một lời ủng hộ",
+        "Nếu bạn muốn chia sẻ đôi dòng sau khi ủng hộ, Hồn Thơ luôn trân trọng và lắng nghe.",
+      closingButton: "Liên hệ cùng Hồn Thơ",
+      closingAction: {
+        label: "Liên hệ cùng Hồn Thơ",
+        href: CONTACT_FORM_URL,
+        external: true,
+      },
     },
   },
   en: {
@@ -262,49 +266,44 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       closingButton: "Contact for details",
     },
     support: {
-      heroEyebrow: "A gentle way to stand with us",
+      heroEyebrow: "A gentle contribution",
       heroTitle: "Support Hồn Thơ",
       heroDescription:
-        "If you would like to offer a small contribution to sustain this space, Hồn Thơ receives every message with gratitude.",
-      introTitle: "Why support matters",
-      introDescription:
-        "Your support helps Hồn Thơ maintain a steady publishing rhythm, improve voice readings, and care for future print editions.",
-      waysTitle: "Quiet ways to support",
-      ways: [
+        "If you wish to offer a small contribution to keep this space alive, Hồn Thơ is deeply grateful.",
+      companionTitle: "A gentle way to stand with us",
+      companionDescription:
+        "Every contribution, however small, helps keep these words, voice readings, and quiet pauses alive a little longer.",
+      qrCardTitle: "Support form",
+      qrCardDescription: "Scan the code to send your support in the way that feels most convenient for you.",
+      qrCardImage: "/images/support/qr-bank.jpg",
+      qrCardAlt: "Support QR code for Hồn Thơ",
+      transferInfoTitle: "Transfer details",
+      transferDetails: [
         {
-          title: "Send a message of encouragement",
-          description:
-            "Leave a short note, reflection, or suggestion so we know you are accompanying this journey.",
-          action: {
-            label: "Open contact form",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
+          label: "Account number",
+          value: "100870892731",
         },
         {
-          title: "Share a piece you love",
-          description: "Pass along a poem or story that touched you to friends and loved ones.",
-          action: {
-            label: "Visit Facebook",
-            href: FACEBOOK_URL,
-            external: true,
-          },
+          label: "Account name",
+          value: "Nguyễn Ngọc Kim Ngân",
         },
         {
-          title: "Express support for print editions",
-          description:
-            "If you wish to contribute to future print runs, leave your intention through the contact form.",
-          action: {
-            label: "Send support",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
+          label: "Bank",
+          value: "VietinBank",
         },
       ],
-      closingTitle: "Every gesture is deeply appreciated",
-      closingDescription:
-        "Whether it is a kind note or a small contribution, Hồn Thơ receives it with care and responsibility.",
-      closingButton: "Send a support message",
+      accountNumber: "100870892731",
+      copyButton: "Copy account number",
+      copiedButton: "Copied",
+      helperText: "Use your banking app to scan the code and complete the transfer.",
+      closingTitle: "Send a short note to Hồn Thơ",
+      closingDescription: "If you would like to leave a message after your support, we would be grateful to hear from you.",
+      closingButton: "Contact Hồn Thơ",
+      closingAction: {
+        label: "Contact Hồn Thơ",
+        href: CONTACT_FORM_URL,
+        external: true,
+      },
     },
   },
 };
