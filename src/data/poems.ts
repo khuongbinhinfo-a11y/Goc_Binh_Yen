@@ -511,30 +511,6 @@ export const poems: PoemItem[] = [
       recommendedScene: "Đêm sông có đom đóm và ánh trăng non, không gian mở nhưng vẫn giữ nét riêng tư.",
       licenseNote: "Các link Pinterest / mạng xã hội chỉ dùng làm mood reference, chưa phải ảnh production.",
     },
-  },
-{
-    slug: "bo-sung-bai-tho-thu-10",
-    title: "Bài thơ thứ 10 (đang bổ sung)",
-    tag: "Đang cập nhật",
-    summary: "Vị trí dữ liệu được chừa sẵn để bổ sung bài thơ thứ 10 ngay khi có nội dung và ảnh xác nhận.",
-    author: "Lê Dũng",
-    locationDate: "Đang chờ bổ sung",
-    cardImage: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1200&q=80",
-    heroImage: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1600&q=80",
-    content: "Nội dung bài thơ đang được cập nhật.",
-    status: "upcoming",
-    analysis: {
-      emotionFlow: "Sẽ cập nhật sau khi nội dung bài thơ được xác nhận.",
-      standoutImages: "Sẽ cập nhật sau khi nội dung bài thơ được xác nhận.",
-      meaning: "Sẽ cập nhật sau khi nội dung bài thơ được xác nhận.",
-      memorableLine: "Sẽ cập nhật sau khi nội dung bài thơ được xác nhận.",
-    },
-    imageResearch: {
-      moodKeywords: ["bến sông chiều", "ký ức quê nhà", "nắng cuối ngày"],
-      referenceLinks: ["https://www.pinterest.com/search/pins/?q=ben%20song%20chieu", "https://unsplash.com/s/photos/river-sunset"],
-      recommendedScene: "Bến sông chiều vắng, ánh nâu cam êm và có khoảng thở cho cảm xúc.",
-      licenseNote: "Các link Pinterest / mạng xã hội chỉ dùng làm mood reference, chưa phải ảnh production.",
-    },
   }
 ];
 
