@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { FACEBOOK_URL } from "@/data/homepageData";
+import { FACEBOOK_URL, POET_BOOKCASE_URL, SUPPORT_HON_THO_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
 
 export default function SiteFooter() {
@@ -32,6 +32,14 @@ export default function SiteFooter() {
             >
               {t.footer.facebook}
             </a>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <a href={POET_BOOKCASE_URL} className="inline-flex font-semibold text-[#7d5338] transition hover:text-[#5f3d2a]">
+                {t.footer.bookcase}
+              </a>
+              <a href={SUPPORT_HON_THO_URL} className="inline-flex font-semibold text-[#7d5338] transition hover:text-[#5f3d2a]">
+                {t.footer.support}
+              </a>
+            </div>
           </div>
 
           <nav

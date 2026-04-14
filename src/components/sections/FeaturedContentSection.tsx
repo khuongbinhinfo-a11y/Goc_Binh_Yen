@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
+import SafeImage from "@/components/ui/SafeImage";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function FeaturedContentSection() {
   const { t } = useLocale();
@@ -24,8 +25,9 @@ export default function FeaturedContentSection() {
             <Link key={card.title} href={card.href} className="group block">
               <article className="overflow-hidden rounded-[2rem] border border-[#d7b89b]/60 bg-white shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
                 <div className="relative h-56 overflow-hidden">
-                  <Image
+                  <SafeImage
                     src={card.image}
+                    fallbackSrc={IMAGE_FALLBACKS.global}
                     alt={card.title}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"

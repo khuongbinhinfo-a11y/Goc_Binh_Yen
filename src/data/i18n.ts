@@ -104,6 +104,8 @@ export type TranslationSchema = {
   footer: {
     description: string;
     facebook: string;
+    bookcase: string;
+    support: string;
     rights: string;
     by: string;
   };
@@ -294,6 +296,8 @@ export const translations: Record<Locale, TranslationSchema> = {
     footer: {
       description: "Nơi thơ, chuyện và những xúc cảm nhẹ nhàng tìm về nhau giữa sắc chiều quê hương.",
       facebook: "Facebook chính thức",
+      bookcase: "Tủ sách",
+      support: "Ủng hộ",
       rights: "All rights reserved.",
       by: "By Khương Bình",
     },
@@ -572,6 +576,8 @@ export const translations: Record<Locale, TranslationSchema> = {
     footer: {
       description: "A place where poetry, stories, and gentle emotions meet in the light of dusk.",
       facebook: "Official Facebook",
+      bookcase: "Bookcase",
+      support: "Support",
       rights: "All rights reserved.",
       by: "By Khương Bình",
     },

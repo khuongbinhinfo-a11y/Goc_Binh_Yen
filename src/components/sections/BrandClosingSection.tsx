@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
-
+import SafeImage from "@/components/ui/SafeImage";
 import { getHomepageBrandCopy } from "@/data/homepageBrandI18n";
 import { POET_BOOKCASE_URL, SUPPORT_HON_THO_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function BrandClosingSection() {
   const { locale } = useLocale();
@@ -22,8 +22,9 @@ export default function BrandClosingSection() {
         <div className="grid gap-5 lg:grid-cols-2">
           <article className="soft-panel group relative overflow-hidden border-[#d8b89b]/70 bg-[#f7efe5] p-0">
             <div className="absolute inset-0">
-              <Image
+              <SafeImage
                 src="/images/poems/em-mua-xuan-ve.jpeg"
+                fallbackSrc={IMAGE_FALLBACKS.bookcase}
                 alt={copy.poetBookcase.title}
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
@@ -46,7 +47,7 @@ export default function BrandClosingSection() {
 
           <article className="soft-panel relative overflow-hidden border-[#d8b89b]/70 bg-[#f9f1e8] p-0">
             <div className="absolute inset-0">
-              <Image src="/images/4.webp" alt={copy.support.title} fill className="object-cover" />
+              <SafeImage src="/images/4.webp" fallbackSrc={IMAGE_FALLBACKS.global} alt={copy.support.title} fill className="object-cover" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-[#7d553c]/12 via-[#533626]/30 to-[#2d1e16]/64" />
             <div className="relative min-h-[290px] p-6 sm:p-7">

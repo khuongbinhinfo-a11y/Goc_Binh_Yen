@@ -7,6 +7,7 @@ import {
   storyPosts,
 } from "@/data/contentLibrary";
 import { Locale } from "@/data/i18n";
+import { getContentFallbackImage, getSafeImageSrc } from "@/lib/image";
 
 export type LocalizedContentItem = ContentItem & {
   i18nStatus: {
@@ -175,6 +176,7 @@ function localizeContentItem(item: ContentItem, locale: Locale): LocalizedConten
 
   const localizedItem: LocalizedContentItem = {
     ...item,
+    coverImage: getSafeImageSrc(item.coverImage, getContentFallbackImage(item.contentType)),
     title: resolveLocalizedField(locale, "title", item.title, override?.title, missingEnFields) ?? item.title,
     category: resolveLocalizedField(locale, "category", item.category, override?.category, missingEnFields) ?? item.category,
     excerpt: resolveLocalizedField(locale, "excerpt", item.excerpt, override?.excerpt, missingEnFields) ?? item.excerpt,

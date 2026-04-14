@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
+import SafeImage from "@/components/ui/SafeImage";
 import EditorialListingGrid from "@/components/content/EditorialListingGrid";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -10,6 +10,7 @@ import { shouldRenderAuthor } from "@/data/contentLibrary";
 import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { getContentFallbackImage } from "@/lib/image";
 
 export default function DocThoPage() {
   const { locale } = useLocale();
@@ -25,11 +26,23 @@ export default function DocThoPage() {
       <SiteHeader />
 
       <main>
-        <section className="relative overflow-hidden border-b border-[#dec2a7] bg-gradient-to-b from-[#f8efe4] to-[#f1e3d4] py-12 sm:py-14">
-          <div className="site-shell">
-            <p className="eyebrow">{copy.eyebrow}</p>
-            <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">{copy.title}</h1>
-            <p className="mt-3 max-w-3xl text-sm leading-8 text-[#664a3a] sm:text-base">{copy.description}</p>
+        <section className="relative overflow-hidden border-b border-[#dec2a7]">
+          <div className="absolute inset-0">
+            <SafeImage
+              src={copy.heroImage}
+              fallbackSrc={getContentFallbackImage("poem")}
+              alt={copy.heroAlt}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/28 via-[#4c3022]/46 to-[#2a1a13]/78" />
+
+          <div className="site-shell relative z-10 py-12 sm:py-14">
+            <p className="eyebrow text-[#f1d9bd]">{copy.eyebrow}</p>
+            <h1 className="text-4xl font-bold leading-[1.12] text-white sm:text-5xl">{copy.title}</h1>
+            <p className="mt-3 max-w-3xl text-sm leading-8 text-[#f6e8d7] sm:text-base">{copy.description}</p>
           </div>
         </section>
 
@@ -50,8 +63,9 @@ export default function DocThoPage() {
           <div className="site-shell">
             <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
               <div className="relative min-h-[260px]">
-                <Image
+                <SafeImage
                   src={featured.coverImage}
+                  fallbackSrc={getContentFallbackImage("poem")}
                   alt={featured.title}
                   fill
                   className="object-cover"

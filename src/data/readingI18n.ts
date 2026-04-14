@@ -5,6 +5,8 @@ type ListingCopy = {
   eyebrow: string;
   title: string;
   description: string;
+  heroImage: string;
+  heroAlt: string;
   intro: string;
   featuredTag: string;
   gridTitle: string;
@@ -59,6 +61,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Đọc thơ",
         description:
           "Những bài thơ mang nhịp chậm của chiều quê, nơi ký ức và cảm xúc được nâng niu bằng câu chữ mộc mạc.",
+        heroImage: "/images/poems/ben-do.jpeg",
+        heroAlt: "Bến sông quê trong ánh chiều",
         intro:
           "Mỗi bài thơ là một khoảng lặng nhỏ: có giọng quê, có chiều tà, có những xúc cảm được kể lại bằng nhịp điệu nhẹ nhàng.",
         featuredTag: "Bài thơ nổi bật",
@@ -107,6 +111,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Kể chuyện",
         description:
           "Những câu chuyện mộc mạc từ đời sống sông nước, nơi ký ức, tình người và nhịp sống chậm còn được giữ nguyên.",
+        heroImage: "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1600&q=80",
+        heroAlt: "Bến đò cũ trong cơn mưa chiều",
         intro:
           "Mỗi bài kể là một lát cắt gần gũi của quê nhà, được kể bằng giọng nhẹ, ấm và đủ sâu để người đọc dừng lại.",
         featuredTag: "Câu chuyện nổi bật",
@@ -150,6 +156,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Tâm linh",
         description:
           "Những bài viết lắng sâu cho khoảng chiêm nghiệm nhẹ, nơi nhịp thở chậm lại và lòng người tìm được sự an tĩnh.",
+        heroImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1600&q=80",
+        heroAlt: "Khoảng sân chùa yên tĩnh lúc cuối ngày",
         intro:
           "Mỗi nội dung là một khoảng dừng vừa đủ để nhìn vào bên trong, giữ tinh thần chậm, ấm và sâu của Hồn Thơ.",
         featuredTag: "Nội dung nổi bật",
@@ -195,6 +203,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Poetry",
         description:
           "A collection of poems shaped by the slow rhythm of dusk, where memory and feeling are held with gentle words.",
+        heroImage: "/images/poems/ben-do.jpeg",
+        heroAlt: "Riverside dusk in warm evening light",
         intro:
           "Each poem is a gentle pause: carrying the voice of home, the light of dusk, and emotions told with calm rhythm.",
         featuredTag: "Featured poem",
@@ -243,6 +253,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Stories",
         description:
           "Simple stories from riverside life, where memory, compassion, and a slower rhythm remain close.",
+        heroImage: "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1600&q=80",
+        heroAlt: "An old dock in gentle evening rain",
         intro:
           "Each piece keeps a gentle storytelling voice, drawing from familiar details of homeland evenings and everyday care.",
         featuredTag: "Featured story",
@@ -286,6 +298,8 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         title: "Spirituality",
         description:
           "Quiet pieces for contemplation, where breath slows down and the heart finds stillness.",
+        heroImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1600&q=80",
+        heroAlt: "A quiet pagoda yard at dusk",
         intro:
           "Each piece is a gentle pause for reflection, carrying the calm tone of riverside evenings and inward listening.",
         featuredTag: "Featured piece",

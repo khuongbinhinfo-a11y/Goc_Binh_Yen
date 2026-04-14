@@ -1,16 +1,17 @@
 ﻿"use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 import { useParams } from "next/navigation";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import SafeImage from "@/components/ui/SafeImage";
 import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { getContentFallbackImage } from "@/lib/image";
 
 export default function SpiritualDetailPage() {
   const params = useParams<{ slug: string }>();
@@ -65,7 +66,14 @@ export default function SpiritualDetailPage() {
       <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <Image src={post.coverImage} alt={post.title} fill priority className="object-cover" />
+            <SafeImage
+              src={post.coverImage}
+              fallbackSrc={getContentFallbackImage("spiritual")}
+              alt={post.title}
+              fill
+              priority
+              className="object-cover"
+            />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/30 via-[#4c3022]/46 to-[#2b1b14]/76" />
 
@@ -186,7 +194,13 @@ export default function SpiritualDetailPage() {
               {relatedPosts.map((item) => (
                 <article key={item.slug} className="soft-panel overflow-hidden bg-white/85">
                   <div className="relative h-48">
-                    <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
+                    <SafeImage
+                      src={item.coverImage}
+                      fallbackSrc={getContentFallbackImage("spiritual")}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div className="p-5">
                     <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">

@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
-
+import SafeImage from "@/components/ui/SafeImage";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function ContentPillarsSection() {
   const { t } = useLocale();
@@ -19,8 +19,9 @@ export default function ContentPillarsSection() {
           {t.contentPillars.items.map((pillar) => (
             <article key={pillar.id} id={pillar.id} className="soft-panel group scroll-mt-24 overflow-hidden bg-white/75">
               <div className="relative h-44 overflow-hidden">
-                <Image
+                <SafeImage
                   src={pillar.image}
+                  fallbackSrc={IMAGE_FALLBACKS.global}
                   alt={pillar.title}
                   fill
                   className="object-cover transition duration-500 group-hover:scale-105"

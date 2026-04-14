@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
-
+import SafeImage from "@/components/ui/SafeImage";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getBrandPagesCopy } from "@/data/brandPagesI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function TuSachPage() {
   const { locale } = useLocale();
@@ -38,7 +38,13 @@ export default function TuSachPage() {
           <div className="site-shell">
             <article className="soft-panel overflow-hidden bg-white/85 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
               <div className="relative min-h-[260px]">
-                <Image src={copy.featuredBook.coverImage} alt={copy.featuredBook.title} fill className="object-cover" />
+                <SafeImage
+                  src={copy.featuredBook.coverImage}
+                  fallbackSrc={IMAGE_FALLBACKS.bookcase}
+                  alt={copy.featuredBook.title}
+                  fill
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3f271b]/38 to-transparent" />
               </div>
               <div className="p-6 sm:p-7">
@@ -77,7 +83,7 @@ export default function TuSachPage() {
               {copy.books.map((book) => (
                 <article key={book.title} className="soft-panel overflow-hidden bg-white/85">
                   <div className="relative h-56">
-                    <Image src={book.coverImage} alt={book.title} fill className="object-cover" />
+                    <SafeImage src={book.coverImage} fallbackSrc={IMAGE_FALLBACKS.bookcase} alt={book.title} fill className="object-cover" />
                   </div>
                   <div className="p-5">
                     <p className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">

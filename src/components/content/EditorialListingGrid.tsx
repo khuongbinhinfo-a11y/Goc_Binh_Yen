@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
+import SafeImage from "@/components/ui/SafeImage";
 import { LocalizedContentItem } from "@/data/localizedContent";
+import { getContentFallbackImage } from "@/lib/image";
 
 type EditorialListingGridProps = {
   items: LocalizedContentItem[];
@@ -40,7 +41,13 @@ export default function EditorialListingGrid({
           <article key={item.slug} className={cardClass}>
             <div className={isWide ? "md:grid md:grid-cols-[1.12fr_0.88fr]" : ""}>
               <div className={imageClass}>
-                <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
+                <SafeImage
+                  src={item.coverImage}
+                  fallbackSrc={getContentFallbackImage(item.contentType)}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-5">
                 <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
@@ -64,4 +71,3 @@ export default function EditorialListingGrid({
     </div>
   );
 }
-

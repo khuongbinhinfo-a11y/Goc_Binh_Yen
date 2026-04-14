@@ -1,16 +1,23 @@
 "use client";
 
-import Image from "next/image";
-
+import SafeImage from "@/components/ui/SafeImage";
 import { HERO_IMAGE } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function HeroSection() {
   const { t } = useLocale();
 
   return (
     <section id="trang-chu" className="relative min-h-[82vh] overflow-hidden scroll-mt-24">
-      <Image src={HERO_IMAGE} alt={t.hero.title} fill priority className="object-cover" />
+      <SafeImage
+        src={HERO_IMAGE}
+        fallbackSrc={IMAGE_FALLBACKS.global}
+        alt={t.hero.title}
+        fill
+        priority
+        className="object-cover"
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/24 via-[#4d3022]/42 to-[#2e1e16]/72" />
 
       <div className="site-shell relative z-10 flex min-h-[82vh] items-center py-14">

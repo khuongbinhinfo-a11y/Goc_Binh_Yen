@@ -1,12 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import SafeImage from "@/components/ui/SafeImage";
 import { getBrandPagesCopy } from "@/data/brandPagesI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS } from "@/lib/image";
 
 export default function UngHoPage() {
   const { locale } = useLocale();
@@ -60,7 +61,13 @@ export default function UngHoPage() {
 
               <article className="soft-panel overflow-hidden border-[#d8b89b] bg-[#f8efe5]">
                 <div className="relative h-52 bg-[#f3e0cd] sm:h-60">
-                  <Image src={copy.qrCardImage} alt={copy.qrCardAlt} fill className="object-contain p-5 sm:p-7" />
+                  <SafeImage
+                    src={copy.qrCardImage}
+                    fallbackSrc={IMAGE_FALLBACKS.support}
+                    alt={copy.qrCardAlt}
+                    fill
+                    className="object-contain p-5 sm:p-7"
+                  />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#4a2f20]/8 via-transparent to-transparent" />
                 </div>
 
