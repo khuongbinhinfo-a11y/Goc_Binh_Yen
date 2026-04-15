@@ -12,7 +12,7 @@ import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
 
 export default function PoemDetailPage() {
   const params = useParams<{ slug: string }>();
@@ -26,6 +26,7 @@ export default function PoemDetailPage() {
     if (!poem) return [];
     return getLocalizedRelatedContent(poem, locale, 3);
   }, [poem, locale]);
+  const poemFallbackCandidates = getContentFallbackCandidates("poem");
 
   if (!poem) {
     return (
@@ -77,6 +78,7 @@ export default function PoemDetailPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={poem.coverImage}
+              srcCandidates={poemFallbackCandidates}
               fallbackSrc={getContentFallbackImage("poem")}
               alt={poem.title}
               fill
@@ -249,6 +251,7 @@ export default function PoemDetailPage() {
                   <div className="relative h-48">
                     <SafeImage
                       src={item.coverImage}
+                      srcCandidates={poemFallbackCandidates}
                       fallbackSrc={getContentFallbackImage("poem")}
                       alt={item.title}
                       fill

@@ -11,7 +11,7 @@ import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
 
 export default function StoryDetailPage() {
   const params = useParams<{ slug: string }>();
@@ -25,6 +25,7 @@ export default function StoryDetailPage() {
     if (!story) return [];
     return getLocalizedRelatedContent(story, locale, 3);
   }, [story, locale]);
+  const storyFallbackCandidates = getContentFallbackCandidates("story");
 
   if (!story) {
     return (
@@ -68,6 +69,7 @@ export default function StoryDetailPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={story.coverImage}
+              srcCandidates={storyFallbackCandidates}
               fallbackSrc={getContentFallbackImage("story")}
               alt={story.title}
               fill
@@ -196,6 +198,7 @@ export default function StoryDetailPage() {
                   <div className="relative h-48">
                     <SafeImage
                       src={item.coverImage}
+                      srcCandidates={storyFallbackCandidates}
                       fallbackSrc={getContentFallbackImage("story")}
                       alt={item.title}
                       fill

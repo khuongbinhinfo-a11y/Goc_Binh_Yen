@@ -10,7 +10,7 @@ import { shouldRenderAuthor } from "@/data/contentLibrary";
 import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function DocThoPage() {
   const { locale } = useLocale();
@@ -20,6 +20,7 @@ export default function DocThoPage() {
   const featured = poems.find((item) => item.isFeatured) ?? poems[0];
   const listItems = poems.filter((item) => item.slug !== featured.slug);
   const hasFallback = poems.some((item) => item.i18nStatus.hasFallback);
+  const poemFallbackCandidates = getContentFallbackCandidates("poem");
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -30,6 +31,7 @@ export default function DocThoPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={copy.heroImage}
+              srcCandidates={LOCAL_IMAGE_MAP.heroPoetry.candidates}
               fallbackSrc={getContentFallbackImage("poem")}
               alt={copy.heroAlt}
               fill
@@ -65,6 +67,7 @@ export default function DocThoPage() {
               <div className="relative min-h-[260px]">
                 <SafeImage
                   src={featured.coverImage}
+                  srcCandidates={poemFallbackCandidates}
                   fallbackSrc={getContentFallbackImage("poem")}
                   alt={featured.title}
                   fill

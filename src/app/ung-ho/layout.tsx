@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { createRouteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createRouteMetadata({
@@ -7,7 +8,7 @@ export const metadata: Metadata = createRouteMetadata({
   description:
     "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng từng lời đồng hành.",
   path: "/ung-ho",
-  image: "/images/4.webp",
+  image: LOCAL_IMAGE_MAP.heroSupport.fallback,
 });
 
 export default function UngHoLayout({

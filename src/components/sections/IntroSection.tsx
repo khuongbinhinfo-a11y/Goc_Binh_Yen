@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
-
+import SafeImage from "@/components/ui/SafeImage";
 import { getHomepageBrandCopy } from "@/data/homepageBrandI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function IntroSection() {
   const { locale, t } = useLocale();
@@ -21,7 +21,14 @@ export default function IntroSection() {
 
           <aside className="soft-panel overflow-hidden bg-[#efe0cf]">
             <div className="relative h-[240px] sm:h-[260px]">
-              <Image src="/images/4.webp" alt={t.intro.brandCardTitle} fill className="object-cover" />
+              <SafeImage
+                src={LOCAL_IMAGE_MAP.heroHome.src}
+                srcCandidates={LOCAL_IMAGE_MAP.heroHome.candidates}
+                fallbackSrc={IMAGE_FALLBACKS.global}
+                alt={t.intro.brandCardTitle}
+                fill
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#3b2519]/74 via-[#4c3122]/48 to-[#76513a]/12" />
 
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">

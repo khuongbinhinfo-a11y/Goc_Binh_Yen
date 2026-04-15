@@ -7,7 +7,7 @@ import SiteHeader from "@/components/layout/SiteHeader";
 import SafeImage from "@/components/ui/SafeImage";
 import { getBrandPagesCopy } from "@/data/brandPagesI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { IMAGE_FALLBACKS } from "@/lib/image";
+import { IMAGE_FALLBACKS, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function UngHoPage() {
   const { locale } = useLocale();
@@ -35,7 +35,15 @@ export default function UngHoPage() {
       <main>
         <section className="relative overflow-hidden border-b border-[#dec2a7]">
           <div className="absolute inset-0">
-            <SafeImage src={copy.heroImage} fallbackSrc={IMAGE_FALLBACKS.global} alt={copy.heroAlt} fill priority className="object-cover" />
+            <SafeImage
+              src={copy.heroImage}
+              srcCandidates={LOCAL_IMAGE_MAP.heroSupport.candidates}
+              fallbackSrc={IMAGE_FALLBACKS.global}
+              alt={copy.heroAlt}
+              fill
+              priority
+              className="object-cover"
+            />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#5b432f]/30 via-[#493428]/46 to-[#241912]/78" />
 
@@ -73,6 +81,7 @@ export default function UngHoPage() {
                 <div className="relative h-52 bg-[#f3e0cd] sm:h-60">
                   <SafeImage
                     src={copy.qrCardImage}
+                    srcCandidates={LOCAL_IMAGE_MAP.supportQr.candidates}
                     fallbackSrc={IMAGE_FALLBACKS.support}
                     alt={copy.qrCardAlt}
                     fill

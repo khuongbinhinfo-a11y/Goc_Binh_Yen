@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import { useMemo, useState } from "react";
 
 import { useLocale } from "@/hooks/useLocale";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
 
 type FooterGroupType = "explore" | "companion";
 type FooterLinkIconId =
@@ -78,6 +80,32 @@ function FooterLinkIcon({ id }: { id: FooterLinkIconId }) {
   );
 }
 
+function FooterOrnamentImage({ alt }: { alt: string }) {
+  const candidates = useMemo(() => LOCAL_IMAGE_MAP.footerOrnament.candidates, []);
+  const [index, setIndex] = useState(0);
+  const [hidden, setHidden] = useState(false);
+
+  if (hidden || candidates.length === 0) {
+    return null;
+  }
+
+  return (
+    <img
+      src={candidates[index]}
+      alt={alt}
+      className="h-10 w-auto rounded-lg object-contain opacity-85"
+      onError={() => {
+        const nextIndex = index + 1;
+        if (nextIndex < candidates.length) {
+          setIndex(nextIndex);
+          return;
+        }
+        setHidden(true);
+      }}
+    />
+  );
+}
+
 export default function SiteFooter() {
   const { locale, t } = useLocale();
 
@@ -100,7 +128,8 @@ export default function SiteFooter() {
             <p className="mt-4 max-w-2xl text-sm leading-7 text-[#654939] sm:text-base">{t.footer.description}</p>
 
             <div className="mt-5 rounded-2xl border border-[#d8b89b]/80 bg-[#f6ecdf]/75 p-4">
-              <div className="flex items-center gap-3 text-[#8b5e3c]">
+              <div className="flex flex-wrap items-center gap-3 text-[#8b5e3c]">
+                <FooterOrnamentImage alt={t.footer.decorativeNote} />
                 <svg aria-hidden="true" viewBox="0 0 120 20" className="h-4 w-28" fill="none">
                   <path
                     d="M2 10c7-6 14-6 21 0s14 6 21 0 14-6 21 0 14 6 21 0 14-6 21 0"

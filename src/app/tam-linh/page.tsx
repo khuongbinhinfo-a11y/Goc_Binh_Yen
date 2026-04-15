@@ -9,7 +9,7 @@ import SiteHeader from "@/components/layout/SiteHeader";
 import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function TamLinhPage() {
   const { locale } = useLocale();
@@ -19,6 +19,7 @@ export default function TamLinhPage() {
   const featured = items.find((item) => item.isFeatured) ?? items[0];
   const listItems = items.filter((item) => item.slug !== featured.slug);
   const hasFallback = items.some((item) => item.i18nStatus.hasFallback);
+  const spiritualFallbackCandidates = getContentFallbackCandidates("spiritual");
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -29,6 +30,7 @@ export default function TamLinhPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={copy.heroImage}
+              srcCandidates={LOCAL_IMAGE_MAP.heroSpiritual.candidates}
               fallbackSrc={getContentFallbackImage("spiritual")}
               alt={copy.heroAlt}
               fill
@@ -64,6 +66,7 @@ export default function TamLinhPage() {
               <div className="relative min-h-[260px]">
                 <SafeImage
                   src={featured.coverImage}
+                  srcCandidates={spiritualFallbackCandidates}
                   fallbackSrc={getContentFallbackImage("spiritual")}
                   alt={featured.title}
                   fill

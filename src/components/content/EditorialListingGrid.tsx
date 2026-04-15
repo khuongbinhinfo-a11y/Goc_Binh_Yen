@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { LocalizedContentItem } from "@/data/localizedContent";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
 
 type EditorialListingGridProps = {
   items: LocalizedContentItem[];
@@ -43,6 +43,7 @@ export default function EditorialListingGrid({
               <div className={imageClass}>
                 <SafeImage
                   src={item.coverImage}
+                  srcCandidates={getContentFallbackCandidates(item.contentType)}
                   fallbackSrc={getContentFallbackImage(item.contentType)}
                   alt={item.title}
                   fill

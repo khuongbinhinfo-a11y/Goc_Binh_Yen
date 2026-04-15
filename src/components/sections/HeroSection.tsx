@@ -1,7 +1,7 @@
 "use client";
 
 import SafeImage from "@/components/ui/SafeImage";
-import { HERO_IMAGE } from "@/data/homepageData";
+import { HERO_IMAGE, HERO_IMAGE_CANDIDATES } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
 import { IMAGE_FALLBACKS } from "@/lib/image";
 
@@ -12,6 +12,7 @@ export default function HeroSection() {
     <section id="trang-chu" className="relative min-h-[82vh] overflow-hidden scroll-mt-24">
       <SafeImage
         src={HERO_IMAGE}
+        srcCandidates={HERO_IMAGE_CANDIDATES}
         fallbackSrc={IMAGE_FALLBACKS.global}
         alt={t.hero.title}
         fill

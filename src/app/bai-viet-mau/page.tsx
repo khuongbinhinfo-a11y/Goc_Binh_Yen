@@ -1,12 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import SafeImage from "@/components/ui/SafeImage";
 import { CONTACT_FORM_URL, FACEBOOK_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
+import { IMAGE_FALLBACKS, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function SampleArticlePage() {
   const { t } = useLocale();
@@ -20,7 +21,15 @@ export default function SampleArticlePage() {
       <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="/images/4.webp" alt={article.title} fill priority className="object-cover" />
+            <SafeImage
+              src={LOCAL_IMAGE_MAP.heroHome.src}
+              srcCandidates={LOCAL_IMAGE_MAP.heroHome.candidates}
+              fallbackSrc={IMAGE_FALLBACKS.global}
+              alt={article.title}
+              fill
+              priority
+              className="object-cover"
+            />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/36 via-[#4c3022]/48 to-[#2b1b14]/78" />
 

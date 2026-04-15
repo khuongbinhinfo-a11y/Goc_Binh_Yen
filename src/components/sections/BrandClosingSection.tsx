@@ -4,7 +4,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import { getHomepageBrandCopy } from "@/data/homepageBrandI18n";
 import { POET_BOOKCASE_URL, SUPPORT_HON_THO_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
-import { IMAGE_FALLBACKS } from "@/lib/image";
+import { IMAGE_FALLBACKS, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function BrandClosingSection() {
   const { locale } = useLocale();
@@ -47,7 +47,14 @@ export default function BrandClosingSection() {
 
           <article className="soft-panel relative overflow-hidden border-[#d8b89b]/70 bg-[#f9f1e8] p-0">
             <div className="absolute inset-0">
-              <SafeImage src="/images/4.webp" fallbackSrc={IMAGE_FALLBACKS.global} alt={copy.support.title} fill className="object-cover" />
+              <SafeImage
+                src={LOCAL_IMAGE_MAP.heroSupport.src}
+                srcCandidates={LOCAL_IMAGE_MAP.heroSupport.candidates}
+                fallbackSrc={IMAGE_FALLBACKS.global}
+                alt={copy.support.title}
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-[#7d553c]/12 via-[#533626]/30 to-[#2d1e16]/64" />
             <div className="relative min-h-[290px] p-6 sm:p-7">

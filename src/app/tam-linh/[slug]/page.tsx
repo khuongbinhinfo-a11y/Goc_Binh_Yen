@@ -11,7 +11,7 @@ import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
 
 export default function SpiritualDetailPage() {
   const params = useParams<{ slug: string }>();
@@ -25,6 +25,7 @@ export default function SpiritualDetailPage() {
     if (!post) return [];
     return getLocalizedRelatedContent(post, locale, 3);
   }, [post, locale]);
+  const spiritualFallbackCandidates = getContentFallbackCandidates("spiritual");
 
   if (!post) {
     return (
@@ -68,6 +69,7 @@ export default function SpiritualDetailPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={post.coverImage}
+              srcCandidates={spiritualFallbackCandidates}
               fallbackSrc={getContentFallbackImage("spiritual")}
               alt={post.title}
               fill
@@ -196,6 +198,7 @@ export default function SpiritualDetailPage() {
                   <div className="relative h-48">
                     <SafeImage
                       src={item.coverImage}
+                      srcCandidates={spiritualFallbackCandidates}
                       fallbackSrc={getContentFallbackImage("spiritual")}
                       alt={item.title}
                       fill

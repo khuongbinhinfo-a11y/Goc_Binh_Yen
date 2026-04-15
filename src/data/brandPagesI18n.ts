@@ -1,5 +1,6 @@
 import { CONTACT_FORM_URL } from "@/data/homepageData";
 import { Locale } from "@/data/i18n";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
 
 type LinkAction = {
   label: string;
@@ -72,7 +73,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Ủng hộ Hồn Thơ",
       heroDescription:
         "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng.",
-      heroImage: "/images/4.webp",
+      heroImage: LOCAL_IMAGE_MAP.heroSupport.src,
       heroAlt: "Khoảng lặng chiều quê với ánh sáng dịu",
       companionTitle: "Một lời ghé lại",
       companionDescription:
@@ -81,7 +82,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       companionAlt: "Mặt sông chiều lặng với ánh nắng ấm nhẹ",
       qrCardTitle: "Mã QR ủng hộ",
       qrCardDescription: "Mã QR dành cho một lời đồng hành nhẹ cùng Hồn Thơ.",
-      qrCardImage: "/images/support/qr-bank.jpg",
+      qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
       qrCardAlt: "Mã QR ủng hộ Hồn Thơ",
       transferDetails: [
         {
@@ -130,7 +131,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Support Hồn Thơ",
       heroDescription:
         "If you wish to offer a small contribution to keep this space alive, Hồn Thơ is deeply grateful.",
-      heroImage: "/images/4.webp",
+      heroImage: LOCAL_IMAGE_MAP.heroSupport.src,
       heroAlt: "A calm evening scene with soft light",
       companionTitle: "A quiet note of kindness",
       companionDescription:
@@ -139,7 +140,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       companionAlt: "A quiet riverside in warm evening light",
       qrCardTitle: "Support QR code",
       qrCardDescription: "A gentle QR option for those who wish to stand with Hồn Thơ.",
-      qrCardImage: "/images/support/qr-bank.jpg",
+      qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
       qrCardAlt: "Support QR code for Hồn Thơ",
       transferDetails: [
         {

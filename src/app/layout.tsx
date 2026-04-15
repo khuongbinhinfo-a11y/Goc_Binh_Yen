@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 
 import { LocaleProvider } from "@/components/providers/LocaleProvider";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 import "./globals.css";
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/images/4.webp",
+        url: LOCAL_IMAGE_MAP.heroHome.fallback,
         width: 1200,
         height: 630,
         alt: "Hồn Thơ",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     title: SITE_NAME,
     description:
       "Hồn Thơ là nơi câu chữ, giọng đọc và những cảm xúc nhẹ được cất lên giữa sắc chiều quê hương.",
-    images: ["/images/4.webp"],
+    images: [LOCAL_IMAGE_MAP.heroHome.fallback],
   },
 };
 

@@ -9,7 +9,7 @@ import SiteHeader from "@/components/layout/SiteHeader";
 import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
-import { getContentFallbackImage } from "@/lib/image";
+import { getContentFallbackCandidates, getContentFallbackImage, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export default function KeChuyenPage() {
   const { locale } = useLocale();
@@ -19,6 +19,7 @@ export default function KeChuyenPage() {
   const featured = stories.find((item) => item.isFeatured) ?? stories[0];
   const listItems = stories.filter((item) => item.slug !== featured.slug);
   const hasFallback = stories.some((item) => item.i18nStatus.hasFallback);
+  const storyFallbackCandidates = getContentFallbackCandidates("story");
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -29,6 +30,7 @@ export default function KeChuyenPage() {
           <div className="absolute inset-0">
             <SafeImage
               src={copy.heroImage}
+              srcCandidates={LOCAL_IMAGE_MAP.heroStory.candidates}
               fallbackSrc={getContentFallbackImage("story")}
               alt={copy.heroAlt}
               fill
@@ -64,6 +66,7 @@ export default function KeChuyenPage() {
               <div className="relative min-h-[260px]">
                 <SafeImage
                   src={featured.coverImage}
+                  srcCandidates={storyFallbackCandidates}
                   fallbackSrc={getContentFallbackImage("story")}
                   alt={featured.title}
                   fill
