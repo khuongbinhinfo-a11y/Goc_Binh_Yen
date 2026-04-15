@@ -47,17 +47,30 @@ export default function TuSachPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3f271b]/38 to-transparent" />
               </div>
+
               <div className="p-6 sm:p-7">
                 <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
                   {copy.featuredLabel}
                 </span>
-                <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">
-                  {copy.featuredBook.title}
-                </h2>
+                <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{copy.featuredBook.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{copy.featuredBook.shortDescription}</p>
-                <p className="mt-3 text-sm text-[#745646]">
-                  {copy.featuredBook.format} · {copy.featuredBook.yearOrStatus}
-                </p>
+
+                <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
+                  <span className="rounded-full bg-[#f1dfcc] px-3 py-1 font-semibold text-[#7e563b]">
+                    {copy.formatLabel}: {copy.featuredBook.format}
+                  </span>
+                  <span className="rounded-full border border-[#d6b89a] bg-white px-3 py-1 font-semibold text-[#6f4d37]">
+                    {copy.statusLabel}: {copy.featuredBook.status}
+                  </span>
+                </div>
+
+                <div className="mt-4 rounded-2xl border border-[#ead2b8] bg-[#fcf3e8] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8c694f] sm:text-[0.78rem]">
+                    {copy.readingSuggestionLabel}
+                  </p>
+                  <p className="mt-1.5 text-sm leading-7 text-[#654939]">{copy.featuredBook.readingSuggestion}</p>
+                </div>
+
                 {copy.featuredBook.action ? (
                   <a
                     href={copy.featuredBook.action.href}
@@ -80,21 +93,53 @@ export default function TuSachPage() {
             </div>
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {copy.books.map((book) => (
-                <article key={book.title} className="soft-panel overflow-hidden bg-white/85">
-                  <div className="relative h-56">
-                    <SafeImage src={book.coverImage} fallbackSrc={IMAGE_FALLBACKS.bookcase} alt={book.title} fill className="object-cover" />
-                  </div>
-                  <div className="p-5">
-                    <p className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
-                      {book.format}
-                    </p>
-                    <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20]">{book.title}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#654939]">{book.shortDescription}</p>
-                    <p className="mt-3 text-xs text-[#876756]">{book.yearOrStatus}</p>
-                  </div>
-                </article>
-              ))}
+              {copy.books.map((book, index) => {
+                const action = book.action ?? {
+                  label: copy.closingButton,
+                  href: CONTACT_FORM_URL,
+                  external: true,
+                };
+
+                return (
+                  <article
+                    key={book.title}
+                    className={`soft-panel overflow-hidden bg-white/85 ${index === 0 ? "md:col-span-2 xl:col-span-2" : ""}`}
+                  >
+                    <div className={`relative ${index === 0 ? "h-64 sm:h-72" : "h-56"}`}>
+                      <SafeImage src={book.coverImage} fallbackSrc={IMAGE_FALLBACKS.bookcase} alt={book.title} fill className="object-cover" />
+                    </div>
+                    <div className="p-5 sm:p-6">
+                      <h3 className="text-2xl font-semibold leading-tight text-[#4a2f20] sm:text-[1.65rem]">{book.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-[#654939]">{book.shortDescription}</p>
+
+                      <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
+                        <span className="rounded-full bg-[#f1dfcc] px-3 py-1 font-semibold text-[#7e563b]">
+                          {copy.formatLabel}: {book.format}
+                        </span>
+                        <span className="rounded-full border border-[#d6b89a] bg-white px-3 py-1 font-semibold text-[#6f4d37]">
+                          {copy.statusLabel}: {book.status}
+                        </span>
+                      </div>
+
+                      <div className="mt-4 rounded-2xl border border-[#ead2b8] bg-[#fcf3e8] p-4">
+                        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8c694f] sm:text-[0.78rem]">
+                          {copy.readingSuggestionLabel}
+                        </p>
+                        <p className="mt-1.5 text-sm leading-7 text-[#654939]">{book.readingSuggestion}</p>
+                      </div>
+
+                      <a
+                        href={action.href}
+                        target={action.external ? "_blank" : undefined}
+                        rel={action.external ? "noreferrer" : undefined}
+                        className="mt-4 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                      >
+                        {action.label}
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>

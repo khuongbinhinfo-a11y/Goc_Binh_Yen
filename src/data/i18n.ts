@@ -47,6 +47,13 @@ export type PoetryListItem = {
   href: string;
 };
 
+export type ContactQuickLink = {
+  id: "contact" | "bookcase" | "support";
+  title: string;
+  description: string;
+  button: string;
+};
+
 export type TranslationSchema = {
   brandName: string;
   signature: {
@@ -100,6 +107,8 @@ export type TranslationSchema = {
     cardDescription: string;
     button: string;
     helper: string;
+    quickLinksTitle: string;
+    quickLinks: ContactQuickLink[];
   };
   footer: {
     description: string;
@@ -292,6 +301,27 @@ export const translations: Record<Locale, TranslationSchema> = {
       cardDescription: "Hãy để lại thông tin và lời nhắn của bạn qua biểu mẫu liên hệ.",
       button: "Mở biểu mẫu liên hệ",
       helper: "Biểu mẫu sẽ mở ở tab mới để bạn điền thông tin.",
+      quickLinksTitle: "Lời mời tiếp nối",
+      quickLinks: [
+        {
+          id: "contact",
+          title: "Gửi lời nhắn",
+          description: "Mở biểu mẫu để chia sẻ điều bạn đang nghĩ.",
+          button: "Mở biểu mẫu",
+        },
+        {
+          id: "bookcase",
+          title: "Tủ sách của nhà thơ",
+          description: "Ghé xem những tập thơ in đang được giới thiệu.",
+          button: "Xem tủ sách",
+        },
+        {
+          id: "support",
+          title: "Ủng hộ Hồn Thơ",
+          description: "Một lời đồng hành nhẹ để không gian này ở lại lâu hơn.",
+          button: "Xem cách ủng hộ",
+        },
+      ],
     },
     footer: {
       description: "Nơi thơ, chuyện và những xúc cảm nhẹ nhàng tìm về nhau giữa sắc chiều quê hương.",
@@ -572,6 +602,27 @@ export const translations: Record<Locale, TranslationSchema> = {
       cardDescription: "Leave your information and message through the contact form.",
       button: "Open contact form",
       helper: "The form will open in a new tab for you to fill in.",
+      quickLinksTitle: "Choose your next step",
+      quickLinks: [
+        {
+          id: "contact",
+          title: "Leave a message",
+          description: "Open the form and share what is on your mind.",
+          button: "Open form",
+        },
+        {
+          id: "bookcase",
+          title: "Poet's bookcase",
+          description: "Browse printed poetry editions currently available.",
+          button: "View bookcase",
+        },
+        {
+          id: "support",
+          title: "Support Hồn Thơ",
+          description: "A gentle contribution to help this space stay alive.",
+          button: "See support options",
+        },
+      ],
     },
     footer: {
       description: "A place where poetry, stories, and gentle emotions meet in the light of dusk.",
