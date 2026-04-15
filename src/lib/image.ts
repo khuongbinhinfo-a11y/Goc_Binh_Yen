@@ -18,8 +18,8 @@ export type ResolvedLocalImage = {
 
 function normalizeDir(directory: string) {
   const value = directory.trim();
-  if (!value) return "/images";
-  if (value.startsWith("/")) return value.replace(/\/+$/, "") || "/images";
+  if (!value) return "/images/brand";
+  if (value.startsWith("/")) return value.replace(/\/+$/, "") || "/images/brand";
   return `/${value.replace(/\/+$/, "")}`;
 }
 
@@ -52,7 +52,7 @@ function buildCandidates(name: string, directories: string[]) {
 
 export function resolveLocalImage(name: string, options: ResolveLocalImageOptions = {}): ResolvedLocalImage {
   const baseName = normalizeBasename(name);
-  const directories = options.directories?.length ? options.directories : ["/images"];
+  const directories = options.directories?.length ? options.directories : ["/images/brand", "/images"];
 
   const primaryCandidates = buildCandidates(baseName, directories);
   const fallbackCandidates = options.fallbackName

@@ -34,7 +34,6 @@ type SupportCopy = {
   companionDescription: string;
   companionImage: string;
   companionAlt: string;
-  qrCardTitle: string;
   qrCardDescription: string;
   qrCardImage: string;
   qrCardAlt: string;
@@ -80,10 +79,9 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "Giữa những ngày nhiều xao động, một sự đồng hành nhỏ cũng đủ làm ấm một khoảng thơ.",
       companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
       companionAlt: "Mặt sông chiều lặng với ánh nắng ấm nhẹ",
-      qrCardTitle: "Mã QR ủng hộ",
-      qrCardDescription: "Mã QR dành cho một lời đồng hành nhẹ cùng Hồn Thơ.",
+      qrCardDescription: "Một mã quét nhỏ dành cho lời đồng hành nhẹ cùng Hồn Thơ.",
       qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
-      qrCardAlt: "Mã QR ủng hộ Hồn Thơ",
+      qrCardAlt: "Mã quét đồng hành cùng Hồn Thơ",
       transferDetails: [
         {
           label: "Số tài khoản",
@@ -138,7 +136,6 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "In restless days, even a small gesture can keep this corner of poetry warm.",
       companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
       companionAlt: "A quiet riverside in warm evening light",
-      qrCardTitle: "Support QR code",
       qrCardDescription: "A gentle QR option for those who wish to stand with Hồn Thơ.",
       qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
       qrCardAlt: "Support QR code for Hồn Thơ",

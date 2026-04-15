@@ -91,8 +91,7 @@ export default function UngHoPage() {
                 </div>
 
                 <div className="p-5 sm:p-6">
-                  <h2 className="text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">{copy.qrCardTitle}</h2>
-                  <p className="mt-2 text-sm leading-7 text-[#654939] sm:text-base">{copy.qrCardDescription}</p>
+                  <p className="text-sm leading-7 text-[#654939] sm:text-base">{copy.qrCardDescription}</p>
                   <dl className="mt-3 space-y-2.5">
                     {copy.transferDetails.map((detail) => (
                       <div key={detail.label} className="flex items-start justify-between gap-3 rounded-xl bg-white/70 px-3 py-2.5">
