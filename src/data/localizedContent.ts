@@ -78,6 +78,30 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       readingTime: "9 min",
       publishedAt: "My Tho, Mar 2022",
     },
+    "mot-buoi-cho-que-tan-muon": {
+      title: "A Late-Close Village Market",
+      category: "Stories",
+      excerpt:
+        "After market hours, a few warm lights remain and reveal the quiet kindness that keeps a riverside community close.",
+      readingTime: "9 min",
+      publishedAt: "Cai Be, Jul 2024",
+    },
+    "nguoi-va-xuong-o-me-song": {
+      title: "The Boat Mender by the Riverside",
+      category: "Stories",
+      excerpt:
+        "An old craftsman repairs wooden boats by the river, keeping everyday journeys afloat with patience and care.",
+      readingTime: "9 min",
+      publishedAt: "My Tho, Sep 2024",
+    },
+    "anh-den-truoc-san-nha-dem-mat-dien": {
+      title: "Porch Light on Power-Out Nights",
+      category: "Stories",
+      excerpt:
+        "When the neighborhood goes dark, one porch light gathers people, stories, and gentle support through the night.",
+      readingTime: "9 min",
+      publishedAt: "Tan Phong, Nov 2024",
+    },
   },
   spiritual: {
     "mua-chuong-chieu-trong-san-chua-nho": {
@@ -111,6 +135,30 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
         "A short reflection on returning to the breath to stay calm and grounded in busy routines.",
       readingTime: "8 min",
       publishedAt: "My Tho, Nov 2023",
+    },
+    "mot-sang-quet-la-trong-san-chua": {
+      title: "A Morning Sweeping Leaves in the Pagoda Yard",
+      category: "Spirituality",
+      excerpt:
+        "A simple sweeping routine becomes a quiet lesson in presence, patience, and a lighter heart.",
+      readingTime: "9 min",
+      publishedAt: "My Tho, Jan 2025",
+    },
+    "ngoi-yen-nghe-mua-cham-mai-hien": {
+      title: "Sitting Still, Listening to Rain on the Eaves",
+      category: "Spirituality",
+      excerpt:
+        "A long rainy afternoon turns into a gentle practice of stillness, breath, and emotional grounding.",
+      readingTime: "9 min",
+      publishedAt: "Cai Lay, Feb 2025",
+    },
+    "thap-den-nho-truoc-khi-ngu": {
+      title: "Lighting a Small Lamp Before Sleep",
+      category: "Spirituality",
+      excerpt:
+        "A small nightly ritual with warm light helps close the day softly and keep the inner flame steady.",
+      readingTime: "9 min",
+      publishedAt: "Tan Phong, Mar 2025",
     },
   },
 };

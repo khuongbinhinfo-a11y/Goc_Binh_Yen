@@ -184,6 +184,126 @@ const baseStoryPosts: ContentItem[] = [
   },
 ];
 
+const additionalStoryPosts: ContentItem[] = [];
+
+additionalStoryPosts.push({
+  title: "Một buổi chợ quê tan muộn",
+  slug: "mot-buoi-cho-que-tan-muon",
+  contentType: "story",
+  category: "Kể chuyện",
+  excerpt:
+    "Chợ quá giờ tan vẫn còn sáng đèn, giữ lại nhịp người quê chậm rãi, tử tế và rất tình.",
+  coverImage: "https://images.unsplash.com/photo-1459257831348-f0cdd359235f?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Cái Bè, tháng 07/2024",
+  content: [
+    "Chiều xuống dần trên con lộ nhỏ dẫn vào chợ xã. Mặt trời đã lẩn sau rặng dừa mà chợ vẫn chưa tan hẳn. Những sạp rau ở dãy ngoài cùng chỉ còn lại vài bó cải, mớ rau thơm và mấy rổ cà tím sót lại. Người mua đã thưa, người bán cũng ngồi thấp giọng hơn, nhưng không khí không hề buồn. Nó giống một cái thở dài dịu của một ngày dài vừa tròn, nơi ai nấy đều chậm lại, sẵn sàng dọn hàng mà vẫn giữ nhau bằng vài câu hỏi han quen thuộc.",
+    "Tôi ghé quầy cá của dì Tư đúng lúc dì đang xếp lại chiếc cân đồng cũ. Dì vừa quạt muỗi vừa gọi với sang quầy bên cạnh hỏi chị Năm còn mấy ký ớt chưa bán. Câu trả lời vọng lại, chen với tiếng xếp thúng, tiếng kéo bạt và tiếng xe máy nổ máy rời chợ. Những âm thanh nhỏ đó gom lại thành một bản nhạc không lời của chợ quê tan muộn. Không ai cần vội, vì ai cũng biết một lát nữa người này sẽ giúp người kia gói lại hàng, như mọi ngày.",
+    "Ở góc cuối dãy, ông cụ bán chuối nướng vẫn còn ngồi bên bếp than đỏ rực. Khói than thơm lẫn với mùi nước mắm từ hàng bún vừa dẹp nồi tạo thành cái mùi rất riêng của cuối chợ. Tôi mua một trái chuối nướng, ông cụ cười hiền rồi bảo ăn nóng mới ngon. Bên cạnh, một cô bé đi học thêm về muộn ghé xin củi than để nướng lại ổ bánh mì nguội. Ông cụ đưa luôn mấy cục than hồng, chẳng lấy tiền, chỉ dặn đi đường nhớ né vũng nước trước cổng chợ.",
+    "Nhìn cảnh đó, tôi nhớ má tôi của những năm còn bé. Hồi ấy má bán xôi ở đầu chợ. Mỗi lần trời mưa, má hay bán chậm, tan chợ cũng muộn hơn mọi người. Nhưng má chưa bao giờ về một mình. Khi thì có cô hàng rau chở giúp nồi xôi, khi thì có chú bán trái cây chạy xe theo sau để soi đèn vì đường tối. Cái chợ quê ngày đó dạy tôi bài học đầu tiên về tình người: giúp nhau không cần gọi tên, chỉ cần thấy ai đó đang cần.",
+    "Hơn bảy giờ tối, trời đổ một cơn mưa nhẹ. Mọi người vội kéo bạt, nhưng sự vội ấy vẫn rất trật tự. Chị bán trứng ôm gọn khay trứng cho qua quầy bánh, dì Tư kéo thùng đá nép vào hiên nhà thuốc cũ, còn cậu thanh niên giao hàng tranh thủ che giúp quầy hoa của bà cụ đầu dãy. Mưa chỉ kéo mươi phút rồi tạnh, mặt chợ loáng nước phản chiếu bóng đèn vàng. Không ai nói chuyện lớn, nhưng nhìn cách họ nhìn nhau, tôi biết mỗi người đều đang nợ nhau một sự tử tế.",
+    "Khi mưa dứt, một vài sạp quyết định bán nốt cho nhanh. Điều lạ là giá không tăng, giọng không gắt. Người bán rao nhỏ hơn, người mua cũng chọn nhanh và trả tiền gọn. Có cô sinh viên ở trọ mua một túi rau, dí thêm tiền rồi nói khỏi thối lại, coi như mua giúp thêm. Dì bán rau lắc đầu, nhét lại tiền lẻ vào tay cô bé, nói để dành mà ăn sáng mai. Những cuộc trao đổi như vậy làm chợ quê khác chợ thành phố ở một điểm: nó không chỉ trao hàng, mà còn trao cách đối đãi.",
+    "Đến khi phần lớn sạp đã dọn xong, vài người vẫn ngồi lại uống chén trà nóng ở quán nước bên cổng. Tôi ngồi cùng họ nghe chuyện lúa năm nay, chuyện con cái đi làm xa, chuyện giá phân bón tăng mà vẫn phải ráng giữ ruộng. Câu chuyện có lúc vui có lúc trầm, nhưng không bi lụy. Người quê hay vậy, than vừa đủ để nhẹ lòng, rồi lại tự tìm cách gượng dậy. Chợ tan muộn vì thế không hẳn là chậm trễ, mà là một khoảng đệm để mọi người nối lại nhau sau một ngày mưu sinh.",
+    "Tầm tám giờ, ánh đèn chợ tắt dần theo từng dãy. Tôi đi bộ ra bãi xe, ngoái lại thấy chị Năm đang cột lại bó bạt cuối cùng, cạnh đó dì Tư đưa chị nửa bịch đá còn dư để đem về ướp cá. Cử chỉ nhỏ thôi, nhưng đủ làm ấm một buổi tối. Tôi chợt nghĩ, có những nơi giữ mình lại không bằng cảnh đẹp, mà bằng cách con người cư xử với nhau trong lúc ai cũng mệt. Chợ quê tan muộn chính là một nơi như thế.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Bài kể đi từ không khí tan chợ yên chậm, chuyển sang các lát cắt tương trợ đời thường, rồi khép lại ở dư vị ấm áp của tình làng nghĩa xóm.",
+    standoutImages:
+      "Đèn chợ vàng muộn, bếp chuối nướng, cơn mưa ngắn và những bàn tay dọn hàng giúp nhau là chuỗi hình ảnh giàu chất quê.",
+    meaning:
+      "Chợ quê không chỉ là nơi mua bán mà còn là nơi giữ cho con người thói quen tử tế với nhau sau một ngày mưu sinh.",
+    memorableLine:
+      "Điều ở lại không phải tiếng rao, cũng không phải giá cả, mà là nhịp người chậm rãi biết thương nhau.",
+  },
+  relatedPosts: ["mui-khoi-bep-len-tu-xom-nho", "anh-den-truoc-san-nha-dem-mat-dien", "ben-do-cu-qua-mot-mua-mua"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+additionalStoryPosts.push({
+  title: "Ánh đèn trước sân nhà những đêm mất điện",
+  slug: "anh-den-truoc-san-nha-dem-mat-dien",
+  contentType: "story",
+  category: "Kể chuyện",
+  excerpt:
+    "Mỗi lần xóm mất điện, ngọn đèn trước sân lại kéo mọi người ngồi gần nhau hơn, kể chuyện cũ và đỡ nhau qua đêm dài.",
+  coverImage: "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Tân Phong, tháng 11/2024",
+  content: [
+    "Ở xóm tôi, mất điện là chuyện thỉnh thoảng vẫn xảy ra mỗi mùa mưa gió. Hễ đèn phụt tắt, cả con đường như lùi về một thời rất cũ. Không tivi, không quạt máy, không tiếng nhạc từ điện thoại vang vọng ra hiên. Chỉ còn tiếng côn trùng, tiếng gió luồn qua hàng rào dâm bụt và ánh đèn pin loang loáng từ nhà này sang nhà khác. Lạ là trong bóng tối ấy, người ta lại dễ thấy nhau hơn.",
+    "Nhà tôi có một ngọn đèn sạc treo trước sân, ánh vàng vừa đủ soi mặt người ngồi quanh bàn đá. Mỗi lần mất điện, má lại mang bình trà ra, ba kéo thêm ghế nhựa, hàng xóm đi ngang thấy sáng thì ghé. Chẳng ai hẹn, cũng chẳng cần mời. Cứ thế, một góc sân thành chỗ tụ họp tự nhiên. Người lớn bàn chuyện ruộng lúa, chuyện con cái học hành, trẻ con chạy vòng vòng đuổi đom đóm, cười rộn cả đoạn đường tối.",
+    "Có đêm mưa lớn, gió quật ào qua mái tôn, tiếng cành cây cạ vào nhau nghe như tiếng sóng. Bà Năm ở kế bên nhà đi một mình, sợ sấm nên bưng ghế qua ngồi nhờ. Má tôi đưa cho bà tấm khăn mỏng lau tóc rồi rót trà nóng. Bà kể hồi xưa còn nghèo, cả xóm chỉ có một chiếc đèn dầu đặt giữa sân đình, ai cần đọc sách hay khâu vá thì đem đồ ra đó. Đêm nào cũng đông, nhưng không ai thấy cực, vì lúc tối người ta biết dựa vào nhau.",
+    "Tôi nhớ nhất một lần mất điện kéo dài gần nửa đêm. Cậu Tín đầu xóm vừa chở mẹ từ bệnh viện về thì xe bị tắt máy giữa đường bùn. Cả đám đàn ông đang ngồi trước sân nhà tôi lập tức xách đèn pin ra đẩy xe giúp. Người cầm đèn, người đỡ bánh, người dìu bác gái vào hiên nghỉ. Chẳng ai tính toán việc đó là trách nhiệm của ai. Họ làm như một phản xạ tự nhiên, giống cách người quê vẫn làm khi gặp chuyện không may của hàng xóm.",
+    "Trong lúc chờ điện về, mấy đứa nhỏ ngồi xúm quanh ông ngoại tôi nghe kể chuyện thời chiến, thời xóm còn đi ghe là chính. Ông kể về những đêm tối đen không trăng, người ta vẫn nhận ra nhau bằng giọng nói và tiếng chèo. Mấy đứa nhỏ nghe chăm chú, thỉnh thoảng chen câu hỏi ngây ngô, cả sân cười vang. Tôi nhìn cảnh đó mà thấy quý. Nếu đêm nào cũng sáng đèn, có lẽ hiếm khi cả ba thế hệ ngồi gần nhau lâu đến vậy.",
+    "Mất điện cũng làm tôi thấy rõ những thứ mình đang phụ thuộc. Quạt ngừng chạy một chút đã khó chịu, mạng chập chờn một chút đã bồn chồn. Nhưng khi ngồi ngoài sân lâu hơn, tôi nhận ra mình còn một cách sống khác: chậm hơn, ít thiết bị hơn, nhưng ấm hơn. Có khi cả tiếng đồng hồ không ai nhìn điện thoại, không ai cần phát biểu gì lớn lao, chỉ cần có người ngồi cạnh là đủ. Bóng tối không đáng sợ như tôi từng nghĩ, miễn là mình không một mình.",
+    "Khoảng mười giờ đêm, điện bật lại. Cả xóm sáng lên bất ngờ, tiếng tivi và quạt máy đồng loạt trở lại. Mọi người đứng dậy chào nhau rồi ai về nhà nấy. Chỉ trong vài phút, con đường lại trở về nhịp thường ngày. Nhưng trên mặt bàn đá trước sân nhà tôi vẫn còn mấy cái ly trà dở, còn vệt nước mưa và mùi thuốc xoa bóp của bác gái vừa mệt. Những dấu vết nhỏ đó làm tôi biết đêm tối vừa rồi không phải một sự cố, mà là một cuộc gặp.",
+    "Từ những đêm mất điện, tôi học được một điều giản dị: cộng đồng không cần những sự kiện lớn để hình thành. Nó lớn lên từ những lần ngồi lại cùng nhau khi trời tối, từ việc cho nhau mượn ánh sáng, từ thói quen hỏi một câu có cần giúp gì không đúng lúc. Một ngọn đèn trước sân tưởng bé, nhưng nếu được giữ đều, nó đủ để soi cả một khoảng đường và kéo nhiều người lại gần nhau hơn họ nghĩ.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Bài viết mở bằng bóng tối bất tiện, chuyển dần sang các khoảnh khắc quây quần và tương trợ, rồi chốt lại bằng cảm nhận ấm áp về cộng đồng.",
+    standoutImages:
+      "Ngọn đèn vàng trước sân, ly trà nóng giữa mất điện và cảnh cả xóm xách đèn đi giúp nhau là các hình ảnh trung tâm.",
+    meaning:
+      "Trong thiếu tiện nghi, con người có cơ hội quay lại gần nhau và nhận ra giá trị của sự đồng hành hàng xóm.",
+    memorableLine:
+      "Một ngọn đèn trước sân tưởng bé, nhưng đủ để soi cả một khoảng đường và kéo nhiều người lại gần nhau.",
+  },
+  relatedPosts: ["dem-nghe-tieng-nuoc-chay", "mot-buoi-cho-que-tan-muon", "mui-khoi-bep-len-tu-xom-nho"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+additionalStoryPosts.push({
+  title: "Người vá xuồng ở mé sông",
+  slug: "nguoi-va-xuong-o-me-song",
+  contentType: "story",
+  category: "Kể chuyện",
+  excerpt:
+    "Ngày nào cũng vậy, người thợ già bên mé sông cần mẫn vá xuồng để những chuyến đời thường không bị chìm giữa con nước.",
+  coverImage: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Mỹ Tho, tháng 09/2024",
+  content: [
+    "Ở mé sông sau chợ cá, có một mái chòi thấp lợp tôn cũ, mùa nắng nóng hầm hập, mùa mưa thì dột mấy chỗ. Mái chòi đó là chỗ ông Mười ngồi vá xuồng suốt hơn hai chục năm. Người ta đi ngang thường chỉ thấy ông cặm cụi với miếng vá, lon nhựa đựng dầu chai và mớ dây buộc. Nhưng với dân xóm sông, ông là người giữ cho những chuyến chở rau, chở cá, chở con đi học vẫn còn đều đặn mỗi ngày.",
+    "Tôi quen ông từ hồi còn nhỏ. Hễ chiếc xuồng nhà tôi bị thấm nước, má lại bảo dắt ra cho ông coi. Ông không bao giờ nhận sửa vội vàng. Ông sẽ ngồi nhìn một lúc, gõ nhẹ từng chỗ bằng sống dao, rồi mới nói phải thay ván hay chỉ cần vá. Ông bảo, sửa xuồng mà làm ẩu thì chỉ đẹp lúc mới sơn, ra giữa dòng gặp nước lớn là lộ ngay. Câu nói ấy nghe như chuyện xuồng, nhưng càng lớn tôi càng thấy giống cách sống của người già ở quê.",
+    "Một buổi sáng đầu con nước ròng, tôi ngồi cạnh ông gần nửa ngày. Người đến kẻ đi, ai cũng gọi ông bằng cái giọng thân như gọi người nhà. Ông cười, gật đầu, ghi nhớ hết mà không cần sổ tay. Ông nhớ chiếc nào của ai, năm nào đã thay ván, nhà đó còn nợ tiền hay đã trả đủ. Nhớ cả chuyện con trai người ta vừa nhập học xa, chuyện bà mẹ già mới đau lưng mấy bữa. Cách ông nhớ người làm tôi thấy nghề này không chỉ vá xuồng, mà còn vá luôn nhịp quan tâm giữa xóm nhỏ.",
+    "Mùi nhựa thông đun nóng bốc lên ngai ngái. Ông dùng lưỡi dao cạo sạch chỗ nứt, hong khô rồi mới trét nhựa, ép miếng vá, buộc dây cố định. Tay ông run nhẹ vì tuổi, nhưng từng động tác vẫn chính xác. Ông nói nghề này không cần mạnh tay, chỉ cần kiên nhẫn. Vội một chút là hỏng cả mảng gỗ, mà hỏng mảng gỗ là hỏng chuyến đi của người ta. Tôi nhìn ông làm, tự nhiên thấy chữ tận tâm không còn là khẩu hiệu, mà là mồ hôi chảy đều trên lưng áo bạc màu của một người già.",
+    "Giữa trưa, một cậu thanh niên mới mua chiếc xuồng cũ ghé lại xin ông dạy vá. Ông không từ chối. Ông kéo cậu lại gần, chỉ từng chỗ: vết nứt dọc thớ gỗ khác với nứt ngang, chỗ nào cần nẹp gỗ, chỗ nào chỉ cần trét keo. Cậu trai nóng ruột hỏi làm nhanh được không, ông cười: xuồng không biết nói, nhưng nó trả lời bằng cách chìm hay nổi. Câu nói khiến mấy người ngồi chờ quanh đó bật cười, rồi lại im, như ai cũng ngẫm ra điều gì cho mình.",
+    "Chiều xuống, trời kéo mây đen. Một chị bán bún cá chạy xuồng từ bên cồn qua, lo lắng vì mai có đám giỗ mà xuồng bị thấm mạnh. Ông Mười bảo để đó ông ráng làm trong chiều. Ông làm thật, cặm cụi tới khi đèn đường bật sáng. Xong việc, chị gửi tiền, ông chỉ lấy một nửa. Chị nài nỉ, ông nói để dành mua thêm cá cho đám giỗ. Lúc chị đi rồi, tôi hỏi sao ông hay bớt tiền công. Ông cười, mắt nhìn ra sông: lúc mình khó cũng có người bớt cho mình, giờ còn làm được thì bớt lại.",
+    "Ông kể hồi trẻ từng mất trắng một lần vì lũ cuốn trôi ghe, nhà cửa cũng tốc mái. Chính những người trong xóm đã cho ông mượn ghe đi làm lại, cho gạo ăn mấy tháng. Từ đó ông học cách trả ơn bằng nghề của mình. Không phải ai đến cũng nghèo, không phải ai cũng cần bớt tiền. Nhưng ông luôn làm kỹ như nhau, vì ông tin chiếc xuồng an toàn là một sự bình yên cho cả nhà người ta. Ở quê, bình yên nhiều khi bắt đầu từ những thứ rất nhỏ và rất âm thầm.",
+    "Tối đó, tôi rời mé sông khi ông đang thu dọn đồ nghề. Nước lên chạm chân bờ, lấp lánh ánh đèn từ mấy căn nhà đối diện. Ông Mười khóa hờ mái chòi rồi ngồi thêm vài phút nhìn sông. Tôi hỏi sao chưa về, ông bảo ngồi nghe nước một lát cho đỡ mỏi lưng. Câu trả lời đơn giản, nhưng làm tôi thấy thương. Cả đời ông gắn với tiếng búa, mùi nhựa và những vết nứt của xuồng. Vậy mà nơi nghỉ của ông mỗi ngày chỉ là một lát ngồi im trước mặt nước.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Câu chuyện đi từ quan sát nghề mưu sinh đến chân dung nhân hậu của người thợ già, rồi lắng lại ở ý nghĩa cộng đồng và lòng biết ơn.",
+    standoutImages:
+      "Mái chòi mé sông, mùi nhựa thông nóng và bàn tay run mà chắc của ông thợ vá xuồng là những điểm neo giàu sức gợi.",
+    meaning:
+      "Sự tử tế bền bỉ trong lao động âm thầm có thể giữ nhịp sống bình an cho cả một xóm nhỏ.",
+    memorableLine:
+      "Xuồng không biết nói, nhưng nó trả lời bằng cách chìm hay nổi.",
+  },
+  relatedPosts: ["ben-do-cu-qua-mot-mua-mua", "chuyen-nguoi-qua-cau-tre", "mot-buoi-cho-que-tan-muon"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+const storyRelatedOverrides: Partial<Record<string, string[]>> = {
+  "ben-do-cu-qua-mot-mua-mua": ["nguoi-va-xuong-o-me-song", "mot-buoi-cho-que-tan-muon", "dem-nghe-tieng-nuoc-chay"],
+  "dem-nghe-tieng-nuoc-chay": ["anh-den-truoc-san-nha-dem-mat-dien", "ben-do-cu-qua-mot-mua-mua", "mot-buoi-cho-que-tan-muon"],
+  "mui-khoi-bep-len-tu-xom-nho": ["mot-buoi-cho-que-tan-muon", "anh-den-truoc-san-nha-dem-mat-dien", "chuyen-nguoi-qua-cau-tre"],
+  "chuyen-nguoi-qua-cau-tre": ["nguoi-va-xuong-o-me-song", "ben-do-cu-qua-mot-mua-mua", "mot-buoi-cho-que-tan-muon"],
+};
+
 const storyPostExpansions: Record<string, { readingTime: string; extraParagraphs: string[] }> = {
   "ben-do-cu-qua-mot-mua-mua": {
     readingTime: "9 phút",
@@ -231,7 +351,12 @@ const storyPostExpansions: Record<string, { readingTime: string; extraParagraphs
   },
 };
 
-export const storyPosts: ContentItem[] = baseStoryPosts.map((item) => {
+const storyPostsSeed: ContentItem[] = [...baseStoryPosts, ...additionalStoryPosts].map((item) => ({
+  ...item,
+  relatedPosts: storyRelatedOverrides[item.slug] ?? item.relatedPosts,
+}));
+
+export const storyPosts: ContentItem[] = storyPostsSeed.map((item) => {
   const expansion = storyPostExpansions[item.slug];
 
   if (!expansion) return item;
@@ -360,6 +485,127 @@ const baseSpiritualPosts: ContentItem[] = [
   },
 ];
 
+const additionalSpiritualPosts: ContentItem[] = [];
+
+additionalSpiritualPosts.push({
+  title: "Một sáng quét lá trong sân chùa",
+  slug: "mot-sang-quet-la-trong-san-chua",
+  contentType: "spiritual",
+  category: "Tâm linh",
+  excerpt:
+    "Buổi sáng quét lá tưởng là việc nhỏ, nhưng từng nhát chổi chậm lại mở ra một cách sống tỉnh và nhẹ hơn.",
+  coverImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Mỹ Tho, tháng 01/2025",
+  content: [
+    "Trời mới tờ mờ sáng, sân chùa đã nghe tiếng chổi tre quét nhẹ trên nền gạch. Âm thanh ấy không lớn, không vội, nhưng đều đặn như một nhịp thở dài. Tôi đến chùa vào một sáng cuối tuần, dự định chỉ thắp nhang rồi về. Thấy sư chú đang quét lá, tôi xin cầm chổi phụ. Sân rộng hơn tôi nghĩ, lá rụng dày dưới gốc bồ đề. Vậy mà càng quét, tôi càng thấy lòng mình bớt lộn xộn theo từng đường chổi.",
+    "Sư chú bảo, quét lá không phải để sân sạch ngay lập tức, mà để mình có mặt trọn vẹn trong từng động tác. Chổi đi đến đâu, mắt nhìn đến đó, tay biết lực đến đó, tâm ở đó. Câu nói nghe đơn giản, nhưng tôi nhận ra lâu rồi mình làm gì cũng nửa chừng: ăn cơm mà nghĩ việc, nói chuyện mà mắt nhìn điện thoại, đi đường mà đầu đã ở cuộc họp kế tiếp. Chỉ một việc quét lá buổi sáng đã soi ra thói quen sống tản mạn của tôi.",
+    "Lá bồ đề rụng rất nhanh. Vừa gom được một đống, gió thổi lại rơi thêm lớp mới. Tôi hơi sốt ruột, thấy công vừa làm như bị xóa mất. Sư chú nhìn tôi cười rồi nói: lá rụng là việc của cây, quét là việc của mình. Cứ làm phần của mình, đừng bực vì điều thuộc tự nhiên. Câu nói ấy làm tôi khựng lại. Trong đời sống cũng vậy, nhiều thứ không theo ý mình không phải vì mình kém, mà vì bản chất của đời là biến động.",
+    "Khi nắng sớm bắt đầu chạm mái ngói, vài cụ già đến tụng kinh. Họ đi chậm, ai cũng mang theo một chiếc khăn nhỏ và chai nước. Một cụ dừng lại bảo tôi quét gọn quá, cười hiền rồi tự cúi xuống nhặt mấy chiếc lá mắc ở rãnh nước. Nhìn cụ làm, tôi thấy chữ tu trong đời thường không nằm ở lời nói cao xa. Nó ở chỗ thấy việc gì cần thì làm, làm xong không cần ai khen, rồi lặng lẽ quay về vị trí của mình.",
+    "Quét gần xong sân trước, tôi chuyển sang lối nhỏ sau chánh điện. Chỗ này ít người qua nên lá mục dày, mùi đất ẩm bốc lên thơm dịu. Tiếng chổi chạm nền ở đây nghe trầm hơn, như tiếng gõ nhẹ vào một khoảng yên trong ngực. Tôi bắt đầu quét chậm hơn, không phải vì mệt, mà vì sợ nhịp ấy trôi qua nhanh. Hiếm khi nào trong tuần tôi có một giờ đồng hồ không bị kéo bởi thông báo, cuộc gọi hay deadline.",
+    "Xong việc, sư chú rót cho tôi chén trà nóng. Chúng tôi ngồi dưới hiên nhìn sân vừa quét. Sư chú không giảng gì thêm, chỉ hỏi tôi có thấy mệt không. Tôi bảo có mệt tay, nhưng đầu lại nhẹ. Sư chú gật đầu, nói đó là phần thưởng của sự chuyên tâm. Không phải phần thưởng kiểu thành tích, mà là cảm giác sống thật với một việc rất nhỏ. Người hiện đại thường đi tìm bình an ở những phương pháp phức tạp, trong khi đôi khi nó nằm sẵn trong một cây chổi tre.",
+    "Trở về nhà, tôi thử giữ thói quen đó bằng việc quét sân trước cửa mỗi sáng mười phút. Ban đầu chỉ để nhớ buổi sáng ở chùa, sau thành nhu cầu. Những ngày bực bội, quét vài lượt là cơn nóng giảm đi. Những ngày mệt mỏi, quét xong thấy thân thể thức dậy rõ hơn. Tôi không gọi đó là tu tập gì lớn. Tôi chỉ gọi đó là cách lau bụi trong lòng bằng một việc tay chân thật thà.",
+    "Có hôm trời mưa, không quét được sân, tôi lại lấy khăn lau bàn, lau kệ sách với cùng một nguyên tắc: làm đâu biết đó, thở đều đó. Kỳ lạ là nhà cửa gọn gàng hơn, mà giọng nói của tôi với người thân cũng mềm hơn. Có lẽ khi mình thôi phân tán, mình bớt cằn cỗi. Khi bớt cằn cỗi, lòng biết nhường chỗ cho người khác. Từ một sáng quét lá, tôi học được điều mà trước đây đọc sách nhiều vẫn chưa thật hiểu.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Bài viết bắt đầu từ việc lao động nhỏ, đi qua các nhận ra về hiện diện và vô thường, rồi kết lại ở thực hành nhẹ nhàng trong đời sống thường ngày.",
+    standoutImages:
+      "Tiếng chổi tre lúc bình minh, lá bồ đề rơi và chén trà sau buổi quét tạo nên không khí tĩnh sâu, gần gũi.",
+    meaning:
+      "Sự tỉnh thức có thể nảy nở từ những việc tay chân đơn giản khi ta làm bằng tâm chuyên chú và nhịp thở chậm.",
+    memorableLine:
+      "Lá rụng là việc của cây, quét là việc của mình.",
+  },
+  relatedPosts: ["mua-chuong-chieu-trong-san-chua-nho", "thap-den-nho-truoc-khi-ngu", "hoc-tho-cham-giua-ngay-dai"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+additionalSpiritualPosts.push({
+  title: "Thắp đèn nhỏ trước khi ngủ",
+  slug: "thap-den-nho-truoc-khi-ngu",
+  contentType: "spiritual",
+  category: "Tâm linh",
+  excerpt:
+    "Một ngọn đèn nhỏ thắp mỗi đêm trở thành nghi thức dịu dàng để khép lại ngày dài và giữ lòng không chìm trong tối.",
+  coverImage: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Tân Phong, tháng 03/2025",
+  content: [
+    "Tôi có một thói quen rất nhỏ vào cuối ngày: thắp một chiếc đèn bàn ánh vàng trước khi đi ngủ. Không phải đèn lớn, chỉ một bóng nhỏ đặt cạnh kệ sách. Ánh sáng ấy không đủ soi cả căn phòng, nhưng đủ để tôi thấy rõ bàn tay mình, chén nước ấm và quyển sổ mỏng vẫn để đó. Nhiều người hỏi sao không tắt hết đèn cho nhanh. Tôi cười, vì với tôi, khoảnh khắc thắp đèn ấy giống như lời chào nhẹ với chính mình sau một ngày nhiều va chạm.",
+    "Ngày trước tôi từng ngủ ngay sau khi cầm điện thoại đến mỏi mắt. Đặt lưng xuống là tắt, không kịp xem lòng mình đang ra sao. Lâu dần, giấc ngủ chập chờn, sáng dậy nặng đầu. Một người bạn gợi ý thử tạo một nghi thức trước ngủ: tắt màn hình sớm, bật ánh đèn dịu, thở vài nhịp, ghi một dòng biết ơn. Tôi thử trong một tuần, rồi một tháng. Không phải đêm nào cũng bình yên, nhưng tỷ lệ thức dậy với cảm giác nhẹ tăng lên rõ rệt.",
+    "Tôi gọi đó là chiếc đèn giữ nhịp. Khi đèn bật, cơ thể hiểu rằng ngày đã sang đoạn chậm. Không còn cuộc gọi công việc, không còn tranh luận dở dang trên mạng xã hội. Chỉ còn những việc nhỏ: gấp chăn, chuẩn bị áo cho sáng mai, uống ngụm nước ấm, mở sổ viết vài dòng. Có hôm tôi viết về một niềm vui nhỏ, có hôm chỉ viết hôm nay mệt nhưng đã đi qua. Viết xong, tôi thở dài một hơi và thấy ngực nhẹ bớt.",
+    "Bà ngoại tôi ngày xưa cũng có một ngọn đèn dầu nhỏ đặt trước hiên. Tối nào bà cũng châm đèn, ngồi im vài phút rồi mới vào màn. Bà nói đèn không chỉ để sáng đường, mà để lòng biết chỗ về. Hồi đó tôi nghe không hiểu. Giờ lớn lên, tôi mới thấy mỗi người đều cần một biểu tượng như vậy: một ngọn đèn, một chén trà, một bản nhạc dịu, hay một lời cầu nguyện ngắn. Không phải mê tín, chỉ là cách nhắc tâm mình đừng chạy miết đến kiệt cùng.",
+    "Có đêm tôi đi làm về muộn, đầu óc căng như dây đàn. Trong trạng thái đó, tôi dễ nói lời cộc với người thân hoặc tự trách mình quá mức. Những lúc ấy, việc thắp đèn càng có tác dụng. Tôi đứng trước ánh đèn, không làm gì ngay, chỉ nhìn ánh sáng ổn định đó trong một phút. Lạ thay, chỉ một phút cũng đủ để tách tôi khỏi quán tính phản ứng. Tôi không còn muốn thắng thua với ai, chỉ muốn bước chậm lại để không làm tổn thương thêm.",
+    "Một lần mất điện, tôi thay đèn bàn bằng cây nến nhỏ. Cả nhà ngồi quanh bàn ăn trong ánh nến, nói chuyện khẽ hơn bình thường. Đứa cháu nhỏ nhìn ngọn lửa rồi hỏi sao mình phải ngồi yên lúc này. Tôi trả lời vì ngọn lửa nhỏ cần mình giữ yên để không tắt. Nói xong tôi tự thấy câu đó đúng với chính mình. Nội tâm cũng vậy, đôi khi chỉ là một ngọn lửa nhỏ. Mình sống quá gió thì nó tắt, mình sống đủ yên thì nó ấm.",
+    "Tất nhiên một ngọn đèn không thể giải quyết hết những vấn đề lớn của đời sống. Tiền bạc, bệnh tật, công việc, mối quan hệ vẫn có phần phức tạp của nó. Nhưng nghi thức thắp đèn cho tôi một điểm bắt đầu lành mạnh: trước khi ngủ, tôi không để ngày hôm nay đóng lại trong hỗn độn. Tôi đóng lại nó bằng một cử chỉ có ý thức, một hơi thở và một chút biết ơn. Nhờ vậy, ngày mới mở ra bớt gắt gỏng hơn.",
+    "Có hôm tôi quên nghi thức này, ngủ trong mệt lả. Sáng dậy thấy mình gắt gỏng và vội vã y như cũ. Đó là lời nhắc nhẹ rằng những điều tưởng nhỏ thực ra tạo khác biệt lớn nếu làm đều. Giống như cây cần nước mỗi ngày, tâm cần một khoảng sáng mỗi đêm. Không cần dài, không cần nghi lễ cầu kỳ. Chỉ cần thật, đều và vừa sức. Sự chữa lành bền nhất hiếm khi đến từ cú bùng nổ, mà đến từ thói quen tử tế lặp lại.",
+    "Bây giờ, trước khi tắt đèn đi ngủ, tôi thường nói thầm một câu: mong ngày mai mình sống dịu hơn hôm nay một chút. Câu ấy không khiến đời bớt khó ngay lập tức, nhưng khiến tôi nhớ mục tiêu của mình không phải hoàn hảo, mà là hiền hơn từng ngày. Ngọn đèn nhỏ vì thế không chỉ là ánh sáng vật lý. Nó là lời hẹn với bản thân rằng dẫu có đi qua bao xao động, mình vẫn có thể quay về với một khoảng yên đủ ấm để tiếp tục sống đẹp.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Bài viết đi từ thói quen cá nhân cuối ngày, mở rộng sang ký ức gia đình và ứng dụng đời thường, rồi kết ở một cam kết sống dịu mỗi ngày.",
+    standoutImages:
+      "Ngọn đèn vàng nhỏ, quyển sổ cuối ngày và ánh nến trong đêm mất điện là các hình ảnh chủ đạo của chiều sâu tĩnh lặng.",
+    meaning:
+      "Những nghi thức nhỏ và đều đặn có thể trở thành điểm tựa tinh thần bền vững giữa nhịp sống nhiều áp lực.",
+    memorableLine:
+      "Tâm cần một khoảng sáng mỗi đêm.",
+  },
+  relatedPosts: ["dot-nhang-truoc-hien-nha", "hoc-tho-cham-giua-ngay-dai", "mot-sang-quet-la-trong-san-chua"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+additionalSpiritualPosts.push({
+  title: "Ngồi yên nghe mưa chạm mái hiên",
+  slug: "ngoi-yen-nghe-mua-cham-mai-hien",
+  contentType: "spiritual",
+  category: "Tâm linh",
+  excerpt:
+    "Một buổi mưa dài bên mái hiên giúp người kể học lại cách ngồi yên, thở sâu và để nỗi lo đi qua như hạt nước.",
+  coverImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Cai Lậy, tháng 02/2025",
+  content: [
+    "Mưa bắt đầu từ giữa trưa, đều và dai như một bản nhạc không lời. Tôi kéo ghế ra sát mái hiên, ngồi nhìn nước rơi thành những đường mảnh trước sân. Ban đầu tôi chỉ định ngồi vài phút rồi vào nhà làm việc tiếp, nhưng tiếng mưa chạm tôn, chạm lá chuối, chạm mặt sân đã giữ tôi lại. Có điều gì đó trong nhịp mưa làm mình bớt tranh cãi với thời gian. Không ai có thể bắt mưa nhanh hơn hay chậm hơn, nên mình đành học cách hòa vào.",
+    "Tôi nhớ hồi nhỏ, mỗi mùa mưa má hay ngồi bên hiên vá áo, còn tôi nằm nghe mưa đếm từng tiếng sấm xa. Má nói mưa dạy người ta biết chờ. Chờ nước rút mới đi, chờ trời tạnh mới phơi đồ, chờ cơn nóng trong đầu dịu xuống rồi hãy nói chuyện tiếp. Lúc đó tôi thấy chờ là bất tiện. Bây giờ mới hiểu, chờ là một kỹ năng giúp mình không làm hỏng việc chỉ vì nóng nảy.",
+    "Ngồi yên được một lúc, những suy nghĩ dang dở bắt đầu hiện lên. Việc chưa xong, cuộc gọi chưa trả lời, tin nhắn còn để đó. Bình thường tôi sẽ cầm điện thoại lên xử lý ngay, nhưng hôm ấy tôi thử để yên. Tôi chỉ tập nhìn suy nghĩ như nhìn hạt mưa trượt qua mép mái: xuất hiện, lấp lánh một chút, rồi rơi xuống. Không bám vào, không đẩy đi. Cách nhìn ấy làm nỗi lo không biến mất, nhưng nó bớt quyền lực lên tâm trí tôi.",
+    "Mưa mạnh hơn vào đầu giờ chiều. Nước tạt vào chân ghế, tôi kéo vào một chút rồi tiếp tục ngồi. Bên kia đường, bác hàng xóm cũng ngồi trước hiên nhìn mưa như tôi. Chúng tôi không nói gì, chỉ gật đầu chào. Khoảnh khắc đó rất lạ: hai người ngồi riêng ở hai mái hiên, nhưng lại có cảm giác đồng hành. Có thể vì cả hai cùng chấp nhận một nhịp chậm mà trời mưa mang đến.",
+    "Tôi thử đặt tay lên bụng và thở theo nhịp mưa: hít vào bốn nhịp, giữ hai nhịp, thở ra sáu nhịp. Làm vài vòng, tôi thấy vai bớt căng, trán bớt nhíu. Bên trong vẫn còn chuyện phải lo, nhưng không còn cảm giác bị dồn ép. Tôi nhận ra nhiều lúc mình kiệt sức không phải vì việc quá nhiều, mà vì lúc nào cũng muốn giải quyết ngay lập tức. Trong khi có những chuyện cần lắng xuống một chút mới thấy đường đi.",
+    "Đến xế chiều, một người bạn gọi cho tôi, giọng rất mệt. Bạn nói đang rối vì công việc và chuyện nhà chồng chéo, không biết bắt đầu từ đâu. Tôi không đưa lời khuyên dài. Tôi chỉ bảo bạn ngồi xuống, nghe thử tiếng gì gần nhất quanh mình, rồi thở cùng tôi ba nhịp. Bạn làm theo, im lặng vài giây rồi thở dài một hơi nhẹ hơn. Chúng tôi nói thêm mười phút. Chuyện chưa giải quyết xong, nhưng giọng bạn đã bớt run.",
+    "Mưa ngớt dần khi trời chạng vạng. Tôi đứng dậy đi một vòng quanh sân, thấy mấy chậu cây như xanh hơn sau cơn mưa. Mặt đất còn ướt, phản chiếu đèn vàng từ trong nhà hắt ra. Tôi chợt nghĩ tâm mình cũng vậy. Có lúc cần một trận mưa để rửa bụi. Không phải trận mưa làm mọi thứ mới tinh, mà là trận mưa đủ để rã bớt lớp khô cứng do những ngày gấp gáp phủ lên.",
+    "Đêm về, mưa chỉ còn lất phất. Tôi tắt bớt đèn, ngồi thêm một lát trước hiên, cảm ơn cơn mưa vì đã ép mình chậm lại. Giữa một thời đại ai cũng bị kéo đi bởi thông báo và mục tiêu, một giờ ngồi yên nghe mưa có thể bị xem là lãng phí. Nhưng với tôi, đó là một giờ hồi sức cho tâm. Và khi tâm được hồi sức, ngày mai mình mới đủ dịu để sống tử tế với người khác lẫn với chính mình.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Mạch viết chuyển từ quan sát cơn mưa sang thực hành ngồi yên, thở chậm, rồi mở rộng thành bài học ứng xử với lo âu đời thường.",
+    standoutImages:
+      "Mái hiên mưa rơi, nhịp thở theo tiếng mưa và ánh đèn vàng trên sân ướt là những điểm ảnh giàu chiều sâu tĩnh.",
+    meaning:
+      "Bình an không đến từ việc hết vấn đề, mà từ khả năng tạo một khoảng dừng để tâm không bị cuốn trôi.",
+    memorableLine:
+      "Có những chuyện cần lắng xuống một chút mới thấy đường đi.",
+  },
+  relatedPosts: ["mot-ngay-im-lang-ben-song", "hoc-tho-cham-giua-ngay-dai", "mot-sang-quet-la-trong-san-chua"],
+  hasAudio: false,
+  hasVideo: false,
+  isFeatured: false,
+});
+
+const spiritualRelatedOverrides: Partial<Record<string, string[]>> = {
+  "mua-chuong-chieu-trong-san-chua-nho": ["mot-sang-quet-la-trong-san-chua", "ngoi-yen-nghe-mua-cham-mai-hien", "dot-nhang-truoc-hien-nha"],
+  "dot-nhang-truoc-hien-nha": ["thap-den-nho-truoc-khi-ngu", "mot-sang-quet-la-trong-san-chua", "mot-ngay-im-lang-ben-song"],
+  "mot-ngay-im-lang-ben-song": ["ngoi-yen-nghe-mua-cham-mai-hien", "hoc-tho-cham-giua-ngay-dai", "thap-den-nho-truoc-khi-ngu"],
+  "hoc-tho-cham-giua-ngay-dai": ["thap-den-nho-truoc-khi-ngu", "ngoi-yen-nghe-mua-cham-mai-hien", "mot-sang-quet-la-trong-san-chua"],
+};
+
 const spiritualPostExpansions: Record<string, { readingTime: string; extraParagraphs: string[] }> = {
   "mua-chuong-chieu-trong-san-chua-nho": {
     readingTime: "8 phút",
@@ -407,7 +653,12 @@ const spiritualPostExpansions: Record<string, { readingTime: string; extraParagr
   },
 };
 
-export const spiritualPosts: ContentItem[] = baseSpiritualPosts.map((item) => {
+const spiritualPostsSeed: ContentItem[] = [...baseSpiritualPosts, ...additionalSpiritualPosts].map((item) => ({
+  ...item,
+  relatedPosts: spiritualRelatedOverrides[item.slug] ?? item.relatedPosts,
+}));
+
+export const spiritualPosts: ContentItem[] = spiritualPostsSeed.map((item) => {
   const expansion = spiritualPostExpansions[item.slug];
 
   if (!expansion) return item;
