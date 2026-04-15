@@ -46,22 +46,27 @@ export default function UngHoPage() {
           </div>
         </section>
 
-        <section className="py-8 sm:py-10">
-          <div className="site-shell">
-            <article className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
-              <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20] sm:text-3xl">{copy.companionTitle}</h2>
-              <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{copy.companionDescription}</p>
-            </article>
-          </div>
-        </section>
-
-        <section className="pb-16 sm:pb-18">
+        <section className="py-10 pb-16 sm:pb-18 sm:pt-12">
           <div className="site-shell">
             <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-              <article className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-6 sm:p-7">
-                <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.qrCardTitle}</h2>
-                <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{copy.qrCardDescription}</p>
-                <p className="mt-4 text-xs leading-6 text-[#886958] sm:text-sm">{copy.helperText}</p>
+              <article className="soft-panel relative min-h-[320px] overflow-hidden border-[#dcc0a5] bg-[#ead8c5] sm:min-h-[360px]">
+                <div className="absolute inset-0">
+                  <SafeImage
+                    src={copy.companionImage}
+                    fallbackSrc={IMAGE_FALLBACKS.global}
+                    alt={copy.companionAlt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2f2118]/58 via-[#3d2b1f]/28 to-[#3d2b1f]/12" />
+
+                <div className="relative z-10 flex min-h-[320px] items-end p-5 sm:min-h-[360px] sm:p-7">
+                  <div className="max-w-[30rem] rounded-2xl border border-white/28 bg-[#fff5e8]/88 p-4 backdrop-blur-[1px] sm:p-5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b654c] sm:text-xs">{copy.companionTitle}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#4f3628] sm:text-base">{copy.companionDescription}</p>
+                  </div>
+                </div>
               </article>
 
               <article className="soft-panel overflow-hidden border-[#d8b89b] bg-[#f8efe5]">
@@ -77,7 +82,8 @@ export default function UngHoPage() {
                 </div>
 
                 <div className="p-5 sm:p-6">
-                  <h3 className="text-base font-semibold text-[#4a2f20] sm:text-lg">{copy.transferInfoTitle}</h3>
+                  <h2 className="text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">{copy.qrCardTitle}</h2>
+                  <p className="mt-2 text-sm leading-7 text-[#654939] sm:text-base">{copy.qrCardDescription}</p>
                   <dl className="mt-3 space-y-2.5">
                     {copy.transferDetails.map((detail) => (
                       <div key={detail.label} className="flex items-start justify-between gap-3 rounded-xl bg-white/70 px-3 py-2.5">
@@ -94,6 +100,7 @@ export default function UngHoPage() {
                   >
                     {copied ? copy.copiedButton : copy.copyButton}
                   </button>
+                  <p className="mt-3 text-xs text-[#8a6a57] sm:text-sm">{copy.helperText}</p>
                 </div>
               </article>
             </div>

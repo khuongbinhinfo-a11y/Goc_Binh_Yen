@@ -50,6 +50,8 @@ type SupportCopy = {
   heroAlt: string;
   companionTitle: string;
   companionDescription: string;
+  companionImage: string;
+  companionAlt: string;
   qrCardTitle: string;
   qrCardDescription: string;
   qrCardImage: string;
@@ -195,15 +197,16 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng.",
       heroImage: "/images/4.webp",
       heroAlt: "Khoảng lặng chiều quê với ánh sáng dịu",
-      companionTitle: "Một lời đồng hành dịu dàng",
+      companionTitle: "Một lời ghé lại",
       companionDescription:
-        "Mỗi sự ủng hộ, dù nhỏ, đều là một cách để những câu chữ, giọng đọc và khoảng lặng nơi đây được ở lại lâu hơn.",
+        "Giữa những ngày nhiều xao động, một sự đồng hành nhỏ cũng đủ làm ấm một khoảng thơ.",
+      companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
+      companionAlt: "Mặt sông chiều lặng với ánh nắng ấm nhẹ",
       qrCardTitle: "Mã QR ủng hộ",
-      qrCardDescription:
-        "Quét mã để gửi một phần ủng hộ cho Hồn Thơ theo cách thuận tiện nhất dành cho bạn.",
+      qrCardDescription: "Mã QR dành cho một lời đồng hành nhẹ cùng Hồn Thơ.",
       qrCardImage: "/images/support/qr-bank.jpg",
       qrCardAlt: "Mã QR ủng hộ Hồn Thơ",
-      transferInfoTitle: "Thông tin chuyển khoản",
+      transferInfoTitle: "Thông tin tài khoản",
       transferDetails: [
         {
           label: "Số tài khoản",
@@ -221,7 +224,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       accountNumber: "100870892731",
       copyButton: "Sao chép số tài khoản",
       copiedButton: "Đã sao chép",
-      helperText: "Bạn có thể dùng ứng dụng ngân hàng để quét mã và xác nhận chuyển khoản.",
+      helperText: "Hồn Thơ luôn trân trọng tấm lòng của bạn.",
       closingTitle: "Gửi một lời nhắn cho Hồn Thơ",
       closingDescription:
         "Nếu bạn muốn chia sẻ đôi dòng sau khi ủng hộ, Hồn Thơ luôn trân trọng và lắng nghe.",
@@ -356,14 +359,16 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "If you wish to offer a small contribution to keep this space alive, Hồn Thơ is deeply grateful.",
       heroImage: "/images/4.webp",
       heroAlt: "A calm evening scene with soft light",
-      companionTitle: "A gentle way to stand with us",
+      companionTitle: "A quiet note of kindness",
       companionDescription:
-        "Every contribution, however small, helps keep these words, voice readings, and quiet pauses alive a little longer.",
+        "In restless days, even a small gesture can keep this corner of poetry warm.",
+      companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
+      companionAlt: "A quiet riverside in warm evening light",
       qrCardTitle: "Support QR code",
-      qrCardDescription: "Scan the code to send your support in the way that feels most convenient for you.",
+      qrCardDescription: "A gentle QR option for those who wish to stand with Hồn Thơ.",
       qrCardImage: "/images/support/qr-bank.jpg",
       qrCardAlt: "Support QR code for Hồn Thơ",
-      transferInfoTitle: "Transfer details",
+      transferInfoTitle: "Account details",
       transferDetails: [
         {
           label: "Account number",
@@ -381,7 +386,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       accountNumber: "100870892731",
       copyButton: "Copy account number",
       copiedButton: "Copied",
-      helperText: "Use your banking app to scan the code and complete the transfer.",
+      helperText: "Thank you for keeping this space alive with care.",
       closingTitle: "Send a short note to Hồn Thơ",
       closingDescription: "If you would like to leave a message after your support, we would be grateful to hear from you.",
       closingButton: "Contact Hồn Thơ",
