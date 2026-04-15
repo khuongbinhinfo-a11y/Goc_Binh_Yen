@@ -54,6 +54,13 @@ export type ContactQuickLink = {
   button: string;
 };
 
+export type FooterLink = {
+  id: "home" | "poetry" | "stories" | "spiritual" | "contact" | "facebook" | "bookcase" | "support";
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
 export type TranslationSchema = {
   brandName: string;
   signature: {
@@ -112,9 +119,11 @@ export type TranslationSchema = {
   };
   footer: {
     description: string;
-    facebook: string;
-    bookcase: string;
-    support: string;
+    decorativeNote: string;
+    exploreTitle: string;
+    companionTitle: string;
+    exploreLinks: FooterLink[];
+    companionLinks: FooterLink[];
     rights: string;
     by: string;
   };
@@ -325,9 +334,21 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     footer: {
       description: "Nơi thơ, chuyện và những xúc cảm nhẹ nhàng tìm về nhau giữa sắc chiều quê hương.",
-      facebook: "Facebook chính thức",
-      bookcase: "Tủ sách",
-      support: "Ủng hộ",
+      decorativeNote: "Nhịp sông cũ vẫn cháy êm trong từng câu chữ.",
+      exploreTitle: "Khám phá",
+      companionTitle: "Đồng hành",
+      exploreLinks: [
+        { id: "home", label: "Trang chủ", href: "/#trang-chu" },
+        { id: "poetry", label: "Đọc thơ", href: "/doc-tho" },
+        { id: "stories", label: "Kể chuyện", href: "/ke-chuyen" },
+        { id: "spiritual", label: "Tâm linh", href: "/tam-linh" },
+      ],
+      companionLinks: [
+        { id: "contact", label: "Liên hệ", href: "/#lien-he" },
+        { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
+        { id: "bookcase", label: "Tủ sách", href: "/tu-sach" },
+        { id: "support", label: "Ủng hộ", href: "/ung-ho" },
+      ],
       rights: "All rights reserved.",
       by: "By Khương Bình",
     },
@@ -626,9 +647,21 @@ export const translations: Record<Locale, TranslationSchema> = {
     },
     footer: {
       description: "A place where poetry, stories, and gentle emotions meet in the light of dusk.",
-      facebook: "Official Facebook",
-      bookcase: "Bookcase",
-      support: "Support",
+      decorativeNote: "A slow riverline still glows beneath each quiet verse.",
+      exploreTitle: "Explore",
+      companionTitle: "Companion",
+      exploreLinks: [
+        { id: "home", label: "Home", href: "/#trang-chu" },
+        { id: "poetry", label: "Poetry", href: "/doc-tho" },
+        { id: "stories", label: "Stories", href: "/ke-chuyen" },
+        { id: "spiritual", label: "Spirituality", href: "/tam-linh" },
+      ],
+      companionLinks: [
+        { id: "contact", label: "Contact", href: "/#lien-he" },
+        { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
+        { id: "bookcase", label: "Bookcase", href: "/tu-sach" },
+        { id: "support", label: "Support", href: "/ung-ho" },
+      ],
       rights: "All rights reserved.",
       by: "By Khương Bình",
     },
