@@ -7,16 +7,6 @@ type LinkAction = {
   external?: boolean;
 };
 
-type BookItem = {
-  title: string;
-  shortDescription: string;
-  readingSuggestion: string;
-  coverImage: string;
-  format: string;
-  status: string;
-  action?: LinkAction;
-};
-
 type BookcaseCopy = {
   heroEyebrow: string;
   heroTitle: string;
@@ -25,15 +15,6 @@ type BookcaseCopy = {
   heroAlt: string;
   introTitle: string;
   introDescription: string;
-  featuredLabel: string;
-  featuredBook: BookItem;
-  gridTitle: string;
-  formatLabel: string;
-  statusLabel: string;
-  readingSuggestionLabel: string;
-  books: BookItem[];
-  closingTitle: string;
-  closingDescription: string;
   closingButton: string;
 };
 
@@ -56,7 +37,6 @@ type SupportCopy = {
   qrCardDescription: string;
   qrCardImage: string;
   qrCardAlt: string;
-  transferInfoTitle: string;
   transferDetails: SupportDetail[];
   accountNumber: string;
   copyButton: string;
@@ -82,113 +62,10 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "Nơi những tập thơ in được gìn giữ theo nhịp chậm của Hồn Thơ, để người yêu thơ có thể mang một phần ký ức quê nhà về gần hơn.",
       heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
       heroAlt: "Không gian tủ sách thơ trong ánh chiều ấm",
-      introTitle: "Những cuốn thơ được gửi đi bằng sự trân trọng",
+      introTitle: "Tủ sách đang được cập nhật",
       introDescription:
-        "Mỗi ấn phẩm là một khoảng chữ đã đi qua nhiều mùa cảm xúc. Nếu bạn muốn giữ thơ trên tay như một món quà dịu dành cho chính mình hoặc người thương, đây là nơi để bắt đầu.",
-      featuredLabel: "Cuốn thơ nổi bật",
-      featuredBook: {
-        title: "Bến Đò",
-        shortDescription:
-          "Một tập thơ gói trong đó nhịp sông chậm, bến đợi cũ và sự thủy chung của người ở lại với miền quê mình.",
-        readingSuggestion: "Dành cho những ai còn giữ trong lòng một bến sông cũ và tiếng gọi đò xa.",
-        coverImage: "/images/poems/ben-do.jpeg",
-        format: "Tập thơ",
-        status: "Nhận đặt",
-        action: {
-          label: "Liên hệ đặt sách",
-          href: CONTACT_FORM_URL,
-          external: true,
-        },
-      },
-      gridTitle: "Các cuốn đang giới thiệu",
-      formatLabel: "Định dạng",
-      statusLabel: "Tình trạng",
-      readingSuggestionLabel: "Gợi ý đọc",
-      books: [
-        {
-          title: "Bàn Tay",
-          shortDescription:
-            "Những bài thơ tình mộc mạc, đi từ cái nắm tay đầu tiên đến sự gắn bó bền bỉ của tình yêu qua năm tháng.",
-          readingSuggestion: "Hợp với người thích câu chữ mềm, chân thành và không ồn ào.",
-          coverImage: "/images/poems/ban-tay.jpeg",
-          format: "Tập thơ",
-          status: "Còn sách",
-          action: {
-            label: "Liên hệ đặt sách",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Cắm Hoa",
-          shortDescription:
-            "Một tập thơ giàu mùi hương ký ức, nơi mỗi bông hoa mở ra một miền thương nhớ rất riêng.",
-          readingSuggestion: "Nên đọc chậm vào cuối ngày, khi lòng cần một khoảng dịu xuống.",
-          coverImage: "/images/poems/cam-hoa.jpeg",
-          format: "Tập thơ",
-          status: "Nhận đặt",
-          action: {
-            label: "Liên hệ đặt sách",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Cảm Ơn Tình Yêu",
-          shortDescription:
-            "Nhịp thơ chiêm nghiệm về tình yêu sau nhiều mùa đời, không bi lụy mà sâu và ấm.",
-          readingSuggestion: "Phù hợp cho người từng đi qua tổn thương và muốn đọc lại bằng lòng biết ơn.",
-          coverImage: "/images/poems/cam-on-tinh-yeu.jpeg",
-          format: "Tập thơ",
-          status: "Nhận đặt",
-          action: {
-            label: "Liên hệ đặt sách",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Một Thoáng",
-          shortDescription:
-            "Những câu thơ về khoảnh khắc gặp gỡ ngắn ngủi nhưng để lại dư âm dài, như ánh chiều còn vương trên mặt nước.",
-          readingSuggestion: "Dành cho những buổi chiều yên khi bạn muốn đọc ít mà cảm nhiều.",
-          coverImage: "/images/poems/mot-thoang.jpeg",
-          format: "Tập thơ",
-          status: "Sắp ra mắt",
-        },
-        {
-          title: "Hoa Bướm",
-          shortDescription:
-            "Một ấn phẩm mềm mại về vẻ đẹp mong manh của tình yêu, hoa cỏ và những rung động không gọi thành tên.",
-          readingSuggestion: "Hợp cho người thích hình ảnh thơ bay bổng nhưng vẫn giữ chiều sâu cảm xúc.",
-          coverImage: "/images/poems/hoa-buom.jpeg",
-          format: "Tập thơ",
-          status: "Còn sách",
-          action: {
-            label: "Liên hệ đặt sách",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Huệ Trắng",
-          shortDescription:
-            "Những trang thơ nghiêng về hoài niệm, nơi hương huệ trở thành nhịp cầu nối giữa hiện tại và ký ức.",
-          readingSuggestion: "Dành cho người yêu những câu thơ lắng, trong và có dư vị của nhớ thương.",
-          coverImage: "/images/poems/hue-trang.jpeg",
-          format: "Tuyển thơ",
-          status: "Nhận đặt",
-          action: {
-            label: "Liên hệ đặt sách",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-      ],
-      closingTitle: "Bạn muốn biết thêm về từng cuốn thơ?",
-      closingDescription:
-        "Hồn Thơ luôn sẵn lòng gửi thông tin chi tiết về mỗi ấn phẩm, lịch phát hành và cách nhận sách theo từng đợt.",
-      closingButton: "Liên hệ đặt sách",
+        "Thông tin về các ấn phẩm sẽ được bổ sung khi hoàn chỉnh.",
+      closingButton: "Liên hệ cùng Hồn Thơ",
     },
     support: {
       heroEyebrow: "Một lời đồng hành",
@@ -206,7 +83,6 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       qrCardDescription: "Mã QR dành cho một lời đồng hành nhẹ cùng Hồn Thơ.",
       qrCardImage: "/images/support/qr-bank.jpg",
       qrCardAlt: "Mã QR ủng hộ Hồn Thơ",
-      transferInfoTitle: "Thông tin tài khoản",
       transferDetails: [
         {
           label: "Số tài khoản",
@@ -244,113 +120,10 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
         "A quiet shelf of printed poetry from Hồn Thơ, for readers who want to keep a piece of homeland memory close.",
       heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
       heroAlt: "A warm evening poetry shelf",
-      introTitle: "Poetry books shared with care",
+      introTitle: "The bookcase is being updated",
       introDescription:
-        "Each edition gathers words that have stayed through many seasons. If you want to hold poetry as a gentle keepsake, this is where you can begin.",
-      featuredLabel: "Featured title",
-      featuredBook: {
-        title: "Bến Đò",
-        shortDescription:
-          "A poetry book shaped by riverside rhythm, old waiting docks, and the faithful tenderness of home.",
-        readingSuggestion: "For readers who still carry an old dock and a distant ferry call in memory.",
-        coverImage: "/images/poems/ben-do.jpeg",
-        format: "Poetry collection",
-        status: "Pre-order",
-        action: {
-          label: "Contact to order",
-          href: CONTACT_FORM_URL,
-          external: true,
-        },
-      },
-      gridTitle: "Currently featured books",
-      formatLabel: "Format",
-      statusLabel: "Status",
-      readingSuggestionLabel: "Reading suggestion",
-      books: [
-        {
-          title: "Bàn Tay",
-          shortDescription:
-            "Tender love poems moving from first touch to long-lasting companionship.",
-          readingSuggestion: "A good fit if you prefer warm, sincere lines with quiet depth.",
-          coverImage: "/images/poems/ban-tay.jpeg",
-          format: "Poetry collection",
-          status: "Available",
-          action: {
-            label: "Contact to order",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Cắm Hoa",
-          shortDescription:
-            "A fragrant arc of memory where flowers open into longing and intimacy.",
-          readingSuggestion: "Best read slowly in late afternoon when the heart needs soft quiet.",
-          coverImage: "/images/poems/cam-hoa.jpeg",
-          format: "Poetry collection",
-          status: "Pre-order",
-          action: {
-            label: "Contact to order",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Cảm Ơn Tình Yêu",
-          shortDescription:
-            "Reflective poems on love after many seasons of life: calm, warm, and luminous.",
-          readingSuggestion: "For readers who have known loss and want to return through gratitude.",
-          coverImage: "/images/poems/cam-on-tinh-yeu.jpeg",
-          format: "Poetry collection",
-          status: "Pre-order",
-          action: {
-            label: "Contact to order",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Một Thoáng",
-          shortDescription:
-            "Poems about brief encounters that echo far beyond the moment.",
-          readingSuggestion: "A gentle companion for quiet evenings when you want to feel more with fewer words.",
-          coverImage: "/images/poems/mot-thoang.jpeg",
-          format: "Poetry collection",
-          status: "Coming soon",
-        },
-        {
-          title: "Hoa Bướm",
-          shortDescription:
-            "A soft, visual collection where flowers and butterflies hold delicate affection.",
-          readingSuggestion: "For those who enjoy lyrical imagery with a calm emotional undertone.",
-          coverImage: "/images/poems/hoa-buom.jpeg",
-          format: "Poetry collection",
-          status: "Available",
-          action: {
-            label: "Contact to order",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-        {
-          title: "Huệ Trắng",
-          shortDescription:
-            "Nostalgic pages where white lily scent becomes a bridge between present and memory.",
-          readingSuggestion: "For readers who love quiet, clear lines with a lingering aftertaste.",
-          coverImage: "/images/poems/hue-trang.jpeg",
-          format: "Poetry anthology",
-          status: "Pre-order",
-          action: {
-            label: "Contact to order",
-            href: CONTACT_FORM_URL,
-            external: true,
-          },
-        },
-      ],
-      closingTitle: "Need details about a specific book?",
-      closingDescription:
-        "Hồn Thơ is always ready to share publishing updates and ways to receive each printed edition.",
-      closingButton: "Contact to order",
+        "Information about the printed editions will be added when ready.",
+      closingButton: "Contact Hồn Thơ",
     },
     support: {
       heroEyebrow: "A gentle contribution",
@@ -368,7 +141,6 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       qrCardDescription: "A gentle QR option for those who wish to stand with Hồn Thơ.",
       qrCardImage: "/images/support/qr-bank.jpg",
       qrCardAlt: "Support QR code for Hồn Thơ",
-      transferInfoTitle: "Account details",
       transferDetails: [
         {
           label: "Account number",
