@@ -51,7 +51,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Stories",
       excerpt:
         "On a rainy afternoon, the narrator returns to an old dock and meets familiar memories of childhood and kindness.",
-      readingTime: "6 min",
+      readingTime: "9 min",
       publishedAt: "My Tho, Oct 2020",
     },
     "dem-nghe-tieng-nuoc-chay": {
@@ -59,7 +59,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Stories",
       excerpt:
         "A sleepless night by the porch, where the sound of water leads the heart back to gentler days.",
-      readingTime: "5 min",
+      readingTime: "8 min",
       publishedAt: "Cai Lay, Feb 2021",
     },
     "mui-khoi-bep-len-tu-xom-nho": {
@@ -67,7 +67,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Stories",
       excerpt:
         "A thin line of evening smoke brings back the scent of home, shared meals, and old family warmth.",
-      readingTime: "5 min",
+      readingTime: "8 min",
       publishedAt: "Tan Phong, Aug 2021",
     },
     "chuyen-nguoi-qua-cau-tre": {
@@ -75,7 +75,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Stories",
       excerpt:
         "A small bamboo bridge that once carried footsteps, waiting, and quiet care between two riverbanks.",
-      readingTime: "7 min",
+      readingTime: "9 min",
       publishedAt: "My Tho, Mar 2022",
     },
   },
@@ -85,7 +85,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Spirituality",
       excerpt:
         "A light rain, a bell, and a quiet return to inner stillness after long days of noise.",
-      readingTime: "5 min",
+      readingTime: "8 min",
       publishedAt: "My Tho, Jun 2022",
     },
     "dot-nhang-truoc-hien-nha": {
@@ -93,7 +93,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Spirituality",
       excerpt:
         "A simple evening incense ritual that reminds us to live kindly and keep a clear heart.",
-      readingTime: "4 min",
+      readingTime: "8 min",
       publishedAt: "Cai Lay, Oct 2022",
     },
     "mot-ngay-im-lang-ben-song": {
@@ -101,7 +101,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Spirituality",
       excerpt:
         "One day of speaking less to hear the heart more clearly and let the mind settle.",
-      readingTime: "6 min",
+      readingTime: "9 min",
       publishedAt: "Tan Phong, Mar 2023",
     },
     "hoc-tho-cham-giua-ngay-dai": {
@@ -109,7 +109,7 @@ const enOverrides: Partial<Record<ContentType, Record<string, ContentOverride>>>
       category: "Spirituality",
       excerpt:
         "A short reflection on returning to the breath to stay calm and grounded in busy routines.",
-      readingTime: "5 min",
+      readingTime: "8 min",
       publishedAt: "My Tho, Nov 2023",
     },
   },

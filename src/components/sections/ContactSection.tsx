@@ -49,6 +49,47 @@ function ContactActionIcon({ id }: { id: ContactActionId }) {
   );
 }
 
+function ContactTextCueIcon({ type }: { type: "eyebrow" | "card" | "quick" }) {
+  if (type === "card") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
+        <path
+          d="M4 5.5a1.5 1.5 0 0 1 1.5-1.5h9A1.5 1.5 0 0 1 16 5.5v9A1.5 1.5 0 0 1 14.5 16h-9A1.5 1.5 0 0 1 4 14.5v-9Z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+        <path d="m5.5 6.75 4.5 3.5 4.5-3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  if (type === "quick") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
+        <path d="M4.25 15.5h11.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+        <path
+          d="M6.25 14.5V5.75a1 1 0 0 1 1-1h6.5a1 1 0 0 1 1 1v8.75H6.25Z"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
+      <path
+        d="M10 15.75 4.9 10.9a3.2 3.2 0 1 1 4.52-4.52L10 6.95l.58-.57A3.2 3.2 0 1 1 15.1 10.9L10 15.75Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function ContactSection() {
   const { t } = useLocale();
 
@@ -77,7 +118,12 @@ export default function ContactSection() {
           <article className="soft-panel overflow-hidden border-[#d7b89b] bg-[#fbf2e8] p-0">
             <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
               <div className="p-6 sm:p-8 lg:p-10">
-                <p className="eyebrow">{t.contact.eyebrow}</p>
+                <p className="eyebrow inline-flex items-center gap-1.5">
+                  <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#f1dcc7] text-[#7a5236]">
+                    <ContactTextCueIcon type="eyebrow" />
+                  </span>
+                  <span>{t.contact.eyebrow}</span>
+                </p>
                 <h2 className="max-w-xl text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.contact.title}</h2>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-[#654939] sm:text-base">{t.contact.description}</p>
 
@@ -105,7 +151,12 @@ export default function ContactSection() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#3f2a1d]/36 via-[#4f3525]/10 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/35 bg-[#fff7ed]/86 p-4 backdrop-blur-[1px] sm:max-w-sm">
-                  <p className="text-sm font-semibold text-[#5f4332]">{t.contact.cardTitle}</p>
+                  <p className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#5f4332]">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#f2dcc6] text-[#7d563c]">
+                      <ContactTextCueIcon type="card" />
+                    </span>
+                    <span>{t.contact.cardTitle}</span>
+                  </p>
                   <p className="mt-1.5 text-sm leading-6 text-[#6b4e3c]">{t.contact.cardDescription}</p>
                 </div>
               </div>
@@ -113,7 +164,12 @@ export default function ContactSection() {
           </article>
 
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#8f684c]">{t.contact.quickLinksTitle}</p>
+            <p className="mb-3 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#8f684c]">
+              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#f2dfcb] text-[#7a5238]">
+                <ContactTextCueIcon type="quick" />
+              </span>
+              <span>{t.contact.quickLinksTitle}</span>
+            </p>
             <div className="grid gap-3 md:grid-cols-3">
               {t.contact.quickLinks.map((item) => {
                 const action = ACTION_LINKS[item.id];

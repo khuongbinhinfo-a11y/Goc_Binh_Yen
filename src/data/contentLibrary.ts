@@ -67,7 +67,7 @@ const poetryBase: ContentItem[] = rawPoems
     isFeatured: index === 0,
   }));
 
-export const storyPosts: ContentItem[] = [
+const baseStoryPosts: ContentItem[] = [
   {
     title: "Bến đò cũ qua một mùa mưa",
     slug: "ben-do-cu-qua-mot-mua-mua",
@@ -184,7 +184,66 @@ export const storyPosts: ContentItem[] = [
   },
 ];
 
-export const spiritualPosts: ContentItem[] = [
+const storyPostExpansions: Record<string, { readingTime: string; extraParagraphs: string[] }> = {
+  "ben-do-cu-qua-mot-mua-mua": {
+    readingTime: "9 phút",
+    extraParagraphs: [
+      "Đêm đó, tôi ở lại nhà bác Sáu thêm một lúc. Bếp lửa được nhóm lại cho ấm, ấm đến mức tiếng mưa ngoài sân cũng nghe hiền hơn. Bác kể chuyện cũ: ngày trước bến đông, có khi phải chờ ba bốn lượt mới tới lượt xuống đò. Người đi làm, người gánh lúa, người chở trái cây, người chỉ qua thăm một họ hàng bên kia sông. Đò đông, nhưng không ai chen. Họ biết nhìn nhau, nhường nhau, như cách người quê tự nhiên mà hiểu một trật tự không cần nói.",
+      "Tôi hỏi bác có buồn không khi bây giờ người qua sông ít dần. Bác chống hai tay lên cán chèo, cười nhẹ: buồn thì có, nhưng buồn vừa phải thôi. Bởi bến đò cũng như người, có lúc trẻ lúc già. Quan trọng là khi còn ngồi ở đây, bác vẫn nhớ được tên từng nhà, vẫn nhận ra giọng gọi nhau giữa chiều mưa. Bác bảo tôi, nơi nào còn nhớ tên nhau, nơi đó chưa cũ.",
+      "Khi trời tạnh hẳn, vài ánh đèn dầu bật lên dọc xóm nhỏ. Bến không ồn, chỉ còn tiếng nước đập vào mạn thuyền nghe khẽ như ai gõ cửa. Tôi chợt hiểu vì sao mình cứ tìm về đây: không phải để nhặt lại một tuổi thơ nguyên vẹn, mà để học lại cách sống chậm, sống đủ, sống bằng những điều không cần phô ra. Rời bến, tôi đi rất chậm trên con đường đất mềm. Sau lưng, tiếng bác Sáu gọi với theo: có dịp lại ghé. Câu nói đơn sơ ấy theo tôi suốt cả đoạn đường về.",
+      "Mấy tuần sau, tôi quay lại đúng lúc chợ sớm vừa tan. Trên bến còn vài thúng rau, vài rổ cá và tiếng cười của những người quen mặt. Tôi nhận ra ở bến đò này, ký ức không nằm ở những câu chuyện quá lớn, mà nằm trong cách người ta chào nhau mỗi ngày. Một cái gật đầu, một tiếng hỏi thăm, một bàn tay đỡ giúp lúc bước xuống thuyền, tất cả gom lại thành cảm giác thân thuộc mà nơi khác khó có được.",
+      "Trên đường về, tôi nghĩ đến những bến đò vô danh ở khắp miền sông nước. Có bến đông người, có bến chỉ còn vài chuyến mỗi ngày, nhưng điểm chung là vẫn giữ được nhịp sống không vội. Khi ai đó chờ ai đó qua sông, thời gian như chậm lại đúng phần cần thiết. Và có lẽ vì vậy, bến đò cũ không chỉ là một địa điểm trong bản đồ quê nhà, mà còn là một phần nhân hậu trong cách sống của người quê.",
+      "Từ đó, mỗi khi thấy mình bị kéo vào những nhịp quá gấp, tôi lại nhớ hình ảnh bác Sáu ngồi bên bến, ung dung nhìn nước lớn nước ròng. Bác không giảng giải điều gì, chỉ sống vậy thôi mà đủ dạy tôi nhiều thứ. Dạy rằng cuộc đời có thể nhiều đổi thay, nhưng một người vẫn có thể giữ sự tử tế bằng cách bền bỉ ở lại đúng chỗ của mình, đúng vai trò của mình, với lòng hiền lành không phô trương.",
+    ],
+  },
+  "dem-nghe-tieng-nuoc-chay": {
+    readingTime: "8 phút",
+    extraParagraphs: [
+      "Tôi bước ra hiên, ngồi tựa cột gỗ, nghe đêm thở cùng mình. Xa xa, một ngọn đèn câu chao nhẹ, lúc rõ lúc mờ theo nhịp gió. Mỗi lần sóng lăn tăn vào bờ, tôi lại nhớ câu má từng dặn: đừng sợ đêm, đêm chỉ rộng hơn ban ngày thôi. Thực ra, cái làm người ta mỏi nhất không phải bóng tối, mà là những tiếng ồn chưa kịp tắt trong đầu.",
+      "Có giai đoạn tôi sống ở thành phố, cửa kính đóng kín mà vẫn nghe tiếng máy, tiếng còi, tiếng bước chân dồn dập. Về quê, đêm tưởng như trống rỗng, nhưng ở lâu mới thấy nó đầy những âm thanh dịu: tiếng lá trở mình, tiếng mái tôn khô dần sau mưa, tiếng nước lùa qua cỏ. Đêm quê không bắt ta phải nghĩ thêm. Nó chỉ nhắc ta thở đúng nhịp và đặt mọi việc về đúng kích thước của nó.",
+      "Gần sáng, tôi pha một ấm trà nhạt, ngồi nhìn mặt nước đổi màu. Từ đen sang xám, rồi từ xám sang ánh bạc mỏng. Tôi không có thêm đáp án nào cho những điều dang dở, nhưng trong lòng lại bớt gấp. Có lẽ vì tôi đã thôi ép mình phải hiểu hết mọi chuyện trong một đêm. Có những nỗi niềm cần đi qua nhiều con nước mới tự lắng. Và khi lắng rồi, ta mới nghe ra tiếng bình yên vốn ở ngay bên cạnh từ lâu.",
+      "Tôi nhớ có lần đang sống trong chuỗi ngày rất áp lực, tôi đã thử nghe nhạc thật lớn để át đi cảm giác nặng nề. Nhưng càng mở to, đầu óc càng mỏi. Chỉ khi tắt hết, ngồi yên và nghe tiếng nước vỗ bờ như đêm nay, tôi mới thấy lòng nhẹ xuống. Có lẽ không phải âm thanh nào cũng giúp chữa lành. Chỉ những âm thanh khiến ta quay về với chính mình mới thật sự có tác dụng.",
+      "Má từng nói, con người giống mặt sông, bề mặt có thể xao động nhưng đáy sông luôn có phần tĩnh. Lúc ấy tôi còn nhỏ, nghe rồi để đó. Đến bây giờ mới thấm. Khi đời sống có quá nhiều tin nhắn, cuộc gọi, lịch hẹn và đòi hỏi, phần đáy yên ấy dễ bị lãng quên. Đêm quê cho tôi một cơ hội hiếm để chạm lại phần yên đó, dù chỉ vài phút, cũng đã đủ để đi tiếp ngày mai.",
+      "Trời sáng hẳn, hàng xóm bắt đầu dậy sớm quét sân, tiếng chổi tre sột soạt nghe rất gần. Tôi gấp chăn, mở cửa và hít một hơi dài. Đêm mất ngủ không còn là một đêm nặng nề nữa, mà trở thành một đêm học lại cách lắng nghe. Khi học được cách lắng nghe nước chảy, tôi cũng học được cách lắng nghe mình. Và đó có lẽ là món quà lặng lẽ nhất mà quê nhà đã trao cho tôi.",
+    ],
+  },
+  "mui-khoi-bep-len-tu-xom-nho": {
+    readingTime: "8 phút",
+    extraParagraphs: [
+      "Chiều hôm sau, tôi ghé qua nhà dì Ba ở cuối xóm. Dì đang ngồi quạt bếp, vừa quạt vừa kể chuyện lúa ngoài đồng năm nay trổ muộn. Mùi khói bếp quện với mùi lá dừa khô làm tôi bất giác đứng yên một lúc. Dì cười, nói mùi này bám áo lâu lắm, về thành phố chắc phải giặt mấy lần mới hết. Tôi bảo, nếu được, tôi muốn mùi này ở lại lâu thêm một chút.",
+      "Bữa cơm quê giản dị: nồi canh rau, đĩa cá kho, chén nước mắm dằm ớt. Nhưng cách mọi người ngồi lại với nhau mới là điều khiến tôi nhớ. Không ai cầm điện thoại, không ai ăn vội. Câu chuyện xoay quanh chuyện nhỏ: con đường mới đổ đá, cây xoài đầu ngõ đã ra trái, đứa cháu ngoại vừa biết đọc. Những chuyện tưởng bình thường ấy, khi đi xa mới thấy là nền nhà vững nhất của đời sống.",
+      "Đêm xuống, khói bếp tan dần, chỉ còn mùi ấm trên tà áo. Tôi trở về phòng, nhìn lên mái nhà cũ và nghĩ về quãng thời gian mình đã sống quá nhanh. Có lẽ ai cũng cần một mùi hương để nhận ra mình thuộc về đâu. Với tôi, đó là mùi khói bếp chiều. Nó không chỉ gợi nhớ tuổi thơ, mà còn nhắc rằng hạnh phúc thường bắt đầu từ những điều rất nhỏ: một bữa cơm đủ người, một tiếng gọi thân quen, một mái nhà vẫn chờ mình về.",
+      "Ngày hôm sau, tôi đi ngang qua vài căn nhà mới xây, tường sáng màu và bếp đã chuyển sang kiểu hiện đại hơn. Quê cũng đổi thay, đó là điều tự nhiên. Nhưng khi đến gần giờ cơm, vẫn có đâu đó một làn khói mỏng bay lên, như một dấu lặng cũ chưa biến mất. Tôi nghĩ, truyền thống không nhất thiết phải giữ nguyên mọi hình thức, chỉ cần giữ được tinh thần quây quần, tinh thần biết gọi nhau về trong bữa tối, vậy là đủ.",
+      "Dì Ba kể thêm rằng hồi xưa mỗi khi mưa lớn, cả xóm hay sang nhà nhau nấu chung một bếp để tiện nhóm lửa. Người thì xắt rau, người vo gạo, người trông trẻ con. Chuyện ấy bây giờ ít gặp, nhưng nghe lại vẫn thấy ấm. Bởi nó cho thấy người quê từng đi qua khó khăn bằng cách nương vào nhau. Khói bếp vì thế không chỉ là mùi thức ăn, mà là mùi của sự sẻ chia trong đời sống thường ngày.",
+      "Khi trở lại nhịp làm việc, thỉnh thoảng tôi vẫn bất ngờ ngửi thấy mùi khói bếp trong ký ức và tự mỉm cười. Nó như một chiếc neo nhỏ giữ mình không trôi quá xa khỏi phần mềm của bản thân. Giữa những ngày căng, chỉ cần nhớ tới mâm cơm quê và tiếng người thân gọi nhau, tôi lại thấy lòng dịu xuống. Có lẽ ai cũng cần một hình ảnh như thế để chống lại sự cằn cỗi mà cuộc sống hiện đại dễ mang đến.",
+    ],
+  },
+  "chuyen-nguoi-qua-cau-tre": {
+    readingTime: "9 phút",
+    extraParagraphs: [
+      "Một sáng đầu mùa nước lớn, tôi đứng ở đầu cầu nhìn đám trẻ con tập đi xe đạp. Chúng chạy chậm, rồi dừng lại, rồi cười vang khi ai đó suýt ngã. Người lớn đứng xa xa, không can thiệp nhiều, chỉ đưa mắt theo dõi. Cây cầu tre nhỏ bỗng trở thành lớp học đầu tiên dạy lũ trẻ giữ thăng bằng, dạy chúng biết đi qua nỗi sợ bằng sự kiên nhẫn và vài tiếng gọi động viên.",
+      "Buổi trưa, một bà cụ xách giỏ đi chợ về, chân bước chậm nhưng chắc. Một thanh niên đi ngang liền đỡ giỏ giúp, đưa cụ qua hết cầu rồi mới chào đi tiếp. Cảnh ấy diễn ra nhanh đến mức nếu không để ý sẽ bỏ qua. Nhưng chính những cử chỉ rất ngắn như vậy làm nên nền nếp của xóm làng: thấy người khác cần thì đưa tay, không cần nghĩ nhiều. Tình người ở quê thường không có lời mở đầu long trọng, chỉ có hành động vừa đủ.",
+      "Chiều xuống, mặt cầu hắt ánh nâu, bóng người kéo dài trên mặt nước. Tôi ngồi bên bờ nhìn từng người đi qua mà chợt hiểu: cây cầu không giữ ai bằng dây buộc, nó giữ bằng thói quen trở lại. Bao năm rồi, nhịp đi của người qua cầu vẫn chậm như cũ, như thể ai cũng biết nơi đây không dành cho vội vã. Khi rời xóm, tôi ngoái nhìn cây cầu một lần nữa. Trong lòng có một cảm giác rất lạ: nhẹ mà đầy, như vừa mang theo một bài học cũ về cách sống tử tế trong ngày thường.",
+      "Nhiều người từng khuyên xóm nên thay cầu tre bằng cầu bê tông để đi lại dễ hơn. Ý kiến ấy không sai, vì an toàn là điều quan trọng. Nhưng trước khi đổi, bà con vẫn tranh thủ sửa từng nhịp cầu cũ để dùng tạm. Mỗi lần thay tre, người này góp cây, người kia góp công, chẳng ai tính hơn thiệt. Nhìn họ làm, tôi thấy cây cầu không chỉ là hạ tầng, mà là một cái cớ để người trong xóm còn dịp cùng nhau làm việc chung.",
+      "Chiều muộn, có một cặp vợ chồng trẻ dừng xe ở đầu cầu, bế con nhỏ xuống ngắm sông. Đứa bé chỉ vào mặt nước rồi cười khanh khách khi thấy đàn cá quẫy nhẹ gần bờ. Người cha cúi xuống buộc lại quai dép cho con, người mẹ đứng chắn gió. Cảnh tượng ấy yên bình đến mức tôi cứ nhìn mãi. Nó nhắc rằng hạnh phúc đôi khi không cần đi đâu xa, chỉ cần một cây cầu cũ, một dòng sông và vài phút cả nhà có mặt bên nhau.",
+      "Tối đến, tôi ghi vào sổ tay một câu ngắn: giữ được nhịp chậm là giữ được nhau. Ở nơi nào ai cũng chỉ muốn đi nhanh hơn, hơn nhau một bước, nơi đó dễ mất đi sự dịu dàng. Cây cầu tre của xóm dạy tôi điều ngược lại: đi chậm để thấy người khác, đi chậm để không bỏ lỡ một bàn tay cần đỡ, đi chậm để lòng mình còn chỗ cho sự tử tế nảy mầm.",
+    ],
+  },
+};
+
+export const storyPosts: ContentItem[] = baseStoryPosts.map((item) => {
+  const expansion = storyPostExpansions[item.slug];
+
+  if (!expansion) return item;
+
+  return {
+    ...item,
+    readingTime: expansion.readingTime,
+    content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
+  };
+});
+
+const baseSpiritualPosts: ContentItem[] = [
   {
     title: "Mùa chuông chiều trong sân chùa nhỏ",
     slug: "mua-chuong-chieu-trong-san-chua-nho",
@@ -300,6 +359,65 @@ export const spiritualPosts: ContentItem[] = [
     isFeatured: false,
   },
 ];
+
+const spiritualPostExpansions: Record<string, { readingTime: string; extraParagraphs: string[] }> = {
+  "mua-chuong-chieu-trong-san-chua-nho": {
+    readingTime: "8 phút",
+    extraParagraphs: [
+      "Sau thời kinh chiều, sân chùa thưa người dần. Tôi đi chậm quanh gốc bồ đề, nghe tiếng dép lạo xạo trên nền gạch ướt. Một cô bé theo mẹ đến chùa đứng nép ở hiên, hai tay chắp vụng về mà gương mặt rất sáng. Không ai dạy em những điều lớn lao. Em chỉ nhìn người lớn làm gì thì làm theo, vậy mà trong cử chỉ ấy đã có sẵn một sự thành kính tự nhiên.",
+      "Thầy trụ trì rót cho tôi chén trà nóng, nói rằng mưa chiều thường giúp người ta dịu lại nhanh hơn. Tôi hỏi sao có những ngày lòng vẫn không yên dù đã cố ngồi im. Thầy cười: vì mình đang ngồi bằng thân mà chưa ngồi bằng tâm. Có khi thân đã ở sân chùa, nhưng tâm còn đi ngược xuôi với bao việc chưa xong. Nghe vậy, tôi không đáp, chỉ thử đặt chén trà xuống chậm hơn một chút, nhìn hơi nóng bay lên rồi tan đi.",
+      "Trước lúc về, tôi đứng lại nghe thêm một tiếng chuông. Âm thanh ấy không lớn, nhưng kéo dài đủ lâu để mình nhận ra bên trong vẫn còn một vùng lặng chưa bị cuộc sống chạm tới. Tôi bước ra cổng chùa khi trời đã nhá nhem, lòng không còn nặng như lúc đến. Bài học của buổi chiều hôm ấy rất đơn giản: muốn tìm bình an, trước hết phải cho chính mình vài phút thật sự có mặt.",
+      "Vài hôm sau, tôi thử mang thói quen đó vào đời sống hằng ngày. Trước khi trả lời một tin nhắn khó, tôi dừng lại đúng một hơi thở. Trước khi bước vào cuộc họp căng, tôi nhắm mắt vài giây như đang ngồi dưới mái hiên chùa. Nghe có vẻ nhỏ, nhưng sự khác biệt lại rõ. Giọng nói bớt gắt, quyết định bớt nóng và lòng bớt nghiêng về phía cực đoan. Có lẽ bình an không xa, chỉ là mình ít khi cho nó cơ hội xuất hiện.",
+      "Tôi cũng nhận ra tiếng chuông chiều không chỉ vang trong sân chùa, mà có thể vang trong lòng mỗi người khi biết tự nhắc mình quay về. Một tiếng chuông nội tâm có khi là lúc ta chịu nhận lỗi, có khi là lúc ta thôi cãi để thắng, có khi chỉ là lúc ta đặt điện thoại xuống và ngồi cạnh người thân thêm mười phút. Những điều đó tưởng nhỏ nhưng chính là nền móng của một đời sống có chiều sâu.",
+      "Chiều nào có dịp đi ngang cổng chùa, tôi vẫn dừng lại nhìn vào một chút, dù không phải lúc nào cũng bước vào. Chỉ nhìn thôi cũng đủ gợi lại nhịp chậm đã học. Trong những ngày nhiều xô lệch, tôi tin ai cũng cần một nơi để trở về bên trong. Với tôi, đó là tiếng chuông chiều trong sân chùa nhỏ, âm thầm mà bền bỉ, như một lời nhắc dịu rằng bình an luôn bắt đầu từ sự hiện diện.",
+    ],
+  },
+  "dot-nhang-truoc-hien-nha": {
+    readingTime: "8 phút",
+    extraParagraphs: [
+      "Có lần tôi hỏi bà ngoại vì sao mỗi buổi chiều vẫn thắp nhang đều đặn dù mắt đã kém, tay đã run. Bà nói, thắp nhang không phải để xin điều gì đặc biệt, mà để nhớ mình còn biết ơn. Biết ơn ngày còn đủ cơm ăn, biết ơn người thân còn gọi nhau bằng giọng gần, biết ơn cả những khó nhọc đã dạy mình mềm lòng hơn. Tôi nghe mà thấy chiếc bàn thờ nhỏ trước hiên bỗng trở thành một nơi rất sống, không hề xa cách.",
+      "Từ đó, tôi tập đứng lại một chút trước khi bắt đầu bữa tối. Không cần nghi thức dài, chỉ là thắp một nén nhang, hít một hơi chậm, rồi tự hỏi hôm nay mình đã nói điều gì làm người khác nhẹ lòng hơn chưa. Câu hỏi ấy đôi khi làm tôi ngại vì câu trả lời không phải lúc nào cũng đẹp. Nhưng chính sự ngại đó lại giúp tôi sống cẩn trọng hơn, bớt những lời vội và bớt cái tôi nóng nảy.",
+      "Tâm linh, với tôi, không tách rời khỏi đời thường. Nó nằm trong cách mình cúi thấp giọng khi người khác đang mệt, cách mình giữ lời hứa nhỏ, cách mình biết dừng trước khi làm ai đó tổn thương. Nén nhang chiều vì thế trở thành một lời nhắc mềm: sống sao để lúc đêm xuống, mình có thể ngồi yên với chính mình mà không phải quay mặt đi vì tiếc nuối.",
+      "Có những bữa cơm gia đình tưởng rất bình thường, nhưng nếu để ý sẽ thấy đó là nơi tâm linh hiện diện rõ nhất. Khi cả nhà chắp tay trước bữa ăn, chỉ vài giây ngắn ngủi thôi, ai nấy đều chậm lại và ý thức hơn về sự có mặt của nhau. Không khí bàn ăn nhờ vậy dịu đi, bớt tranh cãi, bớt vội. Tôi dần tin rằng những nghi thức nhỏ có thể giữ cho một mái nhà bền hơn nhiều lời khuyên to tát.",
+      "Một hôm tôi quên thắp nhang vì về trễ và quá mệt. Tối đó nằm xuống, tôi thấy lòng trống rỗng một cách kỳ lạ, như vừa bỏ quên điều gì quan trọng. Sáng hôm sau, tôi thắp một nén nhang bù, không phải vì sợ thiếu nghi lễ, mà vì nhớ cảm giác biết ơn đã mất đi tối qua. Khoảnh khắc ấy giúp tôi hiểu rằng thực hành tâm linh không phải gánh nặng, mà là một cách giữ cho tâm không bị khô cứng trước áp lực thường ngày.",
+      "Bây giờ, dù ở đâu, tôi vẫn cố giữ một nghi thức rất nhỏ vào cuối ngày: dừng lại, thở sâu và cảm ơn những gì đã có. Có hôm chỉ là cảm ơn vì bữa cơm nóng, có hôm là vì một cuộc trò chuyện tử tế. Những lời cảm ơn thầm như vậy không làm đời sống bớt khó ngay lập tức, nhưng làm mình bớt cô đơn khi đi qua khó khăn. Và với tôi, đó chính là giá trị sâu nhất của nén nhang trước hiên nhà.",
+    ],
+  },
+  "mot-ngay-im-lang-ben-song": {
+    readingTime: "9 phút",
+    extraParagraphs: [
+      "Buổi trưa, tôi đi bộ dọc bờ kè, cố gắng không cầm điện thoại quá lâu. Mỗi lần tay chạm vào túi áo, tôi lại nhớ mình đang tập im lặng và buông xuống. Trên bãi bồi, vài người phụ nữ ngồi gỡ lưới, vừa làm vừa nói chuyện nhỏ đủ nghe. Những câu chuyện của họ không cầu kỳ: giá cá hôm nay, đứa nhỏ mới sốt đêm qua, ruộng bên kia đã rút nước chưa. Nghe tưởng rời rạc, nhưng lại có một nhịp đều đặn làm lòng tôi ổn định dần.",
+      "Đến chiều, tôi ghé quán nước ven sông. Bà chủ già đưa ly trà đá, bảo hôm nay trông tôi hiền hơn mọi khi. Tôi bật cười. Có lẽ khi nói ít, mặt người ta cũng bớt căng. Tôi ngồi nhìn dòng người qua lại mà không còn muốn bình luận nhiều. Mỗi người mang một nỗi bận khác nhau, một câu chuyện khác nhau. Mình không cần hiểu hết. Chỉ cần bớt phán xét, tự nhiên trong lòng rộng ra.",
+      "Tối về, tôi viết vài dòng ngắn vào sổ: một ngày nói ít không làm tôi mất đi điều gì, trái lại còn trả lại cho tôi nhiều khoảng trống. Khoảng trống ấy không rỗng. Nó chứa tiếng gió, tiếng nước, tiếng bước chân, và cả tiếng lòng vốn bị lấp bởi quá nhiều phản ứng nhanh. Tôi nghĩ mình sẽ không thể im lặng mọi ngày, nhưng sẽ cố giữ lại thói quen này như một cách vệ sinh tâm trí: mỗi tuần, dành một ngày để lắng nghe nhiều hơn nói.",
+      "Ban đầu, sự im lặng làm tôi hơi sợ. Khi không còn tiếng nói để lấp đầy, nhiều suy nghĩ cũ cũng nổi lên rõ hơn: những điều mình từng làm chưa tốt, những lời nói khiến ai đó buồn, những lần mình quá gấp mà bỏ sót cảm xúc người khác. Nhưng thay vì né tránh, tôi học cách nhìn chúng như nhìn mặt sông có gợn. Gợn rồi sẽ qua nếu mình không tự tay khuấy thêm.",
+      "Buổi tối, tôi gặp lại một người bạn cũ. Chúng tôi ngồi bên mé sông, nói chuyện chậm và có nhiều quãng ngừng. Kỳ lạ là những quãng ngừng ấy không hề gượng, trái lại rất dễ chịu. Bạn tôi bảo lâu lắm mới có một cuộc trò chuyện không ai cần chứng minh mình đúng. Tôi nghe và thấy đúng. Khi bớt nói để thắng, người ta có nhiều không gian hơn để thật sự hiểu nhau.",
+      "Trước khi ngủ, tôi cất điện thoại sớm hơn thường lệ và tắt bớt đèn trong phòng. Căn nhà yên đến mức nghe rõ tiếng côn trùng ngoài vườn. Tôi nhận ra ngày im lặng này không phải để trốn đời, mà để quay lại đời với một nội tâm sạch hơn. Có thể ngày mai tôi vẫn phải đối diện công việc bộn bề, nhưng ít nhất tôi đã có một điểm tựa: biết rằng mình luôn có thể trở về với sự tĩnh khi cần.",
+    ],
+  },
+  "hoc-tho-cham-giua-ngay-dai": {
+    readingTime: "8 phút",
+    extraParagraphs: [
+      "Tôi bắt đầu ghi chú những thời điểm mình thở gấp nhất: trước cuộc họp, sau một cuộc gọi khó, lúc đọc tin nhắn chưa vui. Chỉ cần nhận ra thôi, nhịp thở đã tự chậm lại phần nào. Tôi học một cách rất đơn giản: đặt tay lên ngực, hít vào bốn nhịp, giữ hai nhịp, thở ra sáu nhịp. Làm ba lần. Mỗi lần chưa tới một phút, nhưng đủ để đầu óc bớt quay cuồng và giọng nói bớt gắt.",
+      "Có hôm tôi quên, để cả ngày trôi trong gấp gáp. Tối đến mới thấy mệt rã, dễ cáu, dễ buồn không lý do. Những ngày như vậy nhắc tôi rằng bình an không tự đến vì mình muốn, nó cần được thực tập như một thói quen cơ thể. Cũng giống như chăm cây, không thể tưới một lần rồi bỏ đó. Muốn cây xanh phải chăm đều. Muốn lòng yên cũng vậy, phải quay về với hơi thở nhiều lần trong ngày.",
+      "Dần dần, tôi nhận ra khi thở chậm, mình nghe người khác rõ hơn. Không còn cắt ngang quá nhanh, không còn vội phản biện để thắng. Trong những cuộc trò chuyện căng, chỉ cần giữ một hơi thở dài thêm một chút, câu chữ đi ra cũng mềm hơn. Có thể đó là điều quý nhất: thở chậm không chỉ giúp mình bình tĩnh, mà còn giúp mình giữ được sự tử tế trong lúc dễ đánh mất nhất.",
+      "Tôi thử chia ngày thành những cột mốc nhỏ để nhắc mình thở: trước khi mở máy tính buổi sáng, trước khi ăn trưa và trước khi kết thúc công việc. Mỗi lần chỉ cần một phút, nhưng khi cộng lại, đó là vài phút hiếm hoi tôi thật sự có mặt với thân thể. Những phút ấy giúp tôi phân biệt rõ hơn đâu là việc khẩn cấp thật, đâu chỉ là cảm giác khẩn cấp do căng thẳng tạo ra.",
+      "Một đồng nghiệp từng hỏi vì sao tôi dạo này ít nổi nóng hơn. Tôi không có bí quyết lớn, chỉ kể về ba nhịp thở. Bạn ấy thử làm theo trong một tuần rồi nhắn lại rằng buổi tối đỡ kiệt sức hơn trước. Tôi đọc tin nhắn đó và thấy vui. Những thực hành rất nhỏ, khi được chia sẻ đúng cách, có thể trở thành sợi dây nối nhẹ giữa người với người, nhất là trong môi trường ai cũng dễ rơi vào quá tải.",
+      "Giờ đây, mỗi khi nghe ai than mệt, tôi không vội đưa lời khuyên dài. Tôi chỉ mời họ thử một hơi thở chậm ngay lúc này. Hít sâu, giữ nhẹ, thở dài. Đôi khi chỉ cần vậy thôi, ánh mắt đã dịu hơn. Tôi tin tâm linh không phải điều xa vời. Nó bắt đầu từ việc biết quay về thân mình, biết nghe nhịp thở và biết sống chậm lại một chút để giữ phần người tử tế trong mỗi ngày dài.",
+    ],
+  },
+};
+
+export const spiritualPosts: ContentItem[] = baseSpiritualPosts.map((item) => {
+  const expansion = spiritualPostExpansions[item.slug];
+
+  if (!expansion) return item;
+
+  return {
+    ...item,
+    readingTime: expansion.readingTime,
+    content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
+  };
+});
 
 export const poetryPosts: ContentItem[] = poetryBase.map((item) => {
   const fallbackRelated = poetryBase

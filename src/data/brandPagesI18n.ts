@@ -21,6 +21,8 @@ type BookcaseCopy = {
   heroEyebrow: string;
   heroTitle: string;
   heroDescription: string;
+  heroImage: string;
+  heroAlt: string;
   introTitle: string;
   introDescription: string;
   featuredLabel: string;
@@ -44,6 +46,8 @@ type SupportCopy = {
   heroEyebrow: string;
   heroTitle: string;
   heroDescription: string;
+  heroImage: string;
+  heroAlt: string;
   companionTitle: string;
   companionDescription: string;
   qrCardTitle: string;
@@ -74,6 +78,8 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Tủ sách",
       heroDescription:
         "Nơi những tập thơ in được gìn giữ theo nhịp chậm của Hồn Thơ, để người yêu thơ có thể mang một phần ký ức quê nhà về gần hơn.",
+      heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
+      heroAlt: "Không gian tủ sách thơ trong ánh chiều ấm",
       introTitle: "Những cuốn thơ được gửi đi bằng sự trân trọng",
       introDescription:
         "Mỗi ấn phẩm là một khoảng chữ đã đi qua nhiều mùa cảm xúc. Nếu bạn muốn giữ thơ trên tay như một món quà dịu dành cho chính mình hoặc người thương, đây là nơi để bắt đầu.",
@@ -187,10 +193,12 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Ủng hộ Hồn Thơ",
       heroDescription:
         "Nếu bạn muốn góp một phần nhỏ để gìn giữ không gian này, Hồn Thơ luôn trân trọng.",
+      heroImage: "/images/4.webp",
+      heroAlt: "Khoảng lặng chiều quê với ánh sáng dịu",
       companionTitle: "Một lời đồng hành dịu dàng",
       companionDescription:
         "Mỗi sự ủng hộ, dù nhỏ, đều là một cách để những câu chữ, giọng đọc và khoảng lặng nơi đây được ở lại lâu hơn.",
-      qrCardTitle: "Biểu mẫu ủng hộ",
+      qrCardTitle: "Mã QR ủng hộ",
       qrCardDescription:
         "Quét mã để gửi một phần ủng hộ cho Hồn Thơ theo cách thuận tiện nhất dành cho bạn.",
       qrCardImage: "/images/support/qr-bank.jpg",
@@ -231,6 +239,8 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Bookcase",
       heroDescription:
         "A quiet shelf of printed poetry from Hồn Thơ, for readers who want to keep a piece of homeland memory close.",
+      heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
+      heroAlt: "A warm evening poetry shelf",
       introTitle: "Poetry books shared with care",
       introDescription:
         "Each edition gathers words that have stayed through many seasons. If you want to hold poetry as a gentle keepsake, this is where you can begin.",
@@ -344,10 +354,12 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroTitle: "Support Hồn Thơ",
       heroDescription:
         "If you wish to offer a small contribution to keep this space alive, Hồn Thơ is deeply grateful.",
+      heroImage: "/images/4.webp",
+      heroAlt: "A calm evening scene with soft light",
       companionTitle: "A gentle way to stand with us",
       companionDescription:
         "Every contribution, however small, helps keep these words, voice readings, and quiet pauses alive a little longer.",
-      qrCardTitle: "Support form",
+      qrCardTitle: "Support QR code",
       qrCardDescription: "Scan the code to send your support in the way that feels most convenient for you.",
       qrCardImage: "/images/support/qr-bank.jpg",
       qrCardAlt: "Support QR code for Hồn Thơ",

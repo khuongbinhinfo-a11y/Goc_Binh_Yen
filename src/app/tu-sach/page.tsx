@@ -17,11 +17,16 @@ export default function TuSachPage() {
       <SiteHeader />
 
       <main>
-        <section className="border-b border-[#dec2a7] bg-gradient-to-b from-[#f8efe4] to-[#f1e3d4] py-12 sm:py-14">
-          <div className="site-shell">
-            <p className="eyebrow">{copy.heroEyebrow}</p>
-            <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">{copy.heroTitle}</h1>
-            <p className="mt-3 max-w-3xl text-sm leading-8 text-[#664a3a] sm:text-base">{copy.heroDescription}</p>
+        <section className="relative overflow-hidden border-b border-[#dec2a7]">
+          <div className="absolute inset-0">
+            <SafeImage src={copy.heroImage} fallbackSrc={IMAGE_FALLBACKS.bookcase} alt={copy.heroAlt} fill priority className="object-cover" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#5a3e2c]/34 via-[#4b3326]/50 to-[#2c1c14]/80" />
+
+          <div className="site-shell relative z-10 py-12 sm:py-14">
+            <p className="eyebrow text-[#f0d9bd]">{copy.heroEyebrow}</p>
+            <h1 className="text-4xl font-bold leading-[1.12] text-white sm:text-5xl">{copy.heroTitle}</h1>
+            <p className="mt-3 max-w-3xl text-sm leading-8 text-[#f6e8d8] sm:text-base">{copy.heroDescription}</p>
           </div>
         </section>
 
