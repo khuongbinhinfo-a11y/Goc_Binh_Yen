@@ -114,7 +114,7 @@ export default function ContactSection() {
   return (
     <section id="lien-he" className="scroll-mt-24 bg-[#f7efe6] py-20">
       <div className="site-shell">
-        <div className="space-y-5 sm:space-y-6">
+        <div className="space-y-6 sm:space-y-7">
           <article className="soft-panel overflow-hidden border-[#d7b89b] bg-[#fbf2e8] p-0">
             <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
               <div className="p-6 sm:p-8 lg:p-10">
@@ -124,8 +124,8 @@ export default function ContactSection() {
                   </span>
                   <span>{t.contact.eyebrow}</span>
                 </p>
-                <h2 className="max-w-xl text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.contact.title}</h2>
-                <p className="mt-4 max-w-xl text-sm leading-7 text-[#654939] sm:text-base">{t.contact.description}</p>
+                <h2 className="max-w-lg text-4xl font-semibold leading-tight text-[#3f2b20] sm:text-5xl">{t.contact.title}</h2>
+                <p className="mt-3 max-w-lg text-sm leading-7 text-[#654939] sm:text-base">{t.contact.description}</p>
 
                 <a
                   href={CONTACT_FORM_URL}
@@ -138,7 +138,7 @@ export default function ContactSection() {
                     <path d="M7 5h8v8M15 5 5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                   </svg>
                 </a>
-                <p className="mt-3 text-xs text-[#8a6851]">{t.contact.helper}</p>
+                <p className="mt-2 text-[11px] text-[#8a6851] sm:text-xs">{t.contact.helper}</p>
               </div>
 
               <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[360px]">

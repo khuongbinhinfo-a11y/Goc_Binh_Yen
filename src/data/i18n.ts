@@ -305,11 +305,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "Một lời ghé lại",
       title: "Gửi một lời nhắn cho Hồn Thơ",
       description:
-        "Nếu bạn muốn chia sẻ đôi điều, tìm một cuốn thơ, hay gửi một lời đồng hành nhẹ, Hồn Thơ luôn trân trọng.",
+        "Nếu bạn muốn gửi lời nhắn hoặc chia sẻ một điều nhỏ, Hồn Thơ luôn trân trọng.",
       cardTitle: "Biểu mẫu liên hệ",
-      cardDescription: "Hãy để lại thông tin và lời nhắn của bạn qua biểu mẫu liên hệ.",
+      cardDescription: "Điền vài dòng ngắn qua biểu mẫu liên hệ.",
       button: "Mở biểu mẫu liên hệ",
-      helper: "Biểu mẫu sẽ mở ở tab mới.",
+      helper: "Mở ở tab mới.",
       quickLinksTitle: "Chọn lối đi tiếp theo",
       quickLinks: [
         {
@@ -618,11 +618,11 @@ export const translations: Record<Locale, TranslationSchema> = {
       eyebrow: "A gentle return",
       title: "Leave a message for Hồn Thơ",
       description:
-        "If you would like to share a thought, find a poetry edition, or offer gentle support, Hồn Thơ receives it with gratitude.",
+        "If you would like to leave a note or share a small thought, Hồn Thơ receives it with gratitude.",
       cardTitle: "Contact form",
-      cardDescription: "Leave your information and message through the contact form.",
+      cardDescription: "Share a short note through the contact form.",
       button: "Open contact form",
-      helper: "The form opens in a new tab.",
+      helper: "Opens in a new tab.",
       quickLinksTitle: "Choose your next step",
       quickLinks: [
         {

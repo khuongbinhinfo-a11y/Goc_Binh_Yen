@@ -59,12 +59,12 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroEyebrow: "Ấn phẩm của Hồn Thơ",
       heroTitle: "Tủ sách",
       heroDescription:
-        "Nơi những tập thơ in được gìn giữ theo nhịp chậm của Hồn Thơ, để người yêu thơ có thể mang một phần ký ức quê nhà về gần hơn.",
+        "Tủ sách đang được cập nhật theo dữ liệu ấn phẩm mới. Thông tin chi tiết sẽ được bổ sung khi hoàn chỉnh.",
       heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
       heroAlt: "Không gian tủ sách thơ trong ánh chiều ấm",
       introTitle: "Tủ sách đang được cập nhật",
       introDescription:
-        "Thông tin về các ấn phẩm sẽ được bổ sung khi hoàn chỉnh.",
+        "Hồn Thơ đang hoàn thiện thông tin từng ấn phẩm để gửi đến bạn một cách đầy đủ và trân trọng.",
       closingButton: "Liên hệ cùng Hồn Thơ",
     },
     support: {
@@ -76,10 +76,10 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroAlt: "Khoảng lặng chiều quê với ánh sáng dịu",
       companionTitle: "Một lời ghé lại",
       companionDescription:
-        "Giữa những ngày nhiều xao động, một sự đồng hành nhỏ cũng đủ làm ấm một khoảng thơ.",
+        "Một lời đồng hành nhẹ, để những câu chữ nơi đây ở lại lâu hơn.",
       companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
       companionAlt: "Mặt sông chiều lặng với ánh nắng ấm nhẹ",
-      qrCardDescription: "Một mã quét nhỏ dành cho lời đồng hành nhẹ cùng Hồn Thơ.",
+      qrCardDescription: "Hồn Thơ luôn trân trọng từng lời đồng hành của bạn.",
       qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
       qrCardAlt: "Mã quét đồng hành cùng Hồn Thơ",
       transferDetails: [
@@ -99,7 +99,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       accountNumber: "100870892731",
       copyButton: "Sao chép số tài khoản",
       copiedButton: "Đã sao chép",
-      helperText: "Hồn Thơ luôn trân trọng tấm lòng của bạn.",
+      helperText: "Xin cảm ơn sự đồng hành của bạn.",
       closingTitle: "Gửi một lời nhắn cho Hồn Thơ",
       closingDescription:
         "Nếu bạn muốn chia sẻ đôi dòng sau khi ủng hộ, Hồn Thơ luôn trân trọng và lắng nghe.",
@@ -116,12 +116,12 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroEyebrow: "Printed editions from Hồn Thơ",
       heroTitle: "Bookcase",
       heroDescription:
-        "A quiet shelf of printed poetry from Hồn Thơ, for readers who want to keep a piece of homeland memory close.",
+        "The bookcase is being updated with new edition details. Full information will be added once finalized.",
       heroImage: "/images/poems/em-mua-xuan-ve.jpeg",
       heroAlt: "A warm evening poetry shelf",
       introTitle: "The bookcase is being updated",
       introDescription:
-        "Information about the printed editions will be added when ready.",
+        "Hồn Thơ is preparing complete information for each printed edition.",
       closingButton: "Contact Hồn Thơ",
     },
     support: {
@@ -133,10 +133,10 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       heroAlt: "A calm evening scene with soft light",
       companionTitle: "A quiet note of kindness",
       companionDescription:
-        "In restless days, even a small gesture can keep this corner of poetry warm.",
+        "A gentle gesture helps keep this corner of words alive a little longer.",
       companionImage: "/images/poems/ngang-ben-song-xua.jpeg",
       companionAlt: "A quiet riverside in warm evening light",
-      qrCardDescription: "A gentle QR option for those who wish to stand with Hồn Thơ.",
+      qrCardDescription: "Hồn Thơ receives every kind gesture with gratitude.",
       qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
       qrCardAlt: "Support QR code for Hồn Thơ",
       transferDetails: [
@@ -156,7 +156,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       accountNumber: "100870892731",
       copyButton: "Copy account number",
       copiedButton: "Copied",
-      helperText: "Thank you for keeping this space alive with care.",
+      helperText: "Thank you for your support.",
       closingTitle: "Send a short note to Hồn Thơ",
       closingDescription: "If you would like to leave a message after your support, we would be grateful to hear from you.",
       closingButton: "Contact Hồn Thơ",
