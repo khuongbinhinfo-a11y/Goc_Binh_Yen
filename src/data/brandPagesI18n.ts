@@ -126,7 +126,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
     },
     support: {
       heroEyebrow: "A gentle contribution",
-      heroTitle: "Support Hồn Thơ",
+      heroTitle: "Donate to Hồn Thơ",
       heroDescription:
         "If you wish to offer a small contribution to keep this space alive, Hồn Thơ is deeply grateful.",
       heroImage: LOCAL_IMAGE_MAP.heroSupport.src,
@@ -138,7 +138,7 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       companionAlt: "A quiet riverside in warm evening light",
       qrCardDescription: "Hồn Thơ receives every kind gesture with gratitude.",
       qrCardImage: LOCAL_IMAGE_MAP.supportQr.src,
-      qrCardAlt: "Support QR code for Hồn Thơ",
+      qrCardAlt: "Donation QR code for Hồn Thơ",
       transferDetails: [
         {
           label: "Account number",
@@ -156,9 +156,9 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       accountNumber: "100870892731",
       copyButton: "Copy account number",
       copiedButton: "Copied",
-      helperText: "Thank you for your support.",
+      helperText: "Thank you for your donation.",
       closingTitle: "Send a short note to Hồn Thơ",
-      closingDescription: "If you would like to leave a message after your support, we would be grateful to hear from you.",
+      closingDescription: "If you would like to leave a message after your donation, we would be grateful to hear from you.",
       closingButton: "Contact Hồn Thơ",
       closingAction: {
         label: "Contact Hồn Thơ",

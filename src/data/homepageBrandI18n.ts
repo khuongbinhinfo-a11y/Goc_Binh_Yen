@@ -66,9 +66,9 @@ const homepageBrandI18n: Record<Locale, HomepageBrandCopy> = {
         button: "Explore the bookshelf",
       },
       support: {
-        title: "Support Hồn Thơ",
+        title: "Donate to Hồn Thơ",
         description: "If you wish to offer a small contribution to sustain this space, Hồn Thơ is grateful.",
-        button: "Send a kind support",
+        button: "Send a donation",
       },
     },
   },
