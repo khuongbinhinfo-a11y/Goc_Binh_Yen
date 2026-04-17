@@ -49,12 +49,12 @@ export default function StoryDetailPage() {
 
   const mediaItems = [
     story.hasAudio && story.audioUrl
-      ? { title: copy.audioTitle, href: story.audioUrl, button: copy.audioButton }
+      ? { title: copy.audioTitle, href: story.audioUrl, button: copy.audioButton, type: "audio" as const }
       : null,
     story.hasVideo && story.youtubeUrl
-      ? { title: copy.videoTitle, href: story.youtubeUrl, button: copy.videoButton }
+      ? { title: copy.videoTitle, href: story.youtubeUrl, button: copy.videoButton, type: "video" as const }
       : null,
-  ].filter((item): item is { title: string; href: string; button: string } => Boolean(item));
+  ].filter((item): item is { title: string; href: string; button: string; type: "audio" | "video" } => Boolean(item));
 
   const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     `https://hon-tho.vercel.app${routePrefix}/${story.slug}`,
@@ -171,14 +171,23 @@ export default function StoryDetailPage() {
                 {mediaItems.map((media) => (
                   <article key={media.title} className="soft-panel bg-[#fffaf5] p-6">
                     <h3 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{media.title}</h3>
-                    <a
-                      href={media.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                    >
-                      {media.button}
-                    </a>
+                    {media.type === "audio" ? (
+                      <audio
+                        controls
+                        preload="metadata"
+                        src={media.href}
+                        className="mt-5 w-full"
+                      />
+                    ) : (
+                      <a
+                        href={media.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                      >
+                        {media.button}
+                      </a>
+                    )}
                   </article>
                 ))}
               </div>

@@ -93,9 +93,8 @@ const baseStoryPosts: ContentItem[] = [
         "Có những nơi không giữ người bằng vẻ lớn lao.",
     },
     relatedPosts: ["dem-nghe-tieng-nuoc-chay", "mui-khoi-bep-len-tu-xom-nho", "chuyen-nguoi-qua-cau-tre"],
-    hasAudio: true,
+    hasAudio: false,
     hasVideo: false,
-    audioUrl: "https://www.facebook.com/profile.php?id=61561724806320",
     isFeatured: true,
   },
   {
@@ -422,9 +421,8 @@ const baseSpiritualPosts: ContentItem[] = [
         "Chỉ tự nhắc mình sống tử tế hơn hôm qua một chút.",
     },
     relatedPosts: ["mua-chuong-chieu-trong-san-chua-nho", "mot-ngay-im-lang-ben-song", "hoc-tho-cham-giua-ngay-dai"],
-    hasAudio: true,
+    hasAudio: false,
     hasVideo: false,
-    audioUrl: "https://www.facebook.com/profile.php?id=61561724806320",
     isFeatured: false,
   },
   {
