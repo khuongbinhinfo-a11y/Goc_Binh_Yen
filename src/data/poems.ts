@@ -474,6 +474,7 @@ export const poems: PoemItem[] = [
     locationDate: "Cai Lậy, chiều mưa 22/6/07",
     cardImage: resolvePoemImageByTitle("Ngang bến sông xưa"),
     heroImage: resolvePoemImageByTitle("Ngang bến sông xưa"),
+    audioUrl: "/audio/ngang-ben-song-xua.m4a",
     content: "Dòng sông trôi hay lục bình trôi\nVề đâu mà thong dong, nhàn nhã\nMiền hạ có chi mà cứ xuôi về?\nCho theo với, còn gần - xa nữa\nỞ nơi này, buồn quá đi thôi\nPhía xa kia, chấp chới cánh chim trời\nĐò đưa khách sang sông chiều lặng lẽ\nMưa giăng giăng, gió xô ngả rặng bần già\nTự hỏi mình: Đừng ngắm dòng sông\nLục bình trôi, mưa giăng, gió giật\nThả theo dòng, nước chảy, gió trôi\nHay về thôi, chiều muộn lắm rồi\nAi chờ đợi, sao ai đi đâu xa biệt\nCúm núm kêu, da diết, bồi hồi\n\nThương một đời chìm nổi, dạt trôi\nThương người cũ mà tình thì không cũ\nNgười già đi tình mãi không già\nBởi yêu người nên yêu lắm loài hoa\nLúc xa cách, nhìn hoa nguôi thương nhớ\nChiều nay về quê, ngang qua dòng sông cũ\nBến nước xưa, giờ mất dạng đâu rồi\nEm ở nơi nao, gần đây hay thiệt xa xôi\nThương lắm em ơi tình yêu dang dở\nTiếng gọi đò ơi... Ngỡ ngẩn\n- Gọi gì?\nThương cho đời một gã tình si\nSao ngây dại đến là tội nghiệp.",
     status: "published",
     analysis: {
