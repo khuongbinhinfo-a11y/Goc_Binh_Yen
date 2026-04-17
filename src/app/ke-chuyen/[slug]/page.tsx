@@ -4,13 +4,20 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useParams } from "next/navigation";
 
+import InlineAudioPlayer from "@/components/content/InlineAudioPlayer";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SafeImage from "@/components/ui/SafeImage";
 import { CONTACT_FORM_URL } from "@/data/homepageData";
-import { getContentRoutePrefix, getLocalizedContentBySlug, getLocalizedRelatedContent } from "@/data/localizedContent";
+import {
+  getContentRoutePrefix,
+  getLocalizedContentBySlug,
+  getLocalizedContentList,
+  getLocalizedRelatedContent,
+} from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
+import { buildAudioQueue } from "@/lib/audio";
 import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
 
 export default function StoryDetailPage() {
@@ -25,6 +32,9 @@ export default function StoryDetailPage() {
     if (!story) return [];
     return getLocalizedRelatedContent(story, locale, 3);
   }, [story, locale]);
+
+  const audioQueue = useMemo(() => buildAudioQueue(getLocalizedContentList("story", locale)), [locale]);
+
   const storyFallbackCandidates = getContentFallbackCandidates("story");
 
   if (!story) {
@@ -172,11 +182,16 @@ export default function StoryDetailPage() {
                   <article key={media.title} className="soft-panel bg-[#fffaf5] p-6">
                     <h3 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{media.title}</h3>
                     {media.type === "audio" ? (
-                      <audio
-                        controls
-                        preload="metadata"
-                        src={media.href}
-                        className="mt-5 w-full"
+                      <InlineAudioPlayer
+                        audioUrl={media.href}
+                        queue={audioQueue}
+                        currentSlug={story.slug}
+                        routePrefix={routePrefix}
+                        labels={{
+                          previousTrack: copy.previousTrack ?? "← Bài trước",
+                          nextTrack: copy.nextTrack ?? "Bài tiếp →",
+                          autoplayNext: copy.autoplayNext ?? "Tự phát bài tiếp",
+                        }}
                       />
                     ) : (
                       <a

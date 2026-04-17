@@ -45,6 +45,9 @@ type DetailCopy = {
   analysisImages?: string;
   analysisMeaning?: string;
   analysisLine?: string;
+  previousTrack?: string;
+  nextTrack?: string;
+  autoplayNext?: string;
 };
 
 type BranchCopy = {
@@ -104,6 +107,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         analysisImages: "Hình ảnh nổi bật",
         analysisMeaning: "Ý nghĩa / dư vị",
         analysisLine: "Câu thơ đáng nhớ",
+        previousTrack: "Bài trước",
+        nextTrack: "Bài tiếp theo",
+        autoplayNext: "Tự phát bài tiếp",
       },
     },
     story: {
@@ -149,6 +155,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         contactButton: "Mở biểu mẫu liên hệ",
         fallbackNotice:
           "Bản dịch tiếng Anh của bài này đang được bổ sung, nên hiện có phần nội dung hiển thị tiếng Việt.",
+        previousTrack: "Bài trước",
+        nextTrack: "Bài tiếp theo",
+        autoplayNext: "Tự phát bài tiếp",
       },
     },
     spiritual: {
@@ -194,6 +203,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         contactButton: "Mở biểu mẫu liên hệ",
         fallbackNotice:
           "Bản dịch tiếng Anh của bài này đang được bổ sung, nên hiện có phần nội dung hiển thị tiếng Việt.",
+        previousTrack: "Bài trước",
+        nextTrack: "Bài tiếp theo",
+        autoplayNext: "Tự phát bài tiếp",
       },
     },
   },
@@ -246,6 +258,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         analysisImages: "Key imagery",
         analysisMeaning: "Meaning and aftertaste",
         analysisLine: "Memorable line",
+        previousTrack: "Previous",
+        nextTrack: "Next",
+        autoplayNext: "Auto-play next",
       },
     },
     story: {
@@ -291,6 +306,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         contactButton: "Open contact form",
         fallbackNotice:
           "This piece is partially shown in Vietnamese while the English translation is being prepared.",
+        previousTrack: "Previous",
+        nextTrack: "Next",
+        autoplayNext: "Auto-play next",
       },
     },
     spiritual: {
@@ -336,6 +354,9 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         contactButton: "Open contact form",
         fallbackNotice:
           "This piece is partially shown in Vietnamese while the English translation is being prepared.",
+        previousTrack: "Previous",
+        nextTrack: "Next",
+        autoplayNext: "Auto-play next",
       },
     },
   },
