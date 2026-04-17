@@ -62,7 +62,8 @@ const poetryBase: ContentItem[] = rawPoems
       .filter((candidate) => candidate.slug !== item.slug && candidate.status === "published")
       .slice(0, 3)
       .map((candidate) => candidate.slug),
-    hasAudio: false,
+    audioUrl: item.audioUrl,
+    hasAudio: Boolean(item.audioUrl),
     hasVideo: false,
     isFeatured: index === 0,
   }));

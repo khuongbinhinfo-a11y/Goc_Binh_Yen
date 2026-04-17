@@ -27,6 +27,7 @@ export type PoemItem = {
   status: PoemStatus;
   analysis: PoemAnalysis;
   imageResearch: PoemImageResearch;
+  audioUrl?: string;
 };
 
 const POEM_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"] as const;
