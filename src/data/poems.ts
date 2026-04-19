@@ -82,6 +82,126 @@ function resolvePoemImageByTitle(title: string) {
 }
 
 export const poems: PoemItem[] = [
+  {
+    slug: "dong-song",
+    title: "Dòng sông",
+    tag: "Thơ quê",
+    summary: "Cánh cỏ trắng, lục bình trôi. Dòng sông quê bên lở bên bồi.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 03/01/2019",
+    cardImage: "/images/poems/dong-song.jpeg",
+    heroImage: "/images/poems/dong-song.jpeg",
+    audioUrl: "/audio/Dong-song.m4a",
+    hasAudio: true,
+    content:
+      "Cánh cỏ trắng, lục bình trôi\nDòng sông quê bên lở bên bồi\nMiền đất ấy, nơi chôn rau, cắt rốn\nCả một đời, sông chảy trong tôi\nDòng sông yêu, em khơi nguồn đạo ấy\nMãi ngọt ngào, xuôi chảy miên man\nGột rửa cho anh bao nỗi muộn phiền\nKhi đắm mình giữa hai dòng sông ấy\nAnh nghe lòng: Sao ấm áp, bình yên\nQuê mình mỗi nhà có một bến sông\nNơi lũ trẻ nô đùa, hẹn nhau tắm mát\nNơi mẹ ngồi giặt áo những chiều buông\nNhững đêm trăng, ai ngồi đợi kẻ chèo xuồng\nChờ giọng hò lan trên sông vắng\nKhiến cả đời không quên được dòng sông\nKhiến cả đời xa ngóng, vắng trông\nCánh cò, dòng sông, lục bình trôi tận mạn\nDẫu bể cuộc đời nhớ mãi dòng sông.\n\nMỹ Tho, ngày 03/01/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ cảnh quê bình dị đến chiều sâu ký ức và sự neo đậu tinh thần trong tình đất, tình người.",
+      standoutImages:
+        "Hình ảnh lục bình, bến sông, giọng hò đêm trăng tạo nên không gian quê vừa cụ thể vừa giàu hoài niệm.",
+      meaning:
+        "Bài thơ khẳng định sông quê không chỉ là địa lý mà là mạch nguồn căn tính, nơi con người trở về để tìm sự bình yên.",
+      memorableLine: "Dẫu bể cuộc đời nhớ mãi dòng sông.",
+    },
+    imageResearch: {
+      moodKeywords: ["sông quê", "hoài niệm", "bình yên", "lục bình"],
+      referenceLinks: [],
+      recommendedScene: "Bến sông quê lúc chiều xuống, màu trời dịu, có cảm giác lặng và sâu.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "tam-long",
+    title: "Tấm lòng",
+    tag: "Thơ tình",
+    summary: "Biển dù có rộng mênh mông mà sao sánh được tấm lòng của em.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 3/9/2019",
+    cardImage: "/images/poems/tam-long.jpeg",
+    heroImage: "/images/poems/tam-long.jpeg",
+    audioUrl: "/audio/Tam-long.m4a",
+    hasAudio: true,
+    content:
+      "Biển dù có rộng mênh mông\nMà sao sánh được tấm lòng của em\nLặng nghe hơi thở thơm mềm\nTưởng như em định nói gì phải không\nMôi tim môi ngọt lịm môi hồng\nTrái tim thổn thức nao lòng\nEm ơi! Ngày xưa dại một lần thôi\nRẽ đi, lạc ngã ngậm ngùi buồn trông\nBao năm én về tây, nhạn về đông\nMà em vẫn giữ đóa hồng cho anh\nĐất trời cao rộng mênh mông\nKhông sao sánh được tấm lòng của em.\n\nCai Lậy, ngày 3/9/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch cảm xúc đi từ ngợi ca đến biết ơn, rồi lắng lại ở sự thủy chung bền bỉ qua năm tháng.",
+      standoutImages:
+        "Đối sánh biển rộng và tấm lòng tạo trục hình ảnh rõ, nhấn vào chiều sâu của tình cảm hơn mọi thước đo vật lý.",
+      meaning:
+        "Bài thơ tôn vinh sự son sắt, xem lòng người là giá trị nền tảng giữ cho tình yêu không bị bào mòn bởi thời gian.",
+      memorableLine: "Không sao sánh được tấm lòng của em.",
+    },
+    imageResearch: {
+      moodKeywords: ["thủy chung", "dịu dàng", "tri ân", "tình yêu"],
+      referenceLinks: [],
+      recommendedScene: "Không gian ấm, gần gũi, nhấn cảm giác tin cậy và bền lòng.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "long-trinh-nu",
+    title: "Lòng trinh nữ",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Không thuộc dòng kỳ hoa, dị thảo nên nép mình giữa ngàn sắc muôn hương.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 4/2/2017",
+    cardImage: "/images/poems/long-trinh-nu.jpeg",
+    heroImage: "/images/poems/long-trinh-nu.jpeg",
+    audioUrl: "/audio/Long-trinh-nu.m4a",
+    hasAudio: true,
+    content:
+      "Không thuộc dòng kỳ hoa, dị thảo\nNên nép mình, giữa ngàn sắc muôn hương\nTự lạc trôi, yên phận chốn đời thường\nMiễn cỏ dại, vui vùng thôn dã\nÁp e, dịu dàng, giữ lòng trinh nữ\nPhận gái quê, quanh quẩn góc vườn quê\nMột ước mơ nho nhỏ: Giữ lấy lệ\nLòng trinh bạch giao duyên cùng quân tử\nTạo hóa thấu lòng, gió mưa, giông bão\nTrong khô cằn trinh nữ vẫn tròn hoa\nRồi mùa xuân trời đất giao hòa\nKhách lãng tử say tình cùng trinh nữ\nThơ tình yêu, lời ngọc, ngọt ngào trao\nĐất đầy hoa, trời lắm những vì sao\nMà chỉ thấy những toàn hoa trinh nữ\nQuay về thôi, gót chân lữ thứ\nTrinh nữ mở lòng, lãng tử về thôi.\n\nCai Lậy, 4/2/2017",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ mở bằng nét khiêm nhường, đi qua thử thách, rồi kết ở sự viên mãn và đồng điệu.",
+      standoutImages:
+        "Đối lập giữa khô cằn và tròn hoa làm nổi bật sức sống bền bỉ của vẻ đẹp kín đáo.",
+      meaning:
+        "Tác phẩm gợi suy ngẫm về phẩm hạnh, sự chờ đợi và giá trị của nét đẹp không ồn ào nhưng vững bền.",
+      memorableLine: "Trong khô cằn trinh nữ vẫn tròn hoa.",
+    },
+    imageResearch: {
+      moodKeywords: ["thanh khiết", "kín đáo", "bền bỉ", "thôn dã"],
+      referenceLinks: [],
+      recommendedScene: "Hoa trinh nữ trong không gian đồng nội, ánh sáng mềm và tĩnh.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "to-tinh",
+    title: "Tỏ tình",
+    tag: "Thơ tình",
+    summary: "Trái tim với tấm lòng son gói vào đây cả cho tròn câu thơ.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 10/12/2004",
+    cardImage: "/images/poems/to-tinh.jpeg",
+    heroImage: "/images/poems/to-tinh.jpeg",
+    audioUrl: "/audio/To-tinh.m4a",
+    hasAudio: true,
+    content:
+      "Cánh liễu héo, khẽ mày chau\nCánh hồng rụng xuống, má đào lướt qua\nKhổ thân ai lắm người ta\nLiếc nhau một cái nghĩ là đã yêu\nTưởng tơ những sáng cùng chiều\nBâng khuâng, thờ thần, buồn hiu, cười thầm\nTa mơ xây chuyện trăm năm\nMong sao sớm được tay cầm tay nhau\nTa lo người mơ trên cao\nCòn ta dưới thấp làm sao đến gần\nTa lo trời đất xoay vần\nLỡ mà lạc lối biết lần đầu ra\nSợ rằng người chẳng hiểu ta\nNgười đi xa ngái, còn ta chết mòn\nTrái tim với tấm lòng son\nGói vào đây cả cho tròn câu thơ\nXin câu chín đợi mười chờ\nCho ta đánh tiếng bài thơ tỏ tình.\n\nCai Lậy, ngày 10/12/2004",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Cảm xúc chuyển từ e dè, tự vấn đến dồn tụ thành lời ngỏ chân thành ở đoạn kết.",
+      standoutImages:
+        "Các cụm cánh liễu, cánh hồng, tay cầm tay nhau tạo nền hình ảnh mềm và giàu nhịp thổ lộ.",
+      meaning:
+        "Bài thơ khắc họa tâm thế người yêu trong khoảng giữa hy vọng và lo âu, chọn cách nói thật lòng qua thi ca.",
+      memorableLine: "Cho ta đánh tiếng bài thơ tỏ tình.",
+    },
+    imageResearch: {
+      moodKeywords: ["thổ lộ", "bâng khuâng", "chờ đợi", "tình yêu"],
+      referenceLinks: [],
+      recommendedScene: "Không gian chiều nhẹ, có sắc hoa và cảm giác ngập ngừng trước khi nói lời thật.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
 {
     slug: "ben-do",
     title: "B\u1ebfn \u0110\u00f2",
