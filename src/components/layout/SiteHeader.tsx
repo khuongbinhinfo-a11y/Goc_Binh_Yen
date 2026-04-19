@@ -145,6 +145,10 @@ export default function SiteHeader() {
       return pathname === "/tam-linh" || pathname.startsWith("/tam-linh/");
     }
 
+    if (href === "/huyen-mon-tham-khao") {
+      return pathname === "/huyen-mon-tham-khao" || pathname.startsWith("/huyen-mon-tham-khao/");
+    }
+
     if (href.startsWith("/#")) {
       const targetHash = href.slice(1);
       return pathname === "/" && (currentHash || "#trang-chu") === targetHash;
