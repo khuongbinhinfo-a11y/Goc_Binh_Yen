@@ -29,7 +29,7 @@ export default function HuyenMonThamKhaoPage() {
       <section className="border-b border-[#dec2a7] bg-[#e9d8c4]">
         <div className="site-shell py-12 sm:py-14">
           <p className="eyebrow">Không gian tham khảo</p>
-          <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">Huyền môn tham khảo</h1>
+          <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">Cổ học</h1>
           <p className="mt-4 max-w-3xl text-sm leading-8 text-[#5f4331] sm:text-base">
             Đây là không gian giới thiệu có phân tầng: giải nghĩa khái niệm, định vị phương pháp và nhấn mạnh giới hạn áp dụng.
             Nội dung được trình bày theo tinh thần tĩnh, rõ và không thần bí hóa.

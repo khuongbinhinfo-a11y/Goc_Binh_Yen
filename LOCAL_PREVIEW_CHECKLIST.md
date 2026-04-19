@@ -13,11 +13,12 @@ Mo trinh duyet: http://localhost:3000
 
 Link nhanh tren VSCode:
 - [Trang chu](http://localhost:3000)
-- [Huyen mon tham khao](http://localhost:3000/huyen-mon-tham-khao)
+- [Co hoc](http://localhost:3000/huyen-mon-tham-khao)
+- [Bang xem truoc local](http://localhost:3000/xem-truoc-local)
 
 ## 2) Kiem tra menu chinh
 
-- Vao trang chu, kiem tra menu co muc **Huyen mon tham khao**.
+- Vao trang chu, kiem tra menu co muc **Co hoc**.
 - Bam vao menu va xac nhan active state hoat dong dung.
 
 ## 3) Kiem tra route cap 0

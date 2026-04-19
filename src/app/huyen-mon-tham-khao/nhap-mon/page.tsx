@@ -6,7 +6,7 @@ export default function HuyenMonNhapMonPage() {
       <div className="site-shell">
         <p className="text-sm text-[#7f5e49]">
           <Link href="/huyen-mon-tham-khao" className="hover:text-[#4a2f20]">
-            Huyền môn tham khảo
+            Cổ học
           </Link>{" "}
           / Nhập môn
         </p>
