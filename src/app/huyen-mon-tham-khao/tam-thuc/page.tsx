@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const branches = [
   {
@@ -32,6 +33,9 @@ export default function HuyenMonTamThucPage() {
             Phần này chỉ dựng khung điều hướng ba hệ quy chiếu lớn để thuận tiện tra cứu theo nhánh.
             Các trang con hiện là placeholder ngắn, chưa triển khai luận giải chuyên sâu.
           </p>
+          <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
+            <Image src="/images/co-hoc/tam-thuc.jpeg" alt="Tam thức" width={1600} height={900} className="h-auto w-full" priority />
+          </div>
         </article>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HuyenMonUngDungVaGioiHanPage() {
   return (
@@ -17,6 +18,16 @@ export default function HuyenMonUngDungVaGioiHanPage() {
             Trang này nhấn mạnh nguyên tắc: dùng như nguồn tham khảo có điều kiện, không thay thế tư duy phản biện,
             không thay thế quyết định chuyên môn và không khẳng định tuyệt đối.
           </p>
+          <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
+            <Image
+              src="/images/co-hoc/ung-dung-va-gioi-han.jpeg"
+              alt="Ứng dụng và giới hạn"
+              width={1600}
+              height={900}
+              className="h-auto w-full"
+              priority
+            />
+          </div>
         </article>
       </div>
     </section>

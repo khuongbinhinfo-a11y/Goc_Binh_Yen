@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const branches = [
   { title: "Sơn", href: "/huyen-mon-tham-khao/ngu-thuat/son" },
@@ -25,6 +26,9 @@ export default function HuyenMonNguThuatPage() {
             Khung Ngũ thuật dưới đây nhằm giúp phân biệt phạm vi từng nhánh và tránh trộn lẫn phương pháp.
             Mỗi mục hiện là trang khung ngắn, chưa triển khai bài dài.
           </p>
+          <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
+            <Image src="/images/co-hoc/ngu-thuat.jpeg" alt="Ngũ thuật" width={1600} height={900} className="h-auto w-full" priority />
+          </div>
         </article>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

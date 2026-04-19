@@ -19,6 +19,16 @@ export default function HuyenMonNhapMonPage() {
             Trang này đặt nền cho người mới: thuật ngữ cơ bản, mục tiêu học đúng tầng và cách đọc tài liệu có kiểm chứng.
             Đây là khung định hướng, chưa đi vào bài chuyên sâu.
           </p>
+          <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
+            <Image
+              src="/images/co-hoc/Nhap-mon.jpeg"
+              alt="Nhập môn Cổ học"
+              width={1600}
+              height={900}
+              className="h-auto w-full"
+              priority
+            />
+          </div>
         </article>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
