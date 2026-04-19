@@ -1,4 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
+
+import { coHocIntroArticles } from "@/data/coHocIntroArticles";
 
 export default function HuyenMonNhapMonPage() {
   return (
@@ -17,6 +20,22 @@ export default function HuyenMonNhapMonPage() {
             Đây là khung định hướng, chưa đi vào bài chuyên sâu.
           </p>
         </article>
+
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {coHocIntroArticles.map((article) => (
+            <article key={article.slug} className="soft-panel overflow-hidden bg-[#fffaf4]">
+              <Link href={`/huyen-mon-tham-khao/nhap-mon/${article.slug}`} className="block">
+                <div className="border-b border-[#e9d8c6]">
+                  <Image src={article.coverImage} alt={article.title} width={800} height={450} className="h-auto w-full" />
+                </div>
+                <div className="p-5">
+                  <h2 className="text-lg font-semibold leading-7 text-[#4a2f20]">{article.title}</h2>
+                  <p className="mt-3 text-sm font-semibold text-[#7b5437]">Đọc bài →</p>
+                </div>
+              </Link>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
