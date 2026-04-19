@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Cổ học - Tủ bài nền nhập môn",
+  description: "Tổng hợp các cụm bài nền Cổ học theo từng giai đoạn, trình bày ngắn gọn để theo dõi dễ dàng.",
+  path: "/huyen-mon-tham-khao/bai-viet",
+  image: "/images/co-hoc/Co-hoc.jpeg",
+});
 
 const phases = [
   {
@@ -9,6 +19,7 @@ const phases = [
     borderColor: "border-[#d4a574]",
     textColor: "text-[#5f4033]",
     articles: 8,
+    art: "/images/co-hoc/nhap-mon-tranh-co.svg",
   },
   {
     id: "phase-2",
@@ -18,6 +29,7 @@ const phases = [
     borderColor: "border-[#5fa5d3]",
     textColor: "text-[#2f5a7f]",
     articles: 10,
+    art: "/images/co-hoc/ngu-thuat-tranh-co.svg",
   },
   {
     id: "phase-3",
@@ -27,6 +39,7 @@ const phases = [
     borderColor: "border-[#9b6ba8]",
     textColor: "text-[#5a3e6b]",
     articles: 6,
+    art: "/images/co-hoc/tam-thuc-tranh-co.svg",
   },
   {
     id: "phase-4",
@@ -36,6 +49,7 @@ const phases = [
     borderColor: "border-[#7ba85f]",
     textColor: "text-[#4a6438]",
     articles: 6,
+    art: "/images/co-hoc/ung-dung-gioi-han-tranh-co.svg",
   },
 ];
 
@@ -56,9 +70,13 @@ export default function CoHocBaiVietPage() {
           {phases.map((phase) => (
             <Link key={phase.id} href={`/huyen-mon-tham-khao/bai-viet/${phase.id}`}>
               <article
-                className={`soft-panel h-full cursor-pointer border-2 bg-gradient-to-br p-6 transition hover:shadow-lg ${phase.borderColor} ${phase.color}`}
+                className={`soft-panel relative h-full cursor-pointer overflow-hidden border-2 bg-gradient-to-br p-6 transition hover:shadow-lg ${phase.borderColor} ${phase.color}`}
               >
-                <div className="flex items-start justify-between">
+                <div
+                  className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-12"
+                  style={{ backgroundImage: `url(${phase.art})` }}
+                />
+                <div className="relative z-10 flex items-start justify-between">
                   <div className="flex-1">
                     <p className={`text-xs font-semibold uppercase tracking-wide ${phase.textColor}`}>{phase.title}</p>
                     <h2 className={`mt-2 text-xl font-semibold leading-tight ${phase.textColor}`}>{phase.title}</h2>
@@ -70,7 +88,7 @@ export default function CoHocBaiVietPage() {
                     {phase.articles}
                   </div>
                 </div>
-                <div className="mt-4 text-xs font-semibold uppercase tracking-widest opacity-60">Xem chi tiết →</div>
+                <div className="relative z-10 mt-4 text-xs font-semibold uppercase tracking-widest opacity-60">Xem chi tiết →</div>
               </article>
             </Link>
           ))}

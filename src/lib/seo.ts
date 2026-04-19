@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const SITE_NAME = "Hồn Thơ";
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://hon-tho.vercel.app";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hontho.com";
 
 type RouteMetadataInput = {
   title: string;

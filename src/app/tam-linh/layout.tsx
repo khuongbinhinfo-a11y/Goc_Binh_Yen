@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { createRouteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createRouteMetadata({
@@ -7,7 +8,7 @@ export const metadata: Metadata = createRouteMetadata({
   description:
     "Tâm linh tại Hồn Thơ là khoảng lắng sâu để thở chậm, chiêm nghiệm và tìm lại bình an.",
   path: "/tam-linh",
-  image: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1600&q=80",
+  image: LOCAL_IMAGE_MAP.heroSpiritual.fallback,
 });
 
 export default function TamLinhLayout({
