@@ -45,10 +45,11 @@ export default function CoHocBaiVietPage() {
       <div className="site-shell">
         <div className="mb-8 rounded-2xl border border-[#d4a574] bg-gradient-to-r from-[#f5ead8] to-[#fef3e6] p-6 sm:p-8">
           <p className="eyebrow">Kho bài viết</p>
-          <h1 className="text-3xl font-bold leading-tight text-[#3f2b20] sm:text-4xl">Cổ học: Kế hoạch chiêu thủ</h1>
+          <h1 className="text-3xl font-bold leading-tight text-[#3f2b20] sm:text-4xl">Cổ học: Tủ bài nền nhập môn</h1>
           <p className="mt-3 max-w-2xl text-sm leading-7 text-[#654939] sm:text-base">
-            30 bài viết chia thành 4 Phase, hướng tới mục tiêu giáo dục nghiêm túc, tách biệt tri thức nền từ niềm tin cá nhân.
+            Các chủ đề được trình bày ngắn gọn theo từng cụm để người đọc dễ theo dõi trước khi đi sâu.
           </p>
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wide text-[#8a6245]">Nội dung đang cập nhật</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
