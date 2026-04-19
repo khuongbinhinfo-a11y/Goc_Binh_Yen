@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 
 import InlineAudioPlayer from "@/components/content/InlineAudioPlayer";
 import SiteFooter from "@/components/layout/SiteFooter";
@@ -22,9 +22,11 @@ import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/ima
 
 export default function StoryDetailPage() {
   const params = useParams<{ slug: string }>();
+  const searchParams = useSearchParams();
   const { locale } = useLocale();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
   const story = getLocalizedContentBySlug("story", slug, locale);
+  const shouldAutoPlayOnMount = searchParams.get("autoplay") === "1";
   const copy = getReadingCopy(locale, "story").detail;
   const routePrefix = getContentRoutePrefix("story");
 
@@ -136,12 +138,12 @@ export default function StoryDetailPage() {
                 {copy.actionRead}
               </a>
               {story.hasAudio && story.audioUrl && (
-                <a
-                  href="#nghe-xem"
+                <Link
+                  href={`${routePrefix}/${story.slug}?autoplay=1#nghe-xem`}
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
                 >
                   {copy.actionListen}
-                </a>
+                </Link>
               )}
               {story.hasVideo && story.youtubeUrl && (
                 <a
@@ -187,6 +189,7 @@ export default function StoryDetailPage() {
                         queue={audioQueue}
                         currentSlug={story.slug}
                         routePrefix={routePrefix}
+                        autoPlayOnMount={shouldAutoPlayOnMount}
                         labels={{
                           previousTrack: copy.previousTrack ?? "← Bài trước",
                           nextTrack: copy.nextTrack ?? "Bài tiếp →",
