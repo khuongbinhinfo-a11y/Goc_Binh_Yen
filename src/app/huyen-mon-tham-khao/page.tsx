@@ -23,6 +23,12 @@ const primaryBranches = [
   },
 ];
 
+const writingGuide = {
+  title: "Bài viết",
+  href: "/huyen-mon-tham-khao/bai-viet",
+  description: "30 bài viết chia theo 4 Phase: nền bắt buộc → Ngũ thuật → Tam thức → Ứng dụng.",
+};
+
 export default function HuyenMonThamKhaoPage() {
   return (
     <>
@@ -52,6 +58,19 @@ export default function HuyenMonThamKhaoPage() {
                 </Link>
               </article>
             ))}
+          </div>
+
+          <div className="mt-8 border-t border-[#e0d5ca] pt-8">
+            <article className="soft-panel border-2 border-[#d4a574] bg-gradient-to-br from-[#f5ead8] to-[#fef3e6] p-6">
+              <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{writingGuide.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-[#654939]">{writingGuide.description}</p>
+              <Link
+                href={writingGuide.href}
+                className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+              >
+                Xem kế hoạch
+              </Link>
+            </article>
           </div>
         </div>
       </section>
