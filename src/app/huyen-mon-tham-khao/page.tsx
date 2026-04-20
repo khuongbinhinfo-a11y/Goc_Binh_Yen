@@ -1,50 +1,29 @@
 import Link from "next/link";
-import { resolveLocalImage } from "@/lib/image";
 
 const primaryBranches = [
   {
     title: "Nhập môn",
     href: "/huyen-mon-tham-khao/nhap-mon",
     description: "Nền tảng khái niệm, phạm vi đọc hiểu và cách tiếp cận theo từng tầng.",
-    image: resolveLocalImage("card-huyen-mon-nhap-mon", {
-      directories: ["/images/sections/huyen-mon-tham-khao"],
-      fallbackName: "Nhap-mon",
-      fallbackDirectories: ["/images/co-hoc"],
-      fallback: "/images/co-hoc/Nhap-mon.jpeg",
-    }),
+    image: "/images/sections/co-hoc/co-hoc-card-nhap-mon.png",
   },
   {
     title: "Ngũ thuật",
     href: "/huyen-mon-tham-khao/ngu-thuat",
     description: "Khung tham khảo 5 nhánh Sơn, Y, Bốc, Mệnh, Tướng ở mức định hướng.",
-    image: resolveLocalImage("card-huyen-mon-ngu-thuat", {
-      directories: ["/images/sections/huyen-mon-tham-khao"],
-      fallbackName: "ngu-thuat",
-      fallbackDirectories: ["/images/co-hoc"],
-      fallback: "/images/co-hoc/ngu-thuat.jpeg",
-    }),
+    image: "/images/sections/co-hoc/co-hoc-card-ngu-thuat.png",
   },
   {
     title: "Tam thức",
     href: "/huyen-mon-tham-khao/tam-thuc",
     description: "Khung tham chiếu Thái Ất, Kỳ Môn, Lục Nhâm với góc nhìn hệ thống.",
-    image: resolveLocalImage("card-huyen-mon-tam-thuc", {
-      directories: ["/images/sections/huyen-mon-tham-khao"],
-      fallbackName: "tam-thuc",
-      fallbackDirectories: ["/images/co-hoc"],
-      fallback: "/images/co-hoc/tam-thuc.jpeg",
-    }),
+    image: "/images/sections/co-hoc/co-hoc-card-tam-thuc.png",
   },
   {
     title: "Ứng dụng và giới hạn",
     href: "/huyen-mon-tham-khao/ung-dung-va-gioi-han",
     description: "Nguyên tắc sử dụng thận trọng, phân biệt tham khảo và khẳng định tuyệt đối.",
-    image: resolveLocalImage("card-huyen-mon-ung-dung-va-gioi-han", {
-      directories: ["/images/sections/huyen-mon-tham-khao"],
-      fallbackName: "ung-dung-va-gioi-han",
-      fallbackDirectories: ["/images/co-hoc"],
-      fallback: "/images/co-hoc/ung-dung-va-gioi-han.jpeg",
-    }),
+    image: "/images/sections/co-hoc/co-hoc-card-ung-dung-gioi-han.png",
   },
 ];
 
@@ -52,35 +31,25 @@ const writingGuide = {
   title: "Bài viết",
   href: "/huyen-mon-tham-khao/bai-viet",
   description: "Các bài nền được trình bày theo dạng tóm tắt dễ theo dõi.",
-  image: resolveLocalImage("card-huyen-mon-bai-viet", {
-    directories: ["/images/sections/huyen-mon-tham-khao"],
-    fallbackName: "Co-hoc",
-    fallbackDirectories: ["/images/co-hoc"],
-    fallback: "/images/co-hoc/Co-hoc.jpeg",
-  }),
+  image: "/images/sections/co-hoc/co-hoc-card-bai-viet.png",
 };
 
-const heroImage = resolveLocalImage("hero-huyen-mon-tham-khao", {
-  directories: ["/images/heroes"],
-  fallbackName: "Co-hoc",
-  fallbackDirectories: ["/images/co-hoc"],
-  fallback: "/images/co-hoc/Co-hoc.jpeg",
-});
+const heroImage = "/images/heroes/co-hoc-hero-main.png";
 
 export default function HuyenMonThamKhaoPage() {
   return (
     <>
       <section className="relative overflow-hidden border-b border-[#dec2a7] bg-[#e9d8c4]">
         <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-35"
-          style={{ backgroundImage: `url(${heroImage.src})` }}
+          className="pointer-events-none absolute inset-0 bg-cover bg-[center_32%] opacity-70 sm:bg-[center_38%] sm:opacity-65"
+          style={{ backgroundImage: `url(${heroImage})` }}
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f5e7d6]/80 via-[#ead9c5]/75 to-[#e9d8c4]/90" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f5e7d6]/35 via-[#ead9c5]/22 to-[#e9d8c4]/45" />
         <div className="site-shell py-12 sm:py-14">
-          <div className="relative z-10">
+          <div className="relative z-10 max-w-3xl rounded-2xl bg-[#f6eadb]/38 p-4 backdrop-blur-[1px] sm:bg-[#f6eadb]/30 sm:p-5">
             <p className="eyebrow">Không gian tham khảo</p>
             <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">Cổ học</h1>
-            <p className="mt-4 max-w-3xl text-sm leading-8 text-[#5f4331] sm:text-base">
+            <p className="mt-4 text-sm leading-8 text-[#5f4331] sm:text-base">
               Đây là không gian giới thiệu có phân tầng: giải nghĩa khái niệm, định vị phương pháp và nhấn mạnh giới hạn áp dụng.
               Nội dung được trình bày theo tinh thần tĩnh, rõ và không thần bí hóa.
             </p>
@@ -96,7 +65,7 @@ export default function HuyenMonThamKhaoPage() {
                 <div className="relative z-10">
                   <div
                     className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${branch.image.src})` }}
+                    style={{ backgroundImage: `url(${branch.image})` }}
                   />
                   <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{branch.title}</h2>
                   <p className="mt-3 text-sm leading-7 text-[#654939]">{branch.description}</p>
@@ -116,7 +85,7 @@ export default function HuyenMonThamKhaoPage() {
               <div className="relative z-10">
                 <div
                   className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                  style={{ backgroundImage: `url(${writingGuide.image.src})` }}
+                  style={{ backgroundImage: `url(${writingGuide.image})` }}
                 />
                 <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{writingGuide.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#654939]">{writingGuide.description}</p>
