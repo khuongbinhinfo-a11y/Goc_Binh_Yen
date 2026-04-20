@@ -1,33 +1,50 @@
 import Link from "next/link";
+import { resolveLocalImage } from "@/lib/image";
 
 const primaryBranches = [
   {
     title: "Nhập môn",
     href: "/huyen-mon-tham-khao/nhap-mon",
     description: "Nền tảng khái niệm, phạm vi đọc hiểu và cách tiếp cận theo từng tầng.",
-    image: "/images/sections/huyen-mon-tham-khao/card-huyen-mon-nhap-mon.jpg",
-    art: "/images/co-hoc/nhap-mon-tranh-co.svg",
+    image: resolveLocalImage("card-huyen-mon-nhap-mon", {
+      directories: ["/images/sections/huyen-mon-tham-khao"],
+      fallbackName: "Nhap-mon",
+      fallbackDirectories: ["/images/co-hoc"],
+      fallback: "/images/co-hoc/Nhap-mon.jpeg",
+    }),
   },
   {
     title: "Ngũ thuật",
     href: "/huyen-mon-tham-khao/ngu-thuat",
     description: "Khung tham khảo 5 nhánh Sơn, Y, Bốc, Mệnh, Tướng ở mức định hướng.",
-    image: "/images/sections/huyen-mon-tham-khao/card-huyen-mon-ngu-thuat.jpg",
-    art: "/images/co-hoc/ngu-thuat-tranh-co.svg",
+    image: resolveLocalImage("card-huyen-mon-ngu-thuat", {
+      directories: ["/images/sections/huyen-mon-tham-khao"],
+      fallbackName: "ngu-thuat",
+      fallbackDirectories: ["/images/co-hoc"],
+      fallback: "/images/co-hoc/ngu-thuat.jpeg",
+    }),
   },
   {
     title: "Tam thức",
     href: "/huyen-mon-tham-khao/tam-thuc",
     description: "Khung tham chiếu Thái Ất, Kỳ Môn, Lục Nhâm với góc nhìn hệ thống.",
-    image: "/images/sections/huyen-mon-tham-khao/card-huyen-mon-tam-thuc.jpg",
-    art: "/images/co-hoc/tam-thuc-tranh-co.svg",
+    image: resolveLocalImage("card-huyen-mon-tam-thuc", {
+      directories: ["/images/sections/huyen-mon-tham-khao"],
+      fallbackName: "tam-thuc",
+      fallbackDirectories: ["/images/co-hoc"],
+      fallback: "/images/co-hoc/tam-thuc.jpeg",
+    }),
   },
   {
     title: "Ứng dụng và giới hạn",
     href: "/huyen-mon-tham-khao/ung-dung-va-gioi-han",
     description: "Nguyên tắc sử dụng thận trọng, phân biệt tham khảo và khẳng định tuyệt đối.",
-    image: "/images/sections/huyen-mon-tham-khao/card-huyen-mon-ung-dung-va-gioi-han.jpg",
-    art: "/images/co-hoc/ung-dung-gioi-han-tranh-co.svg",
+    image: resolveLocalImage("card-huyen-mon-ung-dung-va-gioi-han", {
+      directories: ["/images/sections/huyen-mon-tham-khao"],
+      fallbackName: "ung-dung-va-gioi-han",
+      fallbackDirectories: ["/images/co-hoc"],
+      fallback: "/images/co-hoc/ung-dung-va-gioi-han.jpeg",
+    }),
   },
 ];
 
@@ -35,11 +52,20 @@ const writingGuide = {
   title: "Bài viết",
   href: "/huyen-mon-tham-khao/bai-viet",
   description: "Các bài nền được trình bày theo dạng tóm tắt dễ theo dõi.",
-  image: "/images/sections/huyen-mon-tham-khao/card-huyen-mon-bai-viet.jpg",
-  art: "/images/co-hoc/bai-viet-tranh-co.svg",
+  image: resolveLocalImage("card-huyen-mon-bai-viet", {
+    directories: ["/images/sections/huyen-mon-tham-khao"],
+    fallbackName: "Co-hoc",
+    fallbackDirectories: ["/images/co-hoc"],
+    fallback: "/images/co-hoc/Co-hoc.jpeg",
+  }),
 };
 
-const heroImage = "/images/heroes/hero-huyen-mon-tham-khao.jpg";
+const heroImage = resolveLocalImage("hero-huyen-mon-tham-khao", {
+  directories: ["/images/heroes"],
+  fallbackName: "Co-hoc",
+  fallbackDirectories: ["/images/co-hoc"],
+  fallback: "/images/co-hoc/Co-hoc.jpeg",
+});
 
 export default function HuyenMonThamKhaoPage() {
   return (
@@ -47,7 +73,7 @@ export default function HuyenMonThamKhaoPage() {
       <section className="relative overflow-hidden border-b border-[#dec2a7] bg-[#e9d8c4]">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-35"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${heroImage.src})` }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f5e7d6]/80 via-[#ead9c5]/75 to-[#e9d8c4]/90" />
         <div className="site-shell py-12 sm:py-14">
@@ -67,14 +93,10 @@ export default function HuyenMonThamKhaoPage() {
           <div className="grid gap-5 md:grid-cols-2">
             {primaryBranches.map((branch) => (
               <article key={branch.href} className="soft-panel relative overflow-hidden bg-[#fffaf4] p-6">
-                <div
-                  className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-20"
-                  style={{ backgroundImage: `url(${branch.art})` }}
-                />
                 <div className="relative z-10">
                   <div
                     className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${branch.image})` }}
+                    style={{ backgroundImage: `url(${branch.image.src})` }}
                   />
                   <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{branch.title}</h2>
                   <p className="mt-3 text-sm leading-7 text-[#654939]">{branch.description}</p>
@@ -91,14 +113,10 @@ export default function HuyenMonThamKhaoPage() {
 
           <div className="mt-8 border-t border-[#e0d5ca] pt-8">
             <article className="soft-panel relative overflow-hidden border-2 border-[#d4a574] bg-gradient-to-br from-[#f5ead8] to-[#fef3e6] p-6">
-              <div
-                className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-15"
-                style={{ backgroundImage: `url(${writingGuide.art})` }}
-              />
               <div className="relative z-10">
                 <div
                   className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                  style={{ backgroundImage: `url(${writingGuide.image})` }}
+                  style={{ backgroundImage: `url(${writingGuide.image.src})` }}
                 />
                 <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{writingGuide.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#654939]">{writingGuide.description}</p>
