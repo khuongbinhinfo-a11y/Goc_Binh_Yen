@@ -37,19 +37,28 @@ const AVAILABLE_LOCAL_POEM_IMAGES = new Set([
   "anh-yeu-em.jpeg",
   "ban-tay.jpeg",
   "ben-do.jpeg",
+  "ben-song-xua.jpeg",
   "cam-hoa.jpeg",
   "cam-on-tinh-yeu.jpeg",
   "chi-can-co-vay.jpeg",
+  "cho-anh-goi.jpeg",
+  "dau-can-noi-chi-em.jpeg",
   "em-mua-xuan-ve.jpeg",
   "em-trong-anh.jpeg",
+  "hanh-phuc.jpeg",
   "hoa-buom.jpeg",
   "hoa-luc-binh.jpeg",
   "hue-trang.jpeg",
   "khoang-cach-vo-hinh.jpeg",
+  "mo-tro-ve.jpeg",
   "mot-thoang.jpeg",
+  "ngam.jpeg",
   "ngang-ben-song-xua.jpeg",
+  "nhin-trang.jpeg",
   "nho.jpeg",
+  "nho-lam-ngay-xua.jpeg",
   "qua-mien-thuong-nho.jpeg",
+  "qua-voi-bau.jpeg",
   "tieng-keu-chim-le-ban.jpeg",
 ]);
 
@@ -669,7 +678,277 @@ export const poems: PoemItem[] = [
       recommendedScene: "Đêm sông có đom đóm và ánh trăng non, không gian mở nhưng vẫn giữ nét riêng tư.",
       licenseNote: "Các link Pinterest / mạng xã hội chỉ dùng làm mood reference, chưa phải ảnh production.",
     },
-  }
+  },
+  {
+    slug: "ben-song-xua",
+    title: "Bến sông xưa",
+    tag: "Thơ quê",
+    summary: "Sông làm gương để trăng soi — lòng trinh sông trắng thấy hết rồi.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 3/11/2003",
+    cardImage: "/images/poems/ben-song-xua.jpeg",
+    heroImage: "/images/poems/ben-song-xua.jpeg",
+    audioUrl: "/audio/Ben-song-xua.m4a",
+    hasAudio: true,
+    content:
+      "Sông làm gương để trăng soi\nLòng trinh sông trắng thấy hết rồi\nHớt hoảng, buông mành, bận e thẹn\nLiễu xiêu, đỏng đảnh, lục bình trôi\nTịnh tang khúc nhạc lòng ta hát\nChơi vơi, chơi vơi, lòng chơi vơi\nLồng lộng trời cao, lồng lộng gió\nTrôi trôi, hun hút, nước trôi trôi\nTang bồng, hồ thủy lòng rũ sạch\nBến nước xưa, gội mái tóc bạc màu\nSông vẫn dịu dàng vuốt ve ai\nBãi bờ níu kéo gót ai hoài\nLắm người ra chợ quên quê cũ\nCó biết đâu quê chẳng đổi thay\nĐêm nay bầu trời đắm sắc mây\nNghiêng nghiêng hoa nhãn đượm hương đầy\nNgửa mặt nhẹ hôn làn thương ấy\nBến sông xưa, hiểu hết lòng này.\n\nCai Lậy, ngày 3/11/2003",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ mở bằng hình ảnh sông trăng trong trẻo, lan dần vào hoài niệm quê cũ, kết lại bằng sự trở về nhẹ nhàng và trọn vẹn.",
+      standoutImages:
+        "Lục bình trôi, mái tóc bạc màu bến nước, hoa nhãn đượm hương — những hình ảnh bình dị mà khắc sâu ký ức làng quê.",
+      meaning:
+        "Bài thơ gọi về cái thuởa thanh xuân gắn với con sông quê, nơi mà dù xa bao năm, lòng người vẫn được rửa sạch và bình yên.",
+      memorableLine: "Bến sông xưa, hiểu hết lòng này.",
+    },
+    imageResearch: {
+      moodKeywords: ["bến sông quê", "trăng soi mặt nước", "lục bình trôi", "hoài cổ miền Tây"],
+      referenceLinks: [],
+      recommendedScene: "Bến sông quê mùa trăng, lục bình trôi nhẹ, ánh trăng phản chiếu mặt nước lặng.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "dau-can-noi-chi-em",
+    title: "Đâu cần nói chi em",
+    tag: "Thơ tình",
+    summary: "Có một điều không cần nói ra — qua ánh mắt, bao điều mình hiểu hết.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 20/01/2017",
+    cardImage: "/images/poems/dau-can-noi-chi-em.jpeg",
+    heroImage: "/images/poems/dau-can-noi-chi-em.jpeg",
+    audioUrl: "/audio/\u0110au-can-noi-chi-em.m4a",
+    hasAudio: true,
+    content:
+      "Có một điều không cần nói ra\nQua ánh mắt, bao điều mình hiểu hết\nChiều sâu tấm lòng tri kỷ hồng nhan\nMấy mươi năm nào có tính toan\nXem hi sinh làm niềm vui hạnh phúc\nTấm tình này có thể nào quên\nDù cách chia xa mấy đoạn đường\nTình yêu vẫn lớn cùng năm tháng\nTrong trái tim anh, em như một tượng đài\nTình yêu trong đời son sắt không phai.\n\nMỹ Tho, ngày 20/01/2017",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ đi từ sự nhận ra thầm lặng đến lời khẳng định mạnh mẽ về tình yêu bền vững, không cần lời nói để minh chứng.",
+      standoutImages:
+        "Hình ảnh tượng đài trong trái tim và tình yêu son sắt không phai tạo nên chiều sâu cảm xúc vượt thời gian.",
+      meaning:
+        "Tình yêu chân thật không cần lời hoa mỹ — ánh mắt và sự hi sinh âm thầm mới là ngôn ngữ của trái tim.",
+      memorableLine: "Tình yêu trong đời son sắt không phai.",
+    },
+    imageResearch: {
+      moodKeywords: ["tình yêu lặng thầm", "ánh mắt tri kỷ", "son sắt", "thủy chung"],
+      referenceLinks: [],
+      recommendedScene: "Ánh mắt nhìn nhau đầy tin tưởng, gam màu ấm và dịu.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "hanh-phuc",
+    title: "Hạnh phúc",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Có một người để cho ta yêu, để thương, để nhớ những trưa chiều.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 9/4/2019",
+    cardImage: "/images/poems/hanh-phuc.jpeg",
+    heroImage: "/images/poems/hanh-phuc.jpeg",
+    audioUrl: "/audio/Hanh-phuc.m4a",
+    hasAudio: true,
+    content:
+      "Có một người để cho ta yêu\nĐể thương, để nhớ những trưa, chiều\nNgười ấy cũng đợi chờ ta tối\nNhững đêm về lòng bớt tịch liêu\nHạnh phúc giản đơn, đâu cần huyền bí\nTrọn vòng tay, ấm một nụ cười\nĐời vô thường, nước chảy, bèo trôi\nÁng mây trắng bay ngang qua cửa\nNíu được rồi đừng có buông xuôi.\n\nMỹ Tho, ngày 9/4/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ sự trân trọng giản đơn đến chiêm nghiệm về vô thường, rồi kết lại bằng lời nhắc nhở giữ chặt hạnh phúc hiện tại.",
+      standoutImages:
+        "Ảng mây trắng bay qua — hình ảnh vô thường gợi ra ngay lời kêu gọi níu giữ, tạo bước nhảy cảm xúc bất ngờ.",
+      meaning:
+        "Hạnh phúc không cần vĩ đại — chỉ cần một người đợi, một vòng tay, một nụ cười. Nhưng nó dễ mất nếu ta buông tay.",
+      memorableLine: "Níu được rồi đừng có buông xuôi.",
+    },
+    imageResearch: {
+      moodKeywords: ["hạnh phúc giản dị", "vòng tay ấm", "nụ cười", "vô thường"],
+      referenceLinks: [],
+      recommendedScene: "Khoảnh khắc bình yên đôi lứa, ánh sáng dịu, gam màu ấm.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "mo-tro-ve",
+    title: "Mơ trở về",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Nếu có thần tiên, phép màu, ông Bụt — cho tôi xin một vé trở về.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 8/10/2018",
+    cardImage: "/images/poems/mo-tro-ve.jpeg",
+    heroImage: "/images/poems/mo-tro-ve.jpeg",
+    audioUrl: "/audio/Mo-tro-ve.m4a",
+    hasAudio: true,
+    content:
+      "Nếu có thần tiên, phép màu, ông Bụt\nCho tôi xin một vé trở về\nThuở ấy, ngày xưa tuổi xanh mộng mị\nƯớc mơ hồng, dáng ngọc kiêu sa\nMỗi bước chân đi, chiếu ngọc, kiệu hoa\nQuân tử, thuyền uyên rước đưa, chào đón\nÔi cái thuở thanh xuân, ôi cái lúc chiều tà\nSắc vóc phôi pha, chùn chân mỏi bước\nNhững đêm buồn ngồi đếm ánh sao băng\nNghiên ngẫm câu thơ, nghe tiếng hát Thạch Sùng\nNhịp thời gian trên tường nhà rụng xuống\nTa không nỡ, ta nào đâu có muốn\nThời gian ơi sao cứ đi - về\nMang tuổi xuân bỏ nơi xa lắc ấy\nBiết làm sao, ta muốn quay về\nThần tiên ơi! Bụt ơi con đợi\nNhững đêm dài chẳng thấy tăm hao\nTrên trời cao chỉ có những vì sao\nƯớc mơ trở về bao giờ thành hiện thực.\n\nMỹ Tho, 8/10/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ khát vọng ngây thơ được quay về, qua tiếc nuối tuổi thanh xuân, đến câu hỏi treo lơ lửng giữa trời sao và những vì sao lạnh lẽo.",
+      standoutImages:
+        "Nhịp thời gian rụng xuống từ tường nhà và những vì sao trên trời cao — hai hình ảnh đối chiếu sự vô vọng và khát vọng.",
+      meaning:
+        "Ai cũng có một thuở thanh xuân muốn trở về. Nhưng thời gian chỉ tiến, không lùi — và bài thơ nằm lại trong khoảng không giữa ước mơ và thực tại.",
+      memorableLine: "Ước mơ trở về bao giờ thành hiện thực.",
+    },
+    imageResearch: {
+      moodKeywords: ["hoài niệm tuổi xuân", "sao băng", "thời gian trôi qua", "mơ về quá khứ"],
+      referenceLinks: [],
+      recommendedScene: "Đêm trời đầy sao, gam tối sâu, cảm giác cô độc và khát khao.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "nho-lam-ngay-xua",
+    title: "Nhớ lắm ngày xưa",
+    tag: "Thơ nhớ",
+    summary: "Tán phượng già một màu rừng rực đỏ — sân trường kỉ niệm ngày xưa.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 21/11/2018",
+    cardImage: "/images/poems/nho-lam-ngay-xua.jpeg",
+    heroImage: "/images/poems/nho-lam-ngay-xua.jpeg",
+    audioUrl: "/audio/Nho-lam-ngay-xua.m4a",
+    hasAudio: true,
+    content:
+      "Thằng cu nào đem lửa đốt trên cao\nTán phượng già một màu rừng rực đỏ\nAi ngẫu hứng kéo đàn, tấu bài thương nhớ\nRả rích, nỉ non câu hẹn, lời chờ\nTiếng thở ai theo ngọn gió lùa\nNhuộm ánh thu vàng rơi theo sắc lá\nGóc sân trường cùng hàng ghế đá\nGiữ bao điều kỉ niệm mới vào yêu\nDấu chân ai in dưới lớp tần rêu\nNhư níu gọi đông về trên mái tóc\n\nMùa xuân đến, lá non tơ chen chúc\nNhớ lắm sân trường kỉ niệm ngày xưa\nDưới gốc me keo, anh ngóng đợi em về\nKhu nội trú đêm về, trong mơ anh vẫn đợi\nVà như thế suốt đời anh cứ nhớ\nMột lần giữ tay em, còn ấm mãi đến giờ\nThời thanh xuân chỉ biết ước mơ\nLúc hoàng hôn mong gì thỏa nguyện\nXin gởi vào thơ, trải lòng với bao phiền muộn\nEm hiểu lòng anh, hạnh phúc cả đời.\n\nMỹ Tho, 21/11/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ hình ảnh phượng nở rực rỡ của tuổi học trò, dòng cảm xúc chậm dần, lắng lại ở nỗi nhớ dai dẳng và ước mơ giản dị được hiểu.",
+      standoutImages:
+        "Tán phượng đỏ, ghế đá, dấu chân rêu phủ — những vật chứng của tuổi học trò giữ nguyên sức gợi nhớ.",
+      meaning:
+        "Một lần giữ tay em trong sân trường — khoảnh khắc nhỏ nhoi nhưng đủ để một đời mang theo.",
+      memorableLine: "Một lần giữ tay em, còn ấm mãi đến giờ.",
+    },
+    imageResearch: {
+      moodKeywords: ["sân trường phượng đỏ", "hoài niệm học trò", "mùa hè", "kỉ niệm"],
+      referenceLinks: [],
+      recommendedScene: "Sân trường mùa phượng nở, ghế đá cũ, ánh chiều nghiêng đổ bóng.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "cho-anh-goi",
+    title: "Cho anh gởi",
+    tag: "Thơ tình",
+    summary: "Em có nghe, tiếng thì thầm trong gió, lời yêu đương những ve vuốt mơn man.",
+    author: "Lê Dũng",
+    locationDate: "Chiều, 14/02/2020",
+    cardImage: "/images/poems/cho-anh-goi.jpeg",
+    heroImage: "/images/poems/cho-anh-goi.jpeg",
+    audioUrl: "/audio/Cho-anh-goi.m4a",
+    hasAudio: true,
+    content:
+      "Em có nghe, tiếng thì thầm trong gió\nLời yêu đương, những ve vuốt mơn man\nHoa đã nở, bởi nắng vàng đã đủ\nTình đã nồng hương, bồi đắp ủ lâu rồi\nEm nghe không sự run rẩy của môi\nTim thổn thức, mặt dồn lên rạo rực\nNếp vào nhau, đôi ngực trần vô thức\nTrộn vào nhau, hai gương mặt đợi chờ\nTình yêu này gởi trọn vào thơ\nEm hãy giữ, yêu nhiều lắm đó!\n\nChiều, 14/02/2020",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ mở nhẹ nhàng như hơi gió rồi tăng dần nhiệt độ cảm xúc, kết lại bằng một lời trao gửi chân thành và rất mực dịu dàng.",
+      standoutImages:
+        "Hoa nở trong nắng vàng đủ, môi run rẩy, hai gương mặt đợi chờ — chuỗi hình ảnh bùng cháy từ tự nhiên sang con người.",
+      meaning:
+        "Tình yêu đến khi chín muồi không cần hô hào — nó tự bộc lộ qua từng run rẩy và hơi thở, rồi được giữ lại bằng thi ca.",
+      memorableLine: "Tình yêu này gởi trọn vào thơ.",
+    },
+    imageResearch: {
+      moodKeywords: ["tình yêu nồng nàn", "hoa nở mùa xuân", "run rẩy", "gởi thương"],
+      referenceLinks: [],
+      recommendedScene: "Chiều Valentine, hoa nở trong nắng, không gian ấm áp và gần gũi.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "ngam",
+    title: "Ngẫm",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Qua ngồi nhìn trời đất mênh mông — tỏ lòng người thương ghét quay vòng.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 4/8/2019",
+    cardImage: "/images/poems/ngam.jpeg",
+    heroImage: "/images/poems/ngam.jpeg",
+    audioUrl: "/audio/Ngam.m4a",
+    hasAudio: true,
+    content:
+      "Qua ngồi nhìn trời đất mênh mông\nTỏ lòng người, thương ghét quay vòng\nTự trong sâu thẳm lời ai nhủ\nGiữ gìn một chữ thủy cùng chung\nĐã hứa bậu ơi, nguyện sẽ giữ\nCả đời thương mãi, cứ vấn vương\nMênh mông trời đất rộng bao la\nMở rộng lòng ra, cõi ta bà\nVậy mà nhiều lúc còn rung chuyển\nNổi giận, hét gầm... cơn phong ba\nEm yêu anh cho hết cả hương hoa\nCho cả niềm tin, yêu thật thà\nVậy mà lắm bận không thèm nói\nGiận chi mà héo liễu, úa hoa\nAnh biết yêu nhiều nên hờn giận\nMỉm cười, hoa nở người yên an.\n\nCai Lậy, ngày 4/8/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ chiêm nghiệm thiên nhiên mênh mông, thu dần vào nội tâm bất ổn, rồi kết lại bằng nụ cười hòa giải nhẹ nhàng.",
+      standoutImages:
+        "Trời đất mênh mông mở ra không gian rộng, nhưng cơn phong ba nổi giận ở bên trong mới là trung tâm bài thơ.",
+      meaning:
+        "Yêu nhiều thì dễ giận — nhưng trí tuệ nằm ở chỗ biết mỉm cười để lòng an và hoa lại nở.",
+      memorableLine: "Mỉm cười, hoa nở người yên an.",
+    },
+    imageResearch: {
+      moodKeywords: ["chiêm nghiệm", "trời đất mênh mông", "tĩnh lặng nội tâm", "yêu và giận"],
+      referenceLinks: [],
+      recommendedScene: "Người ngồi nhìn trời rộng, gam xanh lơ trầm, cảm giác suy tư.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "qua-voi-bau",
+    title: "Qua với bậu",
+    tag: "Thơ tình",
+    summary: "Qua với bậu tưởng rằng đã có — vậy rồi mà có có không không.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 16/8/2018",
+    cardImage: "/images/poems/qua-voi-bau.jpeg",
+    heroImage: "/images/poems/qua-voi-bau.jpeg",
+    audioUrl: "/audio/Qua-voi-bau.m4a",
+    hasAudio: true,
+    content:
+      "Qua với bậu tưởng rằng đã có\nVậy rồi mà có có không không\nDẫu rằng bậu đã có chồng\nNhưng qua vẫn cứ giữ lòng như xưa\nNhà ai vách mỏng rào thưa\nCửa phên bỏ khóa, ngõ vừa bước chân\nBậu ơi qua ngơ ngẩn tinh thần\nBởi qua nhìn bậu, nhớ hoài ngày xưa\nNgày xưa dù nắng dù mưa\nNgang qua mặt bậu, mặt qua đỏ bừng\nTrời ơi, hai đứa người dưng\nMà qua nhớ bậu rưng rưng mắt chiều\nQua thương bậu, hỡi bậu yêu\nNhớ thương đứt ruột mỗi chiều gió mưa.\n\nMỹ Tho, ngày 16/8/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ mơ hồ dang dở, bài thơ đi qua tiếc nuối lặng thầm rồi kết lại bằng nỗi nhớ cồn cào không tên không phận.",
+      standoutImages:
+        "Vách mỏng rào thưa, cửa phên bỏ khóa — không gian gần mà xa, chứa đựng toàn bộ sự dẫm chân giữa hai lòng.",
+      meaning:
+        "Có những tình đã lỡ không phải vì không yêu mà vì không kịp — và nó ở lại như mặt đỏ bừng mỗi khi gặp lại.",
+      memorableLine: "Nhớ thương đứt ruột mỗi chiều gió mưa.",
+    },
+    imageResearch: {
+      moodKeywords: ["tình lỡ", "miền Tây sông nước", "hoài nhớ", "vách thưa mái lá"],
+      referenceLinks: [],
+      recommendedScene: "Chiều miền Tây, hàng rào thưa, gió mưa nhẹ, gam nâu ấm và buồn.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "nhin-trang",
+    title: "Nhìn trăng",
+    tag: "Thơ đêm",
+    summary: "Qua trải lòng vào thơ theo năm tháng — chỉ cốt mong bậu hiểu thấu lòng nhau.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 24 giờ ngày 12/8/2019",
+    cardImage: "/images/poems/nhin-trang.jpeg",
+    heroImage: "/images/poems/nhin-trang.jpeg",
+    audioUrl: "/audio/Nhin-trang.m4a",
+    hasAudio: true,
+    content:
+      "Qua trải lòng vào thơ theo năm tháng\nChỉ cốt mong bậu hiểu thấu lòng nhau!\nĐêm đêm chưa thể chung nhà, chung giường chiếu\nChung gạo, nhóm lò, thổi lửa, những chiều, trưa\nNhưng đêm nhìn trăng ta chung hướng\nƯớc mơ cuộc đời, chung một lối đi\nQua yêu thiệt lòng chẳng dối lừa chi bậu thấu lòng\nQua, đừng hồ nghi thầm nghĩ... Rưng rức lòng\nQua, bậu khổ, qua buồn đêm nay\nQua nhìn mãi ánh trăng suông\nNăm tám năm trước mẹ qua lâm bồn\nQua chào đời trong ánh trăng rực sáng\nQua nhớ mẹ, thương bậu cho\nQua tấm lòng bao dung, yêu và thua thiệt\nNhững tưởng đêm nay mình vui vầy duyên cá nước...\nQuanh qua chỉ có vầng trăng cao tuốt ở miền xa\nThôi qua xin lấy câu thơ này nói hộ lòng\nQua yêu nhiều lắm... Bậu ơi nhớ đó.\n\nMỹ Tho, 24 giờ ngày 12/8/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ mở bằng lời giãi bày chân thành, đi qua nỗi cô đơn đêm trăng và ký ức về mẹ, kết lại bằng lời yêu thương giản dị mà sâu sắc.",
+      standoutImages:
+        "Ánh trăng suông và vầng trăng rực sáng lúc chào đời — hai hình ảnh trăng nối ký ức với hiện tại bằng sợi chỉ cảm xúc vô hình.",
+      meaning:
+        "Yêu là khi cô đơn vẫn nghĩ đến người kia, khi nhớ mẹ lại thương bậu — tình yêu và tình thân hòa quyện trong ánh trăng đêm.",
+      memorableLine: "Qua yêu nhiều lắm... Bậu ơi nhớ đó.",
+    },
+    imageResearch: {
+      moodKeywords: ["trăng đêm", "nhớ mẹ", "tình yêu thủy chung", "đêm một mình"],
+      referenceLinks: [],
+      recommendedScene: "Đêm khuya nhìn trăng một mình, gam xanh lạnh, vầng trăng to và cô tịch.",
+      licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
 ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];

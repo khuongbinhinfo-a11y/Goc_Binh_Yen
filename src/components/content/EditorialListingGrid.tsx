@@ -11,6 +11,7 @@ type EditorialListingGridProps = {
   routePrefix: string;
   readButtonLabel: string;
   showAuthor?: boolean;
+  showAudioBadge?: boolean;
 };
 
 export default function EditorialListingGrid({
@@ -18,6 +19,7 @@ export default function EditorialListingGrid({
   routePrefix,
   readButtonLabel,
   showAuthor = false,
+  showAudioBadge = false,
 }: EditorialListingGridProps) {
   return (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -51,9 +53,16 @@ export default function EditorialListingGrid({
                 />
               </div>
               <div className="p-5">
-                <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
-                  {item.category}
-                </span>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
+                    {item.tag ?? item.category}
+                  </span>
+                  {showAudioBadge && item.hasAudio ? (
+                    <span className="inline-flex rounded-full border border-[#d7b596] bg-[#fff7ef] px-3 py-1 text-xs font-semibold text-[#7d5439]">
+                      Co audio
+                    </span>
+                  ) : null}
+                </div>
                 <h3 className="mt-3 text-2xl font-semibold leading-tight text-[#4a2f20] sm:text-3xl">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-[#654939]">{item.excerpt}</p>
                 {showAuthor && item.author ? <p className="mt-2 text-sm text-[#745646]">{item.author}</p> : null}

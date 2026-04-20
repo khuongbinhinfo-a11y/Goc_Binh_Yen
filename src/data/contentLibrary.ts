@@ -14,6 +14,7 @@ export type ContentItem = {
   slug: string;
   contentType: ContentType;
   category: string;
+  tag?: string;
   excerpt: string;
   coverImage: string;
   author?: string;
@@ -50,6 +51,7 @@ const poetryBase: ContentItem[] = rawPoems
     slug: item.slug,
     contentType: "poem",
     category: "Đọc thơ",
+    tag: item.tag,
     excerpt: item.summary,
     coverImage: item.cardImage,
     author: item.author,
