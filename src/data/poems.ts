@@ -653,6 +653,8 @@ export const poems: PoemItem[] = [
     locationDate: "Mỹ Tho, 12 giờ đêm, 5/3/2020",
     cardImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format\u0026fit=crop\u0026w=1200\u0026q=80",
     heroImage: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format\u0026fit=crop\u0026w=1600\u0026q=80",
+    audioUrl: "/audio/Them.m4a",
+    hasAudio: true,
     content: "Thèm nghe con nước vỗ bờ\nBóng bần rơi nhẹ, thẫn thờ dòng sông\nThèm nhìn đom đóm kết vòng\nMột miền sông nước bềnh bồng ngọc châu\nVẳng nghe thánh thót đàn bầu\nMênh mông câu hát, cung sầu cung thương\nNhìn trăng mà nhớ mà thương\nGởi theo con gió lời thương, ngọt ngào\nEm ơi trăng ở trên cao\nTrăng còn hiểu được vì sao anh buồn\nTrăng mang chín nhớ mười thương\nNhuộm má thèm mịn, môi hồng thèm thơm\nThèm gối đầu lên tay em\nXông hương tóc, khát thèm trần dáng\nĐêm nay anh gởi theo trăng\nTám thương, chín nhớ, mười mong cận kề\nTrăng ơi gởi cả lời thề\nMãi thương mãi nhớ, mãi chờ mãi mong.",
     status: "published",
     analysis: {
