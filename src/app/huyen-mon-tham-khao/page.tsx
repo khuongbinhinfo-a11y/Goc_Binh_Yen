@@ -40,7 +40,7 @@ const heroImage = "/images/heroes/co-hoc-hero-main.png";
 export default function HuyenMonThamKhaoPage() {
   return (
     <>
-      <section className="relative min-h-[320px] overflow-hidden border-b border-[#dec2a7] bg-[#e9d8c4] sm:min-h-0">
+      <section className="relative min-h-[360px] overflow-hidden border-b border-[#dec2a7] bg-[#e9d8c4] sm:min-h-0">
         <div className="pointer-events-none absolute inset-0">
           <Image
             src={heroImage}
@@ -48,12 +48,12 @@ export default function HuyenMonThamKhaoPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[center_24%] opacity-90 sm:object-[center_38%] sm:opacity-72"
+            className="object-cover object-[center_38%] opacity-88 sm:opacity-72"
           />
         </div>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f4e3d0]/18 via-[#ead9c5]/10 to-[#e9d8c4]/52 sm:from-[#f4e3d0]/24 sm:via-[#ead9c5]/12 sm:to-[#e9d8c4]/42" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#f4e3d0]/10 via-[#ead9c5]/6 to-[#e9d8c4]/30 sm:from-[#f4e3d0]/24 sm:via-[#ead9c5]/12 sm:to-[#e9d8c4]/42" />
         <div className="site-shell relative py-16 sm:py-14">
-          <div className="relative z-10 max-w-3xl rounded-2xl bg-[#f6eadb]/24 p-4 backdrop-blur-[1px] sm:bg-[#f6eadb]/30 sm:p-5">
+          <div className="relative z-10 max-w-3xl rounded-2xl bg-[#f6eadb]/18 p-4 backdrop-blur-[1px] sm:bg-[#f6eadb]/30 sm:p-5">
             <p className="eyebrow">Không gian tham khảo</p>
             <h1 className="text-4xl font-bold leading-[1.12] text-[#3f2b20] sm:text-5xl">Cổ học</h1>
             <p className="mt-4 text-sm leading-8 text-[#5f4331] sm:text-base">
