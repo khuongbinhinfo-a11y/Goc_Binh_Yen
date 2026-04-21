@@ -17,6 +17,7 @@ export default function HeroSection() {
         alt={t.hero.title}
         fill
         priority
+        loading="eager"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-[#5a3a28]/24 via-[#4d3022]/42 to-[#2e1e16]/72" />

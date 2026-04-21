@@ -1,31 +1,11 @@
 import { ContentType } from "@/data/contentLibrary";
 
-const LOCAL_IMAGE_EXTENSIONS = [".jpg", ".jpeg", ".png", ".webp"] as const;
-
-type ResolveLocalImageOptions = {
-  directories?: string[];
-  fallback?: string;
-  fallbackName?: string;
-  fallbackDirectories?: string[];
-};
-
 export type ResolvedLocalImage = {
   basename: string;
   src: string;
   candidates: string[];
   fallback: string;
 };
-
-function normalizeDir(directory: string) {
-  const value = directory.trim();
-  if (!value) return "/images/brand";
-  if (value.startsWith("/")) return value.replace(/\/+$/, "") || "/images/brand";
-  return `/${value.replace(/\/+$/, "")}`;
-}
-
-function normalizeBasename(name: string) {
-  return name.trim().replace(/^\/+/, "").replace(/\.(jpg|jpeg|png|webp)$/i, "");
-}
 
 function uniqueStrings(values: string[]) {
   const seen = new Set<string>();
@@ -40,95 +20,33 @@ function uniqueStrings(values: string[]) {
   return result;
 }
 
-function buildCandidates(name: string, directories: string[]) {
-  const baseName = normalizeBasename(name);
-  if (!baseName) return [];
+const FALLBACK_GLOBAL = "/images/logo-4.jpg";
+const FALLBACK_POEM = "/images/poems/ben-do.jpeg";
+const FALLBACK_STORY = "/images/poems/ngang-ben-song-xua.jpeg";
 
-  return directories.flatMap((directory) => {
-    const dir = normalizeDir(directory);
-    return LOCAL_IMAGE_EXTENSIONS.map((extension) => `${dir}/${baseName}${extension}`);
-  });
-}
-
-export function resolveLocalImage(name: string, options: ResolveLocalImageOptions = {}): ResolvedLocalImage {
-  const baseName = normalizeBasename(name);
-  const directories = options.directories?.length ? options.directories : ["/images/brand", "/images"];
-
-  const primaryCandidates = buildCandidates(baseName, directories);
-  const fallbackCandidates = options.fallbackName
-    ? buildCandidates(options.fallbackName, options.fallbackDirectories?.length ? options.fallbackDirectories : directories)
-    : [];
-
-  const candidates = uniqueStrings([...primaryCandidates, ...fallbackCandidates]);
-  const fallback = options.fallback?.trim() || "/images/logo-4.jpg";
+function createResolvedLocalImage(basename: string, src: string, candidates: string[] = [], fallback: string = FALLBACK_GLOBAL): ResolvedLocalImage {
+  const normalizedFallback = fallback.trim() || FALLBACK_GLOBAL;
+  const normalizedSrc = src.trim() || normalizedFallback;
+  const normalizedCandidates = uniqueStrings([normalizedSrc, ...candidates, normalizedFallback].map((value) => value.trim()));
 
   return {
-    basename: baseName,
-    src: candidates[0] ?? fallback,
-    candidates,
-    fallback,
+    basename,
+    src: normalizedSrc,
+    candidates: normalizedCandidates,
+    fallback: normalizedFallback,
   };
 }
 
-const LEGACY_GLOBAL_IMAGE = resolveLocalImage("4");
-const LEGACY_POEM_IMAGE = resolveLocalImage("ben-do", {
-  directories: ["/images/poems"],
-  fallback: LEGACY_GLOBAL_IMAGE.fallback,
-});
-const LEGACY_STORY_IMAGE = resolveLocalImage("ngang-ben-song-xua", {
-  directories: ["/images/poems"],
-  fallback: LEGACY_POEM_IMAGE.fallback,
-});
-const LEGACY_SUPPORT_QR_IMAGE = resolveLocalImage("qr-bank", {
-  directories: ["/images/support", "/images"],
-  fallback: LEGACY_GLOBAL_IMAGE.fallback,
-});
-
 export const LOCAL_IMAGE_MAP = {
-  heroHome: resolveLocalImage("hero-home", {
-    fallbackName: "4",
-    fallbackDirectories: ["/images"],
-    fallback: LEGACY_GLOBAL_IMAGE.fallback,
-  }),
-  heroPoetry: resolveLocalImage("hero-poetry", {
-    fallbackName: "ben-do",
-    fallbackDirectories: ["/images/poems"],
-    fallback: LEGACY_POEM_IMAGE.fallback,
-  }),
-  heroStory: resolveLocalImage("hero-story", {
-    fallbackName: "ngang-ben-song-xua",
-    fallbackDirectories: ["/images/poems"],
-    fallback: LEGACY_STORY_IMAGE.fallback,
-  }),
-  heroSpiritual: resolveLocalImage("hero-spiritual", {
-    fallbackName: "hue-trang",
-    fallbackDirectories: ["/images/poems"],
-    fallback: LEGACY_STORY_IMAGE.fallback,
-  }),
-  heroSupport: resolveLocalImage("hero-support", {
-    fallbackName: "4",
-    fallbackDirectories: ["/images"],
-    fallback: LEGACY_GLOBAL_IMAGE.fallback,
-  }),
-  footerOrnament: resolveLocalImage("footer-ornament", {
-    fallbackName: "4",
-    fallbackDirectories: ["/images"],
-    fallback: LEGACY_GLOBAL_IMAGE.fallback,
-  }),
-  fallbackPoem: resolveLocalImage("fallback-poem", {
-    fallbackName: "ben-do",
-    fallbackDirectories: ["/images/poems"],
-    fallback: LEGACY_POEM_IMAGE.fallback,
-  }),
-  fallbackStorySpiritual: resolveLocalImage("fallback-story-spiritual", {
-    fallbackName: "ngang-ben-song-xua",
-    fallbackDirectories: ["/images/poems"],
-    fallback: LEGACY_STORY_IMAGE.fallback,
-  }),
-  supportQr: resolveLocalImage("qr-bank", {
-    directories: ["/images/support", "/images"],
-    fallback: LEGACY_SUPPORT_QR_IMAGE.fallback,
-  }),
+  heroHome: createResolvedLocalImage("hero-home", "/images/brand/hero-home.png"),
+  heroPoetry: createResolvedLocalImage("hero-poetry", "/images/brand/hero-poetry.png", [FALLBACK_POEM], FALLBACK_POEM),
+  heroStory: createResolvedLocalImage("hero-story", "/images/brand/hero-story.png", [FALLBACK_STORY], FALLBACK_STORY),
+  heroSpiritual: createResolvedLocalImage("hero-spiritual", "/images/brand/hero-spiritual.png", ["/images/poems/hue-trang.jpeg", FALLBACK_STORY], FALLBACK_STORY),
+  heroSupport: createResolvedLocalImage("hero-support", "/images/brand/hero-support.png"),
+  footerOrnament: createResolvedLocalImage("footer-ornament", "/images/brand/footer-ornament.png"),
+  fallbackPoem: createResolvedLocalImage("fallback-poem", "/images/brand/fallback-poem.png", [FALLBACK_POEM], FALLBACK_POEM),
+  fallbackStorySpiritual: createResolvedLocalImage("fallback-story-spiritual", "/images/brand/fallback-story-spiritual.png", [FALLBACK_STORY], FALLBACK_STORY),
+  supportQr: createResolvedLocalImage("qr-bank", "/images/support/qr-bank.jpg", [], FALLBACK_GLOBAL),
 } as const;
 
 export const IMAGE_FALLBACKS = {
