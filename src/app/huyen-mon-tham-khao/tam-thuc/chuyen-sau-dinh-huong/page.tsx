@@ -19,7 +19,7 @@ export default function ChuyenSauDinhHuongPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Chuyên sâu định hướng"
               width={1600}
               height={900}

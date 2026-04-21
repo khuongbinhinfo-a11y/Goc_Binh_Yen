@@ -19,7 +19,7 @@ export default function KyMonDonGiapPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-ky-mon.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Kỳ Môn Độn Giáp"
               width={1600}
               height={900}

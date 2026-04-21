@@ -19,7 +19,7 @@ export default function ThaiAtThanKinhPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-thai-at.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Thái Ất Thần Kinh"
               width={1600}
               height={900}

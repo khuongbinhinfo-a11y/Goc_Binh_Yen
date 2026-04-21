@@ -69,7 +69,7 @@ export default function HuyenMonTamThucPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/hero-tam-thuc.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Tam thức"
               width={1600}
               height={900}

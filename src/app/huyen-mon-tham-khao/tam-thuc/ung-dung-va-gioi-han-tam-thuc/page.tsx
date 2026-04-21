@@ -18,7 +18,7 @@ export default function UngDungVaGioiHanPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-ung-dung.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Ứng dụng và giới hạn"
               width={1600}
               height={900}

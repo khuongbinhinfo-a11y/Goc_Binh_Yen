@@ -19,7 +19,7 @@ export default function CachTiepCanPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Cách tiếp cận đúng"
               width={1600}
               height={900}

@@ -19,7 +19,7 @@ export default function NhapMonTamThucPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg"
+              src="/images/co-hoc/tam-thuc.jpeg"
               alt="Nhập môn Tam thức"
               width={1600}
               height={900}
