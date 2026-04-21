@@ -33,7 +33,7 @@ const previewItems: PreviewItem[] = [
   {
     label: "Tam thuc",
     href: "/huyen-mon-tham-khao/tam-thuc",
-    note: "Khung 3 nhanh con",
+    note: "Khung 8 cum: nhap mon, cach tiep can, 3 he, so sanh, ung dung, chuyen sau",
   },
   {
     label: "Ung dung va gioi han",
@@ -66,19 +66,49 @@ const previewItems: PreviewItem[] = [
     note: "Placeholder nhanh Tuong",
   },
   {
+    label: "Tam thuc",
+    href: "/huyen-mon-tham-khao/tam-thuc",
+    note: "Khung trang chinh voi 8 cum",
+  },
+  {
+    label: "Tam thuc / Nhap mon",
+    href: "/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc",
+    note: "Nen tang khong niem tin mu quang",
+  },
+  {
+    label: "Tam thuc / Cach tiep can",
+    href: "/huyen-mon-tham-khao/tam-thuc/cach-tiep-can",
+    note: "Phan biet he thong va dien giai",
+  },
+  {
+    label: "Tam thuc / So sanh va dinh vi",
+    href: "/huyen-mon-tham-khao/tam-thuc/so-sanh-va-dinh-vi",
+    note: "Ba loi quan sat khac nhau",
+  },
+  {
     label: "Tam thuc / Thai At Than Kinh",
     href: "/huyen-mon-tham-khao/tam-thuc/thai-at-than-kinh",
-    note: "Placeholder nhanh Thai At",
+    note: "He quan sat vi mo - tam nhin rong",
   },
   {
     label: "Tam thuc / Ky Mon Don Giap",
     href: "/huyen-mon-tham-khao/tam-thuc/ky-mon-don-giap",
-    note: "Placeholder nhanh Ky Mon",
+    note: "He quan sat tinh huong cu the",
   },
   {
     label: "Tam thuc / Luc Nham Than Khoa",
     href: "/huyen-mon-tham-khao/tam-thuc/luc-nham-than-khoa",
-    note: "Placeholder nhanh Luc Nham",
+    note: "He mo ta dien bien - chieu sau",
+  },
+  {
+    label: "Tam thuc / Ung dung va gioi han",
+    href: "/huyen-mon-tham-khao/tam-thuc/ung-dung-va-gioi-han-tam-thuc",
+    note: "Cach su dung than trong",
+  },
+  {
+    label: "Tam thuc / Chuyen sau",
+    href: "/huyen-mon-tham-khao/tam-thuc/chuyen-sau-dinh-huong",
+    note: "Chieu sau hoc thuat va di ban",
   },
 ];
 

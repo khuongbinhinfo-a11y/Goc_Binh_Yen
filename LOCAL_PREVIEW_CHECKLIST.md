@@ -50,15 +50,38 @@ Ky vong:
 Ky vong:
 - Moi trang la placeholder ngan, khong co noi dung dai.
 
-## 6) Kiem tra Tam thuc (3 nhanh con)
+## 6) Kiem tra Tam thuc (8 cum)
 
+### Trang chinh Tam thuc
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc](http://localhost:3000/huyen-mon-tham-khao/tam-thuc)
+
+Ky vong:
+- Hien 3 nhom card: Tay nen (3 cum), Ba he (3 nhanh), Ung dung (2 cum).
+
+### Tam thuc / Nhap mon
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc)
+
+### Tam thuc / Cach tiep can
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/cach-tiep-can](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/cach-tiep-can)
+
+### Tam thuc / So sanh va dinh vi
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/so-sanh-va-dinh-vi](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/so-sanh-va-dinh-vi)
+
+### Tam thuc / Ba he quy chieu
 - [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/thai-at-than-kinh](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/thai-at-than-kinh)
 - [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/ky-mon-don-giap](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/ky-mon-don-giap)
 - [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/luc-nham-than-khoa](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/luc-nham-than-khoa)
 
+### Tam thuc / Ung dung va gioi han
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/ung-dung-va-gioi-han-tam-thuc](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/ung-dung-va-gioi-han-tam-thuc)
+
+### Tam thuc / Chuyen sau dinh huong
+- [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/chuyen-sau-dinh-huong](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/chuyen-sau-dinh-huong)
+
 Ky vong:
-- Trang hien dung tieu de nhanh.
-- Link dieu huong va style thong nhat voi cac trang cap khac.
+- Tat ca cac trang co tieu de va mo ta phu hop.
+- Link dieu huong, breadcrumb va style thong nhat.
+- Anh tham chieu co ten basename dung quy uc (khong dau, lowercase, dau gach ngang).
 
 ## 7) Kiem tra nhanh truoc push
 
