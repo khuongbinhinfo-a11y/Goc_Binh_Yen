@@ -56,7 +56,7 @@ Ky vong:
 - [http://localhost:3000/huyen-mon-tham-khao/tam-thuc](http://localhost:3000/huyen-mon-tham-khao/tam-thuc)
 
 Ky vong:
-- Hien 3 nhom card: Tay nen (3 cum), Ba he (3 nhanh), Ung dung (2 cum).
+- Hien 3 nhom card: Tang nen (3 cum), Ba he (3 nhanh), Ung dung (2 cum).
 
 ### Tam thuc / Nhap mon
 - [http://localhost:3000/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc](http://localhost:3000/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc)

@@ -66,11 +66,6 @@ const previewItems: PreviewItem[] = [
     note: "Placeholder nhanh Tuong",
   },
   {
-    label: "Tam thuc",
-    href: "/huyen-mon-tham-khao/tam-thuc",
-    note: "Khung trang chinh voi 8 cum",
-  },
-  {
     label: "Tam thuc / Nhap mon",
     href: "/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc",
     note: "Nen tang khong niem tin mu quang",
