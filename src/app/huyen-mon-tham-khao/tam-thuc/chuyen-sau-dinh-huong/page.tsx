@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function ChuyenSauDinhHuongPage() {
   return (
@@ -18,8 +20,8 @@ export default function ChuyenSauDinhHuongPage() {
             đại.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-nghien-cuu")}
               alt="Chuyên sâu định hướng"
               width={1600}
               height={900}

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function UngDungVaGioiHanPage() {
   return (
@@ -17,8 +19,8 @@ export default function UngDungVaGioiHanPage() {
             Nguyên tắc sử dụng thận trọng, phân biệt tham khảo và khẳng định tuyệt đối, ranh giới giữa sáng hơn và lệ thuộc hơn.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-ung-dung")}
               alt="Ứng dụng và giới hạn"
               width={1600}
               height={900}

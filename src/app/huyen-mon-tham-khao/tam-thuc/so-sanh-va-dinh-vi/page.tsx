@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function SoSanhVaDinhViPage() {
   return (
@@ -18,8 +20,8 @@ export default function SoSanhVaDinhViPage() {
             Tam thức và Ngũ thuật.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-so-sanh")}
               alt="So sánh và định vị"
               width={1600}
               height={900}
@@ -32,7 +34,7 @@ export default function SoSanhVaDinhViPage() {
             <section>
               <h2 className="text-2xl font-semibold text-[#4a2f20]">Mục tiêu tầng này</h2>
               <p className="mt-3">
-                Làm sáng suất sự khác biệt giữa ba hệ, giúp người học chọn lối tiếp cận phù hợp với mục đích riêng của họ.
+                Làm sáng rõ sự khác biệt giữa ba hệ, giúp người học chọn lối tiếp cận phù hợp với mục đích riêng của mình.
               </p>
             </section>
 

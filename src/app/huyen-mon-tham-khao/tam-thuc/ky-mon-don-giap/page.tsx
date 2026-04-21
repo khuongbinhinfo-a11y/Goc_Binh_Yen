@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function KyMonDonGiapPage() {
   return (
@@ -18,8 +20,8 @@ export default function KyMonDonGiapPage() {
             Lục Nhâm, thường được dùng để phân tích thời cơ và định hướng hành động.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-ky-mon")}
               alt="Kỳ Môn Độn Giáp"
               width={1600}
               height={900}

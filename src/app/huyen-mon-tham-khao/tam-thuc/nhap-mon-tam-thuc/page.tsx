@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function NhapMonTamThucPage() {
   return (
@@ -18,8 +20,8 @@ export default function NhapMonTamThucPage() {
             hiểu Tam thức là gì, khác với Ngũ thuật ở đâu, và nên bắt đầu từ đâu.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-nhap-mon")}
               alt="Nhập môn Tam thức"
               width={1600}
               height={900}

@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function LucNhamThanKhoaPage() {
   return (
@@ -18,8 +20,8 @@ export default function LucNhamThanKhoaPage() {
             hiểu sai; cần thái độ rất cẩn trọng khi tiếp cận.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-luc-nham")}
               alt="Lục Nhâm Thần Khóa"
               width={1600}
               height={900}

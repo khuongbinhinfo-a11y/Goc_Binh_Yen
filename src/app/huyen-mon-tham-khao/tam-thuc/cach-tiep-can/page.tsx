@@ -1,5 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
+
+import SafeImage from "@/components/ui/SafeImage";
+import { getTamThucImageProps } from "@/data/tamThucData";
 
 export default function CachTiepCanPage() {
   return (
@@ -18,8 +20,8 @@ export default function CachTiepCanPage() {
             cảnh báo những ngộ nhận phổ biến khi tiếp cận Tam thức.
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
-            <Image
-              src="/images/co-hoc/tam-thuc.jpeg"
+            <SafeImage
+              {...getTamThucImageProps("tam-thuc-cach-tiep-can")}
               alt="Cách tiếp cận đúng"
               width={1600}
               height={900}
