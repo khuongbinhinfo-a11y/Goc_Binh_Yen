@@ -60,6 +60,15 @@ const AVAILABLE_LOCAL_POEM_IMAGES = new Set([
   "qua-mien-thuong-nho.jpeg",
   "qua-voi-bau.jpeg",
   "tieng-keu-chim-le-ban.jpeg",
+  "mua-hen.jpeg",
+  "cho-trong.jpeg",
+  "mo-uoc.jpeg",
+  "muon-con-hon-khong.jpeg",
+  "goi-lai-em.jpeg",
+  "vu-vo.jpeg",
+  "chuyen-do.jpeg",
+  "mo-dao-vuon-xuan.jpeg",
+  "ron-rang.jpeg",
 ]);
 
 function normalizeVietnameseText(value: string) {
@@ -947,6 +956,276 @@ export const poems: PoemItem[] = [
       referenceLinks: [],
       recommendedScene: "Đêm khuya nhìn trăng một mình, gam xanh lạnh, vầng trăng to và cô tịch.",
       licenseNote: "Ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "mua-hen",
+    title: "Mùa hẹn",
+    tag: "Thơ quê",
+    summary: "Anh vẫn đến vì thương, vì nhớ — cả một trời Chợ Gạo yêu thương.",
+    author: "Lê Dũng",
+    locationDate: "9/10/2019",
+    cardImage: "/images/poems/mua-hen.jpeg",
+    heroImage: "/images/poems/mua-hen.jpeg",
+    audioUrl: "/audio/Mua-hen.m4a",
+    hasAudio: true,
+    content:
+      "Đường dù xa, gió mưa lất phất\nTrời về đêm, đường vắng thưa người\nAnh vẫn đến vì thương, vì nhớ\nCả một trời Chợ Gạo yêu thương\nCầu Chợ Gạo trải mình như tấm lụa bay\nUốn cong cong một khúc cua dài\nẨn hiện bóng ai, người thôn nữ\nChếnh choáng lòng anh, say đắm say...\nCầu ở tầng cao, sông ở tầng sâu\nNặng hạt phù sa bồi đắp đôi bờ\nÔi! Thương lắm em, dòng sông Chợ Gạo\nCó loài hoa vàng, cánh mỏng mong manh\nThanh long đỏ thắm vào mùa hẹn\nMôi em hồng thơm vị ngọt yêu thương\nĐã xóa đi mưa gió, đêm trường\nChợ Gạo vào mùa, thanh long đỏ...\n... Em đón anh.\n\n9/10/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ hành trình vượt xa vì tình, qua cảnh quan Chợ Gạo sông nước, rồi lắng đọng trong hình ảnh người thôn nữ và mùa thanh long đỏ.",
+      standoutImages:
+        "Cầu Chợ Gạo trải mình như tấm lụa, môi em hồng thơm vị ngọt — hai hình ảnh nối phong cảnh và con người thành một.",
+      meaning:
+        "Tình yêu khiến người ta bất chấp đường xa mưa gió; quê hương và người thương hiện lên cùng một sắc màu.",
+      memorableLine: "Cả một trời Chợ Gạo yêu thương.",
+    },
+    imageResearch: {
+      moodKeywords: ["sông nước miền Tây", "thanh long", "thôn nữ", "tình quê"],
+      referenceLinks: [],
+      recommendedScene: "Cầu sông, hoa trái vùng đồng bằng, tông ấm chiều quê.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "cho-trong",
+    title: "Chờ trông",
+    tag: "Thơ tình",
+    summary: "Anh trông từng giây mình gặp lại nhau — hoa sẽ nở vàng, hạnh phúc sẽ về thôi.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 16/10/2018",
+    cardImage: "/images/poems/cho-trong.jpeg",
+    heroImage: "/images/poems/cho-trong.jpeg",
+    audioUrl: "/audio/Cho-trong.m4a",
+    hasAudio: true,
+    content:
+      "Anh trông từng giây mình gặp lại nhau\nGió đông đã vụt vù ngang qua trước cửa\nChỉ chờ em gật đầu, thôi đừng lần lữa\nAnh sẽ mang theo hạnh phúc trở về!\nNgồi một mình, đêm dài lắm mỏi mê\nTiếng Thạch Sùng buồn hơn lời than vãn\nTiếng thời gian vỡ vụn, đến nao lòng\nNhư cứa vào tim người đi tìm hạnh phúc\nLời hứa với nhau về mái ấm cho mình\nKhoảng cách không gian, túng thiếu bạc tiền\nĐẩy hai đứa rời xa không mong ngày gặp lại\nƯớc mơ cõng em trên vai, vượt qua nghèo khó\nRu em trong chòi tranh, giấc ngủ yên bình\nEm nép vào lòng anh, nhẹ cười thủ thỉ\nNghèo mà vui, em hạnh phúc lắm rồi\nƯớc mơ mãi chỉ là ước mơ thôi\nCó nhiều đêm thức đếm ánh sao trời\nBao giờ cũng thấy lòng chông chênh lắm\nNhịp đập trái tim chưa lúc nào phẳng lặng,\nAnh yên ư? Phải có được nhau rồi\nGiờ chỉ biết chờ và đợi em thôi\nCái ngạch cửa cuộc đời em bước qua, đi tới\nHoa sẽ nở vàng, hạnh phúc sẽ về thôi.\n\nMỹ Tho, 16/10/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ mở bằng nỗi trông đợi khắc khoải, đi qua những đêm cô đơn và ước mơ giản dị, kết ở niềm tin hạnh phúc rồi sẽ đến.",
+      standoutImages:
+        "Tiếng Thạch Sùng buồn, chòi tranh, ôm em trong giấc ngủ yên bình — những hình ảnh thực nhưng ấm.",
+      meaning:
+        "Chờ đợi trong yêu thương không phải khổ đau thuần túy, mà là nuôi dưỡng một hy vọng bền bỉ dù hoàn cảnh khó khăn.",
+      memorableLine: "Hoa sẽ nở vàng, hạnh phúc sẽ về thôi.",
+    },
+    imageResearch: {
+      moodKeywords: ["chờ đợi", "đêm một mình", "hy vọng", "tình nghèo"],
+      referenceLinks: [],
+      recommendedScene: "Đêm khuya lặng yên, ánh sao, bầu không khí vừa buồn vừa hy vọng.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "mo-uoc",
+    title: "Mơ ước",
+    tag: "Thơ tình",
+    summary: "Anh bắt gặp nụ cười em trong bình minh — lòng dâng lên bao lớp sóng, vỡ òa.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 11/4/2017",
+    cardImage: "/images/poems/mo-uoc.jpeg",
+    heroImage: "/images/poems/mo-uoc.jpeg",
+    audioUrl: "/audio/Mo-uoc.m4a",
+    hasAudio: true,
+    content:
+      "Mỗi sớm mai nhìn ra cửa sổ\nBình minh lên, ui chim hót líu lo\nAnh bắt gặp nụ cười em trong đó\nLòng dâng lên bao lớp sóng, vỡ òa\nCay cay mắt, xót lòng ai thương nhớ\nTình yêu ơi sao xa lắc đôi bờ\nCho anh đổi quyển rơm đang có\nChút hư danh đời trang điểm cho mình\nĐể hôm sớm bên nhau khăng khít\nThỏa lòng yêu, mơ ước của đời người\nBao nhiêu nữa, thời gian còn lại\nCuộc sống vô thường vốn đi xưa nay\nGởi em hết khoảng đời còn lại\nÍch không đây! Sao anh thấy mình già!\n\nMỹ Tho, ngày 11/4/2017",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ buổi sáng nhìn thấy bóng dáng em trong bình minh, mạch thơ chuyển qua nỗi nhớ, rồi lắng trong chiêm nghiệm về thời gian và dâng hiến.",
+      standoutImages:
+        "Nụ cười gặp trong ánh bình minh — hình ảnh vừa thực vừa mơ, gợi cảm giác tình yêu như một điều kỳ diệu thường nhật.",
+      meaning:
+        "Mơ ước không phải hoang đường; đó là khao khát đánh đổi tất cả để được bên nhau trong những buổi sáng bình thường.",
+      memorableLine: "Cho anh đổi quyển rơm đang có — chút hư danh đời trang điểm cho mình.",
+    },
+    imageResearch: {
+      moodKeywords: ["bình minh", "nhớ nhung", "hy sinh vì yêu", "chiêm nghiệm"],
+      referenceLinks: [],
+      recommendedScene: "Buổi sáng sớm, ánh sáng dịu, cảm giác vừa tỉnh dậy với nỗi nhớ người thương.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "muon-con-hon-khong",
+    title: "Muộn còn hồn không",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Một nụ mai muộn màng hé nở giữa mùa thu — tình yêu nhìn đâu cũng đẹp.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 3/9/2018",
+    cardImage: "/images/poems/muon-con-hon-khong.jpeg",
+    heroImage: "/images/poems/muon-con-hon-khong.jpeg",
+    audioUrl: "/audio/Muon-con-hon-khong.m4a",
+    hasAudio: true,
+    content:
+      "Một nụ mai muộn màng hé nở\nGiữa mùa thu vẫn vươn sắc tươi vàng\nHút lấy hồn qua, lãng tử lang thang\nVui muộn, khổ vay... cả đời lận đận\nBỗng một ngày nghe tim mình thổn thức\nGiọng cười ai và kí ức lại ùa về...\nVề đâu hỡi? Bậu mình én mang xách\nNỗi nhọc nhằn qua xin gánh sẻ chia\nDẫu biết rằng không còn tuổi đôi mươi\nVà vẫn biết lá vàng mùa thu rụng\nNhưng qua vẫn thấy mùa xuân đầy sức sống\nVà yêu đời vì hoa nở trên môi\n... Ôi hạnh phúc!\nTình yêu nhìn đâu cũng đẹp...\n\nMỹ Tho, 3/9/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mở bằng hình ảnh nụ mai muộn — biểu tượng cho tình yêu đến trễ nhưng vẫn rực rỡ. Mạch thơ chuyển từ hoài niệm sang hiện tại đầy sức sống.",
+      standoutImages:
+        "Nụ mai vàng giữa mùa thu, hoa nở trên môi — hai hình ảnh gắn thiên nhiên với nụ cười người thương.",
+      meaning:
+        "Tình yêu dù đến muộn vẫn có giá trị; tuổi không xóa được cảm xúc, và hạnh phúc có thể nảy mầm từ những điều tưởng như đã qua.",
+      memorableLine: "Tình yêu nhìn đâu cũng đẹp...",
+    },
+    imageResearch: {
+      moodKeywords: ["mai vàng", "mùa thu", "tình muộn", "chiêm nghiệm"],
+      referenceLinks: [],
+      recommendedScene: "Hoa mai vàng trong không gian thu, ánh sáng ấm nhẹ, gợi cảm giác bình yên và tri ân.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "goi-lai-em",
+    title: "Gởi lại em",
+    tag: "Thơ tình",
+    summary: "Anh gởi lại em con đường Lê Lợi và những góc phố Mỹ Tho mình từng đi qua.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, đêm 5/6/2019",
+    cardImage: "/images/poems/goi-lai-em.jpeg",
+    heroImage: "/images/poems/goi-lai-em.jpeg",
+    audioUrl: "/audio/Goi-lai-em.m4a",
+    hasAudio: true,
+    content:
+      "Anh gởi lại em con đường Lê Lợi\nHàng me non, ngun ngút ở trên đầu\nTa dìu nhau bao lần qua phố\nTay ủ trong tay, ấm áp trong lòng\nHương Ngọc Lan đưa ta về bến đò Tân Long\nCon đò reo cười, trôi ngang con nước\nNghe đôi tim mình bồng bềnh gõ nhịp\nVùng hạ Mê Kông, xao xuyến bến Lạc Hồng\nCầu Quay nối đôi bờ Bảo Định, bao mùa gió chướng, mưa giông\nKhông quay nữa, vẫn đứng trong lòng Mỹ Tho đại phố\nHủ tíu Mỹ Tho ăn một lần, suốt đời vẫn nhớ\nEm gái Mỹ Tho lỡ yêu rồi không thể nào quên\nCánh võng mẹ đưa câu hát chao nghiêng\n\"Đèn Sài Gòn ngọn xanh, ngọn đỏ\nĐèn Mỹ Tho ngọn tỏ, ngọn lu\nAnh về học lấy chữ nhu\nChín trăng em đợi, mười thu em chờ\"\nNgã vào lòng em, anh hát âu ơ\nEm vuốt má anh, mắt cười lúng liếng\nCó lắm người chết cười trong đáy mắt hồ thu\nAnh đi có xa, vẫn nhớ lời ru\nVẫn giữ trong tim lời yêu đã nói\nVẫn nhớ vòng tay, nụ hôn bối hối\nVẫn nhớ đêm yêu lòng dạ bồi hồi\nGiữ những vui buồn góc phố mãi thôi\nVề với phố bằng giấc mơ đêm nhớ\nMình vẫn bên nhau dầu Tương Giang cách trở\nVẫn bên nhau trong phố của mình\nRáng chiều ửng sắc nụ cười xinh\nĐón hoàng hôn, cuộc hẹn hò trên gối chiếc\nNhư mọi hôm: Ghế đá bến Lạc Hồng\nMình xa nhau: Cách mặt, chung lòng\nMắt cùng hướng về phố xưa Lê Lợi.\n\nCai Lậy, đêm 5/6/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ như một chuyến đi bộ qua ký ức phố Mỹ Tho — từng địa danh gắn với từng khoảnh khắc yêu thương, kết bằng sự chia xa nhưng lòng vẫn chung hướng.",
+      standoutImages:
+        "Hàng me non Lê Lợi, hương Ngọc Lan, bến Lạc Hồng, câu ca dao võng đưa — những chi tiết địa phương làm bài thơ thành một bức tranh thành phố đậm tình.",
+      meaning:
+        "Khi xa nhau, ta gởi lại những nơi chốn từng đi qua — tình yêu không chỉ là giữa hai người mà còn được lưu giữ trong không gian, địa danh, hương vị.",
+      memorableLine: "Mình xa nhau: Cách mặt, chung lòng.",
+    },
+    imageResearch: {
+      moodKeywords: ["phố Mỹ Tho", "ký ức", "hoài hương", "tình yêu đôi lứa"],
+      referenceLinks: [],
+      recommendedScene: "Con phố cây xanh buổi chiều, ánh sáng vàng ấm, cảm giác hoài niệm và nhớ nhung.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "vu-vo",
+    title: "Vu vơ",
+    tag: "Thơ tình",
+    summary: "Lời yêu đầy ắp không dám nói — xin nhờ mây gió tương tư.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 10/12/2004",
+    cardImage: "/images/poems/vu-vo.jpeg",
+    heroImage: "/images/poems/vu-vo.jpeg",
+    audioUrl: "/audio/Vu-vo.m4a",
+    hasAudio: true,
+    content:
+      "Yêu người, tôi góp nhặt ý thơ\nThầm mong ai hiểu dạ kẻ khờ\nLời yêu đầy ắp không dám nói\nXin nhờ mây gió tương tư\nGió là gió thơ là thơ\nThơ đâu theo gió được bao giờ\nKẻ uống rượu tình, say chếnh choáng\nSống giữa đời, mà cứ ngỡ trong mơ\nTrau chuốt tình yêu thành câu thơ\nCâu thương, câu nhớ, gọi câu chờ\nMong sao em hiểu lòng ai đó\nĐể thơ tình tôi hết vu vơ\nCâu thơ chắp nhặt bắc nhịp cầu\nNúi cao chẳng ngại mặc sông sâu\nThương cho thuyền mãi chưa bến đậu\nBến gọi thuyền về, ta có nhau.\n\nCai Lậy, ngày 10/12/2004",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ e dè không dám nói, người thơ chuyển lòng mình vào câu chữ, rồi gởi hết vào hy vọng được đáp lại.",
+      standoutImages:
+        "Mây gió tương tư, kẻ uống rượu tình say chếnh choáng — những hình ảnh thể hiện trạng thái yêu nhưng không dám bày tỏ.",
+      meaning:
+        "Thơ là cách người nhút nhát nói điều không thể nói trực tiếp — và bài thơ này tự nó là lời tỏ bày.",
+      memorableLine: "Bến gọi thuyền về, ta có nhau.",
+    },
+    imageResearch: {
+      moodKeywords: ["e ấp", "thầm yêu", "mây gió", "thơ tình"],
+      referenceLinks: [],
+      recommendedScene: "Không gian nhẹ, gió thổi, cảm giác mơ màng và bẽn lẽn.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "chuyen-do",
+    title: "Chuyến đò",
+    tag: "Thơ suy tưởng",
+    summary: "Con đò ngang chòng chành sông nước — hay lòng ta cứ mãi chòng chành.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 10/7/2019",
+    cardImage: "/images/poems/chuyen-do.jpeg",
+    heroImage: "/images/poems/chuyen-do.jpeg",
+    audioUrl: "/audio/Chuyen-đo.m4a",
+    hasAudio: true,
+    content:
+      "Chuyến đò ngang, chở anh sang sông\nTrái tim yêu cứ dùng dằng, ở lại\nEm mang về, ấp ủ giúp, qua cơn...\nCon đò đi sóng dậy, gió đón\nNhấp nhô, chòng chành, bến bờ xa lắc\nĐêm nay về, bến có chờ chăng\nNơi anh đi, người ở có chắc rằng\nSẽ chờ đợi, nếu anh về trở lại\nÔi cuộc sống, sao nhiều ngang trái\nCó không, được mất cứ quay vòng\nTưởng của mình nhưng hóa ra không\nTưởng đã mất nhưng trở về bất chợt\nCon đò ngang chòng chành sông nước\nHay lòng ta cứ mãi chòng chành.\n\nMỹ Tho, ngày 10/7/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Con đò là ẩn dụ cho cuộc đời và tình yêu — mỗi lần sang sông là một lần không chắc có bến đợi. Mạch thơ đi từ cụ thể đến triết lý.",
+      standoutImages:
+        "Trái tim dùng dằng ở lại, sóng dậy gió đón, bến bờ xa lắc — hình ảnh sông nước miền Tây mang chiều sâu tâm trạng.",
+      meaning:
+        "Cuộc sống bấp bênh như chuyến đò; được mất lòng người cũng chòng chành như sóng — câu hỏi không có lời đáp.",
+      memorableLine: "Con đò ngang chòng chành sông nước — hay lòng ta cứ mãi chòng chành.",
+    },
+    imageResearch: {
+      moodKeywords: ["chuyến đò", "sông nước", "bấp bênh", "chiêm nghiệm"],
+      referenceLinks: [],
+      recommendedScene: "Con đò nhỏ trên sông rộng, trời mờ, gợi cảm giác trôi nổi và chờ đợi.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "mo-dao-vuon-xuan",
+    title: "Mơ dạo vườn xuân",
+    tag: "Thơ quê",
+    summary: "Về đây nghe lại câu hò — trăng thanh, gió mát, bến đò, cây đa.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 25/11/2019",
+    cardImage: "/images/poems/mo-dao-vuon-xuan.jpeg",
+    heroImage: "/images/poems/mo-dao-vuon-xuan.jpeg",
+    audioUrl: "/audio/Mo-dao-vuon-xuan.m4a",
+    hasAudio: true,
+    content:
+      "Khi nào anh thấy nhớ em\nThì về anh nhé một lần thăm quê\nThanh long, xoài, bưởi xum xuê\nMặc tình anh \"hái\" \"xin\" gì cũng cho\nVề đây nghe lại câu hò\nTrăng thanh, gió mát, bến đò, cây đa\nThương sao chiếc áo bà ba\nEo thon, một thoáng đến giờ chưa quên\nAnh đi ba nổi, bảy chìm\nLênh đênh kiếp nạn, duyên tình đa đoan\nĐau đời em thân phận lỡ làng\nĐau cho cái số hững hờ bạc phận\nChiều nay bưởi treo kín cả góc sân\nXoài đang vào độ vàng ươm góc vườn\nThanh long trêu khách thèm thuồng\nAnh mơ hái trái, dạo vườn mùa xuân.\n\nCai Lậy, ngày 25/11/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Lời mời về quê ân tình, chuyển qua những hình ảnh vườn quê sung túc, rồi lắng trong nỗi đau thân phận và giấc mơ dạo vườn xuân.",
+      standoutImages:
+        "Áo bà ba eo thon, thanh long trêu khách, bưởi treo kín góc sân — vườn cây miền Tây hiện lên tươi tắn và thương nhớ.",
+      meaning:
+        "Quê hương và người thương gắn liền nhau; nhớ em là nhớ cả mùa trái cây, câu hò bến đò — tình yêu thắm vào không gian làng quê.",
+      memorableLine: "Anh mơ hái trái, dạo vườn mùa xuân.",
+    },
+    imageResearch: {
+      moodKeywords: ["vườn quê", "mùa xuân", "trái cây miền Tây", "áo bà ba"],
+      referenceLinks: [],
+      recommendedScene: "Vườn cây xanh mướt buổi chiều, ánh sáng ấm, cảm giác bình yên và thương nhớ.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "ron-rang",
+    title: "Rộn ràng",
+    tag: "Thơ tình",
+    summary: "Năm mươi lẻ vẫn rộn ràng như thế ấy — tình yêu em xưa nay vẫn vậy.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 5/01/2017",
+    cardImage: "/images/poems/ron-rang.jpeg",
+    heroImage: "/images/poems/ron-rang.jpeg",
+    audioUrl: "/audio/Ron-rang.m4a",
+    hasAudio: true,
+    content:
+      "Một đóa hồng anh gửi về em\nGửi theo đó tình yêu nỗi nhớ\nEm ở trong anh, dù xa xôi cách trở\nBởi tình yêu đủ ấm lòng mình\nEm! Em có nghe nhịp đập tim anh\nNăm mươi lẻ vẫn rộn ràng như thế ấy\nTình yêu em xưa nay vẫn vậy\nNăm mươi năm sau tim vẫn cứ rộn ràng.\n\nMỹ Tho, ngày 5/01/2017",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ ngắn và mạnh — từ lời gửi đóa hồng đến tuyên ngôn về sức sống của tình yêu qua năm tháng.",
+      standoutImages:
+        "Đóa hồng gửi về, nhịp tim rộn ràng ở tuổi năm mươi — hình ảnh giản dị nhưng đủ sức khẳng định tình yêu không già.",
+      meaning:
+        "Tình yêu không tính tuổi; năm mươi tuổi tim vẫn đập rộn ràng vì em — đó là điều kỳ diệu nhất của tình người.",
+      memorableLine: "Năm mươi năm sau tim vẫn cứ rộn ràng.",
+    },
+    imageResearch: {
+      moodKeywords: ["đóa hồng", "tình yêu bền", "tuổi trung niên", "rộn ràng"],
+      referenceLinks: [],
+      recommendedScene: "Một đóa hồng đỏ, ánh sáng ấm, cảm giác tươi và tràn đầy sức sống.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
     },
   },
 ];
