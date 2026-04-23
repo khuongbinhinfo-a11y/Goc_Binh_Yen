@@ -593,7 +593,7 @@ export const poems: PoemItem[] = [
     locationDate: "Cai Lậy, 01/01/2018",
     cardImage: resolvePoemImageByTitle("Nhớ"),
     heroImage: resolvePoemImageByTitle("Nhớ"),
-    audioUrl: "/audio/Nho.m4a",
+    audioUrl: "/audio/nho.m4a",
     hasAudio: true,
     content: "Giữa trăm người ta vẫn nhận ra nhau\nMơ có lúc ta về chung nhà sớm tối\nChăm chút cho nhau lúc nhức đầu sổ mũi\nAn ủi nhau lúc buồn vui, hờn dỗi\nVậy thôi mà, vọng hỏi trời cao\nCác cố chi đùa giỡn với nhau\nCho nỗi nhớ đầy lên thành nước mắt.",
     status: "published",
@@ -1674,6 +1674,467 @@ Cai Lậy, ngày 27/11/2006`,
       referenceLinks: [],
       recommendedScene: "Không gian mùa hè chia tay, gợi cảm giác nghẹn ngào và lưu luyến.",
       licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "buon",
+    title: "Buồn",
+    tag: "Thơ buồn",
+    summary: "Ta cứ dõi về phía trời đông, nơi mặt trời và gương mặt em từng là chỗ dựa cho một đời phong trần.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 11/10/2019",
+    cardImage: "/images/poems/buon.png",
+    heroImage: "/images/poems/buon.png",
+    audioUrl: "/audio/buon.m4a",
+    hasAudio: true,
+    content: `Ta cứ dõi về phía trời đông
+Mong nhìn mặt trời vào mỗi sáng
+Vầng dương mang niềm tin, ước mơ cuộc sống
+Như gương mặt em suốt đời mà ta không thể nào quên
+Hơi ấm tỏa từ vòng tay em, xiết chặt trái tim
+Lời yêu thuở thì bên tai, mang ngàn nỗi nhớ
+Những lúc chơi vơi giữa cuộc đời gian khó
+Ta muốn buông xuôi, mặc trời đất xoay vần
+Nghĩ về em, ta ưỡn ngực đón bão táp, phong trần
+Nụ hôn của em, bến bờ bình an, quên đời lãng tử
+
+Phương đông không chỗ để về, bến bờ neo đậu
+Vòng tay, hơi ấm mất đi... sao yên được tấc lòng
+Ta mất em rồi! Em có biết không
+Đời vô nghĩa, ta đâu cần hiện diện
+Ta về thôi với chuông chùa, tụng niệm
+Về với hoang vu, chờ nẻo vô thường
+Liêu xiêu bước, gặm nỗi buồn dằn vặt
+Ta giận ta, ta giận đời, bầm gan tím mặt
+Ta cười ta, âm thanh méo xệch theo thời gian
+Ta giữ mãi trong lòng một nhành hoa trắng
+Hoa trắng lắm mà đời thì đen lắm.
+
+Mỹ Tho, ngày 11/10/2019`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ mở bằng một điểm tựa yêu thương rất sáng rồi rơi mạnh vào mất mát, cay đắng và cảm giác đời sống trống rỗng.",
+      standoutImages: "Trời đông, mặt trời, vòng tay hơi ấm, chuông chùa và nhành hoa trắng tạo nên những đối cực giữa hy vọng và tuyệt vọng.",
+      meaning: "Nỗi buồn ở đây không chỉ là chia lìa tình yêu mà còn là cuộc va chạm trực diện với cảm giác vô nghĩa khi chỗ dựa tinh thần biến mất.",
+      memorableLine: "Hoa trắng lắm mà đời thì đen lắm.",
+    },
+    imageResearch: {
+      moodKeywords: ["buồn sâu", "trời đông", "hoa trắng", "mất mát"],
+      referenceLinks: [],
+      recommendedScene: "Không gian lạnh và trống, nhấn tương phản giữa ánh sáng phương đông và nỗi buồn đậm đặc.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "xa-nhau-qua",
+    title: "Xa nhau quá",
+    tag: "Thơ tình",
+    summary: "Dẫu không thể sống gần nhau, bài thơ vẫn giữ một lời hẹn đi tiếp qua mơ, qua luân hồi và duyên phước.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 6/4/2018",
+    cardImage: "/images/poems/xa-nhau-qua.png",
+    heroImage: "/images/poems/xa-nhau-qua.png",
+    audioUrl: "/audio/xa-nhau-qua.m4a",
+    hasAudio: true,
+    content: `Em ơi!
+Cuộc đời nếu ví như một chuyến đi
+Bao nhiêu lần mỏi chân, dừng lại
+Bao nhiêu lần bước thấp, cao, té ngã
+Bao lần nhìn lại... khóc cười cho nhẹ lòng, nhẹ dạ
+Trời không cho mình đặng sống gần nhau
+Bởi kiếp trước mình vụng tu em ạ
+Dẫu có xa mà luôn nhớ về nhau là đủ
+Ngày không thuộc về nhau ta mơ bên nhau lúc ngủ
+
+Ở trong mơ ta chỉ có đôi mình
+Hãy hôn nhau cho thỏa tâm tình
+Cho nhau hết yêu thương nồng cháy
+Trộn lẫn vào nhau những sướng khổ cuộc đời
+Lúc tỉnh ra thì tạm chia xa
+Rồi sẽ gặp trong mơ, giấc ngủ
+Ta luôn nhớ về nhau là đủ
+Chuyện đời này chưa thể thuộc về nhau
+Thì em ơi mình hẹn lại chuyến sau
+Nhân sinh, luân hồi kiếp sau, kiếp trước
+Cố gắng tạo duyên, tịnh tâm, tích phước
+Kiếp sau bên nhau đến bạc mái.
+
+Mỹ Tho, 6/4/2018`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ chấp nhận xa cách sang dựng nên một miền gặp gỡ trong mơ, rồi khép lại ở lời hẹn rất dài với kiếp sau.",
+      standoutImages: "Chuyến đi, giấc mơ, nụ hôn, luân hồi và mái đầu bạc là các hình ảnh kéo tình yêu vượt khỏi hiện tại.",
+      meaning: "Tác phẩm xem tình yêu như một mối duyên chưa trọn, có thể không thành ở kiếp này nhưng vẫn được giữ bằng niềm tin vào tương lai.",
+      memorableLine: "Ta luôn nhớ về nhau là đủ",
+    },
+    imageResearch: {
+      moodKeywords: ["xa cách", "giấc mơ", "luân hồi", "hẹn kiếp sau"],
+      referenceLinks: [],
+      recommendedScene: "Không khí mềm, hơi mờ, gợi cảm giác vừa xa xôi vừa ấm áp của một lời hẹn bền lòng.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "dau-chua",
+    title: "Dẫu chưa",
+    tag: "Thơ tình",
+    summary: "Dẫu chưa nên phu thê, bài thơ vẫn xem tình yêu như một mối gắn bó đã được định sẵn từ lâu.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, 9/11/2018",
+    cardImage: "/images/poems/dau-chua.png",
+    heroImage: "/images/poems/dau-chua.png",
+    audioUrl: "/audio/dau-chua.m4a",
+    hasAudio: true,
+    content: `Chưa nói: Lời sơn minh thề hải
+Quì lạy nhau, kết nghĩa phu thê
+Mỗi hoàng hôn ngóng bước chân về
+Giấc ngủ mơ bên nhau đời chồng vợ
+Mình đã là của nhau từ thuở đó
+Và của nhau đến hết cuộc đời này
+Hỡi vầng trăng, hỡi những áng mây
+Làn gió đêm, sương khuya lạnh ướt
+Tiếng nỉ non khúc thụy du buồn
+Xót cho người lỡ chuyến yêu thương
+
+Ôi tạo hóa khéo trêu hoa, giỡn bướm
+Nụ cười khô, mắt ướt khép mi sầu
+Mình đi đâu, mình về đâu, trú ở đâu
+Trời đất bao la, lòng người bao dung tế độ
+Đón lấy tình ta, lời yêu thổ lộ
+Cả khối tình si xin gởi hết cho người
+Trời cao, đất rộng, đêm khuya ơi
+Phía xa kia, người ta yêu ơi
+Thèm những nụ hôn cháy bỏng môi
+Vòng tay ấm, ôm nhau tròn thương nhớ
+Nhớ thương đi quay quắt cả một đời
+Đêm khuya ơi nghe lạnh lắm rồi
+Nụ hôn nào sưởi ấm lòng tôi.
+
+Mỹ Tho, 9/11/2018`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ niềm tin hai người đã thuộc về nhau sang nỗi xót xa vì lỡ chuyến yêu thương và khao khát được sưởi ấm.",
+      standoutImages: "Vầng trăng, áng mây, sương khuya, khúc thụy du và nụ hôn cháy bỏng làm cảm xúc trải từ cao rộng đến rất gần thân thể.",
+      meaning: "Tình yêu chưa thành danh phận nhưng đã thành một sự thật nội tâm, vừa thiêng liêng vừa đau đớn vì không thể chạm đến trọn vẹn.",
+      memorableLine: "Nụ hôn nào sưởi ấm lòng tôi.",
+    },
+    imageResearch: {
+      moodKeywords: ["đêm khuya", "thương nhớ", "lỡ duyên", "sương lạnh"],
+      referenceLinks: [],
+      recommendedScene: "Cảnh đêm có trăng và sương, nhấn cảm giác lạnh ngoài trời và lạnh trong lòng.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "co-nhieu-luc",
+    title: "Có nhiều lúc",
+    tag: "Thơ tình",
+    summary: "Một bài thơ về nỗi đau khi phải đứng lại nhìn người mình yêu đi thẳng, nhưng vẫn cố giữ máu nóng để sống tiếp.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 17/10/2018",
+    cardImage: "/images/poems/co-nhieu-luc.png",
+    heroImage: "/images/poems/co-nhieu-luc.png",
+    audioUrl: "/audio/co-nhieu-luc.m4a",
+    hasAudio: true,
+    content: `Có nhiều lúc anh điếng người, đau chết được
+Đất dưới chân như cứ lún dần thêm
+Gió thì luôn chạy về phía trước
+Mây phải bay sao cản được bây giờ
+Nên bình thản cho hết những gì có được
+Chỉ giữ cho mình máu nóng trong tim
+Anh đứng lại, em thẳng đường cứ bước
+Lo lắng chi, anh đứng được trên chân mình
+Đau lắm chứ, nhưng rồi phải sống
+Vẫn phải cười dù nước mắt chực chờ rơi
+Giữa dòng đời, nước chảy, bèo trôi
+Câu hát xưa: Đò chiều, gác mái
+Anh yêu em đến khờ đến dại
+Ước mơ sao có lúc được thành đôi
+Có gì vui khi không được sánh đôi
+Có gì buồn hơn đầu non, góc bể
+Nên ước gì... hai đứa chung đôi.
+
+Mỹ Tho, ngày 17/10/2018`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Cảm xúc mở bằng cú sốc đau đớn rồi chuyển thành một nỗ lực tự giữ mình đứng vững giữa cảnh chia lìa.",
+      standoutImages: "Đất lún dưới chân, gió chạy về phía trước, mây phải bay và đò chiều gác mái khiến nỗi buồn có chiều chuyển động rất rõ.",
+      meaning: "Bài thơ ghi lại khoảnh khắc người ở lại buộc phải học cách chịu đựng và tiếp tục sống dù ước mơ thành đôi không thành.",
+      memorableLine: "Anh đứng lại, em thẳng đường cứ bước",
+    },
+    imageResearch: {
+      moodKeywords: ["chia xa", "đau đớn", "đứng lại", "ước mơ dang dở"],
+      referenceLinks: [],
+      recommendedScene: "Không gian mở với gió và mây, gợi cảm giác lệch nhịp giữa hai hướng đời.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "khi-yeu-nguoi-ta-ra-sao",
+    title: "Khi yêu người ta ra sao",
+    tag: "Thơ tình",
+    summary: "Bài thơ tự trêu cái ngây ngô của người đang yêu, từ thao thức đêm khuya đến khát khao ôm hôn rất thật người.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 11/01/2019",
+    cardImage: "/images/poems/khi-yeu-nguoi-ta-ra-sao.png",
+    heroImage: "/images/poems/khi-yeu-nguoi-ta-ra-sao.png",
+    audioUrl: "/audio/khi-yeu-nguoi-ta-ra-sao.m4a",
+    hasAudio: true,
+    content: `Người ta ước lệ, làm gì có thiệt
+Tình yêu làm gì có ở trong tim
+Nếu mà có, anh lấy em xem cho rõ
+Anh yêu em nhiều cỡ bao chừng
+Biết bao đêm anh nằm thao thức
+Nghe thời gian, gõ nhịp trên tường
+Câu thương nhớ, gió lùa qua khuôn cửa
+Thèm ấp yêu, trăng gác bóng qua thềm
+Bao nhiêu tuổi, lúc yêu đều vụng dại
+Cứ ngây ngô như té giếng mất hồn
+Cứ nói mãi anh yêu em nhiều lắm
+Anh thèm ôm, hôn thân thể ngọc ngà
+Ngồi một mình, ngắm phía trời xa
+Khi tưng từng là yêu nhiều lắm đó.
+
+Mỹ Tho, ngày 11/01/2019`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ lối hỏi đùa, giễu nhẹ đến thao thức và bộc lộ rất thẳng thắn cái ngây ngô của người đang yêu.",
+      standoutImages: "Nhịp thời gian trên tường, gió qua khuôn cửa, trăng qua thềm và cú té giếng mất hồn làm tình yêu hiện lên vừa vui vừa dại.",
+      meaning: "Khi yêu, con người trở nên trẻ lại, nói mãi điều mình nhớ và thấy khát khao trở thành một phản xạ rất tự nhiên.",
+      memorableLine: "Bao nhiêu tuổi, lúc yêu đều vụng dại",
+    },
+    imageResearch: {
+      moodKeywords: ["thao thức", "vụng dại", "đêm khuya", "khát khao"],
+      referenceLinks: [],
+      recommendedScene: "Khung đêm riêng tư, có trăng và cửa sổ, để nhấn nét chân thật của nỗi tương tư.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "em-huong-xua",
+    title: "Em - hương xưa",
+    tag: "Thơ hoài niệm",
+    summary: "Một mối tình cũ trở lại qua mưa xuân, hương quen và những ký ức chìm dưới đáy sông chưa bao giờ thật mất.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 9/7/2019",
+    cardImage: "/images/poems/em-huong-xua.png",
+    heroImage: "/images/poems/em-huong-xua.png",
+    audioUrl: "/audio/em-huong-xua.m4a",
+    hasAudio: true,
+    content: `Em cùng tên với một loài hoa
+Cũng ủ mùa xuân, môi cười rạng rỡ
+Mỗi lúc em về xuân vỡ òa trước cửa
+Ngơ ngẩn nhìn xuân, mơ chuyện đôi mình
+Dòng sông quê tím ngắt lục bình
+Đom đóm giăng giăng ngọn bần bãi bờ
+Dạo ấy thuyền hoa em đi, chưa một lần quay lại
+Những lời yêu, chìm dưới đáy sông rồi
+Thương em đành nhìn nước chảy trôi xuôi
+Nhặt kỉ niệm chép thành thơ để khóc
+Thương em đứt đường tơ, anh cung đàn lỗi nhịp
+Thương ước mơ xưa thành mây gió lang thang
+
+Tóc còn xanh, em góa phụ... Thương nàng!
+Anh viết câu thơ buồn, uống chén rượu tình đã mất
+Chiều nay rắc hạt mưa xuân
+Lão mai bung ra ngàn nụ hoa xanh mướt
+Khóm cúc vàng nảy chồi non xanh biếc
+Chén rượu thất tình uống thấy ngọt hơn xưa
+Có cái chi lạ lạ trong mưa
+Thoảng mùi hương quen, một thời ru ta mê mẩn
+Nghe tiếng chân ai nhẹ nhàng, thở than
+Áp mặt vào hoa gợi nhớ lắm tình riêng
+Rũ bỏ đi và quên hết ưu phiền
+Gửi trao nhau những nụ hôn nồng ấm
+Không thể nào quên, một tình yêu đằm thắm
+Hạnh phúc trào dâng, mùi hương cũ quay về...
+
+Mỹ Tho, ngày 9/7/2019`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ bắt đầu ở hồi ức lỡ làng rồi dịch dần sang cảm giác hồi sinh khi hương cũ và xúc cảm cũ bất ngờ quay lại.",
+      standoutImages: "Lục bình tím, đom đóm bãi bờ, thuyền hoa, mưa xuân và mùi hương quen làm ký ức hiện về rất dày và sống động.",
+      meaning: "Tình cũ có thể trôi đi trong đời sống, nhưng chỉ một mùi hương hay một cơn mưa cũng đủ làm cả miền cảm xúc trỗi dậy trở lại.",
+      memorableLine: "Hạnh phúc trào dâng, mùi hương cũ quay về...",
+    },
+    imageResearch: {
+      moodKeywords: ["hương xưa", "mưa xuân", "lục bình", "tình cũ"],
+      referenceLinks: [],
+      recommendedScene: "Cảnh quê mưa xuân, có hoa và hơi nước, gợi ký ức quay về qua mùi hương.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "co-don",
+    title: "Cô đơn",
+    tag: "Thơ đêm",
+    summary: "Nhìn trăng nhìn sao để nghe từng giọt buồn rơi, bài thơ chạm vào sự cô độc của tuổi tác và chiếc giường đơn quá rộng.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 12/3/2017",
+    cardImage: "/images/poems/co-don.png",
+    heroImage: "/images/poems/co-don.png",
+    audioUrl: "/audio/co-don.m4a",
+    hasAudio: true,
+    content: `Có nhiều đêm nhìn trăng, nhìn sao
+Nghe trong tim giọt buồn rưng rức
+Rơi cứ rơi, giọt ngắn giọt dài
+Trăng bấy ngàn năm mãi rực sắc vàng tươi
+Ta bao tuổi tóc bạc màu sương gió
+Có mấy nửa đầu đã về cùng thế giới người hiền
+Những đêm buồn nhìn bóng nghiêng nghiêng
+Ấm ức hỏi: Bóng kia đi đâu mất
+Chiếc giường đơn sao rộng vô cùng
+Tiếng thời gian cứ nhẹ nhẹ buông
+Tiếng thở dài buông nghe nhẹ nhẹ
+Ta thương mình, thương lắm cả ta
+Thương cuộc đời... gió táp mưa sa
+Thương cuộc tình, thương một loài hoa.
+
+Mỹ Tho, ngày 12/3/2017`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ lặng lẽ mở ra từ cảnh đêm nhìn trăng sao rồi dồn vào cảm giác trống trải của thân phận và thời gian trôi đi.",
+      standoutImages: "Giọt buồn, tóc bạc sương gió, bóng nghiêng, chiếc giường đơn và tiếng thời gian buông rất nhẹ làm nỗi cô đơn trở nên hữu hình.",
+      meaning: "Cô đơn ở đây là sự đối diện với chính mình, với mất mát của tình yêu và với tuổi đời đã đi qua nhiều gió táp.",
+      memorableLine: "Chiếc giường đơn sao rộng vô cùng",
+    },
+    imageResearch: {
+      moodKeywords: ["cô đơn", "đêm", "trăng sao", "thời gian"],
+      referenceLinks: [],
+      recommendedScene: "Đêm tĩnh, ánh trăng lạnh, không gian rộng để nhấn sự lẻ loi và tiếng thở dài.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "bi-ngan-hoa",
+    title: "Bỉ ngạn hoa",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Mượn biểu tượng bỉ ngạn hoa và Vong Xuyên, bài thơ nói về tình yêu bị ngăn bởi những khoảng cách không thể vượt qua.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 9/7/2019",
+    cardImage: "/images/poems/bi-ngan-hoa.png",
+    heroImage: "/images/poems/bi-ngan-hoa.png",
+    audioUrl: "/audio/bi-ngan-hoa.m4a",
+    hasAudio: true,
+    content: `Bỉ Ngạn hoa chia hai miền sinh - tử
+Vong Xuyên giang đỏ rực cả dòng
+Mạnh Bà canh xóa đi vùng thương nhớ
+Ôi chữ tình sao quá mong manh
+Bồ Tát ơi sao không thương cho trót
+Lá và hoa hạnh ngộ chung cành
+Khi yêu nhau, không xa dù nửa tấc
+Sống đồng sàng, thác phải đồng quan
+Tôi yêu em mà sao cứ trái ngang
+Gần bên đó mà trùng trùng cách biệt
+Bỉ Ngạn hoa ơi, bỉ đến bao giờ.
+
+Mỹ Tho, ngày 9/7/2019`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ dồn nén, đi thẳng từ biểu tượng sinh tử tới câu hỏi đau đáu về một tình yêu gần mà không chạm tới.",
+      standoutImages: "Bỉ ngạn hoa, Vong Xuyên giang, Mạnh Bà canh, lá và hoa không hạnh ngộ dựng nên một không gian truyền kỳ đậm màu chia cách.",
+      meaning: "Tác phẩm dùng điển tích để nói về nỗi trái ngang của tình yêu: khao khát hợp nhất nhưng luôn bị ngăn bởi số phận.",
+      memorableLine: "Gần bên đó mà trùng trùng cách biệt",
+    },
+    imageResearch: {
+      moodKeywords: ["bỉ ngạn", "sinh tử", "trái ngang", "truyền kỳ"],
+      referenceLinks: [],
+      recommendedScene: "Không khí huyền ảo, gam đỏ sẫm và đen, nhấn cảm giác ngăn cách định mệnh.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "dung-than-nhien-nhu-the",
+    title: "Đừng thản nhiên như thế",
+    tag: "Thơ tình",
+    summary: "Bài thơ là lời van nài sau một cuộc rời đi quá nhẹ của người kia, trong khi lòng người ở lại vỡ vụn vì những gì vừa chạm tới.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 26/9/2018",
+    cardImage: "/images/poems/dung-than-nhien-nhu-the.png",
+    heroImage: "/images/poems/dung-than-nhien-nhu-the.png",
+    audioUrl: "/audio/dung-than-nhien-nhu-the.m4a",
+    hasAudio: true,
+    content: `Thản nhiên như chút gió tạt ngoài hiên
+Thản nhiên đến - đi mặc người đón nhận
+Không ở lại đâu, không đi về một hướng
+Ôi chút gió vô tình, quật ngã đời tôi
+Em cứ thản nhiên đi! Anh quen khóc lâu rồi
+Giờ thêm chút nữa, cũng không nhiều, đừng sợ
+Hương huệ ơi một đời ta nhớ
+Tìm lại được rồi giờ sắp mất nữa sao
+Ta đêm nay, nhớ lại đêm nào
+Dưới gốc me keo, sân trường cao đẳng
+Sợ em ngã, anh qua bàn tay nhỏ nhắn
+Tưởng từ đây tay ở trong tay
+Vậy mà rồi tay về tay người khác
+Hôm qua em cho anh vòng tay xiết chặt
+Nụ hôn ấm nồng, để chiều lại thản nhiên đi
+Chuyến đi này dài khoảng mấy triệu dặm đây
+Đôi ba vạn dặm em ơi chỉ là truyền thuyết
+Anh tìm em cực khổ lắm mà
+Đừng thản nhiên như thế lòng anh tan vụn hết.
+
+Mỹ Tho, ngày 26/9/2018`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Cảm xúc dâng từ chua xót, trách móc đến gần như van nài, bởi người ở lại không chịu nổi sự bình thản của kẻ ra đi.",
+      standoutImages: "Chút gió ngoài hiên, gốc me keo sân trường, bàn tay nhỏ nhắn, vòng tay xiết chặt và cuộc đi dài mấy triệu dặm làm vết thương rất cụ thể.",
+      meaning: "Điều đau nhất không chỉ là mất nhau mà là cách một người rời đi quá nhẹ, như thể những gì vừa có chưa từng là gì cả.",
+      memorableLine: "Đừng thản nhiên như thế lòng anh tan vụn hết.",
+    },
+    imageResearch: {
+      moodKeywords: ["thản nhiên", "mất nhau", "sân trường", "tan vỡ"],
+      referenceLinks: [],
+      recommendedScene: "Gió nhẹ nhưng sắc, có cảm giác mong manh và đổ vỡ trong cùng một khung hình.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "nho-mot-chut-gio-nhe",
+    title: "Nhớ",
+    tag: "Thơ nhớ",
+    summary: "Một cơn gió nhẹ, tà áo và mùi hương đưa người thơ lạc vào tiên cảnh rồi quay lại với nỗi buồn chẳng thành đôi.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 17/4/2017",
+    cardImage: "/images/poems/nho.png",
+    heroImage: "/images/poems/nho.png",
+    hasAudio: false,
+    content: `Một chút gió nhẹ lướt qua
+Lay lay khóm cúc trước hiên nhà
+Mỏng tang cánh bướm, nghiêng, chấp chới
+Khe khẽ cười, bối rối lòng ai
+Rượu chưa kề môi mà sao say!
+Chếnh choáng, bồng bềnh, ngửa nghiêng, bồi hồi
+Một giấc mơ hoa, e ấp nụ cười
+Mơ chiều chiều tóc bay theo gió
+Chảy về anh quấn quýt chẳng rời ra
+Tà áo dài cũng xô về một phía
+Mang theo hương em ủ ngọt mê hồn
+
+Để anh lạc vào vùng tiên cảnh
+Lòng chơi vơi, cùng câu hát chơi vơi
+"Em ơi, vì lỡ chẳng thành đôi:
+Đêm đông bếp lửa tắt lịm rồi
+Dốc bầu, rượu cạn, buồn hiu hắt
+Lòng anh xót lắm hỡi em ơi"
+Xin một chút, ơn trời mưa móc
+Cho tình yêu có đất thăng hoa
+Cho người luôn ở bên ta
+Đời người có mấy mà xa nhau hoài.
+
+Mỹ Tho, ngày 17/4/2017`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ bối rối say men hương sắc đến mộng tưởng ngọt ngào, rồi lắng xuống trong nỗi tiếc một cuộc tình không thành.",
+      standoutImages: "Khóm cúc, cánh bướm, tà áo dài, mùi hương và bếp lửa tắt lịm kết nối rất đẹp giữa mê say và hụt hẫng.",
+      meaning: "Nỗi nhớ ở đây mang hai mặt: vừa nâng con người lên một tiên cảnh tình yêu, vừa kéo về thực tại rằng đời người ngắn mà vẫn cứ xa nhau.",
+      memorableLine: "Đời người có mấy mà xa nhau hoài.",
+    },
+    imageResearch: {
+      moodKeywords: ["nỗi nhớ", "gió nhẹ", "tà áo dài", "tiên cảnh"],
+      referenceLinks: [],
+      recommendedScene: "Ánh sáng mềm, có gió và hoa trước hiên, gợi cảm giác nhớ thương vừa ngọt vừa buồn.",
+      licenseNote: "Dùng ảnh local đã có trong thư mục poems. Audio chưa gắn vì repo hiện chỉ có file nho.m4a của bài Nhớ cũ; nếu audio bài này là nội dung khác, dùng basename nho_2.m4a.",
     },
   },
 ];
