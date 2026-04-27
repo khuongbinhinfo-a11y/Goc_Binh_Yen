@@ -18,18 +18,46 @@ export default function TuSachPage() {
 
   const playAuthorAudio = useCallback(async () => {
     const audio = authorAudioRef.current;
-    if (!audio) return;
+    if (!audio) return false;
 
     try {
       await audio.play();
+      return true;
     } catch {
-      // Ignore autoplay failures and keep playback available on the next user gesture.
+      return false;
     }
   }, []);
 
   useEffect(() => {
-    if (window.location.hash !== "#tac-gia") return;
-    void playAuthorAudio();
+    let removed = false;
+
+    const detachRetryListeners = () => {
+      if (removed) return;
+      removed = true;
+      window.removeEventListener("pointerdown", retryPlayback);
+      window.removeEventListener("keydown", retryPlayback);
+      window.removeEventListener("touchstart", retryPlayback);
+    };
+
+    const retryPlayback = () => {
+      void playAuthorAudio().then((started) => {
+        if (started) {
+          detachRetryListeners();
+        }
+      });
+    };
+
+    void playAuthorAudio().then((started) => {
+      if (started) return;
+
+      window.addEventListener("pointerdown", retryPlayback);
+      window.addEventListener("keydown", retryPlayback);
+      window.addEventListener("touchstart", retryPlayback);
+    });
+
+    return () => {
+      detachRetryListeners();
+    };
   }, [playAuthorAudio]);
 
   return (
