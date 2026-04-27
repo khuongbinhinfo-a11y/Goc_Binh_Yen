@@ -67,12 +67,22 @@ export default function UngHoPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#2f2118]/58 via-[#3d2b1f]/28 to-[#3d2b1f]/12" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1f140d]/68 via-[#2d1f16]/40 to-[#2d1f16]/16" />
+                <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#f4e9de]/50 via-[#f4e9de]/18 to-transparent" />
 
                 <div className="relative z-10 flex min-h-[320px] items-end p-5 sm:min-h-[360px] sm:p-7">
-                  <div className="max-w-[30rem] rounded-2xl border border-white/28 bg-[#fff5e8]/88 p-4 backdrop-blur-[1px] sm:p-5">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8b654c] sm:text-xs">{copy.companionTitle}</p>
-                    <p className="mt-2 text-sm leading-7 text-[#4f3628] sm:text-base">{copy.companionDescription}</p>
+                  <div className="relative max-w-[31rem] rounded-2xl border border-[#fff5ea]/80 bg-[rgba(255,247,238,0.95)] p-4 shadow-[0_14px_36px_rgba(34,22,14,0.28)] backdrop-blur-[2.5px] sm:p-5">
+                    <div className="pointer-events-none absolute right-3 top-3 text-[#c68a63]/70">
+                      <svg viewBox="0 0 64 64" className="h-8 w-8" fill="none" aria-hidden="true">
+                        <path d="M32 14C34 20 38 24 44 26C38 28 34 32 32 38C30 32 26 28 20 26C26 24 30 20 32 14Z" stroke="currentColor" strokeWidth="1.8" />
+                        <circle cx="32" cy="26" r="3" fill="currentColor" />
+                        <path d="M32 38V52" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                        <path d="M32 45C28 42 23 42 19 45C23 48 28 48 32 45Z" fill="currentColor" opacity="0.72" />
+                        <path d="M32 43C36 40 41 40 45 43C41 46 36 46 32 43Z" fill="currentColor" opacity="0.72" />
+                      </svg>
+                    </div>
+                    <p className="pr-8 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#7b4e34] sm:text-xs">{copy.companionTitle}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#372014] sm:text-base">{copy.companionDescription}</p>
                   </div>
                 </div>
               </article>
@@ -118,14 +128,25 @@ export default function UngHoPage() {
         <section className="pb-20">
           <div className="site-shell">
             <article className="soft-panel relative overflow-hidden border-[#d8b89b] bg-[#f8efe5] p-7 sm:p-9">
-              <div className="pointer-events-none absolute right-5 top-4 text-[#cfa787]/45">
-                <svg viewBox="0 0 120 120" className="h-20 w-20" fill="none" aria-hidden="true">
-                  <path d="M60 25C64 43 77 56 95 60C77 64 64 77 60 95C56 77 43 64 25 60C43 56 56 43 60 25Z" stroke="currentColor" strokeWidth="2.2" />
-                  <path d="M60 35V85M35 60H85" stroke="currentColor" strokeWidth="1.3" />
-                  <circle cx="60" cy="60" r="7" stroke="currentColor" strokeWidth="1.3" />
-                </svg>
+              <div className="pointer-events-none absolute -right-4 -top-4 hidden h-36 w-44 opacity-55 sm:block">
+                <SafeImage
+                  src="/images/brand/footer-ornament.png"
+                  fallbackSrc={IMAGE_FALLBACKS.global}
+                  alt=""
+                  fill
+                  className="object-contain object-right-top"
+                />
               </div>
-              <div className="pointer-events-none absolute bottom-3 left-5 text-[#b88966]/40">
+              <div className="pointer-events-none absolute -bottom-4 -left-3 h-24 w-32 opacity-40">
+                <SafeImage
+                  src="/images/brand/footer-ornament.png"
+                  fallbackSrc={IMAGE_FALLBACKS.global}
+                  alt=""
+                  fill
+                  className="rotate-180 object-contain object-left-bottom"
+                />
+              </div>
+              <div className="pointer-events-none absolute bottom-5 left-6 text-[#b88966]/45">
                 <svg viewBox="0 0 140 70" className="h-12 w-28" fill="none" aria-hidden="true">
                   <path d="M8 56C28 56 44 46 58 30C70 17 87 10 110 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                   <path d="M48 42C41 40 37 35 35 28C42 30 47 34 48 42Z" fill="currentColor" />

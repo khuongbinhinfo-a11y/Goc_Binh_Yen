@@ -79,6 +79,7 @@ function LocaleSwitch({
 }
 
 export default function SiteHeader() {
+  const poetMenuUrl = "https://www.hontho.com/tu-sach";
   const pathname = usePathname();
   const { locale, setLocale, t } = useLocale();
 
@@ -199,10 +200,13 @@ export default function SiteHeader() {
         </div>
 
         <div className="mb-2 flex flex-wrap gap-1.5 pb-1 md:hidden">
-          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
+          <a
+            href={poetMenuUrl}
+            className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a] transition hover:bg-[#f6e7d7] hover:text-[#4f3223]"
+          >
             <PenIcon className="h-3 w-3" />
             {t.signature.poetry}
-          </span>
+          </a>
           <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
             <VoiceIcon className="h-3 w-3" />
             {t.signature.voice}
@@ -263,10 +267,13 @@ export default function SiteHeader() {
                 {t.brandName}
               </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">
-                <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1">
+                <a
+                  href={poetMenuUrl}
+                  className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1 transition hover:bg-[#f6e7d7] hover:text-[#4f3223]"
+                >
                   <PenIcon />
                   {t.signature.poetry}
-                </span>
+                </a>
                 <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1">
                   <VoiceIcon />
                   {t.signature.voice}
