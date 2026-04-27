@@ -1,5 +1,7 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
+
 import SafeImage from "@/components/ui/SafeImage";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
@@ -11,6 +13,24 @@ import { IMAGE_FALLBACKS } from "@/lib/image";
 export default function TuSachPage() {
   const { locale } = useLocale();
   const copy = getBrandPagesCopy(locale).bookcase;
+  const authorAudioRef = useRef<HTMLAudioElement>(null);
+  const [isAuthorPlaying, setIsAuthorPlaying] = useState(false);
+
+  const playAuthorAudio = useCallback(async () => {
+    const audio = authorAudioRef.current;
+    if (!audio) return;
+
+    try {
+      await audio.play();
+    } catch {
+      // Ignore autoplay failures and keep playback available on the next user gesture.
+    }
+  }, []);
+
+  useEffect(() => {
+    if (window.location.hash !== "#tac-gia") return;
+    void playAuthorAudio();
+  }, [playAuthorAudio]);
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -45,9 +65,36 @@ export default function TuSachPage() {
               </a>
             </div>
 
-            <article className="mx-auto mt-7 max-w-5xl soft-panel relative overflow-hidden border-[#dcc0a5] bg-[#fbf4eb] p-6 sm:p-8">
+            <article
+              id="tac-gia"
+              role="button"
+              tabIndex={0}
+              aria-label={copy.authorAudioLabel}
+              aria-pressed={isAuthorPlaying}
+              onClick={() => {
+                void playAuthorAudio();
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                void playAuthorAudio();
+              }}
+              className={`mx-auto mt-7 max-w-5xl soft-panel relative overflow-hidden border-[#dcc0a5] bg-[#fbf4eb] p-6 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b6825e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f3eadf] sm:p-8 ${
+                isAuthorPlaying ? "ring-1 ring-[#c79068]" : "cursor-pointer"
+              }`}
+            >
               <div className="pointer-events-none absolute -right-16 top-0 h-44 w-44 rounded-full bg-[#ecd5be]/40 blur-2xl" />
               <div className="pointer-events-none absolute -bottom-16 -left-10 h-40 w-40 rounded-full bg-[#efd9c4]/45 blur-2xl" />
+
+              <audio
+                ref={authorAudioRef}
+                preload="metadata"
+                src={copy.authorAudioUrl}
+                onPlay={() => setIsAuthorPlaying(true)}
+                onPause={() => setIsAuthorPlaying(false)}
+                onEnded={() => setIsAuthorPlaying(false)}
+                className="hidden"
+              />
 
               <div className="relative grid gap-6 lg:grid-cols-[300px_1fr] lg:items-start">
                 <div className="mx-auto w-full max-w-[320px]">

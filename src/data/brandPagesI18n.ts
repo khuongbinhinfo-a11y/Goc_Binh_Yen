@@ -21,6 +21,8 @@ type BookcaseCopy = {
   authorName: string;
   authorImage: string;
   authorImageAlt: string;
+  authorAudioUrl: string;
+  authorAudioLabel: string;
   authorParagraphs: string[];
 };
 
@@ -75,6 +77,8 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       authorName: "Nhà thơ Lê Dũng",
       authorImage: "/images/poems/tac-gia.png",
       authorImageAlt: "Chân dung tác giả Lê Dũng",
+      authorAudioUrl: "/audio/Nha-tho-le-dung.m4a",
+      authorAudioLabel: "Phát lời tác giả khi mở mục này",
       authorParagraphs: [
         "Nhà thơ Lê Dũng (SN-1961), sinh ra và lớn lên tại miền quê sông nước (Cai Lậy - Tiền Giang).",
         "Ông là người yêu thơ, yêu quê hương miền Tây và luôn mang trong lòng một tình cảm sâu nặng với những kỷ niệm đã đi qua trong đời. Với ông, thơ không chỉ là những câu chữ để đọc, mà là nơi gìn giữ bóng hình quê cũ, giữ lại tiếng lòng của một thời, của những thương yêu, những nhớ nhung và những điều rất đỗi bình dị mà càng đi xa càng thấy quý.",
@@ -143,6 +147,8 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       authorName: "Poet Le Dung",
       authorImage: "/images/poems/tac-gia.png",
       authorImageAlt: "Portrait of poet Le Dung",
+      authorAudioUrl: "/audio/Nha-tho-le-dung.m4a",
+      authorAudioLabel: "Play the author's message when this section opens",
       authorParagraphs: [
         "Poet Le Dung was born and raised in Cai Lay, Tien Giang, in the riverland of Southern Vietnam.",
         "His poems preserve memories of home, people, and the quiet emotions of everyday life.",
