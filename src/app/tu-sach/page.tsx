@@ -44,6 +44,38 @@ export default function TuSachPage() {
                 {copy.closingButton}
               </a>
             </div>
+
+            <article className="mx-auto mt-7 max-w-5xl soft-panel relative overflow-hidden border-[#dcc0a5] bg-[#fbf4eb] p-6 sm:p-8">
+              <div className="pointer-events-none absolute -right-16 top-0 h-44 w-44 rounded-full bg-[#ecd5be]/40 blur-2xl" />
+              <div className="pointer-events-none absolute -bottom-16 -left-10 h-40 w-40 rounded-full bg-[#efd9c4]/45 blur-2xl" />
+
+              <div className="relative grid gap-6 lg:grid-cols-[300px_1fr] lg:items-start">
+                <div className="mx-auto w-full max-w-[320px]">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[#d8b89b] bg-[#f1dfcb]">
+                    <SafeImage
+                      src={copy.authorImage}
+                      fallbackSrc={IMAGE_FALLBACKS.bookcase}
+                      alt={copy.authorImageAlt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-4 rounded-2xl border border-[#e0c7af] bg-[#fff7ee] px-4 py-3 text-center">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a6246]">{copy.authorTitle}</p>
+                    <p className="mt-1 text-lg font-semibold text-[#4a2f20]">{copy.authorName}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold leading-tight text-[#4a2f20] sm:text-3xl">Chút lời từ tác giả</h3>
+                  <div className="mt-4 space-y-3 text-sm leading-7 text-[#654939] sm:text-base">
+                    {copy.authorParagraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
       </main>

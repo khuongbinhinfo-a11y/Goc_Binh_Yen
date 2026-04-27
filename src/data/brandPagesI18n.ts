@@ -17,6 +17,11 @@ type BookcaseCopy = {
   introTitle: string;
   introDescription: string;
   closingButton: string;
+  authorTitle: string;
+  authorName: string;
+  authorImage: string;
+  authorImageAlt: string;
+  authorParagraphs: string[];
 };
 
 type SupportDetail = {
@@ -66,6 +71,18 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       introDescription:
         "Hồn Thơ đang hoàn thiện thông tin từng ấn phẩm để gửi đến bạn một cách đầy đủ và trân trọng.",
       closingButton: "Liên hệ cùng Hồn Thơ",
+      authorTitle: "Tác giả",
+      authorName: "Nhà thơ Lê Dũng",
+      authorImage: "/images/poems/tac-gia.png",
+      authorImageAlt: "Chân dung tác giả Lê Dũng",
+      authorParagraphs: [
+        "Nhà thơ Lê Dũng (SN-1961), sinh ra và lớn lên tại miền quê sông nước (Cai Lậy - Tiền Giang).",
+        "Ông là người yêu thơ, yêu quê hương miền Tây và luôn mang trong lòng một tình cảm sâu nặng với những kỷ niệm đã đi qua trong đời. Với ông, thơ không chỉ là những câu chữ để đọc, mà là nơi gìn giữ bóng hình quê cũ, giữ lại tiếng lòng của một thời, của những thương yêu, những nhớ nhung và những điều rất đỗi bình dị mà càng đi xa càng thấy quý.",
+        "Ông viết từ tình yêu dành cho đất và người miền Tây, từ những mùa nắng mưa, những dòng sông, bến nước, những con đường cũ, những cuộc gặp gỡ, chia xa và những rung động âm thầm trong lòng người. Mỗi bài thơ là một mảnh ký ức, một chút tâm sự, một điều muốn giữ lại trước khi thời gian lặng lẽ cuốn đi.",
+        "Nhưng trong thời đại hôm nay, khi nhịp sống ngày một vội vàng, việc ngồi xuống thật yên để cầm một cuốn thơ lên đọc dường như đã trở thành điều hiếm hoi, thậm chí xa xỉ với nhiều người. Chính điều đó càng khiến ông trăn trở. Bởi thơ vẫn còn đó, tình vẫn còn đó, ký ức vẫn còn đó, chỉ là lòng người ít có dịp dừng lại để lắng nghe.",
+        "Vì vậy, Hồn Thơ được gìn giữ như một cách để đưa thơ đến gần hơn với mọi người, bằng một con đường nhẹ nhàng hơn, gần gũi hơn với cuộc sống hôm nay. Đó không chỉ là nơi lưu giữ những áng thơ của tác giả, mà còn là nơi gửi gắm nỗi lòng của một người yêu thơ, yêu quê hương, yêu những gì chân thành và sâu lắng trong đời sống con người.",
+        "Nếu ở đâu đó, giữa bộn bề thường nhật, bạn dừng lại đôi phút và thấy lòng mình lắng xuống trước một câu thơ, một hình ảnh, một kỷ niệm cũ, thì có lẽ đó cũng chính là điều mà tác giả luôn mong mỏi: những vần thơ không chỉ được đọc, mà còn được đồng cảm, được giữ lại trong tim như một chút hơi ấm của đời người.",
+      ],
     },
     support: {
       heroEyebrow: "Một lời đồng hành",
@@ -100,9 +117,8 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       copyButton: "Sao chép số tài khoản",
       copiedButton: "Đã sao chép",
       helperText: "Xin cảm ơn sự đồng hành của bạn.",
-      closingTitle: "Gửi một lời nhắn cho Hồn Thơ",
-      closingDescription:
-        "Nếu bạn muốn chia sẻ đôi dòng sau khi ủng hộ, Hồn Thơ luôn trân trọng và lắng nghe.",
+      closingTitle: "Gửi một lời nhắn đến Hồn Thơ",
+      closingDescription: "",
       closingButton: "Liên hệ cùng Hồn Thơ",
       closingAction: {
         label: "Liên hệ cùng Hồn Thơ",
@@ -123,6 +139,14 @@ const brandPagesI18n: Record<Locale, BrandPagesCopy> = {
       introDescription:
         "Hồn Thơ is preparing complete information for each printed edition.",
       closingButton: "Contact Hồn Thơ",
+      authorTitle: "Author",
+      authorName: "Poet Le Dung",
+      authorImage: "/images/poems/tac-gia.png",
+      authorImageAlt: "Portrait of poet Le Dung",
+      authorParagraphs: [
+        "Poet Le Dung was born and raised in Cai Lay, Tien Giang, in the riverland of Southern Vietnam.",
+        "His poems preserve memories of home, people, and the quiet emotions of everyday life.",
+      ],
     },
     support: {
       heroEyebrow: "A gentle contribution",

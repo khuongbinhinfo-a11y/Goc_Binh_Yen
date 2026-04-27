@@ -117,14 +117,32 @@ export default function UngHoPage() {
 
         <section className="pb-20">
           <div className="site-shell">
-            <article className="soft-panel border-[#d8b89b] bg-[#f8efe5] p-7 sm:p-9">
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.closingTitle}</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{copy.closingDescription}</p>
+            <article className="soft-panel relative overflow-hidden border-[#d8b89b] bg-[#f8efe5] p-7 sm:p-9">
+              <div className="pointer-events-none absolute right-5 top-4 text-[#cfa787]/45">
+                <svg viewBox="0 0 120 120" className="h-20 w-20" fill="none" aria-hidden="true">
+                  <path d="M60 25C64 43 77 56 95 60C77 64 64 77 60 95C56 77 43 64 25 60C43 56 56 43 60 25Z" stroke="currentColor" strokeWidth="2.2" />
+                  <path d="M60 35V85M35 60H85" stroke="currentColor" strokeWidth="1.3" />
+                  <circle cx="60" cy="60" r="7" stroke="currentColor" strokeWidth="1.3" />
+                </svg>
+              </div>
+              <div className="pointer-events-none absolute bottom-3 left-5 text-[#b88966]/40">
+                <svg viewBox="0 0 140 70" className="h-12 w-28" fill="none" aria-hidden="true">
+                  <path d="M8 56C28 56 44 46 58 30C70 17 87 10 110 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M48 42C41 40 37 35 35 28C42 30 47 34 48 42Z" fill="currentColor" />
+                  <path d="M68 31C61 29 57 24 55 17C62 19 67 23 68 31Z" fill="currentColor" />
+                  <path d="M88 21C81 19 77 14 75 7C82 9 87 13 88 21Z" fill="currentColor" />
+                </svg>
+              </div>
+
+              <h2 className="relative text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.closingTitle}</h2>
+              {copy.closingDescription ? (
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-[#654939] sm:text-base">{copy.closingDescription}</p>
+              ) : null}
               <a
                 href={copy.closingAction.href}
                 target={copy.closingAction.external ? "_blank" : undefined}
                 rel={copy.closingAction.external ? "noreferrer" : undefined}
-                className="mt-6 inline-flex rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
+                className="relative mt-6 inline-flex rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
               >
                 {copy.closingButton}
               </a>
