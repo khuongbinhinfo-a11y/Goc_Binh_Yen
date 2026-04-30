@@ -69,6 +69,7 @@ const AVAILABLE_LOCAL_POEM_IMAGES = new Set([
   "chuyen-do.jpeg",
   "mo-dao-vuon-xuan.jpeg",
   "ron-rang.jpeg",
+  "xin-loi.png",
 ]);
 
 function normalizeVietnameseText(value: string) {
@@ -2135,6 +2136,60 @@ Mỹ Tho, ngày 17/4/2017`,
       referenceLinks: [],
       recommendedScene: "Ánh sáng mềm, có gió và hoa trước hiên, gợi cảm giác nhớ thương vừa ngọt vừa buồn.",
       licenseNote: "Dùng ảnh local đã có trong thư mục poems. Audio chưa gắn vì repo hiện chỉ có file nho.m4a của bài Nhớ cũ; nếu audio bài này là nội dung khác, dùng basename nho_2.m4a.",
+    },
+  },
+  {
+    slug: "xin-loi",
+    title: "Xin Lỗi",
+    tag: "Thơ tình",
+    summary: "Gặp lại người xưa mờ trong ký ức, ngỡ đã quên rồi mà vẫn tươi nguyên — lời sám hối muộn màng trước người chờ đợi một thuở.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 30/4/2017",
+    cardImage: "/images/poems/xin-loi.png",
+    heroImage: "/images/poems/xin-loi.png",
+    audioUrl: "/audio/xin-loi.m4a",
+    hasAudio: true,
+    content: `Kỷ niệm tuổi thơ dưới sông, trên ruộng
+Tắm mát trưa hè, thả cánh diều bay
+Góc phượng sân trường tay nắm bàn tay
+Lưu bút ngày xanh, bâng khuâng thuở ấy
+
+Xếp vào một ngăn: Kỷ niệm vui buồn
+Bỗng ùa về, khi tóc đã điểm sương
+Gặp lại người xưa mờ trong ký ức
+Ngỡ đã quên rồi mà vẫn tươi nguyên
+
+Anh nghe tim mình cơn đau nhói nhói
+Em vẫn chờ anh từ ấy đến giờ
+Mái tóc thề, gió thổi bâng quơ
+Nón lá bài thơ nghiêng nghiêng che nắng
+
+Áo bà ba chân quê tươi vàng mộc mạc
+Em đinh ninh giữ chắc câu thề
+Anh bỏ lại như chưa hề hứa hẹn
+Tội tày trời, tăm đục hết mấy con sông
+
+Anh xin em mở rộng tấc lòng
+Quì xuống đây chờ em phán xử
+Tội cướp của em xuân thì một thuở
+Đau lắm sao, em chẳng nói điều gì?
+
+Nước mắt rơi, xé lòng anh trăm mảnh
+Nghiệp trót tạo rồi! Giờ biết nói chi?
+
+Cai Lậy, ngày 30/4/2017`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Mạch thơ đi từ hoài niệm êm đềm đến nhận ra tội lỗi, rồi kết ở sự bất lực và đau xót tột cùng trước lặng im của người bị phụ.",
+      standoutImages: "Góc phượng sân trường, nón lá bài thơ, áo bà ba chân quê, và tiếng nước mắt rơi không thành lời tạo nên chuỗi hình ảnh vừa thân thuộc vừa day dứt.",
+      meaning: "Bài thơ là lời thú nhận của kẻ bội ước — không biện hộ, chỉ cúi đầu chịu tội trước người đã giữ câu thề suốt một đời.",
+      memorableLine: "Nghiệp trót tạo rồi! Giờ biết nói chi?",
+    },
+    imageResearch: {
+      moodKeywords: ["sám hối", "chờ đợi", "ký ức tuổi thơ", "nón lá", "quê hương"],
+      referenceLinks: [],
+      recommendedScene: "Chiều quê nhạt nắng, bóng người ngồi chờ phía xa, tông màu hoài cổ gợi nỗi muộn màng.",
+      licenseNote: "Dùng ảnh local xin-loi.png đã có trong thư mục poems.",
     },
   },
 ];
