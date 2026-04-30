@@ -105,6 +105,7 @@ export type TranslationSchema = {
     title: string;
     description: string;
     button: string;
+    youtubeButton: string;
     note: string;
   };
   contact: {
@@ -302,6 +303,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Cùng đồng hành với Hồn Thơ trên Facebook",
       description: "Tụi mình cập nhật bài mới, lời đọc mới và những chia sẻ gần gũi hằng tuần tại fanpage chính thức.",
       button: "Theo dõi trên Facebook",
+      youtubeButton: "Xem trên YouTube",
       note: "Mỗi tuần, mình hẹn nhau một khoảng lặng ở đó.",
     },
     contact: {
@@ -618,6 +620,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       title: "Stay close with Hồn Thơ on Facebook",
       description: "We share new pieces, new voice readings, and gentle weekly notes on our official page.",
       button: "Follow on Facebook",
+      youtubeButton: "Watch on YouTube",
       note: "A quiet weekly meeting place for readers and listeners.",
     },
     contact: {
