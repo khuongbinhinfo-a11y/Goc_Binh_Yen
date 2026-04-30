@@ -97,7 +97,7 @@ function resolvePoemImageByTitle(title: string) {
     }
   }
 
-  return "/images/logo-4.jpg";
+  return "/logo.jpg";
 }
 
 export const poems: PoemItem[] = [

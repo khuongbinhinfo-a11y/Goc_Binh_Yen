@@ -55,7 +55,7 @@ export type ContactQuickLink = {
 };
 
 export type FooterLink = {
-  id: "home" | "poetry" | "stories" | "spiritual" | "contact" | "facebook" | "bookcase" | "support";
+  id: "home" | "poetry" | "stories" | "spiritual" | "contact" | "facebook" | "youtube" | "bookcase" | "support";
   label: string;
   href: string;
   external?: boolean;
@@ -70,6 +70,7 @@ export type TranslationSchema = {
   nav: {
     items: NavItem[];
     facebook: string;
+    youtube: string;
   };
   hero: {
     eyebrow: string;
@@ -210,6 +211,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Liên hệ", href: "/#lien-he" },
       ],
       facebook: "Facebook",
+      youtube: "YouTube",
     },
     hero: {
       eyebrow: "Sông nước quê · nắng cuối ngày · chạm vào ký ức",
@@ -347,6 +349,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       companionLinks: [
         { id: "contact", label: "Liên hệ", href: "/#lien-he" },
         { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
+        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@hontho", external: true },
         { id: "bookcase", label: "Tủ sách", href: "/tu-sach" },
         { id: "support", label: "Ủng hộ", href: "/ung-ho" },
       ],
@@ -527,6 +530,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Contact", href: "/#lien-he" },
       ],
       facebook: "Facebook",
+      youtube: "YouTube",
     },
     hero: {
       eyebrow: "Riverside homeland · late sunlight · touching memory",
@@ -661,6 +665,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       companionLinks: [
         { id: "contact", label: "Contact", href: "/#lien-he" },
         { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
+        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@hontho", external: true },
         { id: "bookcase", label: "Bookcase", href: "/tu-sach" },
         { id: "support", label: "Donate", href: "/ung-ho" },
       ],

@@ -14,6 +14,7 @@ type FooterLinkIconId =
   | "spiritual"
   | "contact"
   | "facebook"
+  | "youtube"
   | "bookcase"
   | "support";
 
@@ -44,6 +45,14 @@ function FooterLinkIcon({ id }: { id: FooterLinkIconId }) {
     return (
       <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
         <path d="M11.8 6.2h2V3.5h-2.3c-2.1 0-3.4 1.2-3.4 3.4V9H6v2.6h2v4.9h2.7v-4.9h2.3l.4-2.6h-2.7V7.2c0-.7.3-1 1.1-1Z" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (id === "youtube") {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
+        <path d="M17.6 6.9a2.3 2.3 0 0 0-1.6-1.6c-1.4-.4-6-.4-6-.4s-4.6 0-6 .4a2.3 2.3 0 0 0-1.6 1.6C2 8.3 2 10 2 10s0 1.7.4 3.1a2.3 2.3 0 0 0 1.6 1.6c1.4.4 6 .4 6 .4s4.6 0 6-.4a2.3 2.3 0 0 0 1.6-1.6c.4-1.4.4-3.1.4-3.1s0-1.7-.4-3.1ZM8.7 12.5v-5L13 10l-4.3 2.5Z" fill="currentColor" />
       </svg>
     );
   }
@@ -116,7 +125,7 @@ export default function SiteFooter() {
           <div>
             <a href="/#trang-chu" className="inline-flex items-center gap-3">
               <Image
-                src="/images/logo-4.jpg"
+                src="/logo.jpg"
                 alt={`Logo ${t.brandName}`}
                 width={46}
                 height={46}

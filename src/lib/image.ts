@@ -20,7 +20,7 @@ function uniqueStrings(values: string[]) {
   return result;
 }
 
-const FALLBACK_GLOBAL = "/images/logo-4.jpg";
+const FALLBACK_GLOBAL = "/logo.jpg";
 const FALLBACK_POEM = "/images/poems/ben-do.jpeg";
 const FALLBACK_STORY = "/images/poems/ngang-ben-song-xua.jpeg";
 
