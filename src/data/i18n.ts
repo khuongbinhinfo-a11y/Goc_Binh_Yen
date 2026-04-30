@@ -349,7 +349,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       companionLinks: [
         { id: "contact", label: "Liên hệ", href: "/#lien-he" },
         { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
-        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@hontho", external: true },
+        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@Hontho-BT", external: true },
         { id: "bookcase", label: "Tủ sách", href: "/tu-sach" },
         { id: "support", label: "Ủng hộ", href: "/ung-ho" },
       ],
@@ -665,7 +665,7 @@ export const translations: Record<Locale, TranslationSchema> = {
       companionLinks: [
         { id: "contact", label: "Contact", href: "/#lien-he" },
         { id: "facebook", label: "Facebook", href: "https://www.facebook.com/profile.php?id=61561724806320", external: true },
-        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@hontho", external: true },
+        { id: "youtube", label: "YouTube", href: "https://www.youtube.com/@Hontho-BT", external: true },
         { id: "bookcase", label: "Bookcase", href: "/tu-sach" },
         { id: "support", label: "Donate", href: "/ung-ho" },
       ],
