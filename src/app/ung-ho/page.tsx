@@ -18,6 +18,9 @@ export default function UngHoPage() {
   const [contactIdentity, setContactIdentity] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [rid, setRid] = useState("");
+  const [createdDonationId, setCreatedDonationId] = useState("");
+  const [creatingDonation, setCreatingDonation] = useState(false);
+  const [donationCreateError, setDonationCreateError] = useState("");
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
   const [checkedEmail, setCheckedEmail] = useState("");
 
@@ -102,6 +105,46 @@ export default function UngHoPage() {
     } catch {
       setCopiedTransfer(false);
     }
+  };
+
+  const createDonationDraft = async () => {
+    if (!rid || createdDonationId === rid || creatingDonation) {
+      return;
+    }
+
+    setCreatingDonation(true);
+    setDonationCreateError("");
+
+    try {
+      const response = await fetch("/api/donations/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          donationId: rid,
+          transferContent: transferNarrativeFull,
+          contactIdentity,
+          message: contactMessage,
+        }),
+      });
+
+      const payload: { ok?: boolean; error?: string; donationId?: string } = await response.json().catch(() => ({}));
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error || "Không thể tạo mã ủng hộ.");
+      }
+
+      setCreatedDonationId(payload.donationId || rid);
+    } catch (error) {
+      setDonationCreateError(error instanceof Error ? error.message : "Không thể tạo mã ủng hộ.");
+    } finally {
+      setCreatingDonation(false);
+    }
+  };
+
+  const handleOpenDonationPopup = () => {
+    setShowPopup(true);
+    void createDonationDraft();
   };
 
   useEffect(() => {
@@ -212,13 +255,9 @@ export default function UngHoPage() {
               </article>
 
               <article className="soft-panel overflow-hidden border-[#d8b89b] bg-[#f8efe5]">
-                <div className="relative h-52 bg-gradient-to-br from-[#edd7c1] via-[#f5e6d5] to-[#f8efe6] sm:h-60">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(142,90,52,0.24),transparent_56%),radial-gradient(circle_at_85%_18%,rgba(198,141,100,0.22),transparent_46%)]" />
-                  <div className="relative z-10 flex h-full items-center justify-center px-6 text-center">
-                    <p className="max-w-xs text-sm font-semibold leading-7 text-[#5d3f2d] sm:text-base">
-                      Nhấn ủng hộ để mở popup chứa mã QR và thông tin chuyển khoản.
-                    </p>
-                  </div>
+                <div className="relative h-52 bg-[#f3e0cd] sm:h-60">
+                  <img src={vietQrUrl} alt="Mã QR ủng hộ Hồn Thơ" className="h-full w-full object-contain p-5 sm:p-7" loading="lazy" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#4a2f20]/8 via-transparent to-transparent" />
                 </div>
 
                 <div className="p-5 sm:p-6">
@@ -245,7 +284,7 @@ export default function UngHoPage() {
 
                   <button
                     type="button"
-                    onClick={() => setShowPopup(true)}
+                    onClick={handleOpenDonationPopup}
                     className="mt-5 inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-[#764f33] sm:text-sm"
                   >
                     Ủng hộ ngay
@@ -361,6 +400,25 @@ export default function UngHoPage() {
                 {copiedTransfer ? "Đã sao chép nội dung" : "Sao chép nội dung chuyển khoản"}
               </button>
             </div>
+
+            {creatingDonation ? (
+              <p className="mt-3 rounded-xl border border-[#e7d3bf] bg-[#fff8f0] px-3 py-2 text-xs text-[#704f3a] sm:text-sm">
+                Đang tạo mã ủng hộ và ghi nhận vào hệ thống...
+              </p>
+            ) : null}
+
+            {donationCreateError ? (
+              <div className="mt-3 rounded-xl border border-[#efc4b4] bg-[#fff2ee] px-3 py-2 text-xs text-[#8d3d2a] sm:text-sm">
+                <p>Không ghi nhận được dòng DONATIONS: {donationCreateError}</p>
+                <button
+                  type="button"
+                  onClick={() => void createDonationDraft()}
+                  className="mt-2 inline-flex rounded-full border border-[#d58b72] px-3 py-1.5 font-semibold text-[#8d3d2a] transition hover:bg-[#ffe6de]"
+                >
+                  Thử tạo lại
+                </button>
+              </div>
+            ) : null}
 
             <div className="mt-4 rounded-2xl border border-[#d9bea4] bg-white/70 p-4">
               <h4 className="text-sm font-semibold text-[#4a2f20] sm:text-base">Để lại thông tin (không bắt buộc)</h4>

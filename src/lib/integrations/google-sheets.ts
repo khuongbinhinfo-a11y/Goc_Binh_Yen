@@ -29,6 +29,18 @@ const REQUIRED_HEADERS = {
     "status",
     "error_message",
   ],
+  DONATIONS: [
+    "donation_id",
+    "created_at",
+    "status",
+    "display_name",
+    "email",
+    "phone",
+    "amount_expected",
+    "amount_paid",
+    "bank_ref",
+    "transfer_content",
+  ],
 } as const;
 
 export type RequiredSheetName = keyof typeof REQUIRED_HEADERS;
