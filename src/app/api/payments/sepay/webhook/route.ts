@@ -70,6 +70,15 @@ function pickFirstString(entries: Array<{ key: string; value: string }>, keyHint
   return found?.value?.trim() || "";
 }
 
+function toStandardDonationId(value: string) {
+  const compact = value.toUpperCase().replaceAll(/[^A-Z0-9]/g, "");
+  if (!compact.startsWith("DONHT") || compact.length <= 5) {
+    return "";
+  }
+
+  return `DON-HT-${compact.slice(5)}`;
+}
+
 function parseDonationTransferContent(transferContent: string) {
   const normalized = transferContent.trim();
   if (!normalized) {
@@ -80,14 +89,18 @@ function parseDonationTransferContent(transferContent: string) {
     return null;
   }
 
-  const contact = normalized.match(/(?:^|\|)\s*CONTACT\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
+  const contact =
+    normalized.match(/(?:^|\|)\s*CONTACT\s*:\s*([^|]+)/i)?.[1]?.trim() ||
+    normalized.match(/CONTACT\s*:?[\s|]*([^\s|]+)/i)?.[1]?.trim() ||
+    "";
   const phoneToken = normalized.match(/(?:^|\|)\s*PHONE\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const fullName = normalized.match(/(?:^|\|)\s*NAME\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const legacyEmail = normalized.match(/(?:^|\|)\s*EMAIL\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const legacyPhone = normalized.match(/(?:^|\|)\s*SDT\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const message = normalized.match(/(?:^|\|)\s*MSG\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const ridToken = normalized.match(/(?:^|\|)\s*RID\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
-  const donationIdToken = normalized.match(/DON-HT-[A-Z0-9-]+/i)?.[0]?.trim() || "";
+  const donationIdToken = normalized.match(/DON[\s|:_-]*HT[\s|:_-]*[A-Z0-9-]+/i)?.[0]?.trim() || "";
+  const donationCompactToken = normalized.match(/DONHT[A-Z0-9]+/i)?.[0]?.trim() || "";
 
   const segments = normalized
     .split("|")
@@ -95,10 +108,12 @@ function parseDonationTransferContent(transferContent: string) {
     .filter(Boolean);
 
   const compactRid =
-    !ridToken && !donationIdToken && segments.length >= 2 && /ungho/i.test(segments.join(" "))
+    !ridToken && !donationIdToken && !donationCompactToken && segments.length >= 2 && /ungho/i.test(segments.join(" "))
       ? segments.find((segment) => /^DON-HT-[A-Z0-9-]+$/i.test(segment) || /^RID\s*:/i.test(segment))?.replace(/^RID\s*:\s*/i, "").trim() || ""
       : "";
-  const rid = (donationIdToken || ridToken || compactRid).replaceAll(/\s+/g, "");
+
+  const standardizedDonationId = toStandardDonationId(donationIdToken || donationCompactToken || "");
+  const rid = standardizedDonationId || (ridToken || compactRid).replaceAll(/\s+/g, "");
 
   const normalizedContact = contact || legacyEmail || phoneToken || legacyPhone;
   const email = normalizedContact.includes("@") ? normalizedContact : legacyEmail;

@@ -8,6 +8,10 @@ function normalizeDonationId(value: string) {
   return value.trim().toLowerCase();
 }
 
+function normalizeSearchToken(value: string) {
+  return value.toLowerCase().replaceAll(/[^a-z0-9]/g, "");
+}
+
 export async function GET(request: NextRequest) {
   const donationIdRaw = request.nextUrl.searchParams.get("donationId") || request.nextUrl.searchParams.get("rid") || "";
   const donationId = normalizeDonationId(donationIdRaw);
@@ -18,11 +22,16 @@ export async function GET(request: NextRequest) {
 
   try {
     const items = await listMessages();
+    const expectedToken = normalizeSearchToken(donationId);
     const matched = items.find(
-      (item) =>
-        item.type === "donation" &&
-        item.source === "sepay-webhook" &&
-        item.message.toLowerCase().includes(donationId),
+      (item) => {
+        if (item.type !== "donation" || item.source !== "sepay-webhook") {
+          return false;
+        }
+
+        const messageToken = normalizeSearchToken(item.message || "");
+        return messageToken.includes(expectedToken);
+      },
     );
 
     if (!matched) {
