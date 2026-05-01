@@ -1,6 +1,7 @@
 "use client";
 
 import SafeImage from "@/components/ui/SafeImage";
+import PublicContactForm from "@/components/forms/PublicContactForm";
 import { CONTACT_FORM_URL, POET_BOOKCASE_URL, SUPPORT_HON_THO_URL } from "@/data/homepageData";
 import { useLocale } from "@/hooks/useLocale";
 import { IMAGE_FALLBACKS } from "@/lib/image";
@@ -8,7 +9,7 @@ import { IMAGE_FALLBACKS } from "@/lib/image";
 type ContactActionId = "contact" | "bookcase" | "support";
 
 const ACTION_LINKS: Record<ContactActionId, { href: string; external?: boolean }> = {
-  contact: { href: CONTACT_FORM_URL, external: true },
+  contact: { href: CONTACT_FORM_URL },
   bookcase: { href: POET_BOOKCASE_URL },
   support: { href: SUPPORT_HON_THO_URL },
 };
@@ -129,8 +130,6 @@ export default function ContactSection() {
 
                 <a
                   href={CONTACT_FORM_URL}
-                  target="_blank"
-                  rel="noreferrer"
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-[#8b5e3c] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(74,47,32,0.18)] transition hover:bg-[#7b5234]"
                 >
                   {t.contact.button}
@@ -195,6 +194,10 @@ export default function ContactSection() {
                 );
               })}
             </div>
+          </div>
+
+          <div id="hontho-contact-form" className="scroll-mt-24">
+            <PublicContactForm />
           </div>
         </div>
       </div>

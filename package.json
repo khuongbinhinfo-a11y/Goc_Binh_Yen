@@ -6,12 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "echo \"Lint script is optional in this starter. Use npm run build for full validation.\""
+    "lint": "echo \"Lint script is optional in this starter. Use npm run build for full validation.\"",
+    "admin:hash": "node scripts/generate-admin-password-hash.mjs"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "googleapis": "^157.0.0",
     "next": "16.2.3",
     "react": "19.2.5",
-    "react-dom": "19.2.5"
+    "react-dom": "19.2.5",
+    "react-hook-form": "^7.65.0",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/node": "25.6.0",
