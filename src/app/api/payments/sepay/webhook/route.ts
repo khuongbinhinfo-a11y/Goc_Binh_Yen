@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createIncomingMessage, ensureAdminSheetsReady, listMessages, updateMessageById } from "@/lib/admin/messages-store";
+import { getDonationById, markDonationPaidById } from "@/lib/admin/donations-store";
 import { getInternalRecipient, sendMail, wrapMailBodyHtml } from "@/lib/forms/mailer";
 
 export const runtime = "nodejs";
@@ -240,11 +241,14 @@ export async function POST(request: NextRequest) {
         requestId;
       const senderName = pickFirstString(entries, ["senderName", "fromAccountName", "accountName", "payerName", "name"]);
       const amountRaw = pickFirstString(entries, ["transferAmount", "amountIn", "amount", "money", "creditAmount"]);
+      const bankReference = pickFirstString(entries, ["referenceCode", "reference_code", "refNo", "ref_no", "bankRef", "bank_ref"]);
       const normalizedAmount = normalizeAmount(amountRaw);
       const amountText = normalizedAmount > 0 ? `${normalizedAmount.toLocaleString("vi-VN")} VND` : amountRaw;
 
       try {
         await ensureAdminSheetsReady();
+        const donationRow = donationInfo.rid ? await getDonationById(donationInfo.rid) : null;
+        const donorEmail = (donationInfo.email || donationRow?.email || "").trim();
         const messageBody = buildWebhookDonationMessage({
           transferContent,
           transactionId,
@@ -279,8 +283,8 @@ export async function POST(request: NextRequest) {
         } else {
           const created = await createIncomingMessage({
             type: "donation",
-            fullName: donationInfo.fullName || senderName || "",
-            email: donationInfo.email,
+            fullName: donationInfo.fullName || donationRow?.displayName || senderName || "",
+            email: donorEmail,
             phone: donationInfo.phone,
             subject: "Ủng hộ qua chuyển khoản (SePay webhook)",
             message: messageBody,
@@ -294,10 +298,18 @@ export async function POST(request: NextRequest) {
           });
         }
 
-        if (donationInfo.email) {
+        if (donationInfo.rid) {
+          await markDonationPaidById({
+            donationId: donationInfo.rid,
+            amountPaid: normalizedAmount > 0 ? `${normalizedAmount}` : amountRaw,
+            bankRef: bankReference || transactionId,
+          });
+        }
+
+        if (donorEmail) {
           try {
             await sendMail({
-              to: donationInfo.email,
+              to: donorEmail,
               subject: "Hồn Thơ cảm ơn bạn đã ủng hộ",
               html: wrapMailBodyHtml(`
                 <p>Hồn Thơ đã nhận được khoản ủng hộ của bạn. Xin cảm ơn sự đồng hành rất quý này.</p>

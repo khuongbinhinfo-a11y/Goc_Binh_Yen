@@ -161,3 +161,35 @@ export async function updateSheetRowById(sheetName: RequiredSheetName, id: strin
 
   return true;
 }
+
+export async function updateSheetRowByColumn(
+  sheetName: RequiredSheetName,
+  columnName: string,
+  columnValue: string,
+  patch: Record<string, string>,
+) {
+  const { headers, rows } = await getSheetRows(sheetName);
+  const target = rows.find((item) => `${item.values[columnName] ?? ""}` === columnValue);
+
+  if (!target) {
+    return false;
+  }
+
+  const merged: Record<string, string> = {};
+  headers.forEach((header) => {
+    merged[header] = patch[header] ?? target.values[header] ?? "";
+  });
+
+  const sheets = await getSheetsClient();
+  const spreadsheetId = getSpreadsheetId();
+  await sheets.spreadsheets.values.update({
+    spreadsheetId,
+    range: `${sheetName}!A${target.rowIndex}:ZZ${target.rowIndex}`,
+    valueInputOption: "RAW",
+    requestBody: {
+      values: [headers.map((header) => merged[header] ?? "")],
+    },
+  });
+
+  return true;
+}

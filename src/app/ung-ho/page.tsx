@@ -9,6 +9,12 @@ import { getBrandPagesCopy } from "@/data/brandPagesI18n";
 import { useLocale } from "@/hooks/useLocale";
 import { IMAGE_FALLBACKS, LOCAL_IMAGE_MAP } from "@/lib/image";
 
+const DONATION_ID_STORAGE_KEY = "support:last_donation_id";
+
+function generateDonationId() {
+  return `DON-HT-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`.toUpperCase();
+}
+
 export default function UngHoPage() {
   const { locale } = useLocale();
   const copy = getBrandPagesCopy(locale).support;
@@ -25,8 +31,22 @@ export default function UngHoPage() {
   const [checkedEmail, setCheckedEmail] = useState("");
 
   useEffect(() => {
-    setDonationId(`DON-HT-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`.toUpperCase());
+    const savedId = window.localStorage.getItem(DONATION_ID_STORAGE_KEY) || "";
+    if (/^DON-HT-[A-Z0-9-]+$/i.test(savedId)) {
+      setDonationId(savedId.toUpperCase());
+      return;
+    }
+
+    setDonationId(generateDonationId());
   }, []);
+
+  useEffect(() => {
+    if (!donationId) {
+      return;
+    }
+
+    window.localStorage.setItem(DONATION_ID_STORAGE_KEY, donationId);
+  }, [donationId]);
 
   const transferAccountNumber = useMemo(() => {
     const found = copy.transferDetails.find((item) => /số tài khoản/i.test(item.label));
@@ -145,6 +165,15 @@ export default function UngHoPage() {
   const handleOpenDonationPopup = () => {
     setShowPopup(true);
     void createDonationDraft();
+  };
+
+  const handleCreateNewDonationId = () => {
+    const newDonationId = generateDonationId();
+    setDonationId(newDonationId);
+    setCreatedDonationId("");
+    setDonationCreateError("");
+    setPaymentConfirmed(false);
+    setCheckedEmail("");
   };
 
   useEffect(() => {
@@ -392,12 +421,20 @@ export default function UngHoPage() {
             <div className="mt-4 rounded-2xl border border-[#d9bea4] bg-white/70 p-4">
               <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7b5439]">Nội dung chuyển khoản</p>
               <p className="mt-2 rounded-xl border border-[#ecdac9] bg-white px-3 py-2 text-sm font-medium text-[#4a2f20]">{transferNarrativeDisplay}</p>
+              <p className="mt-2 text-[11px] text-[#7b5439] sm:text-xs">Mã ủng hộ: {donationId || "Đang tạo..."}</p>
               <button
                 type="button"
                 onClick={handleCopyTransferContent}
                 className="mt-3 inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
               >
                 {copiedTransfer ? "Đã sao chép nội dung" : "Sao chép nội dung chuyển khoản"}
+              </button>
+              <button
+                type="button"
+                onClick={handleCreateNewDonationId}
+                className="mt-2 inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
+              >
+                Tạo mã ủng hộ mới
               </button>
             </div>
 
