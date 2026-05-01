@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import AdminMessagesClient from "@/components/admin/AdminMessagesClient";
 import { getAdminCookieName, getVerifiedAdminSession } from "@/lib/admin/auth";
-import { listMessages, type AdminMessage } from "@/lib/admin/messages-store";
+import { listMailLogs, listMessages, type AdminMailLog, type AdminMessage } from "@/lib/admin/messages-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -27,10 +27,11 @@ export default async function AdminMessagesPage() {
   }
 
   let items: AdminMessage[] = [];
+  let mailLogs: AdminMailLog[] = [];
   let loadError = "";
 
   try {
-    items = await listMessages();
+    [items, mailLogs] = await Promise.all([listMessages(), listMailLogs()]);
   } catch (error) {
     loadError = error instanceof Error ? error.message : "Không đọc được danh sách lời nhắn.";
   }
@@ -56,7 +57,12 @@ export default async function AdminMessagesPage() {
         {loadError ? (
           <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">{loadError}</div>
         ) : (
-          <AdminMessagesClient initialItems={items} sessionEmail={session.email} permissions={session.permissions} />
+          <AdminMessagesClient
+            initialItems={items}
+            initialMailLogs={mailLogs}
+            sessionEmail={session.email}
+            permissions={session.permissions}
+          />
         )}
       </div>
     </main>

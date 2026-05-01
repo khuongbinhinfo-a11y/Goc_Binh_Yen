@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { logMailReply, updateMessageById } from "@/lib/admin/messages-store";
-import { buildMailBrandHeaderHtml, sendMail } from "@/lib/forms/mailer";
+import { sendMail, wrapMailBodyHtml } from "@/lib/forms/mailer";
 import { requireAdminApiPermission } from "../../_auth";
 
 export const runtime = "nodejs";
@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
       to,
       subject,
       text: content,
-      html: `${buildMailBrandHeaderHtml()}<div style="font-family:Arial,sans-serif;line-height:1.7;color:#3f2b20;white-space:pre-wrap;">${escapeHtml(content)}</div>`,
+      html: wrapMailBodyHtml(`<div style="white-space:pre-wrap;">${escapeHtml(content)}</div>`),
       fromKind: "support",
       replyTo: permission.session.email,
     });

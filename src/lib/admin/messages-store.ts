@@ -28,6 +28,19 @@ export type AdminMessage = {
   notes: string;
 };
 
+export type AdminMailLog = {
+  id: string;
+  messageId: string;
+  sentAt: string;
+  sentBy: string;
+  to: string;
+  subject: string;
+  bodyText: string;
+  resendEmailId: string;
+  status: string;
+  errorMessage: string;
+};
+
 function createId(prefix: string) {
   return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -48,6 +61,21 @@ function toAdminMessage(record: Record<string, string>): AdminMessage {
     lastRepliedAt: record.last_replied_at || "",
     lastReplyBy: record.last_reply_by || "",
     notes: record.notes || "",
+  };
+}
+
+function toAdminMailLog(record: Record<string, string>): AdminMailLog {
+  return {
+    id: record.id || "",
+    messageId: record.message_id || "",
+    sentAt: record.sent_at || "",
+    sentBy: record.sent_by || "",
+    to: record.to || "",
+    subject: record.subject || "",
+    bodyText: record.body_text || "",
+    resendEmailId: record.resend_email_id || "",
+    status: record.status || "",
+    errorMessage: record.error_message || "",
   };
 }
 
@@ -93,6 +121,14 @@ export async function listMessages() {
   return rows
     .map((item) => toAdminMessage(item.values))
     .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+}
+
+export async function listMailLogs(limit = 50) {
+  const { rows } = await getSheetRows(MAIL_LOGS_SHEET);
+  return rows
+    .map((item) => toAdminMailLog(item.values))
+    .sort((a, b) => (a.sentAt < b.sentAt ? 1 : -1))
+    .slice(0, limit);
 }
 
 export async function getMessageById(id: string) {

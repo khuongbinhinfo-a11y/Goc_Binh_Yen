@@ -1,5 +1,5 @@
 const DEFAULT_INTERNAL_RECIPIENT = "gustavjung01@gmail.com";
-const DEFAULT_FROM = "Hồn Thơ <noreply@hontho.com>";
+const DEFAULT_FROM = "Hon Tho <noreply@hontho.com>";
 const DEFAULT_ASSET_BASE_URL = "https://hontho.com";
 
 const MAIL_FROM_ENV_BY_KIND = {
@@ -39,6 +39,32 @@ function normalizeAssetBaseUrl(rawUrl: string) {
   return `https://${trimmed}`;
 }
 
+function stripDiacritics(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D");
+}
+
+function normalizeMailFromAddress(value: string) {
+  const trimmed = value.trim();
+  const match = trimmed.match(/^\s*"?([^"<]*)"?\s*<([^>]+)>\s*$/);
+
+  if (!match) {
+    return trimmed;
+  }
+
+  const displayName = match[1].trim();
+  const email = match[2].trim();
+  if (!displayName) {
+    return email;
+  }
+
+  const safeName = /^[\x00-\x7F]+$/.test(displayName) ? displayName : stripDiacritics(displayName);
+  return `${safeName} <${email}>`;
+}
+
 function getResendApiKey() {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   if (!apiKey) {
@@ -55,14 +81,14 @@ export function getMailFromAddress(kind: MailFromKind = "default") {
   const configured = readNonEmptyEnv(MAIL_FROM_ENV_BY_KIND[kind]) ?? readNonEmptyEnv("FORM_MAIL_FROM");
 
   if (configured) {
-    return configured;
+    return normalizeMailFromAddress(configured);
   }
 
   if (process.env.NODE_ENV === "production") {
     throw new Error(`${MAIL_FROM_ENV_BY_KIND[kind]} or FORM_MAIL_FROM is missing`);
   }
 
-  return DEFAULT_FROM;
+  return normalizeMailFromAddress(DEFAULT_FROM);
 }
 
 export function getMailAssetBaseUrl() {
@@ -71,20 +97,22 @@ export function getMailAssetBaseUrl() {
 }
 
 export function buildMailBrandHeaderHtml() {
-  const baseUrl = getMailAssetBaseUrl();
-  const logo = `${baseUrl}/images/brand/logo-hon-tho.png`;
-
   return `
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:560px;margin:0 0 18px 0;">
       <tr>
         <td style="padding:14px;border:1px solid #e9d7c4;border-radius:12px;background:#faf4ed;">
-          <div style="padding:10px;border:1px solid #dcc3a8;border-radius:10px;background:#fffaf5;text-align:center;">
-            <img src="${logo}" alt="Hồn Thơ" style="height:42px;width:auto;max-width:220px;display:inline-block;" />
+          <div style="padding:18px 12px;border:1px solid #dcc3a8;border-radius:10px;background:#fffaf5;text-align:center;">
+            <div style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:1;letter-spacing:0.18em;font-weight:700;color:#7a4f32;text-transform:uppercase;">Hon Tho</div>
+            <div style="margin-top:10px;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.6;color:#6a4b38;">Nơi câu chữ và giọng đọc cất lên giữa sắc chiều quê hương.</div>
           </div>
         </td>
       </tr>
     </table>
   `;
+}
+
+export function wrapMailBodyHtml(contentHtml: string) {
+  return `${buildMailBrandHeaderHtml()}<div style="font-family:Georgia,'Times New Roman',serif;line-height:1.8;color:#3f2b20;font-size:16px;">${contentHtml}</div>`;
 }
 
 export async function sendMail(input: SendMailInput): Promise<SendMailResult> {

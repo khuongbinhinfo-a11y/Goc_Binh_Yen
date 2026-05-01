@@ -1,11 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { AdminMessage } from "@/lib/admin/messages-store";
+import type { AdminMailLog, AdminMessage } from "@/lib/admin/messages-store";
 import type { AdminPermission } from "@/lib/admin/auth";
 
 type AdminMessagesClientProps = {
   initialItems: AdminMessage[];
+  initialMailLogs: AdminMailLog[];
   sessionEmail: string;
   permissions: AdminPermission[];
 };
@@ -18,8 +19,33 @@ type ReplyState = {
 
 const STATUS_OPTIONS = ["new", "in_progress", "replied", "closed"] as const;
 
-export default function AdminMessagesClient({ initialItems, sessionEmail, permissions }: AdminMessagesClientProps) {
+const adminDateTimeFormatter = new Intl.DateTimeFormat("vi-VN", {
+  dateStyle: "short",
+  timeStyle: "medium",
+  timeZone: "Asia/Ho_Chi_Minh",
+});
+
+function formatAdminDateTime(value: string) {
+  if (!value) {
+    return "-";
+  }
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+
+  return adminDateTimeFormatter.format(date);
+}
+
+export default function AdminMessagesClient({
+  initialItems,
+  initialMailLogs,
+  sessionEmail,
+  permissions,
+}: AdminMessagesClientProps) {
   const [items, setItems] = useState<AdminMessage[]>(initialItems);
+  const [mailLogs, setMailLogs] = useState<AdminMailLog[]>(initialMailLogs);
   const [selectedId, setSelectedId] = useState<string>(initialItems[0]?.id ?? "");
   const [statusText, setStatusText] = useState("");
   const [errorText, setErrorText] = useState("");
@@ -48,13 +74,14 @@ export default function AdminMessagesClient({ initialItems, sessionEmail, permis
 
   async function refreshList() {
     const response = await fetch("/api/admin/messages", { cache: "no-store" });
-    const payload: { ok?: boolean; items?: AdminMessage[]; error?: string } = await response.json().catch(() => ({}));
+    const payload: { ok?: boolean; items?: AdminMessage[]; mailLogs?: AdminMailLog[]; error?: string } = await response.json().catch(() => ({}));
     if (!response.ok || !payload.ok) {
       throw new Error(payload.error ?? "Không tải lại được danh sách lời nhắn.");
     }
 
     const nextItems = payload.items ?? [];
     setItems(nextItems);
+    setMailLogs(payload.mailLogs ?? []);
 
     if (selectedId && nextItems.some((item) => item.id === selectedId)) {
       return;
@@ -142,45 +169,46 @@ export default function AdminMessagesClient({ initialItems, sessionEmail, permis
   }
 
   return (
-    <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr]">
-      <section className="rounded-2xl border border-[#d8bea5] bg-white p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-[#4a2f20]">Danh sách lời nhắn</h2>
-        <p className="mt-1 text-sm text-[#6a4b38]">Đăng nhập: {sessionEmail}</p>
+    <div className="space-y-5">
+      <div className="grid gap-5 lg:grid-cols-[1.1fr_1fr]">
+        <section className="rounded-2xl border border-[#d8bea5] bg-white p-4 sm:p-5">
+          <h2 className="text-lg font-semibold text-[#4a2f20]">Danh sách lời nhắn</h2>
+          <p className="mt-1 text-sm text-[#6a4b38]">Đăng nhập: {sessionEmail}</p>
 
-        <div className="mt-4 max-h-[540px] space-y-2 overflow-y-auto pr-1">
-          {items.map((item) => {
-            const active = item.id === selectedId;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  setSelectedId(item.id);
-                  setShowReply(false);
-                  setStatusText("");
-                  setErrorText("");
-                }}
-                className={`w-full rounded-xl border px-3 py-3 text-left transition ${
-                  active
-                    ? "border-[#b07a50] bg-[#f9efe3]"
-                    : "border-[#ecdac7] bg-[#fffaf4] hover:border-[#cfac8f] hover:bg-[#fcf3ea]"
-                }`}
-              >
-                <p className="text-sm font-semibold text-[#4a2f20]">{item.fullName || "Khách ẩn danh"}</p>
-                <p className="mt-1 text-xs text-[#7b5a44]">{item.email}</p>
-                <p className="mt-1 line-clamp-2 text-sm text-[#5f4332]">{item.subject || "(Không có tiêu đề)"}</p>
-                <div className="mt-2 flex items-center justify-between text-xs text-[#8a6851]">
-                  <span>{item.status}</span>
-                  <span>{item.createdAt ? new Date(item.createdAt).toLocaleString("vi-VN") : "-"}</span>
-                </div>
-              </button>
-            );
-          })}
-          {items.length === 0 ? <p className="text-sm text-[#7b5a44]">Chưa có lời nhắn nào.</p> : null}
-        </div>
-      </section>
+          <div className="mt-4 max-h-[540px] space-y-2 overflow-y-auto pr-1">
+            {items.map((item) => {
+              const active = item.id === selectedId;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => {
+                    setSelectedId(item.id);
+                    setShowReply(false);
+                    setStatusText("");
+                    setErrorText("");
+                  }}
+                  className={`w-full rounded-xl border px-3 py-3 text-left transition ${
+                    active
+                      ? "border-[#b07a50] bg-[#f9efe3]"
+                      : "border-[#ecdac7] bg-[#fffaf4] hover:border-[#cfac8f] hover:bg-[#fcf3ea]"
+                  }`}
+                >
+                  <p className="text-sm font-semibold text-[#4a2f20]">{item.fullName || "Khách ẩn danh"}</p>
+                  <p className="mt-1 text-xs text-[#7b5a44]">{item.email}</p>
+                  <p className="mt-1 line-clamp-2 text-sm text-[#5f4332]">{item.subject || "(Không có tiêu đề)"}</p>
+                  <div className="mt-2 flex items-center justify-between text-xs text-[#8a6851]">
+                    <span>{item.status}</span>
+                    <span>{formatAdminDateTime(item.createdAt)}</span>
+                  </div>
+                </button>
+              );
+            })}
+            {items.length === 0 ? <p className="text-sm text-[#7b5a44]">Chưa có lời nhắn nào.</p> : null}
+          </div>
+        </section>
 
-      <section className="rounded-2xl border border-[#d8bea5] bg-white p-4 sm:p-5">
+        <section className="rounded-2xl border border-[#d8bea5] bg-white p-4 sm:p-5">
         {!selectedMessage ? (
           <p className="text-sm text-[#7b5a44]">Chọn một lời nhắn để xem chi tiết.</p>
         ) : (
@@ -193,8 +221,8 @@ export default function AdminMessagesClient({ initialItems, sessionEmail, permis
               <p><strong>Phân loại:</strong> {selectedMessage.type || "contact"}</p>
               <p><strong>Tiêu đề:</strong> {selectedMessage.subject || "-"}</p>
               <p><strong>Trạng thái:</strong> {selectedMessage.status}</p>
-              <p><strong>Gửi lúc:</strong> {selectedMessage.createdAt ? new Date(selectedMessage.createdAt).toLocaleString("vi-VN") : "-"}</p>
-              <p><strong>Phản hồi gần nhất:</strong> {selectedMessage.lastRepliedAt ? new Date(selectedMessage.lastRepliedAt).toLocaleString("vi-VN") : "Chưa phản hồi"}</p>
+              <p><strong>Gửi lúc:</strong> {formatAdminDateTime(selectedMessage.createdAt)}</p>
+              <p><strong>Phản hồi gần nhất:</strong> {selectedMessage.lastRepliedAt ? formatAdminDateTime(selectedMessage.lastRepliedAt) : "Chưa phản hồi"}</p>
               <p><strong>Người phản hồi:</strong> {selectedMessage.lastReplyBy || "-"}</p>
               <p className="rounded-xl border border-[#ecdac7] bg-[#fffaf4] p-3 whitespace-pre-wrap"><strong>Nội dung:</strong>\n{selectedMessage.message || ""}</p>
             </div>
@@ -315,6 +343,35 @@ export default function AdminMessagesClient({ initialItems, sessionEmail, permis
             {errorText ? <p className="mt-3 text-sm text-red-700">{errorText}</p> : null}
           </>
         )}
+        </section>
+      </div>
+
+      <section className="rounded-2xl border border-[#d8bea5] bg-white p-4 sm:p-5">
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-semibold text-[#4a2f20]">Nhật ký gửi mail</h2>
+            <p className="mt-1 text-sm text-[#6a4b38]">Hiển thị các mail gửi từ form và phản hồi trong admin.</p>
+          </div>
+          <p className="text-xs text-[#8a6851]">{mailLogs.length} bản ghi gần nhất</p>
+        </div>
+
+        <div className="mt-4 space-y-2">
+          {mailLogs.map((log) => (
+            <article key={log.id} className="rounded-xl border border-[#ecdac7] bg-[#fffaf4] p-3 text-sm text-[#5f4332]">
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[#8a6851]">
+                <span>{log.status || "unknown"}</span>
+                <span>{formatAdminDateTime(log.sentAt)}</span>
+              </div>
+              <p className="mt-2 font-semibold text-[#4a2f20]">{log.subject || "(Không có tiêu đề)"}</p>
+              <p className="mt-1 text-xs text-[#7b5a44]">To: {log.to || "-"}</p>
+              <p className="mt-1 text-xs text-[#7b5a44]">By: {log.sentBy || "-"}</p>
+              <p className="mt-1 text-xs text-[#7b5a44]">Message ID: {log.messageId || "-"}</p>
+              <p className="mt-1 text-xs text-[#7b5a44]">Resend ID: {log.resendEmailId || "-"}</p>
+              {log.errorMessage ? <p className="mt-2 text-xs text-red-700">Lỗi: {log.errorMessage}</p> : null}
+            </article>
+          ))}
+          {mailLogs.length === 0 ? <p className="text-sm text-[#7b5a44]">Chưa có log gửi mail nào.</p> : null}
+        </div>
       </section>
     </div>
   );
