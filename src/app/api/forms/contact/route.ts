@@ -40,18 +40,22 @@ function getNormalizedKind(type: string | undefined): ContactKind {
 }
 
 function formatInternalHtml(payload: {
-  fullName: string;
-  email: string;
+  fullName?: string;
+  email?: string;
   phone?: string;
   subject: string;
   message: string;
   type?: string;
 }) {
+  const fullNameDisplay = payload.fullName && payload.fullName.trim() ? escapeHtml(payload.fullName) : "Không cung cấp";
+  const emailDisplay = payload.email && payload.email.trim() ? escapeHtml(payload.email) : "Không cung cấp";
+  const phoneDisplay = escapeHtml(normalizeOptional(payload.phone));
+  
   return wrapMailBodyHtml(`
     <h2>Lời nhắn mới từ website Hồn Thơ</h2>
-    <p><strong>Họ tên:</strong> ${escapeHtml(payload.fullName)}</p>
-    <p><strong>Email:</strong> ${escapeHtml(payload.email)}</p>
-    <p><strong>Số điện thoại:</strong> ${escapeHtml(normalizeOptional(payload.phone))}</p>
+    <p><strong>Họ tên:</strong> ${fullNameDisplay}</p>
+    <p><strong>Email:</strong> ${emailDisplay}</p>
+    <p><strong>Số điện thoại:</strong> ${phoneDisplay}</p>
     <p><strong>Phân loại:</strong> ${escapeHtml(payload.type || "contact")}</p>
     <p><strong>Tiêu đề:</strong> ${escapeHtml(payload.subject)}</p>
     <p><strong>Nội dung:</strong></p>
@@ -60,17 +64,20 @@ function formatInternalHtml(payload: {
 }
 
 function formatInternalText(payload: {
-  fullName: string;
-  email: string;
+  fullName?: string;
+  email?: string;
   phone?: string;
   subject: string;
   message: string;
   type?: string;
 }) {
+  const fullNameDisplay = payload.fullName && payload.fullName.trim() ? payload.fullName : "Không cung cấp";
+  const emailDisplay = payload.email && payload.email.trim() ? payload.email : "Không cung cấp";
+  
   return [
     "Lời nhắn mới từ website Hồn Thơ",
-    `Họ tên: ${payload.fullName}`,
-    `Email: ${payload.email}`,
+    `Họ tên: ${fullNameDisplay}`,
+    `Email: ${emailDisplay}`,
     `Số điện thoại: ${normalizeOptional(payload.phone)}`,
     `Phân loại: ${payload.type || "contact"}`,
     `Tiêu đề: ${payload.subject}`,
@@ -79,9 +86,11 @@ function formatInternalText(payload: {
   ].join("\n");
 }
 
-function formatAutoReplyHtml(payload: { fullName: string; subject: string }) {
+function formatAutoReplyHtml(payload: { fullName?: string; subject: string }) {
+  const name = payload.fullName && payload.fullName.trim() ? escapeHtml(payload.fullName) : "bạn";
+  
   return wrapMailBodyHtml(`
-    <p>Chào anh/chị ${escapeHtml(payload.fullName)},</p>
+    <p>Chào ${name === "bạn" ? "bạn" : `anh/chị ${name}`},</p>
     <p>Hồn Thơ đã nhận được lời nhắn với tiêu đề <strong>${escapeHtml(payload.subject)}</strong>.</p>
     <p>Chúng tôi sẽ đọc thật kỹ và phản hồi trong thời gian sớm nhất, với sự trân trọng dành cho từng kỷ niệm và câu chữ anh/chị gửi tới.</p>
     <p>Cảm ơn anh/chị đã ghé lại Hồn Thơ.</p>
@@ -89,9 +98,11 @@ function formatAutoReplyHtml(payload: { fullName: string; subject: string }) {
   `);
 }
 
-function formatDonationReplyHtml(payload: { fullName: string; subject: string }) {
+function formatDonationReplyHtml(payload: { fullName?: string; subject: string }) {
+  const name = payload.fullName && payload.fullName.trim() ? escapeHtml(payload.fullName) : "bạn";
+  
   return wrapMailBodyHtml(`
-    <p>Chào anh/chị ${escapeHtml(payload.fullName)},</p>
+    <p>Chào ${name === "bạn" ? "bạn" : `anh/chị ${name}`},</p>
     <p>Hồn Thơ đã nhận được lời nhắn ủng hộ của anh/chị với tiêu đề <strong>${escapeHtml(payload.subject)}</strong>.</p>
     <p>Sự đồng hành này không chỉ là một khoản ủng hộ, mà còn là sự gửi gắm niềm tin để Hồn Thơ có thể tiếp tục gìn giữ một không gian thơ, chuyện và giọng đọc thật yên, thật ấm cho những người hữu duyên ghé lại.</p>
     <p>Chúng tôi ghi nhận tấm lòng ấy bằng sự trân trọng sâu sắc, và sẽ dùng nguồn động viên này để chăm chút Hồn Thơ chỉn chu hơn mỗi ngày.</p>
@@ -100,9 +111,12 @@ function formatDonationReplyHtml(payload: { fullName: string; subject: string })
   `);
 }
 
-function formatAutoReplyText(payload: { fullName: string; subject: string }) {
+function formatAutoReplyText(payload: { fullName?: string; subject: string }) {
+  const name = payload.fullName && payload.fullName.trim() ? payload.fullName : "bạn";
+  const greeting = name === "bạn" ? "bạn" : `anh/chị ${name}`;
+  
   return [
-    `Chào anh/chị ${payload.fullName},`,
+    `Chào ${greeting},`,
     `Hồn Thơ đã nhận được lời nhắn với tiêu đề: ${payload.subject}.`,
     "Chúng tôi sẽ đọc thật kỹ và phản hồi trong thời gian sớm nhất.",
     "Cảm ơn anh/chị đã ghé lại Hồn Thơ.",
@@ -111,9 +125,12 @@ function formatAutoReplyText(payload: { fullName: string; subject: string }) {
   ].join("\n");
 }
 
-function formatDonationReplyText(payload: { fullName: string; subject: string }) {
+function formatDonationReplyText(payload: { fullName?: string; subject: string }) {
+  const name = payload.fullName && payload.fullName.trim() ? payload.fullName : "bạn";
+  const greeting = name === "bạn" ? "bạn" : `anh/chị ${name}`;
+  
   return [
-    `Chào anh/chị ${payload.fullName},`,
+    `Chào ${greeting},`,
     `Hồn Thơ đã nhận được lời nhắn ủng hộ với tiêu đề: ${payload.subject}.`,
     "Sự đồng hành của anh/chị là một niềm động viên rất quý, giúp Hồn Thơ tiếp tục gìn giữ không gian thơ, chuyện và giọng đọc một cách chỉn chu và bền bỉ hơn.",
     "Chúng tôi trân trọng tấm lòng ấy và xin chân thành cảm ơn anh/chị đã chọn đồng hành cùng Hồn Thơ.",
@@ -122,7 +139,7 @@ function formatDonationReplyText(payload: { fullName: string; subject: string })
   ].join("\n");
 }
 
-function getAutoReplyContent(payload: { fullName: string; subject: string; type?: string }) {
+function getAutoReplyContent(payload: { fullName?: string; subject: string; type?: string }) {
   const kind = getNormalizedKind(payload.type);
 
   if (kind === "donation") {
@@ -179,8 +196,8 @@ export async function POST(request: NextRequest) {
 
   const stored = await createIncomingMessage({
     type: payload.type,
-    fullName: payload.fullName,
-    email: payload.email,
+    fullName: payload.fullName || "",
+    email: payload.email || "",
     phone: payload.phone,
     subject: payload.subject,
     message: payload.message,
@@ -188,12 +205,13 @@ export async function POST(request: NextRequest) {
   });
 
   try {
+    const senderName = payload.fullName && payload.fullName.trim() ? payload.fullName : "Ẩn danh";
     const internalMail = await sendMail({
       to: getInternalRecipient(),
-      subject: `[Hồn Thơ] ${kindLabel} mới - ${payload.fullName}`,
+      subject: `[Hồn Thơ] ${kindLabel} mới - ${senderName}`,
       html: formatInternalHtml(payload),
       text: formatInternalText(payload),
-      replyTo: payload.email,
+      replyTo: payload.email && payload.email.trim() ? payload.email : undefined,
       fromKind: "support",
     });
 
@@ -227,48 +245,56 @@ export async function POST(request: NextRequest) {
   }
 
   let autoReplySent = true;
-  try {
-    const autoReply = await sendMail({
-      to: payload.email,
-      subject: autoReplyContent.subject,
-      html: autoReplyContent.html,
-      text: autoReplyContent.text,
-      fromKind: "support",
-    });
+  const hasEmail = payload.email && payload.email.trim().length > 0;
 
-    await logMailReply({
-      messageId: stored.id,
-      sentBy: "system:auto-reply",
-      to: Array.isArray(autoReply.to) ? autoReply.to.join(", ") : autoReply.to,
-      subject: autoReply.subject,
-      bodyText: autoReplyContent.text,
-      resendEmailId: autoReply.resendEmailId,
-      status: "sent",
-    });
-  } catch (error) {
-    autoReplySent = false;
-    const message = error instanceof Error ? error.message : "Không gửi được email xác nhận tự động.";
-
+  if (hasEmail) {
     try {
+      const autoReply = await sendMail({
+        to: payload.email as string,
+        subject: autoReplyContent.subject,
+        html: autoReplyContent.html,
+        text: autoReplyContent.text,
+        fromKind: "support",
+      });
+
       await logMailReply({
         messageId: stored.id,
         sentBy: "system:auto-reply",
-        to: payload.email,
-        subject: autoReplyContent.subject,
+        to: Array.isArray(autoReply.to) ? autoReply.to.join(", ") : autoReply.to,
+        subject: autoReply.subject,
         bodyText: autoReplyContent.text,
-        status: "failed",
-        errorMessage: message,
+        resendEmailId: autoReply.resendEmailId,
+        status: "sent",
       });
-    } catch {
-      // Ignore secondary logging errors to keep the API response non-blocking.
-    }
+    } catch (error) {
+      autoReplySent = false;
+      const message = error instanceof Error ? error.message : "Không gửi được email xác nhận tự động.";
 
-    console.error("[forms/contact] auto reply failed:", error);
+      try {
+        await logMailReply({
+          messageId: stored.id,
+          sentBy: "system:auto-reply",
+          to: payload.email || "unknown",
+          subject: autoReplyContent.subject,
+          bodyText: autoReplyContent.text,
+          status: "failed",
+          errorMessage: message,
+        });
+      } catch {
+        // Ignore secondary logging errors to keep the API response non-blocking.
+      }
+
+      console.error("[forms/contact] auto reply failed:", error);
+    }
   }
 
   return NextResponse.json({
     ok: true,
     messageId: stored.id,
-    message: autoReplySent ? autoReplyContent.successMessage : autoReplyContent.fallbackMessage,
+    message: hasEmail && autoReplySent 
+      ? autoReplyContent.successMessage 
+      : !hasEmail 
+        ? "Cám ơn thông tin của anh/chị. Hồn Thơ đã nhận được lời nhắn. Vì anh/chị không cung cấp email nên chúng tôi không thể gửi xác nhận tự động, nhưng sẽ sớm phản hồi qua thông tin bạn cung cấp."
+        : autoReplyContent.fallbackMessage,
   });
 }
