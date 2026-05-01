@@ -4,16 +4,16 @@ import { listMessages } from "@/lib/admin/messages-store";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function normalizeRid(value: string) {
+function normalizeDonationId(value: string) {
   return value.trim().toLowerCase();
 }
 
 export async function GET(request: NextRequest) {
-  const ridRaw = request.nextUrl.searchParams.get("rid") || "";
-  const rid = normalizeRid(ridRaw);
+  const donationIdRaw = request.nextUrl.searchParams.get("donationId") || request.nextUrl.searchParams.get("rid") || "";
+  const donationId = normalizeDonationId(donationIdRaw);
 
-  if (!rid) {
-    return NextResponse.json({ ok: false, error: "RID is required" }, { status: 400 });
+  if (!donationId) {
+    return NextResponse.json({ ok: false, error: "donationId is required" }, { status: 400 });
   }
 
   try {
@@ -22,11 +22,11 @@ export async function GET(request: NextRequest) {
       (item) =>
         item.type === "donation" &&
         item.source === "sepay-webhook" &&
-        (item.message.toLowerCase().includes(`rid: ${rid}`) || item.message.toLowerCase().includes(`rid:${rid}`)),
+        item.message.toLowerCase().includes(donationId),
     );
 
     if (!matched) {
-      return NextResponse.json({ ok: true, paid: false, rid: ridRaw });
+      return NextResponse.json({ ok: true, paid: false, donationId: donationIdRaw });
     }
 
     const paid = matched.status === "closed" || matched.notes.toUpperCase().includes("PAYMENT_CONFIRMED");
@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({
       ok: true,
       paid,
-      rid: ridRaw,
+      donationId: donationIdRaw,
       email: matched.email || "",
       messageId: matched.id,
       confirmedAt: matched.notes || "",

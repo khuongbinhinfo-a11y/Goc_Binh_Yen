@@ -76,7 +76,7 @@ function parseDonationTransferContent(transferContent: string) {
     return null;
   }
 
-  if (!/\bungho\b/i.test(normalized.replaceAll(/\s+/g, ""))) {
+  if (!/\bungho\b/i.test(normalized)) {
     return null;
   }
 
@@ -87,6 +87,7 @@ function parseDonationTransferContent(transferContent: string) {
   const legacyPhone = normalized.match(/(?:^|\|)\s*SDT\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const message = normalized.match(/(?:^|\|)\s*MSG\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const ridToken = normalized.match(/(?:^|\|)\s*RID\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
+  const donationIdToken = normalized.match(/DON-HT-[A-Z0-9-]+/i)?.[0]?.trim() || "";
 
   const segments = normalized
     .split("|")
@@ -94,10 +95,10 @@ function parseDonationTransferContent(transferContent: string) {
     .filter(Boolean);
 
   const compactRid =
-    !ridToken && segments.length >= 2 && /^ungho$/i.test(segments[0])
-      ? segments[1].replace(/^RID\s*:\s*/i, "").trim()
+    !ridToken && !donationIdToken && segments.length >= 2 && /ungho/i.test(segments.join(" "))
+      ? segments.find((segment) => /^DON-HT-[A-Z0-9-]+$/i.test(segment) || /^RID\s*:/i.test(segment))?.replace(/^RID\s*:\s*/i, "").trim() || ""
       : "";
-  const rid = (ridToken || compactRid).replaceAll(/\s+/g, "");
+  const rid = (donationIdToken || ridToken || compactRid).replaceAll(/\s+/g, "");
 
   const normalizedContact = contact || legacyEmail || phoneToken || legacyPhone;
   const email = normalizedContact.includes("@") ? normalizedContact : legacyEmail;
@@ -127,8 +128,8 @@ function buildWebhookDonationMessage(input: {
   rid: string;
 }) {
   const lines = [
-    "Webhook SePay xác nhận giao dịch có mã UNGHO.",
-    `RID: ${input.rid || "Không rõ"}`,
+    "Webhook SePay xác nhận giao dịch có mã SEVQR UNGHO.",
+    `Donation ID: ${input.rid || "Không rõ"}`,
     `Mã giao dịch: ${input.transactionId || "Không rõ"}`,
     `Số tiền: ${input.amountText || "Không rõ"}`,
     `Người chuyển: ${input.senderName || "Không rõ"}`,
@@ -243,8 +244,12 @@ export async function POST(request: NextRequest) {
           ? allMessages.find(
               (item) =>
                 item.type === "donation" &&
-                (item.message.toLowerCase().includes(`rid:${donationInfo.rid.toLowerCase()}`) ||
-                  item.message.toLowerCase().includes(`rid: ${donationInfo.rid.toLowerCase()}`)) &&
+                (
+                  item.message.toLowerCase().includes(`rid:${donationInfo.rid.toLowerCase()}`) ||
+                  item.message.toLowerCase().includes(`rid: ${donationInfo.rid.toLowerCase()}`) ||
+                  item.message.toLowerCase().includes(`donation id: ${donationInfo.rid.toLowerCase()}`) ||
+                  item.message.toLowerCase().includes(donationInfo.rid.toLowerCase())
+                ) &&
                 item.source === "sepay-webhook",
             )
           : null;

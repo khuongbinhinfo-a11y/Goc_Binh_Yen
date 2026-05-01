@@ -17,7 +17,7 @@ export default function UngHoPage() {
   const [showPopup, setShowPopup] = useState(false);
   const [contactIdentity, setContactIdentity] = useState("");
   const [contactMessage, setContactMessage] = useState("");
-  const [rid, setRid] = useState("");
+  const [donationId, setDonationId] = useState("");
   const [createdDonationId, setCreatedDonationId] = useState("");
   const [creatingDonation, setCreatingDonation] = useState(false);
   const [donationCreateError, setDonationCreateError] = useState("");
@@ -25,7 +25,7 @@ export default function UngHoPage() {
   const [checkedEmail, setCheckedEmail] = useState("");
 
   useEffect(() => {
-    setRid(`R${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`.toUpperCase());
+    setDonationId(`DON-HT-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`.toUpperCase());
   }, []);
 
   const transferAccountNumber = useMemo(() => {
@@ -44,20 +44,20 @@ export default function UngHoPage() {
   }, [copy.transferDetails]);
 
   const transferNarrativeDisplay = useMemo(() => {
-    if (!rid) {
-      return "UNGHO";
+    if (!donationId) {
+      return "SEVQR | UNGHO";
     }
 
-    return `UNGHO | ${rid}`;
-  }, [rid]);
+    return `SEVQR | UNGHO | ${donationId}`;
+  }, [donationId]);
 
   const transferNarrativeFull = useMemo(() => {
     const identity = contactIdentity.trim();
     const message = contactMessage.trim().replaceAll(/\s+/g, " ").slice(0, 160);
-    const parts = ["UNGHO"];
+    const parts = ["SEVQR", "UNGHO"];
 
-    if (rid) {
-      parts.push(`RID:${rid}`);
+    if (donationId) {
+      parts.push(donationId);
     }
 
     if (identity) {
@@ -69,7 +69,7 @@ export default function UngHoPage() {
     }
 
     return parts.join(" | ");
-  }, [contactIdentity, contactMessage, rid]);
+  }, [contactIdentity, contactMessage, donationId]);
 
   const vietQrUrl = useMemo(() => {
     const normalizedBank = transferBank.toLowerCase();
@@ -108,7 +108,7 @@ export default function UngHoPage() {
   };
 
   const createDonationDraft = async () => {
-    if (!rid || createdDonationId === rid || creatingDonation) {
+    if (!donationId || createdDonationId === donationId || creatingDonation) {
       return;
     }
 
@@ -122,7 +122,7 @@ export default function UngHoPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          donationId: rid,
+          donationId,
           transferContent: transferNarrativeFull,
           contactIdentity,
           message: contactMessage,
@@ -134,7 +134,7 @@ export default function UngHoPage() {
         throw new Error(payload.error || "Không thể tạo mã ủng hộ.");
       }
 
-      setCreatedDonationId(payload.donationId || rid);
+      setCreatedDonationId(payload.donationId || donationId);
     } catch (error) {
       setDonationCreateError(error instanceof Error ? error.message : "Không thể tạo mã ủng hộ.");
     } finally {
@@ -163,14 +163,14 @@ export default function UngHoPage() {
   }, [showPopup]);
 
   useEffect(() => {
-    if (!rid || paymentConfirmed || !showPopup) {
+    if (!donationId || paymentConfirmed || !showPopup) {
       return;
     }
 
     let stopped = false;
     const checkStatus = async () => {
       try {
-        const response = await fetch(`/api/payments/sepay/status?rid=${encodeURIComponent(rid)}`, { cache: "no-store" });
+        const response = await fetch(`/api/payments/sepay/status?donationId=${encodeURIComponent(donationId)}`, { cache: "no-store" });
         const payload: { ok?: boolean; paid?: boolean; email?: string } = await response.json().catch(() => ({}));
 
         if (stopped) {
@@ -193,7 +193,7 @@ export default function UngHoPage() {
       stopped = true;
       window.clearInterval(timer);
     };
-  }, [paymentConfirmed, rid, showPopup]);
+  }, [paymentConfirmed, donationId, showPopup]);
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
