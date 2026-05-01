@@ -1,5 +1,5 @@
 const DEFAULT_INTERNAL_RECIPIENT = "gustavjung01@gmail.com";
-const DEFAULT_FROM = "Hon Tho <noreply@hontho.com>";
+const DEFAULT_FROM = "noreply@hontho.com";
 const DEFAULT_ASSET_BASE_URL = "https://hontho.com";
 
 const MAIL_FROM_ENV_BY_KIND = {
@@ -39,14 +39,6 @@ function normalizeAssetBaseUrl(rawUrl: string) {
   return `https://${trimmed}`;
 }
 
-function stripDiacritics(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/đ/g, "d")
-    .replace(/Đ/g, "D");
-}
-
 function normalizeMailFromAddress(value: string) {
   const trimmed = value.trim();
   const match = trimmed.match(/^\s*"?([^"<]*)"?\s*<([^>]+)>\s*$/);
@@ -55,14 +47,8 @@ function normalizeMailFromAddress(value: string) {
     return trimmed;
   }
 
-  const displayName = match[1].trim();
   const email = match[2].trim();
-  if (!displayName) {
-    return email;
-  }
-
-  const safeName = /^[\x00-\x7F]+$/.test(displayName) ? displayName : stripDiacritics(displayName);
-  return `${safeName} <${email}>`;
+  return email;
 }
 
 function getResendApiKey() {
