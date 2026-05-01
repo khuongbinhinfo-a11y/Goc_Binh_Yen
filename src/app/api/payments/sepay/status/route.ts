@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
       (item) =>
         item.type === "donation" &&
         item.source === "sepay-webhook" &&
-        item.message.toLowerCase().includes(`rid: ${rid}`),
+        (item.message.toLowerCase().includes(`rid: ${rid}`) || item.message.toLowerCase().includes(`rid:${rid}`)),
     );
 
     if (!matched) {

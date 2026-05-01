@@ -81,15 +81,27 @@ function parseDonationTransferContent(transferContent: string) {
   }
 
   const contact = normalized.match(/(?:^|\|)\s*CONTACT\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
+  const phoneToken = normalized.match(/(?:^|\|)\s*PHONE\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const fullName = normalized.match(/(?:^|\|)\s*NAME\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const legacyEmail = normalized.match(/(?:^|\|)\s*EMAIL\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const legacyPhone = normalized.match(/(?:^|\|)\s*SDT\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
   const message = normalized.match(/(?:^|\|)\s*MSG\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
-  const rid = normalized.match(/(?:^|\|)\s*RID\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
+  const ridToken = normalized.match(/(?:^|\|)\s*RID\s*:\s*([^|]+)/i)?.[1]?.trim() || "";
 
-  const normalizedContact = contact || legacyEmail || legacyPhone;
+  const segments = normalized
+    .split("|")
+    .map((part) => part.trim())
+    .filter(Boolean);
+
+  const compactRid =
+    !ridToken && segments.length >= 2 && /^ungho$/i.test(segments[0])
+      ? segments[1].replace(/^RID\s*:\s*/i, "").trim()
+      : "";
+  const rid = (ridToken || compactRid).replaceAll(/\s+/g, "");
+
+  const normalizedContact = contact || legacyEmail || phoneToken || legacyPhone;
   const email = normalizedContact.includes("@") ? normalizedContact : legacyEmail;
-  const phone = normalizedContact.length > 0 && !normalizedContact.includes("@") ? normalizedContact : legacyPhone;
+  const phone = normalizedContact.length > 0 && !normalizedContact.includes("@") ? normalizedContact : phoneToken || legacyPhone;
 
   return {
     email,
