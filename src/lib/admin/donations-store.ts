@@ -59,3 +59,13 @@ export async function markDonationPaidById(input: {
     bank_ref: input.bankRef,
   });
 }
+
+export function isDonationPaid(donation: DonationRow | null) {
+  if (!donation) {
+    return false;
+  }
+
+  const status = donation.status.trim().toLowerCase();
+  const amountPaid = Number((donation.amountPaid || "").replaceAll(/[^0-9.-]/g, ""));
+  return status === "paid" || status === "closed" || (Number.isFinite(amountPaid) && amountPaid > 0) || donation.bankRef.trim().length > 0;
+}

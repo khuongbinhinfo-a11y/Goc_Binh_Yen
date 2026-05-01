@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listMessages } from "@/lib/admin/messages-store";
+import { getDonationById, isDonationPaid } from "@/lib/admin/donations-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -21,6 +22,19 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    const donation = await getDonationById(donationIdRaw);
+    const paidFromDonation = isDonationPaid(donation);
+    if (donation && paidFromDonation) {
+      return NextResponse.json({
+        ok: true,
+        paid: true,
+        donationId: donationIdRaw,
+        email: donation.email || "",
+        messageId: donation.bankRef || "",
+        confirmedAt: donation.bankRef || donation.amountPaid || "",
+      });
+    }
+
     const items = await listMessages();
     const expectedToken = normalizeSearchToken(donationId);
     const matched = items.find(
@@ -35,16 +49,23 @@ export async function GET(request: NextRequest) {
     );
 
     if (!matched) {
-      return NextResponse.json({ ok: true, paid: false, donationId: donationIdRaw });
+      return NextResponse.json({
+        ok: true,
+        paid: paidFromDonation,
+        donationId: donationIdRaw,
+        email: donation?.email || "",
+        messageId: donation?.bankRef || "",
+        confirmedAt: donation?.bankRef || donation?.amountPaid || "",
+      });
     }
 
     const paid = matched.status === "closed" || matched.notes.toUpperCase().includes("PAYMENT_CONFIRMED");
 
     return NextResponse.json({
       ok: true,
-      paid,
+      paid: paid || paidFromDonation,
       donationId: donationIdRaw,
-      email: matched.email || "",
+      email: matched.email || donation?.email || "",
       messageId: matched.id,
       confirmedAt: matched.notes || "",
     });
