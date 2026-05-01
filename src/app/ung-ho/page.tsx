@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
+import DonationModal from "@/components/forms/DonationModal";
+import PublicContactForm from "@/components/forms/PublicContactForm";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SafeImage from "@/components/ui/SafeImage";
@@ -13,6 +15,8 @@ export default function UngHoPage() {
   const { locale } = useLocale();
   const copy = getBrandPagesCopy(locale).support;
   const [copied, setCopied] = useState(false);
+  const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+  const qrSectionRef = useRef<HTMLDivElement | null>(null);
 
   const handleCopyAccountNumber = async () => {
     if (!copy.accountNumber) {
@@ -87,7 +91,7 @@ export default function UngHoPage() {
                 </div>
               </article>
 
-              <article className="soft-panel overflow-hidden border-[#d8b89b] bg-[#f8efe5]">
+              <article className="soft-panel overflow-hidden border-[#d8b89b] bg-[#f8efe5]" ref={qrSectionRef}>
                 <div className="relative h-52 bg-[#f3e0cd] sm:h-60">
                   <SafeImage
                     src={copy.qrCardImage}
@@ -111,17 +115,32 @@ export default function UngHoPage() {
                     ))}
                   </dl>
 
-                  <button
-                    type="button"
-                    onClick={handleCopyAccountNumber}
-                    className="mt-4 inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
-                  >
-                    {copied ? copy.copiedButton : copy.copyButton}
-                  </button>
+                  <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+                    <button
+                      type="button"
+                      onClick={() => setIsDonationModalOpen(true)}
+                      className="inline-flex rounded-full bg-[#8b5e3c] px-5 py-2.5 text-xs font-semibold text-white transition hover:bg-[#764f33] sm:text-sm"
+                    >
+                      Ủng hộ Hồn Thơ
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleCopyAccountNumber}
+                      className="inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
+                    >
+                      {copied ? copy.copiedButton : copy.copyButton}
+                    </button>
+                  </div>
                   <p className="mt-3 text-xs text-[#8a6a57] sm:text-sm">{copy.helperText}</p>
                 </div>
               </article>
             </div>
+          </div>
+        </section>
+
+        <section className="py-10 pb-16 sm:pb-18 sm:pt-12">
+          <div className="site-shell">
+            <PublicContactForm presetType="donation" />
           </div>
         </section>
 
@@ -171,6 +190,14 @@ export default function UngHoPage() {
           </div>
         </section>
       </main>
+
+      <DonationModal 
+        isOpen={isDonationModalOpen}
+        onClose={() => setIsDonationModalOpen(false)}
+        onSubmitSuccess={() => {
+          qrSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+      />
 
       <SiteFooter />
     </div>

@@ -37,8 +37,7 @@ export default function DocThoPage() {
   const filteredItems = listItems.filter((item) => {
     const matchesTag = selectedTag === "all" ? true : item.tag === selectedTag;
     const matchesAudio = audioOnly ? item.hasAudio : true;
-    const haystack = [item.title, item.excerpt, item.author ?? "", item.tag ?? ""].join(" ").toLowerCase();
-    const matchesSearch = normalizedSearch ? haystack.includes(normalizedSearch) : true;
+    const matchesSearch = normalizedSearch ? item.title.toLowerCase().includes(normalizedSearch) : true;
 
     return matchesTag && matchesAudio && matchesSearch;
   });

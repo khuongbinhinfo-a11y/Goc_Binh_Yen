@@ -44,7 +44,7 @@ const formCopyByType: Record<NonNullable<ContactSubmitValues["type"]>, {
   },
 };
 
-export default function PublicContactForm() {
+export default function PublicContactForm({ presetType }: { presetType?: NonNullable<ContactSubmitValues["type"]> } = {}) {
   const [submitMessage, setSubmitMessage] = useState("");
   const [submitError, setSubmitError] = useState("");
 
@@ -62,11 +62,11 @@ export default function PublicContactForm() {
       phone: "",
       subject: "",
       message: "",
-      type: "contact",
+      type: presetType ?? "contact",
     },
   });
 
-  const selectedType = watch("type") ?? "contact";
+  const selectedType = watch("type") ?? presetType ?? "contact";
   const formCopy = formCopyByType[selectedType];
 
   async function onSubmit(values: ContactSubmitValues) {
@@ -143,20 +143,24 @@ export default function PublicContactForm() {
           </label>
           <p className="flex items-end pb-2.5 text-xs text-[#8b6b54]">Vui lòng cung cấp email hoặc số điện thoại để chúng tôi phản hồi</p>
 
-          <label className="space-y-1.5 text-sm text-[#5f4332]">
-            <span>Phân loại</span>
-            <select
-              {...register("type")}
-              className="w-full rounded-xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
-            >
-              {contactTypeOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            {errors.type ? <p className="text-xs text-red-700">{errors.type.message}</p> : null}
-          </label>
+          {!presetType ? (
+            <label className="space-y-1.5 text-sm text-[#5f4332]">
+              <span>Phân loại</span>
+              <select
+                {...register("type")}
+                className="w-full rounded-xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
+              >
+                {contactTypeOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              {errors.type ? <p className="text-xs text-red-700">{errors.type.message}</p> : null}
+            </label>
+          ) : (
+            <input type="hidden" {...register("type")} value={presetType} />
+          )}
         </div>
 
         <label className="space-y-1.5 text-sm text-[#5f4332]">
