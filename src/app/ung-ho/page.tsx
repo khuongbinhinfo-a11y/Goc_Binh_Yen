@@ -21,7 +21,8 @@ export default function UngHoPage() {
   const [copiedAccount, setCopiedAccount] = useState(false);
   const [copiedTransfer, setCopiedTransfer] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const [contactIdentity, setContactIdentity] = useState("");
+  const [donorName, setDonorName] = useState("");
+  const [donorEmail, setDonorEmail] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [donationId, setDonationId] = useState("");
   const [createdDonationId, setCreatedDonationId] = useState("");
@@ -29,6 +30,8 @@ export default function UngHoPage() {
   const [donationCreateError, setDonationCreateError] = useState("");
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
   const [checkedEmail, setCheckedEmail] = useState("");
+  const [checkingStatus, setCheckingStatus] = useState(false);
+  const [statusError, setStatusError] = useState("");
 
   useEffect(() => {
     const savedId = window.localStorage.getItem(DONATION_ID_STORAGE_KEY) || "";
@@ -72,7 +75,8 @@ export default function UngHoPage() {
   }, [donationId]);
 
   const transferNarrativeFull = useMemo(() => {
-    const identity = contactIdentity.trim();
+    const fullName = donorName.trim().replaceAll(/\s+/g, " ").slice(0, 80);
+    const email = donorEmail.trim().toLowerCase();
     const message = contactMessage.trim().replaceAll(/\s+/g, " ").slice(0, 160);
     const parts = ["SEVQR", "UNGHO"];
 
@@ -80,8 +84,12 @@ export default function UngHoPage() {
       parts.push(donationId);
     }
 
-    if (identity) {
-      parts.push(`CONTACT:${identity}`);
+    if (fullName) {
+      parts.push(`NAME:${fullName}`);
+    }
+
+    if (email) {
+      parts.push(`CONTACT:${email}`);
     }
 
     if (message) {
@@ -89,7 +97,7 @@ export default function UngHoPage() {
     }
 
     return parts.join(" | ");
-  }, [contactIdentity, contactMessage, donationId]);
+  }, [contactMessage, donationId, donorEmail, donorName]);
 
   const vietQrUrl = useMemo(() => {
     const normalizedBank = transferBank.toLowerCase();
@@ -128,7 +136,7 @@ export default function UngHoPage() {
   };
 
   const createDonationDraft = async () => {
-    if (!donationId || createdDonationId === donationId || creatingDonation) {
+    if (!donationId || creatingDonation) {
       return;
     }
 
@@ -144,7 +152,8 @@ export default function UngHoPage() {
         body: JSON.stringify({
           donationId,
           transferContent: transferNarrativeFull,
-          contactIdentity,
+          fullName: donorName,
+          email: donorEmail,
           message: contactMessage,
         }),
       });
@@ -162,9 +171,37 @@ export default function UngHoPage() {
     }
   };
 
+  const checkPaymentStatusOnce = async () => {
+    if (!donationId) {
+      return;
+    }
+
+    setCheckingStatus(true);
+    setStatusError("");
+
+    try {
+      const response = await fetch(`/api/payments/sepay/status?donationId=${encodeURIComponent(donationId)}`, { cache: "no-store" });
+      const payload: { ok?: boolean; paid?: boolean; email?: string; error?: string } = await response.json().catch(() => ({}));
+
+      if (!response.ok || !payload.ok) {
+        throw new Error(payload.error || "Không thể kiểm tra trạng thái thanh toán.");
+      }
+
+      if (payload.paid) {
+        setPaymentConfirmed(true);
+        setCheckedEmail(payload.email || "");
+      }
+    } catch (error) {
+      setStatusError(error instanceof Error ? error.message : "Không thể kiểm tra trạng thái thanh toán.");
+    } finally {
+      setCheckingStatus(false);
+    }
+  };
+
   const handleOpenDonationPopup = () => {
     setShowPopup(true);
     void createDonationDraft();
+    void checkPaymentStatusOnce();
   };
 
   const handleCreateNewDonationId = () => {
@@ -174,6 +211,10 @@ export default function UngHoPage() {
     setDonationCreateError("");
     setPaymentConfirmed(false);
     setCheckedEmail("");
+    setStatusError("");
+    setTimeout(() => {
+      void createDonationDraft();
+    }, 0);
   };
 
   useEffect(() => {
@@ -387,7 +428,7 @@ export default function UngHoPage() {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h3 className="text-lg font-semibold text-[#3f2b20] sm:text-xl">Ủng hộ Hồn Thơ</h3>
-                <p className="mt-1 text-xs leading-6 text-[#6f5240] sm:text-sm">Quét QR để chuyển khoản. Bạn có thể để trống thông tin liên hệ.</p>
+                <p className="mt-1 text-xs leading-6 text-[#6f5240] sm:text-sm">Quét QR để chuyển khoản. Vui lòng điền Tên - Email - Lời nhắn để hệ thống gửi thư cảm ơn chính xác.</p>
               </div>
               <button
                 type="button"
@@ -458,20 +499,31 @@ export default function UngHoPage() {
             ) : null}
 
             <div className="mt-4 rounded-2xl border border-[#d9bea4] bg-white/70 p-4">
-              <h4 className="text-sm font-semibold text-[#4a2f20] sm:text-base">Để lại thông tin (không bắt buộc)</h4>
+              <h4 className="text-sm font-semibold text-[#4a2f20] sm:text-base">Thông tin người ủng hộ</h4>
               <div className="mt-3 space-y-3">
                 <label className="block space-y-1.5 text-xs text-[#5f4332] sm:text-sm">
-                  <span>Số điện thoại hoặc Email</span>
+                  <span>Họ và tên</span>
                   <input
-                    value={contactIdentity}
-                    onChange={(event) => setContactIdentity(event.target.value)}
-                    placeholder="09xx xxx xxx hoặc ten@email.com"
+                    value={donorName}
+                    onChange={(event) => setDonorName(event.target.value)}
+                    placeholder="Nguyễn Văn A"
                     className="w-full rounded-xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
                   />
                 </label>
 
                 <label className="block space-y-1.5 text-xs text-[#5f4332] sm:text-sm">
-                  <span>Nội dung</span>
+                  <span>Email nhận thư cảm ơn</span>
+                  <input
+                    type="email"
+                    value={donorEmail}
+                    onChange={(event) => setDonorEmail(event.target.value)}
+                    placeholder="ten@email.com"
+                    className="w-full rounded-xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
+                  />
+                </label>
+
+                <label className="block space-y-1.5 text-xs text-[#5f4332] sm:text-sm">
+                  <span>Lời nhắn</span>
                   <textarea
                     value={contactMessage}
                     onChange={(event) => setContactMessage(event.target.value)}
@@ -480,8 +532,29 @@ export default function UngHoPage() {
                     className="w-full rounded-xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
                   />
                 </label>
+
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => void createDonationDraft()}
+                    className="inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
+                  >
+                    Lưu thông tin ủng hộ
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => void checkPaymentStatusOnce()}
+                    className="inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
+                  >
+                    {checkingStatus ? "Đang kiểm tra..." : "Kiểm tra trạng thái thanh toán"}
+                  </button>
+                </div>
               </div>
             </div>
+
+            {statusError ? (
+              <p className="mt-3 rounded-xl border border-[#efc4b4] bg-[#fff2ee] px-3 py-2 text-xs text-[#8d3d2a] sm:text-sm">{statusError}</p>
+            ) : null}
 
             {paymentConfirmed ? (
               <p className="mt-4 rounded-xl border border-[#c8dfb8] bg-[#f3faee] px-3 py-2 text-xs text-[#3f5f2a] sm:text-sm">

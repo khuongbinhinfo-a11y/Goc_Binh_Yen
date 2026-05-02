@@ -92,6 +92,8 @@ export async function createIncomingMessage(input: {
   subject: string;
   message: string;
   source?: string;
+  status?: string;
+  notes?: string;
 }) {
   const id = createId("msg");
   const createdAt = new Date().toISOString();
@@ -99,7 +101,7 @@ export async function createIncomingMessage(input: {
   await appendSheetRow(MESSAGES_SHEET, {
     id,
     created_at: createdAt,
-    status: "new",
+    status: input.status || "new",
     type: input.type || "contact",
     full_name: input.fullName,
     email: input.email,
@@ -110,7 +112,7 @@ export async function createIncomingMessage(input: {
     assigned_to: "",
     last_replied_at: "",
     last_reply_by: "",
-    notes: "",
+    notes: input.notes || "",
   });
 
   return { id, createdAt };

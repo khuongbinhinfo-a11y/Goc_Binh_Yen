@@ -86,7 +86,7 @@ function parseDonationTransferContent(transferContent: string) {
     return null;
   }
 
-  if (!/\bungho\b/i.test(normalized)) {
+  if (!/ungho/i.test(normalized)) {
     return null;
   }
 
@@ -245,10 +245,28 @@ export async function POST(request: NextRequest) {
       const normalizedAmount = normalizeAmount(amountRaw);
       const amountText = normalizedAmount > 0 ? `${normalizedAmount.toLocaleString("vi-VN")} VND` : amountRaw;
 
+﻿      // BUOC 1: Danh dau DONATIONS paid — LUON chay truoc, doc lap voi message logging
+      const confirmNotes = `PAYMENT_CONFIRMED:${new Date().toISOString()} | TX:${transactionId}`;
+      if (donationInfo.rid) {
+        try {
+          await markDonationPaidById({
+            donationId: donationInfo.rid,
+            amountPaid: normalizedAmount > 0 ? `${normalizedAmount}` : amountRaw,
+            bankRef: bankReference || transactionId,
+          });
+        } catch (error) {
+          console.error("[sepay/webhook] failed to mark donation paid:", error);
+        }
+      }
+
+      // BUOC 2: Ghi log MESSAGES — fail thi chi mat log, khong anh huong trang thai paid
+      let donorEmail = donationInfo.email.trim();
       try {
         await ensureAdminSheetsReady();
         const donationRow = donationInfo.rid ? await getDonationById(donationInfo.rid) : null;
-        const donorEmail = (donationInfo.email || donationRow?.email || "").trim();
+        if (!donorEmail && donationRow?.email) {
+          donorEmail = donationRow.email.trim();
+        }
         const messageBody = buildWebhookDonationMessage({
           transferContent,
           transactionId,
@@ -263,13 +281,13 @@ export async function POST(request: NextRequest) {
           ? allMessages.find(
               (item) =>
                 item.type === "donation" &&
+                item.source === "sepay-webhook" &&
                 (
                   item.message.toLowerCase().includes(`rid:${donationInfo.rid.toLowerCase()}`) ||
                   item.message.toLowerCase().includes(`rid: ${donationInfo.rid.toLowerCase()}`) ||
                   item.message.toLowerCase().includes(`donation id: ${donationInfo.rid.toLowerCase()}`) ||
                   item.message.toLowerCase().includes(donationInfo.rid.toLowerCase())
-                ) &&
-                item.source === "sepay-webhook",
+                ),
             )
           : null;
 
@@ -278,53 +296,44 @@ export async function POST(request: NextRequest) {
           storedMessageId = matchedByRid.id;
           await updateMessageById(matchedByRid.id, {
             status: "closed",
-            notes: `PAYMENT_CONFIRMED:${new Date().toISOString()} | TX:${transactionId}`,
+            notes: confirmNotes,
           });
         } else {
+          // Tao message voi status=closed va notes ngay tu dau — khong can update rieng
           const created = await createIncomingMessage({
             type: "donation",
             fullName: donationInfo.fullName || donationRow?.displayName || senderName || "",
             email: donorEmail,
             phone: donationInfo.phone,
-            subject: "Ủng hộ qua chuyển khoản (SePay webhook)",
+            subject: "Ung ho qua chuyen khoan (SePay webhook)",
             message: messageBody,
             source: "sepay-webhook",
-          });
-
-          storedMessageId = created.id;
-          await updateMessageById(created.id, {
             status: "closed",
-            notes: `PAYMENT_CONFIRMED:${new Date().toISOString()} | TX:${transactionId}`,
+            notes: confirmNotes,
           });
+          storedMessageId = created.id;
         }
 
-        if (donationInfo.rid) {
-          await markDonationPaidById({
-            donationId: donationInfo.rid,
-            amountPaid: normalizedAmount > 0 ? `${normalizedAmount}` : amountRaw,
-            bankRef: bankReference || transactionId,
-          });
-        }
-
+        // BUOC 3: Gui email cam on cho nguoi ung ho
         if (donorEmail) {
           try {
             await sendMail({
               to: donorEmail,
-              subject: "Hồn Thơ cảm ơn bạn đã ủng hộ",
+              subject: "Hon Tho cam on ban da ung ho",
               html: wrapMailBodyHtml(`
-                <p>Hồn Thơ đã nhận được khoản ủng hộ của bạn. Xin cảm ơn sự đồng hành rất quý này.</p>
-                <p><strong>Mã giao dịch:</strong> ${escapeHtml(transactionId || "Không rõ")}</p>
-                <p><strong>Số tiền:</strong> ${escapeHtml(amountText || "Không rõ")}</p>
-                <p>Chúc bạn một ngày an yên.</p>
-                <p>Thân mến,<br/>Đội ngũ Hồn Thơ</p>
+                <p>Hon Tho da nhan duoc khoan ung ho cua ban. Xin cam on su dong hanh rat quy nay.</p>
+                <p><strong>Ma giao dich:</strong> ${escapeHtml(transactionId || "Khong ro")}</p>
+                <p><strong>So tien:</strong> ${escapeHtml(amountText || "Khong ro")}</p>
+                <p>Chuc ban mot ngay an yen.</p>
+                <p>Than men,<br/>Doi ngu Hon Tho</p>
               `),
               text: [
-                "Hồn Thơ đã nhận được khoản ủng hộ của bạn. Xin cảm ơn sự đồng hành rất quý này.",
-                `Mã giao dịch: ${transactionId || "Không rõ"}`,
-                `Số tiền: ${amountText || "Không rõ"}`,
-                "Chúc bạn một ngày an yên.",
-                "Thân mến,",
-                "Đội ngũ Hồn Thơ",
+                "Hon Tho da nhan duoc khoan ung ho cua ban. Xin cam on su dong hanh rat quy nay.",
+                `Ma giao dich: ${transactionId || "Khong ro"}`,
+                `So tien: ${amountText || "Khong ro"}`,
+                "Chuc ban mot ngay an yen.",
+                "Than men,",
+                "Doi ngu Hon Tho",
               ].join("\n"),
               fromKind: "support",
             });
@@ -333,7 +342,7 @@ export async function POST(request: NextRequest) {
           }
         }
       } catch (error) {
-        console.error("[sepay/webhook] failed to store donation message:", error);
+        console.error("[sepay/webhook] failed to log donation message:", error);
       }
     }
   }

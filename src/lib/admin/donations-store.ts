@@ -1,4 +1,4 @@
-import { getSheetRows, updateSheetRowByColumn } from "@/lib/integrations/google-sheets";
+import { appendSheetRow, getSheetRows, updateSheetRowByColumn } from "@/lib/integrations/google-sheets";
 
 export type DonationRow = {
   donationId: string;
@@ -50,7 +50,20 @@ export async function markDonationPaidById(input: {
 }) {
   const donation = await getDonationById(input.donationId);
   if (!donation?.donationId) {
-    return false;
+    // Không có row → tạo mới với status=paid ngay lập tức
+    await appendSheetRow("DONATIONS", {
+      donation_id: input.donationId,
+      created_at: new Date().toISOString(),
+      status: "paid",
+      display_name: "",
+      email: "",
+      phone: "",
+      amount_expected: "",
+      amount_paid: input.amountPaid,
+      bank_ref: input.bankRef,
+      transfer_content: "",
+    });
+    return true;
   }
 
   return updateSheetRowByColumn("DONATIONS", "donation_id", donation.donationId, {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { appendSheetRow, assertSheetHeaders, getSheetRows } from "@/lib/integrations/google-sheets";
+import { appendSheetRow, assertSheetHeaders, getSheetRows, updateSheetRowByColumn } from "@/lib/integrations/google-sheets";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,22 +8,10 @@ export const dynamic = "force-dynamic";
 const createDonationSchema = z.object({
   donationId: z.string().trim().regex(/^DON-HT-[A-Z0-9-]+$/i, "donationId không đúng định dạng DON-HT-...").max(80, "donationId quá dài"),
   transferContent: z.string().trim().min(3, "Nội dung chuyển khoản không hợp lệ").max(260, "Nội dung chuyển khoản quá dài"),
-  contactIdentity: z.string().trim().max(180, "Thông tin liên hệ quá dài").optional().or(z.literal("")),
+  fullName: z.string().trim().max(120, "Họ tên quá dài").optional().or(z.literal("")),
+  email: z.string().trim().email("Email không đúng định dạng").max(180, "Email quá dài").optional().or(z.literal("")),
   message: z.string().trim().max(500, "Nội dung ghi chú quá dài").optional().or(z.literal("")),
 });
-
-function splitContactIdentity(identity: string) {
-  const value = identity.trim();
-  if (!value) {
-    return { email: "", phone: "" };
-  }
-
-  if (value.includes("@")) {
-    return { email: value, phone: "" };
-  }
-
-  return { email: "", phone: value };
-}
 
 function normalizeDonationId(value: string) {
   return value.trim().toLowerCase();
@@ -44,7 +32,10 @@ export async function POST(request: NextRequest) {
   }
 
   const payload = parsed.data;
-  const { email, phone } = splitContactIdentity(payload.contactIdentity || "");
+  const fullName = (payload.fullName || "").trim();
+  const email = (payload.email || "").trim().toLowerCase();
+  const message = (payload.message || "").trim();
+
   try {
     await assertSheetHeaders("DONATIONS");
 
@@ -53,20 +44,28 @@ export async function POST(request: NextRequest) {
     const existing = rows.find((row) => normalizeDonationId(row.values.donation_id || "") === normalizedId);
 
     if (existing) {
-      return NextResponse.json({ ok: true, created: false, donationId: payload.donationId });
+      await updateSheetRowByColumn("DONATIONS", "donation_id", existing.values.donation_id || payload.donationId, {
+        display_name: fullName || existing.values.display_name || "",
+        email: email || existing.values.email || "",
+        transfer_content: payload.transferContent,
+        message: message || existing.values.message || "",
+      });
+
+      return NextResponse.json({ ok: true, created: false, updated: true, donationId: payload.donationId });
     }
 
     await appendSheetRow("DONATIONS", {
       donation_id: payload.donationId,
       created_at: new Date().toISOString(),
       status: "pending",
-      display_name: "",
+      display_name: fullName,
       email,
-      phone,
+      phone: "",
       amount_expected: "",
       amount_paid: "",
       bank_ref: "",
       transfer_content: payload.transferContent,
+      message,
     });
 
     return NextResponse.json({ ok: true, created: true, donationId: payload.donationId });
