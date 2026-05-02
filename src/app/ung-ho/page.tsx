@@ -32,6 +32,8 @@ export default function UngHoPage() {
   const [checkedEmail, setCheckedEmail] = useState("");
   const [checkingStatus, setCheckingStatus] = useState(false);
   const [statusError, setStatusError] = useState("");
+  const [lastStatusCheckedAt, setLastStatusCheckedAt] = useState("");
+  const [lastPaidSnapshot, setLastPaidSnapshot] = useState<boolean | null>(null);
 
   useEffect(() => {
     const savedId = window.localStorage.getItem(DONATION_ID_STORAGE_KEY) || "";
@@ -171,13 +173,15 @@ export default function UngHoPage() {
     }
   };
 
-  const checkPaymentStatusOnce = async () => {
+  const checkPaymentStatusOnce = async (mode: "manual" | "auto" = "manual") => {
     if (!donationId) {
       return;
     }
 
-    setCheckingStatus(true);
-    setStatusError("");
+    if (mode === "manual") {
+      setCheckingStatus(true);
+      setStatusError("");
+    }
 
     try {
       const response = await fetch(`/api/payments/sepay/status?donationId=${encodeURIComponent(donationId)}`, { cache: "no-store" });
@@ -187,14 +191,21 @@ export default function UngHoPage() {
         throw new Error(payload.error || "Không thể kiểm tra trạng thái thanh toán.");
       }
 
+      setLastStatusCheckedAt(new Date().toLocaleTimeString("vi-VN"));
+      setLastPaidSnapshot(Boolean(payload.paid));
+
       if (payload.paid) {
         setPaymentConfirmed(true);
         setCheckedEmail(payload.email || "");
       }
     } catch (error) {
-      setStatusError(error instanceof Error ? error.message : "Không thể kiểm tra trạng thái thanh toán.");
+      if (mode === "manual") {
+        setStatusError(error instanceof Error ? error.message : "Không thể kiểm tra trạng thái thanh toán.");
+      }
     } finally {
-      setCheckingStatus(false);
+      if (mode === "manual") {
+        setCheckingStatus(false);
+      }
     }
   };
 
@@ -212,6 +223,8 @@ export default function UngHoPage() {
     setPaymentConfirmed(false);
     setCheckedEmail("");
     setStatusError("");
+    setLastStatusCheckedAt("");
+    setLastPaidSnapshot(null);
     setTimeout(() => {
       void createDonationDraft();
     }, 0);
@@ -239,25 +252,11 @@ export default function UngHoPage() {
 
     let stopped = false;
     const checkStatus = async () => {
-      try {
-        const response = await fetch(`/api/payments/sepay/status?donationId=${encodeURIComponent(donationId)}`, { cache: "no-store" });
-        const payload: { ok?: boolean; paid?: boolean; email?: string } = await response.json().catch(() => ({}));
-
-        if (stopped) {
-          return;
-        }
-
-        if (response.ok && payload.ok && payload.paid) {
-          setPaymentConfirmed(true);
-          setCheckedEmail(payload.email || "");
-        }
-      } catch {
-        // Poll again on next interval.
-      }
+      await checkPaymentStatusOnce("auto");
     };
 
     checkStatus();
-    const timer = window.setInterval(checkStatus, 5000);
+    const timer = window.setInterval(checkStatus, 2500);
 
     return () => {
       stopped = true;
@@ -554,6 +553,13 @@ export default function UngHoPage() {
 
             {statusError ? (
               <p className="mt-3 rounded-xl border border-[#efc4b4] bg-[#fff2ee] px-3 py-2 text-xs text-[#8d3d2a] sm:text-sm">{statusError}</p>
+            ) : null}
+
+            {!paymentConfirmed ? (
+              <p className="mt-3 rounded-xl border border-[#e7d3bf] bg-[#fff8f0] px-3 py-2 text-xs text-[#704f3a] sm:text-sm">
+                Đang theo dõi mã: {donationId || "..."}. {lastStatusCheckedAt ? `Lần kiểm tra gần nhất: ${lastStatusCheckedAt}.` : "Đang chờ lần kiểm tra đầu tiên."}
+                {lastPaidSnapshot === false ? " Trạng thái hiện tại: chưa xác nhận." : ""}
+              </p>
             ) : null}
 
             {paymentConfirmed ? (
