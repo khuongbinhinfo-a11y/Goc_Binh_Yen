@@ -317,23 +317,38 @@ export async function POST(request: NextRequest) {
         // BUOC 3: Gui email cam on cho nguoi ung ho
         if (donorEmail) {
           try {
+            const donorDisplayName = donationInfo.fullName || donationRow?.displayName || "bạn";
+            const donationCode = donationInfo.rid || "Không rõ";
             await sendMail({
               to: donorEmail,
-              subject: "Hon Tho cam on ban da ung ho",
+              subject: "Hồn Thơ trân trọng cảm ơn sự ủng hộ của bạn",
               html: wrapMailBodyHtml(`
-                <p>Hon Tho da nhan duoc khoan ung ho cua ban. Xin cam on su dong hanh rat quy nay.</p>
-                <p><strong>Ma giao dich:</strong> ${escapeHtml(transactionId || "Khong ro")}</p>
-                <p><strong>So tien:</strong> ${escapeHtml(amountText || "Khong ro")}</p>
-                <p>Chuc ban mot ngay an yen.</p>
-                <p>Than men,<br/>Doi ngu Hon Tho</p>
+                <p>Chào ${escapeHtml(donorDisplayName)},</p>
+                <p>Hồn Thơ đã nhận được khoản ủng hộ của bạn. Xin cảm ơn sự tin tưởng và đồng hành rất quý này.</p>
+                <p>Thông tin xác nhận:</p>
+                <ul>
+                  <li><strong>Mã ủng hộ:</strong> ${escapeHtml(donationCode)}</li>
+                  <li><strong>Mã giao dịch:</strong> ${escapeHtml(transactionId || "Không rõ")}</li>
+                  <li><strong>Số tiền:</strong> ${escapeHtml(amountText || "Không rõ")}</li>
+                </ul>
+                <p>Sự ủng hộ của bạn giúp Hồn Thơ tiếp tục duy trì không gian nội dung và các dự án đọc - viết đang thực hiện.</p>
+                <p>Chúc bạn một ngày bình an và nhiều cảm hứng.</p>
+                <p>Trân trọng,<br/>Đội ngũ Hồn Thơ</p>
               `),
               text: [
-                "Hon Tho da nhan duoc khoan ung ho cua ban. Xin cam on su dong hanh rat quy nay.",
-                `Ma giao dich: ${transactionId || "Khong ro"}`,
-                `So tien: ${amountText || "Khong ro"}`,
-                "Chuc ban mot ngay an yen.",
-                "Than men,",
-                "Doi ngu Hon Tho",
+                `Chào ${donorDisplayName},`,
+                "Hồn Thơ đã nhận được khoản ủng hộ của bạn. Xin cảm ơn sự tin tưởng và đồng hành rất quý này.",
+                "",
+                "Thông tin xác nhận:",
+                `- Mã ủng hộ: ${donationCode}`,
+                `- Mã giao dịch: ${transactionId || "Không rõ"}`,
+                `- Số tiền: ${amountText || "Không rõ"}`,
+                "",
+                "Sự ủng hộ của bạn giúp Hồn Thơ tiếp tục duy trì không gian nội dung và các dự án đọc - viết đang thực hiện.",
+                "Chúc bạn một ngày bình an và nhiều cảm hứng.",
+                "",
+                "Trân trọng,",
+                "Đội ngũ Hồn Thơ",
               ].join("\n"),
               fromKind: "support",
             });
