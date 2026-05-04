@@ -7,9 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "echo \"Lint script is optional in this starter. Use npm run build for full validation.\"",
-    "admin:hash": "node scripts/generate-admin-password-hash.mjs"
+    "admin:hash": "node scripts/generate-admin-password-hash.mjs",
+    "media:migrate:csv": "node scripts/export-poem-media-migration-map.mjs",
+    "media:r2:smoke": "node scripts/r2-smoke-test.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.911.0",
     "@hookform/resolvers": "^5.2.2",
     "googleapis": "^157.0.0",
     "next": "16.2.3",

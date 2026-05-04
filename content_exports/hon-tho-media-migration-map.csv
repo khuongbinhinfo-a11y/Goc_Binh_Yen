@@ -1,0 +1,62 @@
+slug,title,image_current,audio_current,image_r2_future,audio_r2_future
+dong-song,Dòng sông,/images/poems/dong-song.jpeg,/audio/Dong-song.m4a,images/dong-song.webp,audio/dong-song.mp3
+tam-long,Tấm lòng,/images/poems/tam-long.jpeg,/audio/Tam-long.m4a,images/tam-long.webp,audio/tam-long.mp3
+long-trinh-nu,Lòng trinh nữ,/images/poems/long-trinh-nu.jpeg,/audio/Long-trinh-nu.m4a,images/long-trinh-nu.webp,audio/long-trinh-nu.mp3
+to-tinh,Tỏ tình,/images/poems/to-tinh.jpeg,/audio/To-tinh.m4a,images/to-tinh.webp,audio/to-tinh.mp3
+ben-do,B\u1ebfn \u0110\u00f2,"resolvePoemImageByTitle(""B\u1ebfn \u0110\u00f2"")",/audio/Ben-\u0111o.m4a,images/ben-do.webp,audio/ben-do.mp3
+ban-tay,B\u00e0n Tay,"resolvePoemImageByTitle(""B\u00e0n Tay"")",/audio/Ban-tay.m4a,images/ban-tay.webp,audio/ban-tay.mp3
+cam-hoa,C\u1eafm Hoa,"resolvePoemImageByTitle(""C\u1eafm Hoa"")",/audio/Cam-hoa.m4a,images/cam-hoa.webp,audio/cam-hoa.mp3
+cam-on-tinh-yeu,C\u1ea3m \u01a0n T\u00ecnh Y\u00eau,"resolvePoemImageByTitle(""C\u1ea3m \u01a0n T\u00ecnh Y\u00eau"")",/audio/Cam-on tinh yeu.m4a,images/cam-on-tinh-yeu.webp,audio/cam-on-tinh-yeu.mp3
+mot-thoang,M\u1ed9t Tho\u00e1ng,"resolvePoemImageByTitle(""M\u1ed9t Tho\u00e1ng"")",/audio/Mot-thoang.m4a,images/mot-thoang.webp,audio/mot-thoang.mp3
+hoa-buom,Hoa B\u01b0\u1edbm,"resolvePoemImageByTitle(""Hoa B\u01b0\u1edbm"")",/audio/Hoa-buom.m4a,images/hoa-buom.webp,audio/hoa-buom.mp3
+hue-trang,Hu\u1ec7 Tr\u1eafng,"resolvePoemImageByTitle(""Hu\u1ec7 Tr\u1eafng"")",/audio/Hue-trang.m4a,images/hue-trang.webp,audio/hue-trang.mp3
+qua-mien-thuong-nho,Qua Mi\u1ec1n Th\u01b0\u01a1ng Nh\u1edb,"resolvePoemImageByTitle(""Qua Mi\u1ec1n Th\u01b0\u01a1ng Nh\u1edb"")",/audio/Qua-mien-thuong-nho.m4a,images/qua-mien-thuong-nho.webp,audio/qua-mien-thuong-nho.mp3
+chi-can-co-vay,Ch\u1ec9 C\u1ea7n C\u00f3 V\u1eady,"resolvePoemImageByTitle(""Ch\u1ec9 C\u1ea7n C\u00f3 V\u1eady"")",/audio/Chi-can-co-vay.m4a,images/chi-can-co-vay.webp,audio/chi-can-co-vay.mp3
+khoang-cach-vo-hinh,Khoảng cách vô hình,"resolvePoemImageByTitle(""Khoảng cách vô hình"")",/audio/Khoang-cach-vo-hinh.m4a,images/khoang-cach-vo-hinh.webp,audio/khoang-cach-vo-hinh.mp3
+hoa-luc-binh,Hoa lục bình,"resolvePoemImageByTitle(""Hoa lục bình"")",/audio/Hoa-luc-binh.m4a,images/hoa-luc-binh.webp,audio/hoa-luc-binh.mp3
+em-mua-xuan-ve,Em - mùa xuân về,"resolvePoemImageByTitle(""Em - mùa xuân về"")",/audio/Em-mua-xuan-ve.m4a,images/em-mua-xuan-ve.webp,audio/em-mua-xuan-ve.mp3
+em-trong-anh,Em trong anh,"resolvePoemImageByTitle(""Em trong anh"")",/audio/Em-trong-anh.m4a,images/em-trong-anh.webp,audio/em-trong-anh.mp3
+anh-yeu-em,Anh yêu em,"resolvePoemImageByTitle(""Anh yêu em"")",/audio/Anh-yeu-em.m4a,images/anh-yeu-em.webp,audio/anh-yeu-em.mp3
+nho,Nhớ,"resolvePoemImageByTitle(""Nhớ"")",/audio/nho.m4a,images/nho.webp,audio/nho.mp3
+tieng-keu-chim-le-ban,Tiếng kêu chim lẻ bạn,"resolvePoemImageByTitle(""Tiếng kêu chim lẻ bạn"")",/audio/Tieng-keu-chim-le-ban.m4a,images/tieng-keu-chim-le-ban.webp,audio/tieng-keu-chim-le-ban.mp3
+ngang-ben-song-xua,Ngang bến sông xưa,"resolvePoemImageByTitle(""Ngang bến sông xưa"")",/audio/ngang-ben-song-xua.m4a,images/ngang-ben-song-xua.webp,audio/ngang-ben-song-xua.mp3
+them,Thèm,https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format\u0026fit=crop\u0026w=1200\u0026q=80,/audio/Them.m4a,images/them.webp,audio/them.mp3
+ben-song-xua,Bến sông xưa,/images/poems/ben-song-xua.jpeg,/audio/Ben-song-xua.m4a,images/ben-song-xua.webp,audio/ben-song-xua.mp3
+dau-can-noi-chi-em,Đâu cần nói chi em,/images/poems/dau-can-noi-chi-em.jpeg,/audio/\u0110au-can-noi-chi-em.m4a,images/dau-can-noi-chi-em.webp,audio/dau-can-noi-chi-em.mp3
+hanh-phuc,Hạnh phúc,/images/poems/hanh-phuc.jpeg,/audio/Hanh-phuc.m4a,images/hanh-phuc.webp,audio/hanh-phuc.mp3
+mo-tro-ve,Mơ trở về,/images/poems/mo-tro-ve.jpeg,/audio/Mo-tro-ve.m4a,images/mo-tro-ve.webp,audio/mo-tro-ve.mp3
+nho-lam-ngay-xua,Nhớ lắm ngày xưa,/images/poems/nho-lam-ngay-xua.jpeg,/audio/Nho-lam-ngay-xua.m4a,images/nho-lam-ngay-xua.webp,audio/nho-lam-ngay-xua.mp3
+cho-anh-goi,Cho anh gởi,/images/poems/cho-anh-goi.jpeg,/audio/Cho-anh-goi.m4a,images/cho-anh-goi.webp,audio/cho-anh-goi.mp3
+ngam,Ngẫm,/images/poems/ngam.jpeg,/audio/Ngam.m4a,images/ngam.webp,audio/ngam.mp3
+qua-voi-bau,Qua với bậu,/images/poems/qua-voi-bau.jpeg,/audio/Qua-voi-bau.m4a,images/qua-voi-bau.webp,audio/qua-voi-bau.mp3
+nhin-trang,Nhìn trăng,/images/poems/nhin-trang.jpeg,/audio/Nhin-trang.m4a,images/nhin-trang.webp,audio/nhin-trang.mp3
+mua-hen,Mùa hẹn,/images/poems/mua-hen.jpeg,/audio/Mua-hen.m4a,images/mua-hen.webp,audio/mua-hen.mp3
+cho-trong,Chờ trông,/images/poems/cho-trong.jpeg,/audio/Cho-trong.m4a,images/cho-trong.webp,audio/cho-trong.mp3
+mo-uoc,Mơ ước,/images/poems/mo-uoc.jpeg,/audio/Mo-uoc.m4a,images/mo-uoc.webp,audio/mo-uoc.mp3
+muon-con-hon-khong,Muộn còn hồn không,/images/poems/muon-con-hon-khong.jpeg,/audio/Muon-con-hon-khong.m4a,images/muon-con-hon-khong.webp,audio/muon-con-hon-khong.mp3
+goi-lai-em,Gởi lại em,/images/poems/goi-lai-em.jpeg,/audio/Goi-lai-em.m4a,images/goi-lai-em.webp,audio/goi-lai-em.mp3
+vu-vo,Vu vơ,/images/poems/vu-vo.jpeg,/audio/Vu-vo.m4a,images/vu-vo.webp,audio/vu-vo.mp3
+chuyen-do,Chuyến đò,/images/poems/chuyen-do.jpeg,/audio/Chuyen-đo.m4a,images/chuyen-do.webp,audio/chuyen-do.mp3
+mo-dao-vuon-xuan,Mơ dạo vườn xuân,/images/poems/mo-dao-vuon-xuan.jpeg,/audio/Mo-dao-vuon-xuan.m4a,images/mo-dao-vuon-xuan.webp,audio/mo-dao-vuon-xuan.mp3
+ron-rang,Rộn ràng,/images/poems/ron-rang.jpeg,/audio/Ron-rang.m4a,images/ron-rang.webp,audio/ron-rang.mp3
+ngay-ay,Ngày ấy,/images/poems/ngay-ay.png,/audio/ngay-ay.m4a,images/ngay-ay.webp,audio/ngay-ay.mp3
+giac-mo,Giấc mơ,/images/poems/giac-mo.png,/audio/giac-mo.m4a,images/giac-mo.webp,audio/giac-mo.mp3
+nguoi-dung,Người dưng,/images/poems/nguoi-dung.png,/audio/nguoi-dung.m4a,images/nguoi-dung.webp,audio/nguoi-dung.mp3
+trong-trai,Trống trải,/images/poems/trong-trai.png,/audio/trong-trai.m4a,images/trong-trai.webp,audio/trong-trai.mp3
+di-nguoc-mat-troi,Đi ngược mặt trời,/images/poems/di-nguoc-mat-troi.png,/audio/di-nguoc-mat-troi.m4a,images/di-nguoc-mat-troi.webp,audio/di-nguoc-mat-troi.mp3
+anh-mai-ben-em,Anh mãi bên em,/images/poems/anh-mai-ben-em.png,/audio/anh-mai-ben-em.m4a,images/anh-mai-ben-em.webp,audio/anh-mai-ben-em.mp3
+xuan,Xuân,/images/poems/xuan.png,/audio/xuan.m4a,images/xuan.webp,audio/xuan.mp3
+mua-thu-la-do,Mùa thu lá đỏ,/images/poems/mua-thu-la-do.png,/audio/mua-thu-la-do.m4a,images/mua-thu-la-do.webp,audio/mua-thu-la-do.mp3
+neu-co-mot-ngay,Nếu có một ngày,/images/poems/neu-co-mot-ngay.png,/audio/neu-co-mot-ngay.m4a,images/neu-co-mot-ngay.webp,audio/neu-co-mot-ngay.mp3
+tien-ai,Tiễn ai,/images/poems/tien-ai.png,/audio/tien-ai.m4a,images/tien-ai.webp,audio/tien-ai.mp3
+buon,Buồn,/images/poems/buon.png,/audio/buon.m4a,images/buon.webp,audio/buon.mp3
+xa-nhau-qua,Xa nhau quá,/images/poems/xa-nhau-qua.png,/audio/xa-nhau-qua.m4a,images/xa-nhau-qua.webp,audio/xa-nhau-qua.mp3
+dau-chua,Dẫu chưa,/images/poems/dau-chua.png,/audio/dau-chua.m4a,images/dau-chua.webp,audio/dau-chua.mp3
+co-nhieu-luc,Có nhiều lúc,/images/poems/co-nhieu-luc.png,/audio/co-nhieu-luc.m4a,images/co-nhieu-luc.webp,audio/co-nhieu-luc.mp3
+khi-yeu-nguoi-ta-ra-sao,Khi yêu người ta ra sao,/images/poems/khi-yeu-nguoi-ta-ra-sao.png,/audio/khi-yeu-nguoi-ta-ra-sao.m4a,images/khi-yeu-nguoi-ta-ra-sao.webp,audio/khi-yeu-nguoi-ta-ra-sao.mp3
+em-huong-xua,Em - hương xưa,/images/poems/em-huong-xua.png,/audio/em-huong-xua.m4a,images/em-huong-xua.webp,audio/em-huong-xua.mp3
+co-don,Cô đơn,/images/poems/co-don.png,/audio/co-don.m4a,images/co-don.webp,audio/co-don.mp3
+bi-ngan-hoa,Bỉ ngạn hoa,/images/poems/bi-ngan-hoa.png,/audio/bi-ngan-hoa.m4a,images/bi-ngan-hoa.webp,audio/bi-ngan-hoa.mp3
+dung-than-nhien-nhu-the,Đừng thản nhiên như thế,/images/poems/dung-than-nhien-nhu-the.png,/audio/dung-than-nhien-nhu-the.m4a,images/dung-than-nhien-nhu-the.webp,audio/dung-than-nhien-nhu-the.mp3
+nho-mot-chut-gio-nhe,Nhớ,/images/poems/nho.png,,images/nho-mot-chut-gio-nhe.webp,audio/nho-mot-chut-gio-nhe.mp3
+xin-loi,Xin Lỗi,/images/poems/xin-loi.png,/audio/xin-loi.m4a,images/xin-loi.webp,audio/xin-loi.mp3
