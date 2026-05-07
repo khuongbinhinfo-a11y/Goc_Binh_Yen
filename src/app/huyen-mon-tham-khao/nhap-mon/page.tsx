@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { coHocIntroArticles } from "@/data/coHocIntroArticles";
+import { getSafeImageSrc } from "@/lib/image";
 
 export default function HuyenMonNhapMonPage() {
   return (
@@ -21,7 +22,7 @@ export default function HuyenMonNhapMonPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/co-hoc/Nhap-mon.jpeg"
+              src={getSafeImageSrc("/images/co-hoc/Nhap-mon.jpeg")}
               alt="Nhập môn Cổ học"
               width={1600}
               height={900}
@@ -36,7 +37,7 @@ export default function HuyenMonNhapMonPage() {
             <article key={article.slug} className="soft-panel overflow-hidden bg-[#fffaf4]">
               <Link href={`/huyen-mon-tham-khao/nhap-mon/${article.slug}`} className="block">
                 <div className="border-b border-[#e9d8c6]">
-                  <Image src={article.coverImage} alt={article.title} width={800} height={450} className="h-auto w-full" />
+                  <Image src={getSafeImageSrc(article.coverImage)} alt={article.title} width={800} height={450} className="h-auto w-full" />
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold leading-7 text-[#4a2f20]">{article.title}</h2>

@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-05-07T16:02:39.268Z",
+  "totalImagesInRepo": 155,
+  "totalUploaded": 155,
+  "totalUploadFailed": 0,
+  "totalVerifyFailed": 0,
+  "totalReferencedButMissingInRepo": 0,
+  "totalExistingButNotReferenced": 59,
+  "backupDestination": "F:\\1_A_Disk_D\\Khương Bình\\hồn Thơ\\images-backup\\images",
+  "reports": {
+    "inventory": "content_exports/r2-image-inventory.json",
+    "manifest": "src/data/cloudImageManifest.ts"
+  },
+  "failedUpload": [],
+  "failedVerify": [],
+  "referencedButMissingInRepo": []
+}

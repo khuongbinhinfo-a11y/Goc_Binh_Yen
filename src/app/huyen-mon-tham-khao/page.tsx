@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { getSafeImageSrc } from "@/lib/image";
+
 const primaryBranches = [
   {
     title: "Nhập môn",
@@ -43,7 +45,7 @@ export default function HuyenMonThamKhaoPage() {
       <section className="relative min-h-[360px] overflow-hidden border-b border-[#dec2a7] bg-[#e9d8c4] sm:min-h-0">
         <div className="pointer-events-none absolute inset-0">
           <Image
-            src={heroImage}
+            src={getSafeImageSrc(heroImage)}
             alt=""
             fill
             priority
@@ -72,7 +74,7 @@ export default function HuyenMonThamKhaoPage() {
                 <div className="relative z-10">
                   <div
                     className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${branch.image})` }}
+                    style={{ backgroundImage: `url(${getSafeImageSrc(branch.image)})` }}
                   />
                   <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{branch.title}</h2>
                   <p className="mt-3 text-sm leading-7 text-[#654939]">{branch.description}</p>
@@ -92,7 +94,7 @@ export default function HuyenMonThamKhaoPage() {
               <div className="relative z-10">
                 <div
                   className="mb-4 h-20 rounded-xl border border-[#dcc5ae] bg-cover bg-center"
-                  style={{ backgroundImage: `url(${writingGuide.image})` }}
+                  style={{ backgroundImage: `url(${getSafeImageSrc(writingGuide.image)})` }}
                 />
                 <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20]">{writingGuide.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-[#654939]">{writingGuide.description}</p>

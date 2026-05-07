@@ -7,6 +7,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { coHocIntroArticles } from "@/data/coHocIntroArticles";
+import { getSafeImageSrc } from "@/lib/image";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -117,7 +118,7 @@ export default async function CoHocIntroArticlePage({ params }: PageProps) {
 
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e3d1be]">
             <Image
-              src={article.coverImage}
+              src={getSafeImageSrc(article.coverImage)}
               alt={article.title}
               width={1600}
               height={900}

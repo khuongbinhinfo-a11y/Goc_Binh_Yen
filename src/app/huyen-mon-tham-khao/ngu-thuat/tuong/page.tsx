@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { getSafeImageSrc } from "@/lib/image";
+
 export default function HuyenMonTuongPage() {
   return (
     <section className="py-12 sm:py-14">
@@ -19,7 +21,7 @@ export default function HuyenMonTuongPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/sections/ngu-thuat/ngu-thuat-card-tuong.png"
+              src={getSafeImageSrc("/images/sections/ngu-thuat/ngu-thuat-card-tuong.png")}
               alt="Tướng học nhập môn"
               width={1600}
               height={900}

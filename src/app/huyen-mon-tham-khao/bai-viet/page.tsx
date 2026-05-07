@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { getSafeImageSrc } from "@/lib/image";
 import { createRouteMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createRouteMetadata({
   title: "Cổ học - Tủ bài nền nhập môn",
   description: "Tổng hợp các cụm bài nền Cổ học theo từng giai đoạn, trình bày ngắn gọn để theo dõi dễ dàng.",
   path: "/huyen-mon-tham-khao/bai-viet",
-  image: "/images/co-hoc/Co-hoc.jpeg",
+  image: getSafeImageSrc("/images/co-hoc/Co-hoc.jpeg"),
 });
 
 const phases = [
@@ -74,7 +75,7 @@ export default function CoHocBaiVietPage() {
               >
                 <div
                   className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-12"
-                  style={{ backgroundImage: `url(${phase.art})` }}
+                  style={{ backgroundImage: `url(${getSafeImageSrc(phase.art)})` }}
                 />
                 <div className="relative z-10 flex items-start justify-between">
                   <div className="flex-1">

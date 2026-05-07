@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { getSafeImageSrc } from "@/lib/image";
+
 export default function HuyenMonUngDungVaGioiHanPage() {
   return (
     <section className="py-12 sm:py-14">
@@ -20,7 +22,7 @@ export default function HuyenMonUngDungVaGioiHanPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/co-hoc/ung-dung-va-gioi-han.jpeg"
+              src={getSafeImageSrc("/images/co-hoc/ung-dung-va-gioi-han.jpeg")}
               alt="Ứng dụng và giới hạn"
               width={1600}
               height={900}

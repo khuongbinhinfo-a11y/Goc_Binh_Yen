@@ -3,7 +3,7 @@
 import Image, { ImageProps } from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-import { getSafeImageSrc, IMAGE_FALLBACKS } from "@/lib/image";
+import { getSafeImageCandidates, getSafeImageSrc, IMAGE_FALLBACKS } from "@/lib/image";
 
 type SafeImageProps = Omit<ImageProps, "src"> & {
   src: string;
@@ -41,7 +41,11 @@ export default function SafeImage({ src, fallbackSrc, srcCandidates, onError, ..
       ...(srcCandidates ?? []).map(toCandidate),
     ].filter(Boolean) as string[];
 
-    return uniqueCandidates(raw).map((candidate) => getSafeImageSrc(candidate, resolvedFallback));
+    const expandedCandidates = uniqueCandidates(raw).flatMap((candidate) =>
+      getSafeImageCandidates(candidate, resolvedFallback),
+    );
+
+    return uniqueCandidates(expandedCandidates.map((candidate) => getSafeImageSrc(candidate, resolvedFallback)));
   }, [resolvedFallback, src, srcCandidates]);
 
   const [candidateIndex, setCandidateIndex] = useState(0);

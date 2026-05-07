@@ -1,4 +1,5 @@
 import { ContentType } from "@/data/contentLibrary";
+import { getCloudImageCandidates } from "@/data/cloudImageManifest";
 
 export type ResolvedLocalImage = {
   basename: string;
@@ -68,13 +69,19 @@ function isRemoteImage(src: string) {
 }
 
 export function getSafeImageSrc(src: string | null | undefined, fallback: string = IMAGE_FALLBACKS.global) {
+  return getSafeImageCandidates(src, fallback)[0] ?? fallback;
+}
+
+export function getSafeImageCandidates(src: string | null | undefined, fallback: string = IMAGE_FALLBACKS.global) {
   const value = (src ?? "").trim();
-  if (!value) return fallback;
+  if (!value) return [fallback];
 
-  if (isRemoteImage(value)) return value;
-  if (value.startsWith("/images/")) return value;
+  if (isRemoteImage(value)) return [value];
+  if (value.startsWith("/images/")) {
+    return getCloudImageCandidates(value);
+  }
 
-  return fallback;
+  return [fallback];
 }
 
 export function getContentFallbackImage(contentType: ContentType) {

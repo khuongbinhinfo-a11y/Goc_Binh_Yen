@@ -1,0 +1,191 @@
+export const CLOUD_IMAGE_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac8226.r2.dev" as const;
+
+export const CLOUD_IMAGE_PATHS = [
+  "/images/4.webp",
+  "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp",
+  "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi.webp",
+  "/images/articles/huyen-mon-tham-khao/cover-ngu-thuat-trong-truyen-thong-phuong-dong.webp",
+  "/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg",
+  "/images/brand/fallback-poem.png",
+  "/images/brand/fallback-story-spiritual.png",
+  "/images/brand/footer-ornament.png",
+  "/images/brand/hero-home.png",
+  "/images/brand/hero-poetry.png",
+  "/images/brand/hero-spiritual.png",
+  "/images/brand/hero-story.png",
+  "/images/brand/hero-support.png",
+  "/images/co-hoc/Co-hoc.jpeg",
+  "/images/co-hoc/Nhap-mon.jpeg",
+  "/images/co-hoc/bai-viet-tranh-co.svg",
+  "/images/co-hoc/ngu-thuat-tranh-co.svg",
+  "/images/co-hoc/ngu-thuat.jpeg",
+  "/images/co-hoc/nhap-mon-tranh-co.svg",
+  "/images/co-hoc/tam-thuc-tranh-co.svg",
+  "/images/co-hoc/tam-thuc.jpeg",
+  "/images/co-hoc/ung-dung-gioi-han-tranh-co.svg",
+  "/images/co-hoc/ung-dung-va-gioi-han.jpeg",
+  "/images/heroes/co-hoc-hero-main.png",
+  "/images/heroes/ngu-thuat-hero-main.png",
+  "/images/ke-chuyen/anh-den-truoc-san-nha-dem-mat-dien.png",
+  "/images/ke-chuyen/ben-do-cu-qua-mot-mua-mua.png",
+  "/images/ke-chuyen/chuyen-nguoi-qua-cau-tre.png",
+  "/images/ke-chuyen/dem-nghe-tieng-nuoc-chay.png",
+  "/images/ke-chuyen/ke-chuyen-hero.png",
+  "/images/ke-chuyen/mot-buoi-cho-que-tan-muon.png",
+  "/images/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.png",
+  "/images/ke-chuyen/nguoi-va-xuong-o-me-son.png",
+  "/images/logo-4.jpg",
+  "/images/poems/anh-mai-ben-em.png",
+  "/images/poems/anh-yeu-em.jpeg",
+  "/images/poems/ban-tay.jpeg",
+  "/images/poems/ben-do.jpeg",
+  "/images/poems/ben-song-xua.jpeg",
+  "/images/poems/bi-ngan-hoa.png",
+  "/images/poems/buon.png",
+  "/images/poems/cam-hoa.jpeg",
+  "/images/poems/cam-on-tinh-yeu.jpeg",
+  "/images/poems/chi-can-co-vay.jpeg",
+  "/images/poems/cho-anh-goi.jpeg",
+  "/images/poems/cho-trong.jpeg",
+  "/images/poems/chuyen-do.jpeg",
+  "/images/poems/co-don.png",
+  "/images/poems/co-nhieu-luc.png",
+  "/images/poems/dau-can-noi-chi-em.jpeg",
+  "/images/poems/dau-chua.png",
+  "/images/poems/di-nguoc-mat-troi.png",
+  "/images/poems/dong-song.jpeg",
+  "/images/poems/dung-than-nhien-nhu-the.png",
+  "/images/poems/em-huong-xua.png",
+  "/images/poems/em-mua-xuan-ve.jpeg",
+  "/images/poems/em-trong-anh.jpeg",
+  "/images/poems/giac-mo.png",
+  "/images/poems/goi-lai-em.jpeg",
+  "/images/poems/hanh-phuc.jpeg",
+  "/images/poems/hoa-buom.jpeg",
+  "/images/poems/hoa-luc-binh.jpeg",
+  "/images/poems/hue-trang.jpeg",
+  "/images/poems/khi-yeu-nguoi-ta-ra-sao.png",
+  "/images/poems/khoang-cach-vo-hinh.jpeg",
+  "/images/poems/long-trinh-nu.jpeg",
+  "/images/poems/mo-dao-vuon-xuan.jpeg",
+  "/images/poems/mo-tro-ve.jpeg",
+  "/images/poems/mo-uoc.jpeg",
+  "/images/poems/mot-thoang.jpeg",
+  "/images/poems/mua-hen.jpeg",
+  "/images/poems/mua-thu-la-do.png",
+  "/images/poems/muon-con-hon-khong.jpeg",
+  "/images/poems/neu-co-mot-ngay.png",
+  "/images/poems/ngam.jpeg",
+  "/images/poems/ngang-ben-song-xua.jpeg",
+  "/images/poems/ngay-ay.png",
+  "/images/poems/nguoi-dung.png",
+  "/images/poems/nhin-trang.jpeg",
+  "/images/poems/nho-lam-ngay-xua.jpeg",
+  "/images/poems/nho.jpeg",
+  "/images/poems/nho.png",
+  "/images/poems/qua-mien-thuong-nho.jpeg",
+  "/images/poems/qua-voi-bau.jpeg",
+  "/images/poems/ron-rang.jpeg",
+  "/images/poems/t-g.jpg",
+  "/images/poems/tac-gia.png",
+  "/images/poems/tam-long.jpeg",
+  "/images/poems/tien-ai.png",
+  "/images/poems/tieng-keu-chim-le-ban.jpeg",
+  "/images/poems/to-tinh.jpeg",
+  "/images/poems/trong-trai.png",
+  "/images/poems/vu-vo.jpeg",
+  "/images/poems/xa-nhau-qua.png",
+  "/images/poems/xin-loi.png",
+  "/images/poems/xuan.png",
+  "/images/sections/co-hoc/co-hoc-card-bai-viet.png",
+  "/images/sections/co-hoc/co-hoc-card-ngu-thuat.png",
+  "/images/sections/co-hoc/co-hoc-card-nhap-mon.png",
+  "/images/sections/co-hoc/co-hoc-card-tam-thuc.png",
+  "/images/sections/co-hoc/co-hoc-card-ung-dung-gioi-han.png",
+  "/images/sections/ngu-thuat/ngu-thuat-card-boc.png",
+  "/images/sections/ngu-thuat/ngu-thuat-card-menh.png",
+  "/images/sections/ngu-thuat/ngu-thuat-card-son.png",
+  "/images/sections/ngu-thuat/ngu-thuat-card-tuong.png",
+  "/images/sections/ngu-thuat/ngu-thuat-card-y.png",
+  "/images/sections/tam-thuc/fallback-tam-thuc.jpg",
+  "/images/sections/tam-thuc/hero-tam-thuc.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/fallback-tam-thuc.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/hero-tam-thuc.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-cach-tiep-can.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ky-mon.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-luc-nham.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nghien-cuu.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nhap-mon.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-so-sanh.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-thai-at.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ung-dung.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/tam-thuc-preview.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/fallback-tam-thuc-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/hero-tam-thuc-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ky-mon-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-luc-nham-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nghien-cuu-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nhap-mon-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-so-sanh-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-thai-at-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ung-dung-thumb.jpg",
+  "/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg",
+  "/images/sections/tam-thuc/tam-thuc-ky-mon.jpg",
+  "/images/sections/tam-thuc/tam-thuc-luc-nham.jpg",
+  "/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg",
+  "/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
+  "/images/sections/tam-thuc/tam-thuc-so-sanh.jpg",
+  "/images/sections/tam-thuc/tam-thuc-thai-at.jpg",
+  "/images/sections/tam-thuc/tam-thuc-ung-dung.jpg",
+  "/images/sections/tam-thuc/thumb/fallback-tam-thuc-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/hero-tam-thuc-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-ky-mon-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-luc-nham-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-nghien-cuu-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-nhap-mon-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-so-sanh-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg",
+  "/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg",
+  "/images/support/qr-bank.jpg",
+  "/images/tam-linh/hoc-tho-cham-giua-ngay-dai.png",
+  "/images/tam-linh/mot-ngay-im-lang-ben-song.png",
+  "/images/tam-linh/mot-sang-quet-la-trong-san-chua.png",
+  "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
+  "/images/tam-linh/ngoi-yen-nghe-mua-cham-mai-hien.png",
+  "/images/tam-linh/tam-linh-hero.png",
+  "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png"
+] as const;
+
+const cloudImagePathSet = new Set<string>(CLOUD_IMAGE_PATHS);
+
+function normalizeLocalImagePath(localPath: string) {
+  const normalized = localPath.trim();
+  if (!normalized) return "";
+  if (normalized.startsWith("/images/")) return normalized;
+  if (normalized.startsWith("images/")) return "/" + normalized;
+  return "";
+}
+
+export function hasCloudImage(localPath: string) {
+  const normalized = normalizeLocalImagePath(localPath);
+  if (!normalized) return false;
+  return cloudImagePathSet.has(normalized);
+}
+
+export function getCloudImageUrl(localPath: string) {
+  const normalized = normalizeLocalImagePath(localPath);
+  if (!normalized) return undefined;
+  if (!CLOUD_IMAGE_BASE_URL) return undefined;
+  if (!hasCloudImage(normalized)) return undefined;
+  return CLOUD_IMAGE_BASE_URL + normalized;
+}
+
+export function getCloudImageCandidates(localPath: string) {
+  const normalized = normalizeLocalImagePath(localPath);
+  if (!normalized) return [] as string[];
+  const cloud = getCloudImageUrl(normalized);
+  if (cloud && cloud !== normalized) return [cloud, normalized];
+  return [normalized];
+}

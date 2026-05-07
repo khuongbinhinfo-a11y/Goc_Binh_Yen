@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import { getSafeImageSrc } from "@/lib/image";
+
 const branches = [
   {
     title: "Sơn",
@@ -48,7 +50,7 @@ export default function HuyenMonNguThuatPage() {
           </p>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src="/images/heroes/ngu-thuat-hero-main.png"
+              src={getSafeImageSrc("/images/heroes/ngu-thuat-hero-main.png")}
               alt="Ngũ thuật"
               width={1600}
               height={900}
@@ -63,11 +65,11 @@ export default function HuyenMonNguThuatPage() {
             <article key={item.href} className="soft-panel relative overflow-hidden bg-[#fffaf4] p-5">
               <div className="mb-4 overflow-hidden rounded-xl border border-[#dcc5ae]">
                 <div className="relative h-24">
-                  <Image src={item.image} alt={item.title} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-center" />
+                  <Image src={getSafeImageSrc(item.image)} alt={item.title} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-center" />
                 </div>
                 <div
                   className="h-1.5 bg-cover bg-center opacity-70"
-                  style={{ backgroundImage: "url(/images/co-hoc/ngu-thuat-tranh-co.svg)" }}
+                  style={{ backgroundImage: `url(${getSafeImageSrc("/images/co-hoc/ngu-thuat-tranh-co.svg")})` }}
                 />
               </div>
               <h2 className="text-2xl font-semibold text-[#4a2f20]">{item.title}</h2>
