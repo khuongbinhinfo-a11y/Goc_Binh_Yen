@@ -79,14 +79,6 @@ export default function SpiritualDetailPage() {
     return `https://www.hontho.com${routePrefix}/${post.slug}`;
   };
 
-  const buildPreviewText = (content: string) =>
-    content
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .slice(0, 6)
-      .join("\n");
-
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -112,12 +104,10 @@ export default function SpiritualDetailPage() {
   };
 
   const handleShareFacebook = async () => {
-    const previewText = buildPreviewText(post.content);
     const shareText = [
       post.title,
       "",
-      post.excerpt,
-      previewText ? `Trích đoạn:\n${previewText}` : "",
+      post.content,
       "",
       getArticleUrl(),
     ]

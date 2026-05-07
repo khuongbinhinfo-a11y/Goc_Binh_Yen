@@ -90,14 +90,6 @@ export default function PoemDetailPage() {
     return `https://www.hontho.com${routePrefix}/${poem.slug}`;
   };
 
-  const buildPreviewText = (content: string) =>
-    content
-      .split("\n")
-      .map((line) => line.trim())
-      .filter(Boolean)
-      .slice(0, 6)
-      .join("\n");
-
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -123,12 +115,10 @@ export default function PoemDetailPage() {
   };
 
   const handleShareFacebook = async () => {
-    const previewText = buildPreviewText(poem.content);
     const shareText = [
       poem.title,
       "",
-      poem.excerpt,
-      previewText ? `Trích đoạn:\n${previewText}` : "",
+      poem.content,
       "",
       getArticleUrl(),
     ]
