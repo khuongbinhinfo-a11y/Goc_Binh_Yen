@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 
 import { useLocale } from "@/hooks/useLocale";
-import { getSafeImageCandidates, getSafeImageSrc, LOCAL_IMAGE_MAP } from "@/lib/image";
+import { getSafeImageSrc, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 type FooterGroupType = "explore" | "companion";
 type FooterLinkIconId =
@@ -90,10 +90,7 @@ function FooterLinkIcon({ id }: { id: FooterLinkIconId }) {
 }
 
 function FooterOrnamentImage({ alt }: { alt: string }) {
-  const candidates = useMemo(
-    () => getSafeImageCandidates(LOCAL_IMAGE_MAP.footerOrnament.src, LOCAL_IMAGE_MAP.footerOrnament.fallback),
-    [],
-  );
+  const candidates = useMemo(() => LOCAL_IMAGE_MAP.footerOrnament.candidates, []);
   const [index, setIndex] = useState(0);
   const [hidden, setHidden] = useState(false);
 
