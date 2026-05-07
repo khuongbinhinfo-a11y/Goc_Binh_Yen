@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 
 import InlineAudioPlayer from "@/components/content/InlineAudioPlayer";
@@ -30,6 +30,9 @@ export default function PoemDetailPage() {
   const shouldAutoPlayOnMount = searchParams.get("autoplay") === "1";
   const copy = getReadingCopy(locale, "poem").detail;
   const routePrefix = getContentRoutePrefix("poem");
+  const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
+  const [isManualShareOpen, setIsManualShareOpen] = useState(false);
+  const [shareToast, setShareToast] = useState<string | null>(null);
 
   const relatedPoems = useMemo(() => {
     if (!poem) return [];
@@ -79,9 +82,75 @@ export default function PoemDetailPage() {
       : null,
   ].filter((item): item is { title: string; href: string; button: string; type: "audio" | "video" } => Boolean(item));
 
-  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    `https://hon-tho.vercel.app${routePrefix}/${poem.slug}`
-  )}`;
+  const getArticleUrl = () => {
+    if (typeof window !== "undefined") {
+      return `${window.location.origin}${routePrefix}/${poem.slug}`;
+    }
+
+    return `https://www.hontho.com${routePrefix}/${poem.slug}`;
+  };
+
+  const buildPreviewText = (content: string) =>
+    content
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean)
+      .slice(0, 6)
+      .join("\n");
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        return true;
+      } catch {
+        return false;
+      }
+    }
+  };
+
+  const showCopiedToast = (message: string) => {
+    setShareToast(message);
+    window.setTimeout(() => setShareToast(null), 1800);
+  };
+
+  const handleShareFacebook = async () => {
+    const previewText = buildPreviewText(poem.content);
+    const shareText = [
+      poem.title,
+      "",
+      poem.excerpt,
+      previewText ? `Trích đoạn:\n${previewText}` : "",
+      "",
+      getArticleUrl(),
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const copied = await copyToClipboard(shareText);
+    if (copied) showCopiedToast("Đã copy nội dung chia sẻ Facebook");
+
+    window.open("https://www.facebook.com/hontho.mytho", "_blank", "noopener,noreferrer");
+    setIsShareMenuOpen(false);
+    setIsManualShareOpen(false);
+  };
+
+  const handleOpenManualShare = () => {
+    setIsManualShareOpen((prev) => !prev);
+  };
+
+  const handleCopyArticleLink = async () => {
+    const copied = await copyToClipboard(getArticleUrl());
+    if (copied) showCopiedToast("Đã copy link bài viết");
+  };
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -169,14 +238,55 @@ export default function PoemDetailPage() {
                   {copy.actionWatch}
                 </a>
               )}
-              <a
-                href={shareUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
-              >
-                {copy.actionShare}
-              </a>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsShareMenuOpen((prev) => !prev);
+                    setIsManualShareOpen(false);
+                  }}
+                  className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                >
+                  {copy.actionShare}
+                </button>
+
+                {isShareMenuOpen ? (
+                  <div className="absolute right-0 z-20 mt-2 w-64 rounded-xl border border-[#d8b89b] bg-[#fffaf5] p-2 shadow-lg">
+                    <button
+                      type="button"
+                      onClick={handleShareFacebook}
+                      className="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                    >
+                      Facebook (tự copy nội dung)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleOpenManualShare}
+                      className="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                    >
+                      Khác (copy link để gửi thủ công)
+                    </button>
+                  </div>
+                ) : null}
+
+                {isShareMenuOpen && isManualShareOpen ? (
+                  <div className="absolute right-0 z-20 mt-28 w-72 rounded-xl border border-[#d8b89b] bg-[#fffaf5] p-3 shadow-lg">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#865a3c]">Link bài viết</p>
+                    <p className="break-all rounded-lg border border-[#e7d0b9] bg-white px-2 py-2 text-xs text-[#654939]">{getArticleUrl()}</p>
+                    <button
+                      type="button"
+                      onClick={handleCopyArticleLink}
+                      className="mt-2 inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-3 py-1.5 text-xs font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                    >
+                      Copy link
+                    </button>
+                  </div>
+                ) : null}
+
+                {shareToast ? (
+                  <p className="absolute right-0 z-30 mt-2 w-64 rounded-lg bg-[#4a2f20] px-3 py-2 text-xs text-[#f9e8d5]">{shareToast}</p>
+                ) : null}
+              </div>
             </nav>
           </div>
         </section>

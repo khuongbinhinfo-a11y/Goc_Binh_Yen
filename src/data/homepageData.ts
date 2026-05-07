@@ -1,7 +1,7 @@
 import { LOCAL_IMAGE_MAP } from "@/lib/image";
 
 export const FACEBOOK_URL =
-  "https://www.facebook.com/profile.php?id=61561724806320";
+  "https://www.facebook.com/hontho.mytho";
 
 export const YOUTUBE_URL = "https://www.youtube.com/@Hontho-BT";
 
