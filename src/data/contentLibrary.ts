@@ -1,4 +1,5 @@
 import { poems as rawPoems } from "@/data/poems";
+import { getCloudAudioUrl, hasCloudAudio } from "@/data/cloudAudioManifest";
 
 export type ContentType = "poem" | "story" | "spiritual";
 
@@ -44,6 +45,18 @@ function estimateReadingTime(content: string) {
   return `${minutes} phút`;
 }
 
+function withCloudAudio(item: ContentItem): ContentItem {
+  const audioUrl = hasCloudAudio(item.contentType, item.slug)
+    ? getCloudAudioUrl(item.contentType, item.slug)
+    : undefined;
+
+  return {
+    ...item,
+    audioUrl,
+    hasAudio: Boolean(audioUrl),
+  };
+}
+
 const poetryBase: ContentItem[] = rawPoems
   .filter((item) => item.status === "published")
   .map((item, index, source) => ({
@@ -64,8 +77,8 @@ const poetryBase: ContentItem[] = rawPoems
       .filter((candidate) => candidate.slug !== item.slug && candidate.status === "published")
       .slice(0, 3)
       .map((candidate) => candidate.slug),
-    audioUrl: item.audioUrl,
-    hasAudio: Boolean(item.audioUrl),
+    audioUrl: hasCloudAudio("poem", item.slug) ? getCloudAudioUrl("poem", item.slug) : undefined,
+    hasAudio: hasCloudAudio("poem", item.slug),
     hasVideo: false,
     isFeatured: index === 0,
   }));
@@ -95,7 +108,8 @@ const baseStoryPosts: ContentItem[] = [
         "Có những nơi không giữ người bằng vẻ lớn lao.",
     },
     relatedPosts: ["dem-nghe-tieng-nuoc-chay", "mui-khoi-bep-len-tu-xom-nho", "chuyen-nguoi-qua-cau-tre"],
-    hasAudio: false,
+    audioUrl: "/audio/ke-chuyen/ben-do-cu-qua-mot-mua-mua.m4a",
+    hasAudio: true,
     hasVideo: false,
     isFeatured: true,
   },
@@ -123,7 +137,8 @@ const baseStoryPosts: ContentItem[] = [
         "Tiếng nước không làm mọi buồn phiền biến mất.",
     },
     relatedPosts: ["ben-do-cu-qua-mot-mua-mua", "mui-khoi-bep-len-tu-xom-nho", "chuyen-nguoi-qua-cau-tre"],
-    hasAudio: false,
+    audioUrl: "/audio/ke-chuyen/dem-nghe-tieng-nuoc-chay.m4a",
+    hasAudio: true,
     hasVideo: false,
     isFeatured: false,
   },
@@ -151,7 +166,8 @@ const baseStoryPosts: ContentItem[] = [
         "Có lẽ quê hương ở lại trong ta bằng những điều như vậy.",
     },
     relatedPosts: ["ben-do-cu-qua-mot-mua-mua", "dem-nghe-tieng-nuoc-chay", "chuyen-nguoi-qua-cau-tre"],
-    hasAudio: false,
+    audioUrl: "/audio/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.m4a",
+    hasAudio: true,
     hasVideo: true,
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     isFeatured: false,
@@ -180,7 +196,8 @@ const baseStoryPosts: ContentItem[] = [
         "Những cây cầu nhỏ ở làng quê không chỉ để đi qua.",
     },
     relatedPosts: ["ben-do-cu-qua-mot-mua-mua", "dem-nghe-tieng-nuoc-chay", "mui-khoi-bep-len-tu-xom-nho"],
-    hasAudio: false,
+    audioUrl: "/audio/ke-chuyen/chuyen-nguoi-qua-cau-tre.m4a",
+    hasAudio: true,
     hasVideo: false,
     isFeatured: false,
   },
@@ -294,7 +311,8 @@ additionalStoryPosts.push({
       "Xuồng không biết nói, nhưng nó trả lời bằng cách chìm hay nổi.",
   },
   relatedPosts: ["ben-do-cu-qua-mot-mua-mua", "chuyen-nguoi-qua-cau-tre", "mot-buoi-cho-que-tan-muon"],
-  hasAudio: false,
+  audioUrl: "/audio/ke-chuyen/nguoi-va-xuong-o-me-song.m4a",
+  hasAudio: true,
   hasVideo: false,
   isFeatured: false,
 });
@@ -361,13 +379,13 @@ const storyPostsSeed: ContentItem[] = [...baseStoryPosts, ...additionalStoryPost
 export const storyPosts: ContentItem[] = storyPostsSeed.map((item) => {
   const expansion = storyPostExpansions[item.slug];
 
-  if (!expansion) return item;
+  if (!expansion) return withCloudAudio(item);
 
-  return {
+  return withCloudAudio({
     ...item,
     readingTime: expansion.readingTime,
     content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
-  };
+  });
 });
 
 const baseSpiritualPosts: ContentItem[] = [
@@ -668,13 +686,13 @@ const spiritualPostsSeed: ContentItem[] = [...baseSpiritualPosts, ...additionalS
 export const spiritualPosts: ContentItem[] = spiritualPostsSeed.map((item) => {
   const expansion = spiritualPostExpansions[item.slug];
 
-  if (!expansion) return item;
+  if (!expansion) return withCloudAudio(item);
 
-  return {
+  return withCloudAudio({
     ...item,
     readingTime: expansion.readingTime,
     content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
-  };
+  });
 });
 
 export const poetryPosts: ContentItem[] = poetryBase.map((item) => {

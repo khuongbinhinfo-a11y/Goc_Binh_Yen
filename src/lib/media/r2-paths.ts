@@ -3,6 +3,7 @@ import "server-only";
 import { r2Config } from "@/lib/media/r2-config";
 
 export type MediaKind = "audio" | "images" | "covers" | "video";
+export type AudioBranch = "doc-tho" | "ke-chuyen" | "tam-linh";
 
 function cleanSlug(slug: string) {
   return slug.trim().replace(/^\/+|\/+$/g, "");
@@ -21,10 +22,21 @@ export function buildR2ObjectKey(kind: MediaKind, filename: string) {
   return `${prefix}/${normalizedFilename}`;
 }
 
-export function buildR2MediaKeyFromSlug(kind: MediaKind, slug: string) {
+export function buildR2MediaKeyFromSlug(
+  kind: MediaKind,
+  slug: string,
+  options?: { audioBranch?: AudioBranch },
+) {
   const normalizedSlug = cleanSlug(slug);
 
-  if (kind === "audio") return buildR2ObjectKey(kind, `${normalizedSlug}.mp3`);
+  if (kind === "audio") {
+    const normalizedBranch = cleanSlug(options?.audioBranch ?? "");
+    if (normalizedBranch) {
+      return buildR2ObjectKey(kind, `${normalizedBranch}/${normalizedSlug}.mp3`);
+    }
+
+    return buildR2ObjectKey(kind, `${normalizedSlug}.mp3`);
+  }
   if (kind === "images") return buildR2ObjectKey(kind, `${normalizedSlug}.webp`);
   if (kind === "covers") return buildR2ObjectKey(kind, `${normalizedSlug}-cover.webp`);
   return buildR2ObjectKey(kind, `${normalizedSlug}.mp4`);
@@ -35,7 +47,11 @@ export function buildR2PublicUrlFromKey(key: string) {
   return `${r2Config.publicDevUrl}/${key.replace(/^\/+/, "")}`;
 }
 
-export function buildR2MediaUrlFromSlug(kind: MediaKind, slug: string) {
-  const key = buildR2MediaKeyFromSlug(kind, slug);
+export function buildR2MediaUrlFromSlug(
+  kind: MediaKind,
+  slug: string,
+  options?: { audioBranch?: AudioBranch },
+) {
+  const key = buildR2MediaKeyFromSlug(kind, slug, options);
   return buildR2PublicUrlFromKey(key);
 }

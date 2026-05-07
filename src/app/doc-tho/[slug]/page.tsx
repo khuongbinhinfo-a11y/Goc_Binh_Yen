@@ -33,6 +33,29 @@ export default function PoemDetailPage() {
   const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
   const [isManualShareOpen, setIsManualShareOpen] = useState(false);
   const [shareToast, setShareToast] = useState<string | null>(null);
+  const youtubeIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#ff0033] text-white shadow-sm">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-white">
+        <path d="M23.5 7.2a3 3 0 0 0-2.1-2.1C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.6A3 3 0 0 0 .5 7.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-4.8ZM9.6 15.2V8.8L15.8 12l-6.2 3.2Z" />
+      </svg>
+    </span>
+  );
+  const facebookIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-sm">
+      <svg viewBox="0 0 320 512" aria-hidden="true" className="h-3.5 w-3.5 fill-white">
+        <path d="M279.14 288l14.22-92.66h-88.91V135.99c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+      </svg>
+    </span>
+  );
+  const linkIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#8a5a3d] text-white shadow-sm">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.9">
+        <path d="M10.5 13.5 13.5 10.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.8 16.2 6.7 18.3a3 3 0 1 1-4.2-4.2l2.1-2.1a3 3 0 0 1 4.2 0" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="m15.2 7.8 2.1-2.1a3 3 0 1 1 4.2 4.2l-2.1 2.1a3 3 0 0 1-4.2 0" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
 
   const relatedPoems = useMemo(() => {
     if (!poem) return [];
@@ -223,9 +246,11 @@ export default function PoemDetailPage() {
               {poem.hasVideo && poem.youtubeUrl && (
                 <a
                   href="#nghe-xem"
-                  className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                  title="YouTube"
+                  aria-label="YouTube"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#c89f7f] bg-[#fff8ee] p-0 transition hover:bg-[#f6e6d3]"
                 >
-                  {copy.actionWatch}
+                  {youtubeIcon}
                 </a>
               )}
               <div className="relative">
@@ -241,20 +266,25 @@ export default function PoemDetailPage() {
                 </button>
 
                 {isShareMenuOpen ? (
-                  <div className="absolute right-0 z-20 mt-2 w-64 rounded-xl border border-[#d8b89b] bg-[#fffaf5] p-2 shadow-lg">
+                  <div className="absolute right-0 z-20 mt-2 w-72 rounded-2xl border border-[#d8b89b] bg-[#fffaf5] p-3 shadow-[0_14px_30px_rgba(84,53,34,0.16)]">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#865a3c]">Chia sẻ nhanh</p>
                     <button
                       type="button"
                       onClick={handleShareFacebook}
-                      className="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                      title="Facebook"
+                      aria-label="Facebook"
+                      className="inline-flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f3e0cc]"
                     >
-                      Facebook (tự copy nội dung)
+                      {facebookIcon}
+                      <span>Facebook</span>
                     </button>
                     <button
                       type="button"
                       onClick={handleOpenManualShare}
-                      className="block w-full rounded-lg px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                      className="mt-1 inline-flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f3e0cc]"
                     >
-                      Khác (copy link để gửi thủ công)
+                      {linkIcon}
+                      <span>Khác (copy link để gửi thủ công)</span>
                     </button>
                   </div>
                 ) : null}

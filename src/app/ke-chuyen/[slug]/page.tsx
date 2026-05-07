@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 
 import InlineAudioPlayer from "@/components/content/InlineAudioPlayer";
@@ -29,6 +29,32 @@ export default function StoryDetailPage() {
   const shouldAutoPlayOnMount = searchParams.get("autoplay") === "1";
   const copy = getReadingCopy(locale, "story").detail;
   const routePrefix = getContentRoutePrefix("story");
+  const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
+  const [isManualShareOpen, setIsManualShareOpen] = useState(false);
+  const [shareToast, setShareToast] = useState<string | null>(null);
+  const youtubeIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#ff0033] text-white shadow-sm">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-white">
+        <path d="M23.5 7.2a3 3 0 0 0-2.1-2.1C19.5 4.5 12 4.5 12 4.5s-7.5 0-9.4.6A3 3 0 0 0 .5 7.2 31.7 31.7 0 0 0 0 12a31.7 31.7 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.7 31.7 0 0 0 24 12a31.7 31.7 0 0 0-.5-4.8ZM9.6 15.2V8.8L15.8 12l-6.2 3.2Z" />
+      </svg>
+    </span>
+  );
+  const facebookIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#1877f2] text-white shadow-sm">
+      <svg viewBox="0 0 320 512" aria-hidden="true" className="h-3.5 w-3.5 fill-white">
+        <path d="M279.14 288l14.22-92.66h-88.91V135.99c0-25.35 12.42-50.06 52.24-50.06H297V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+      </svg>
+    </span>
+  );
+  const linkIcon = (
+    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#8a5a3d] text-white shadow-sm">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-none stroke-current" strokeWidth="1.9">
+        <path d="M10.5 13.5 13.5 10.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8.8 16.2 6.7 18.3a3 3 0 1 1-4.2-4.2l2.1-2.1a3 3 0 0 1 4.2 0" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="m15.2 7.8 2.1-2.1a3 3 0 1 1 4.2 4.2l-2.1 2.1a3 3 0 0 1-4.2 0" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+  );
 
   const relatedStories = useMemo(() => {
     if (!story) return [];
@@ -68,9 +94,59 @@ export default function StoryDetailPage() {
       : null,
   ].filter((item): item is { title: string; href: string; button: string; type: "audio" | "video" } => Boolean(item));
 
-  const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-    `https://hon-tho.vercel.app${routePrefix}/${story.slug}`,
-  )}`;
+  const getArticleUrl = () => {
+    if (typeof window !== "undefined") {
+      return `${window.location.origin}${routePrefix}/${story.slug}`;
+    }
+
+    return `https://www.hontho.com${routePrefix}/${story.slug}`;
+  };
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      try {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        return true;
+      } catch {
+        return false;
+      }
+    }
+  };
+
+  const showCopiedToast = (message: string) => {
+    setShareToast(message);
+    window.setTimeout(() => setShareToast(null), 1800);
+  };
+
+  const handleShareFacebook = async () => {
+    const shareText = [story.title, "", story.content, "", getArticleUrl()]
+      .filter(Boolean)
+      .join("\n");
+
+    const copied = await copyToClipboard(shareText);
+    if (copied) showCopiedToast("Đã copy nội dung chia sẻ Facebook");
+
+    window.open("https://www.facebook.com/hontho.mytho", "_blank", "noopener,noreferrer");
+    setIsShareMenuOpen(false);
+    setIsManualShareOpen(false);
+  };
+
+  const handleOpenManualShare = () => {
+    setIsManualShareOpen((prev) => !prev);
+  };
+
+  const handleCopyArticleLink = async () => {
+    const copied = await copyToClipboard(getArticleUrl());
+    if (copied) showCopiedToast("Đã copy link bài viết");
+  };
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -148,19 +224,67 @@ export default function StoryDetailPage() {
               {story.hasVideo && story.youtubeUrl && (
                 <a
                   href="#nghe-xem"
-                  className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                  title="YouTube"
+                  aria-label="YouTube"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#c89f7f] bg-[#fff8ee] p-0 transition hover:bg-[#f6e6d3]"
                 >
-                  {copy.actionWatch}
+                  {youtubeIcon}
                 </a>
               )}
-              <a
-                href={shareUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
-              >
-                {copy.actionShare}
-              </a>
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsShareMenuOpen((prev) => !prev);
+                    setIsManualShareOpen(false);
+                  }}
+                  className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                >
+                  {copy.actionShare}
+                </button>
+
+                {isShareMenuOpen ? (
+                  <div className="absolute right-0 z-20 mt-2 w-72 rounded-2xl border border-[#d8b89b] bg-[#fffaf5] p-3 shadow-[0_14px_30px_rgba(84,53,34,0.16)]">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#865a3c]">Chia sẻ nhanh</p>
+                    <button
+                      type="button"
+                      onClick={handleShareFacebook}
+                      title="Facebook"
+                      aria-label="Facebook"
+                      className="inline-flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f3e0cc]"
+                    >
+                      {facebookIcon}
+                      <span>Facebook</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleOpenManualShare}
+                      className="mt-1 inline-flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-medium text-[#6d4733] transition hover:bg-[#f3e0cc]"
+                    >
+                      {linkIcon}
+                      <span>Khác (copy link để gửi thủ công)</span>
+                    </button>
+                  </div>
+                ) : null}
+
+                {isShareMenuOpen && isManualShareOpen ? (
+                  <div className="absolute right-0 z-20 mt-28 w-72 rounded-xl border border-[#d8b89b] bg-[#fffaf5] p-3 shadow-lg">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#865a3c]">Link bài viết</p>
+                    <p className="break-all rounded-lg border border-[#e7d0b9] bg-white px-2 py-2 text-xs text-[#654939]">{getArticleUrl()}</p>
+                    <button
+                      type="button"
+                      onClick={handleCopyArticleLink}
+                      className="mt-2 inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-3 py-1.5 text-xs font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
+                    >
+                      Copy link
+                    </button>
+                  </div>
+                ) : null}
+
+                {shareToast ? (
+                  <p className="absolute right-0 z-30 mt-2 w-64 rounded-lg bg-[#4a2f20] px-3 py-2 text-xs text-[#f9e8d5]">{shareToast}</p>
+                ) : null}
+              </div>
             </nav>
           </div>
         </section>

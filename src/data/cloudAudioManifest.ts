@@ -1,0 +1,104 @@
+export const CLOUD_AUDIO_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac8226.r2.dev" as const;
+
+export const CLOUD_AUDIO_SLUGS = {
+  poem: [
+  "anh-mai-ben-em",
+  "anh-yeu-em",
+  "ban-tay",
+  "ben-do",
+  "ben-song-xua",
+  "bi-ngan-hoa",
+  "buon",
+  "cam-hoa",
+  "cam-on-tinh-yeu",
+  "chi-can-co-vay",
+  "cho-anh-goi",
+  "cho-trong",
+  "chuyen-do",
+  "co-don",
+  "co-nhieu-luc",
+  "dau-can-noi-chi-em",
+  "dau-chua",
+  "di-nguoc-mat-troi",
+  "dong-song",
+  "dung-than-nhien-nhu-the",
+  "em-huong-xua",
+  "em-mua-xuan-ve",
+  "em-trong-anh",
+  "giac-mo",
+  "goi-lai-em",
+  "hanh-phuc",
+  "hoa-buom",
+  "hoa-luc-binh",
+  "hue-trang",
+  "khi-yeu-nguoi-ta-ra-sao",
+  "khoang-cach-vo-hinh",
+  "long-trinh-nu",
+  "mo-dao-vuon-xuan",
+  "mo-tro-ve",
+  "mo-uoc",
+  "mot-thoang",
+  "mua-hen",
+  "mua-thu-la-do",
+  "muon-con-hon-khong",
+  "neu-co-mot-ngay",
+  "ngam",
+  "ngang-ben-song-xua",
+  "ngay-ay",
+  "nguoi-dung",
+  "nhin-trang",
+  "nho",
+  "nho-lam-ngay-xua",
+  "qua-mien-thuong-nho",
+  "qua-voi-bau",
+  "ron-rang",
+  "tam-long",
+  "them",
+  "tien-ai",
+  "tieng-keu-chim-le-ban",
+  "to-tinh",
+  "trong-trai",
+  "vu-vo",
+  "xa-nhau-qua",
+  "xin-loi",
+  "xuan"
+],
+  story: [
+  "ben-do-cu-qua-mot-mua-mua",
+  "chuyen-nguoi-qua-cau-tre",
+  "dem-nghe-tieng-nuoc-chay",
+  "mui-khoi-bep-len-tu-xom-nho",
+  "nguoi-va-xuong-o-me-song"
+],
+  spiritual: [
+  "hoc-tho-cham-giua-ngay-dai",
+  "mot-ngay-im-lang-ben-song",
+  "mot-sang-quet-la-trong-san-chua",
+  "mua-chuong-chieu-trong-san-chua-nho",
+  "ngoi-yen-nghe-mua-cham-mai-hien",
+  "thap-den-nho-truoc-khi-ngu"
+],
+} as const;
+
+export type CloudAudioType = keyof typeof CLOUD_AUDIO_SLUGS;
+
+const slugSets: Record<CloudAudioType, Set<string>> = {
+  poem: new Set(CLOUD_AUDIO_SLUGS.poem),
+  story: new Set(CLOUD_AUDIO_SLUGS.story),
+  spiritual: new Set(CLOUD_AUDIO_SLUGS.spiritual),
+};
+
+function branchByType(type: CloudAudioType) {
+  if (type === "poem") return "doc-tho";
+  if (type === "story") return "ke-chuyen";
+  return "tam-linh";
+}
+
+export function hasCloudAudio(type: CloudAudioType, slug: string) {
+  return slugSets[type].has(slug);
+}
+
+export function getCloudAudioUrl(type: CloudAudioType, slug: string) {
+  if (!hasCloudAudio(type, slug)) return undefined;
+  return CLOUD_AUDIO_BASE_URL + "/audio/" + branchByType(type) + "/" + slug + ".mp3";
+}

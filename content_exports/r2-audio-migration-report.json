@@ -1,0 +1,10 @@
+{
+  "uploadedCounts": {
+    "poem": 60,
+    "story": 5,
+    "spiritual": 6
+  },
+  "missingLocal": [],
+  "failedUpload": [],
+  "failedVerify": []
+}
