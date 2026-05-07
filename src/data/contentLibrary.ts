@@ -91,7 +91,7 @@ const baseStoryPosts: ContentItem[] = [
     category: "Kể chuyện",
     excerpt:
       "Một buổi chiều mưa, người kể chuyện trở lại bến đò xưa để tìm lại những gương mặt đã từng đi qua tuổi thơ.",
-    coverImage: "https://images.unsplash.com/photo-1470163395405-d2b80e7450ed?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/ke-chuyen/ben-do-cu-qua-mot-mua-mua.png",
     voiceBy: "Hồng Tâm",
     readingTime: "6 phút",
     publishedAt: "Mỹ Tho, tháng 10/2020",
@@ -120,7 +120,7 @@ const baseStoryPosts: ContentItem[] = [
     category: "Kể chuyện",
     excerpt:
       "Một đêm mất ngủ bên hiên nhà, tiếng nước vỗ bờ đã kéo người kể trở về với những ngày tháng yên lành nhất.",
-    coverImage: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/ke-chuyen/dem-nghe-tieng-nuoc-chay.png",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Cai Lậy, tháng 02/2021",
@@ -149,7 +149,7 @@ const baseStoryPosts: ContentItem[] = [
     category: "Kể chuyện",
     excerpt:
       "Chỉ một làn khói bếp chiều cũng đủ kéo cả tuổi thơ trở về: tiếng gọi cơm, tiếng chén đũa và bàn tay mẹ.",
-    coverImage: "https://images.unsplash.com/photo-1513519245088-0e12902e35ca?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.png",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Tân Phong, tháng 08/2021",
@@ -179,7 +179,7 @@ const baseStoryPosts: ContentItem[] = [
     category: "Kể chuyện",
     excerpt:
       "Một cây cầu tre nhỏ nối hai bờ không chỉ đưa người qua sông, mà còn giữ lại cách người ta đợi nhau và thương nhau.",
-    coverImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/ke-chuyen/chuyen-nguoi-qua-cau-tre.png",
     voiceBy: "Hồng Tâm",
     readingTime: "7 phút",
     publishedAt: "Mỹ Tho, tháng 03/2022",
@@ -212,7 +212,7 @@ additionalStoryPosts.push({
   category: "Kể chuyện",
   excerpt:
     "Chợ quá giờ tan vẫn còn sáng đèn, giữ lại nhịp người quê chậm rãi, tử tế và rất tình.",
-  coverImage: "https://images.unsplash.com/photo-1459257831348-f0cdd359235f?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/ke-chuyen/mot-buoi-cho-que-tan-muon.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Cái Bè, tháng 07/2024",
@@ -249,7 +249,7 @@ additionalStoryPosts.push({
   category: "Kể chuyện",
   excerpt:
     "Mỗi lần xóm mất điện, ngọn đèn trước sân lại kéo mọi người ngồi gần nhau hơn, kể chuyện cũ và đỡ nhau qua đêm dài.",
-  coverImage: "https://images.unsplash.com/photo-1493244040629-496f6d136cc3?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/ke-chuyen/anh-den-truoc-san-nha-dem-mat-dien.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Tân Phong, tháng 11/2024",
@@ -286,7 +286,7 @@ additionalStoryPosts.push({
   category: "Kể chuyện",
   excerpt:
     "Ngày nào cũng vậy, người thợ già bên mé sông cần mẫn vá xuồng để những chuyến đời thường không bị chìm giữa con nước.",
-  coverImage: "https://images.unsplash.com/photo-1473773508845-188df298d2d1?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/ke-chuyen/nguoi-va-xuong-o-me-son.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Mỹ Tho, tháng 09/2024",
@@ -396,7 +396,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Một buổi chiều mưa nhẹ, tiếng chuông ngân đã kéo người kể trở về với cảm giác tĩnh tâm lâu rồi mới gặp lại.",
-    coverImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Mỹ Tho, tháng 06/2022",
@@ -425,7 +425,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Một nén nhang chiều không cầu điều lớn, chỉ là lời nhắc sống hiền và giữ lòng sáng giữa bao bộn bề.",
-    coverImage: "https://images.unsplash.com/photo-1463320898484-cdee8141c787?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/tam-linh/tam-linh-hero.png",
     voiceBy: "Hồng Tâm",
     readingTime: "4 phút",
     publishedAt: "Cai Lậy, tháng 10/2022",
@@ -453,7 +453,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Giữa nhiều âm thanh của cuộc sống, người kể chọn một ngày nói ít hơn để nghe rõ tiếng lòng mình.",
-    coverImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/tam-linh/mot-ngay-im-lang-ben-song.png",
     voiceBy: "Hồng Tâm",
     readingTime: "6 phút",
     publishedAt: "Tân Phong, tháng 03/2023",
@@ -482,7 +482,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Một bài chiêm nghiệm ngắn về việc trở về hơi thở, để giữ tâm thế sáng và vững giữa nhịp sống nhiều xáo động.",
-    coverImage: "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=1400&q=80",
+    coverImage: "/images/tam-linh/hoc-tho-cham-giua-ngay-dai.png",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Mỹ Tho, tháng 11/2023",
@@ -516,7 +516,7 @@ additionalSpiritualPosts.push({
   category: "Tâm linh",
   excerpt:
     "Buổi sáng quét lá tưởng là việc nhỏ, nhưng từng nhát chổi chậm lại mở ra một cách sống tỉnh và nhẹ hơn.",
-  coverImage: "https://images.unsplash.com/photo-1508022713622-df2d8fb7b4cd?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/tam-linh/mot-sang-quet-la-trong-san-chua.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Mỹ Tho, tháng 01/2025",
@@ -554,7 +554,7 @@ additionalSpiritualPosts.push({
   category: "Tâm linh",
   excerpt:
     "Một ngọn đèn nhỏ thắp mỗi đêm trở thành nghi thức dịu dàng để khép lại ngày dài và giữ lòng không chìm trong tối.",
-  coverImage: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Tân Phong, tháng 03/2025",
@@ -593,7 +593,7 @@ additionalSpiritualPosts.push({
   category: "Tâm linh",
   excerpt:
     "Một buổi mưa dài bên mái hiên giúp người kể học lại cách ngồi yên, thở sâu và để nỗi lo đi qua như hạt nước.",
-  coverImage: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80",
+  coverImage: "/images/tam-linh/ngoi-yen-nghe-mua-cham-mai-hien.png",
   voiceBy: "Hồng Tâm",
   readingTime: "9 phút",
   publishedAt: "Cai Lậy, tháng 02/2025",

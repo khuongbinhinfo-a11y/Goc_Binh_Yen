@@ -40,8 +40,13 @@ function createResolvedLocalImage(basename: string, src: string, candidates: str
 export const LOCAL_IMAGE_MAP = {
   heroHome: createResolvedLocalImage("hero-home", "/images/brand/hero-home.png"),
   heroPoetry: createResolvedLocalImage("hero-poetry", "/images/brand/hero-poetry.png", [FALLBACK_POEM], FALLBACK_POEM),
-  heroStory: createResolvedLocalImage("hero-story", "/images/brand/hero-story.png", [FALLBACK_STORY], FALLBACK_STORY),
-  heroSpiritual: createResolvedLocalImage("hero-spiritual", "/images/brand/hero-spiritual.png", ["/images/poems/hue-trang.jpeg", FALLBACK_STORY], FALLBACK_STORY),
+  heroStory: createResolvedLocalImage("ke-chuyen-hero", "/images/ke-chuyen/ke-chuyen-hero.png", ["/images/brand/hero-story.png", FALLBACK_STORY], FALLBACK_STORY),
+  heroSpiritual: createResolvedLocalImage(
+    "tam-linh-hero",
+    "/images/tam-linh/tam-linh-hero.png",
+    ["/images/brand/hero-spiritual.png", "/images/poems/hue-trang.jpeg", FALLBACK_STORY],
+    FALLBACK_STORY,
+  ),
   heroSupport: createResolvedLocalImage("hero-support", "/images/brand/hero-support.png"),
   footerOrnament: createResolvedLocalImage("footer-ornament", "/images/brand/footer-ornament.png"),
   fallbackPoem: createResolvedLocalImage("fallback-poem", "/images/brand/fallback-poem.png", [FALLBACK_POEM], FALLBACK_POEM),
