@@ -4,11 +4,13 @@ import { extname, join, relative, resolve } from "node:path";
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
 const root = resolve(process.cwd());
-const publicImagesRoot = resolve(root, "public/images");
+const publicRoot = resolve(root, "public");
+const publicImagesRoot = resolve(publicRoot, "images");
 const sourceRoot = resolve(root, "src");
 const contentExportsDir = resolve(root, "content_exports");
 const cloudImageManifestPath = resolve(root, "src/data/cloudImageManifest.ts");
-const backupImagesRoot = "F:\\1_A_Disk_D\\Khương Bình\\hồn Thơ\\images-backup\\images";
+const backupRoot = "F:\\1_A_Disk_D\\Khương Bình\\hồn Thơ\\images-backup";
+const backupImagesRoot = join(backupRoot, "images");
 
 const IMAGE_EXTENSIONS = new Set([
   ".png",
@@ -134,9 +136,9 @@ function buildCloudImageManifestSource(publicDevUrl, uploadedLocalPaths) {
     `function normalizeLocalImagePath(localPath: string) {\n` +
     `  const normalized = localPath.trim();\n` +
     `  if (!normalized) return \"\";\n` +
-    `  if (normalized.startsWith(\"/images/\")) return normalized;\n` +
-    `  if (normalized.startsWith(\"images/\")) return \"/\" + normalized;\n` +
-    `  return \"\";\n` +
+    `  if (normalized.startsWith(\"http://\") || normalized.startsWith(\"https://\")) return \"\";\n` +
+    `  if (normalized.startsWith(\"/\")) return normalized;\n` +
+    `  return \"/\" + normalized.replace(/^\\/+/, \"\");\n` +
     `}\n\n` +
     `export function hasCloudImage(localPath: string) {\n` +
     `  const normalized = normalizeLocalImagePath(localPath);\n` +
@@ -190,7 +192,12 @@ const s3 = new S3Client({
   credentials: { accessKeyId, secretAccessKey },
 });
 
-const imageFiles = walkFiles(publicImagesRoot)
+const publicRootImageFiles = readdirSync(publicRoot)
+  .map((entry) => join(publicRoot, entry))
+  .filter((filePath) => statSync(filePath).isFile())
+  .filter((filePath) => IMAGE_EXTENSIONS.has(extname(filePath).toLowerCase()));
+
+const imageFiles = [...publicRootImageFiles, ...walkFiles(publicImagesRoot)]
   .filter((filePath) => IMAGE_EXTENSIONS.has(extname(filePath).toLowerCase()))
   .sort((a, b) => a.localeCompare(b));
 
@@ -203,7 +210,7 @@ const failedVerify = [];
 
 for (const absoluteFilePath of imageFiles) {
   const relFromRoot = toPosix(relative(root, absoluteFilePath));
-  const relFromPublic = toPosix(relative(resolve(root, "public"), absoluteFilePath));
+  const relFromPublic = toPosix(relative(publicRoot, absoluteFilePath));
   const localPath = `/${relFromPublic}`;
   const key = relFromPublic;
   const basename = absoluteFilePath.split(/[/\\]/).pop() ?? "";
@@ -286,6 +293,12 @@ writeFileSync(cloudImageManifestPath, manifestSource, "utf8");
 
 mkdirSync(backupImagesRoot, { recursive: true });
 cpSync(publicImagesRoot, backupImagesRoot, { recursive: true, force: true });
+
+for (const absoluteFilePath of publicRootImageFiles) {
+  const fileName = absoluteFilePath.split(/[/\\]/).pop();
+  if (!fileName) continue;
+  cpSync(absoluteFilePath, join(backupRoot, fileName), { force: true });
+}
 
 const migrationReport = {
   generatedAt: new Date().toISOString(),

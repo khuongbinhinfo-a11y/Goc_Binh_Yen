@@ -149,13 +149,15 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg",
   "/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg",
   "/images/support/qr-bank.jpg",
+  "/images/tam-linh/hero-tam-linh.png",
   "/images/tam-linh/hoc-tho-cham-giua-ngay-dai.png",
   "/images/tam-linh/mot-ngay-im-lang-ben-song.png",
   "/images/tam-linh/mot-sang-quet-la-trong-san-chua.png",
   "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
   "/images/tam-linh/ngoi-yen-nghe-mua-cham-mai-hien.png",
   "/images/tam-linh/tam-linh-hero.png",
-  "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png"
+  "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png",
+  "/logo.jpg"
 ] as const;
 
 const cloudImagePathSet = new Set<string>(CLOUD_IMAGE_PATHS);
@@ -163,9 +165,9 @@ const cloudImagePathSet = new Set<string>(CLOUD_IMAGE_PATHS);
 function normalizeLocalImagePath(localPath: string) {
   const normalized = localPath.trim();
   if (!normalized) return "";
-  if (normalized.startsWith("/images/")) return normalized;
-  if (normalized.startsWith("images/")) return "/" + normalized;
-  return "";
+  if (normalized.startsWith("http://") || normalized.startsWith("https://")) return "";
+  if (normalized.startsWith("/")) return normalized;
+  return "/" + normalized.replace(/^\/+/, "");
 }
 
 export function hasCloudImage(localPath: string) {

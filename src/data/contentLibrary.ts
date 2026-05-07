@@ -396,7 +396,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Một buổi chiều mưa nhẹ, tiếng chuông ngân đã kéo người kể trở về với cảm giác tĩnh tâm lâu rồi mới gặp lại.",
-    coverImage: "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
+    coverImage: "/images/tam-linh/tam-linh-hero.png",
     voiceBy: "Hồng Tâm",
     readingTime: "5 phút",
     publishedAt: "Mỹ Tho, tháng 06/2022",
@@ -425,7 +425,7 @@ const baseSpiritualPosts: ContentItem[] = [
     category: "Tâm linh",
     excerpt:
       "Một nén nhang chiều không cầu điều lớn, chỉ là lời nhắc sống hiền và giữ lòng sáng giữa bao bộn bề.",
-    coverImage: "/images/tam-linh/tam-linh-hero.png",
+    coverImage: "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
     voiceBy: "Hồng Tâm",
     readingTime: "4 phút",
     publishedAt: "Cai Lậy, tháng 10/2022",

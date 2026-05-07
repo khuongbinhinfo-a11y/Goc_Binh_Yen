@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 
 import { useLocale } from "@/hooks/useLocale";
-import { LOCAL_IMAGE_MAP } from "@/lib/image";
+import { getSafeImageCandidates, getSafeImageSrc, LOCAL_IMAGE_MAP } from "@/lib/image";
 
 type FooterGroupType = "explore" | "companion";
 type FooterLinkIconId =
@@ -90,7 +90,10 @@ function FooterLinkIcon({ id }: { id: FooterLinkIconId }) {
 }
 
 function FooterOrnamentImage({ alt }: { alt: string }) {
-  const candidates = useMemo(() => LOCAL_IMAGE_MAP.footerOrnament.candidates, []);
+  const candidates = useMemo(
+    () => getSafeImageCandidates(LOCAL_IMAGE_MAP.footerOrnament.src, LOCAL_IMAGE_MAP.footerOrnament.fallback),
+    [],
+  );
   const [index, setIndex] = useState(0);
   const [hidden, setHidden] = useState(false);
 
@@ -125,7 +128,7 @@ export default function SiteFooter() {
           <div>
             <a href="/#trang-chu" className="inline-flex items-center gap-3">
               <Image
-                src="/logo.jpg"
+                src={getSafeImageSrc("/logo.jpg")}
                 alt={`Logo ${t.brandName}`}
                 width={46}
                 height={46}

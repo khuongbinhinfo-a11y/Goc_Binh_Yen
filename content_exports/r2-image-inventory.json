@@ -1,13 +1,19 @@
 {
-  "generatedAt": "2026-05-07T16:02:39.140Z",
-  "totalImagesInRepo": 155,
+  "generatedAt": "2026-05-07T16:46:05.094Z",
+  "totalImagesInRepo": 157,
   "inventory": [
     {
       "relativePath": "public/images/4.webp",
       "localPath": "/images/4.webp",
       "basename": "4.webp",
       "ext": ".webp",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 4,
+          "snippet": "\"/images/4.webp\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp",
@@ -15,6 +21,11 @@
       "basename": "cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp",
       "ext": ".webp",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 5,
+          "snippet": "\"/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp\","
+        },
         {
           "file": "src/data/coHocIntroArticles.ts",
           "line": 16,
@@ -29,6 +40,11 @@
       "ext": ".webp",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 6,
+          "snippet": "\"/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi.webp\","
+        },
+        {
           "file": "src/data/coHocIntroArticles.ts",
           "line": 11,
           "snippet": "coverImage: \"/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi.webp\","
@@ -41,6 +57,11 @@
       "basename": "cover-ngu-thuat-trong-truyen-thong-phuong-dong.webp",
       "ext": ".webp",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 7,
+          "snippet": "\"/images/articles/huyen-mon-tham-khao/cover-ngu-thuat-trong-truyen-thong-phuong-dong.webp\","
+        },
         {
           "file": "src/data/coHocIntroArticles.ts",
           "line": 21,
@@ -55,6 +76,11 @@
       "ext": ".jpg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 8,
+          "snippet": "\"/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg\","
+        },
+        {
           "file": "src/data/coHocIntroArticles.ts",
           "line": 26,
           "snippet": "coverImage: \"/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg\","
@@ -68,8 +94,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 9,
+          "snippet": "\"/images/brand/fallback-poem.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 52,
+          "line": 53,
           "snippet": "fallbackPoem: createResolvedLocalImage(\"fallback-poem\", \"/images/brand/fallback-poem.png\", [FALLBACK_POEM], FALLBACK_POEM),"
         }
       ]
@@ -81,8 +112,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 10,
+          "snippet": "\"/images/brand/fallback-story-spiritual.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 53,
+          "line": 54,
           "snippet": "fallbackStorySpiritual: createResolvedLocalImage(\"fallback-story-spiritual\", \"/images/brand/fallback-story-spiritual.png\", [FALLBACK_STORY], FALLBACK_STORY),"
         }
       ]
@@ -104,8 +140,13 @@
           "snippet": "src=\"/images/brand/footer-ornament.png\""
         },
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 11,
+          "snippet": "\"/images/brand/footer-ornament.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 51,
+          "line": 52,
           "snippet": "footerOrnament: createResolvedLocalImage(\"footer-ornament\", \"/images/brand/footer-ornament.png\"),"
         }
       ]
@@ -117,8 +158,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 12,
+          "snippet": "\"/images/brand/hero-home.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 41,
+          "line": 42,
           "snippet": "heroHome: createResolvedLocalImage(\"hero-home\", \"/images/brand/hero-home.png\"),"
         }
       ]
@@ -130,8 +176,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 13,
+          "snippet": "\"/images/brand/hero-poetry.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 42,
+          "line": 43,
           "snippet": "heroPoetry: createResolvedLocalImage(\"hero-poetry\", \"/images/brand/hero-poetry.png\", [FALLBACK_POEM], FALLBACK_POEM),"
         }
       ]
@@ -143,8 +194,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 14,
+          "snippet": "\"/images/brand/hero-spiritual.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 47,
+          "line": 48,
           "snippet": "[\"/images/brand/hero-spiritual.png\", \"/images/poems/hue-trang.jpeg\", FALLBACK_STORY],"
         }
       ]
@@ -156,8 +212,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 15,
+          "snippet": "\"/images/brand/hero-story.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 43,
+          "line": 44,
           "snippet": "heroStory: createResolvedLocalImage(\"ke-chuyen-hero\", \"/images/ke-chuyen/ke-chuyen-hero.png\", [\"/images/brand/hero-story.png\", FALLBACK_STORY], FALLBACK_STORY),"
         }
       ]
@@ -169,8 +230,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 16,
+          "snippet": "\"/images/brand/hero-support.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 50,
+          "line": 51,
           "snippet": "heroSupport: createResolvedLocalImage(\"hero-support\", \"/images/brand/hero-support.png\"),"
         }
       ]
@@ -180,7 +246,13 @@
       "localPath": "/images/co-hoc/bai-viet-tranh-co.svg",
       "basename": "bai-viet-tranh-co.svg",
       "ext": ".svg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 19,
+          "snippet": "\"/images/co-hoc/bai-viet-tranh-co.svg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/co-hoc/Co-hoc.jpeg",
@@ -190,13 +262,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/bai-viet/page.tsx",
-          "line": 10,
-          "snippet": "image: \"/images/co-hoc/Co-hoc.jpeg\","
+          "line": 11,
+          "snippet": "image: getSafeImageSrc(\"/images/co-hoc/Co-hoc.jpeg\"),"
         },
         {
           "file": "src/app/huyen-mon-tham-khao/layout.tsx",
           "line": 12,
           "snippet": "image: \"/images/co-hoc/Co-hoc.jpeg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 17,
+          "snippet": "\"/images/co-hoc/Co-hoc.jpeg\","
         }
       ]
     },
@@ -208,13 +285,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/bai-viet/page.tsx",
-          "line": 32,
+          "line": 33,
           "snippet": "art: \"/images/co-hoc/ngu-thuat-tranh-co.svg\","
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 70,
-          "snippet": "style={{ backgroundImage: \"url(/images/co-hoc/ngu-thuat-tranh-co.svg)\" }}"
+          "line": 72,
+          "snippet": "style={{ backgroundImage: `url(${getSafeImageSrc(\"/images/co-hoc/ngu-thuat-tranh-co.svg\")})` }}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 20,
+          "snippet": "\"/images/co-hoc/ngu-thuat-tranh-co.svg\","
         }
       ]
     },
@@ -223,7 +305,13 @@
       "localPath": "/images/co-hoc/ngu-thuat.jpeg",
       "basename": "ngu-thuat.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 21,
+          "snippet": "\"/images/co-hoc/ngu-thuat.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/co-hoc/nhap-mon-tranh-co.svg",
@@ -233,8 +321,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/bai-viet/page.tsx",
-          "line": 22,
+          "line": 23,
           "snippet": "art: \"/images/co-hoc/nhap-mon-tranh-co.svg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 22,
+          "snippet": "\"/images/co-hoc/nhap-mon-tranh-co.svg\","
         }
       ]
     },
@@ -246,8 +339,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/nhap-mon/page.tsx",
-          "line": 24,
-          "snippet": "src=\"/images/co-hoc/Nhap-mon.jpeg\""
+          "line": 25,
+          "snippet": "src={getSafeImageSrc(\"/images/co-hoc/Nhap-mon.jpeg\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 18,
+          "snippet": "\"/images/co-hoc/Nhap-mon.jpeg\","
         }
       ]
     },
@@ -259,8 +357,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/bai-viet/page.tsx",
-          "line": 42,
+          "line": 43,
           "snippet": "art: \"/images/co-hoc/tam-thuc-tranh-co.svg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 23,
+          "snippet": "\"/images/co-hoc/tam-thuc-tranh-co.svg\","
         }
       ]
     },
@@ -270,6 +373,11 @@
       "basename": "tam-thuc.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 24,
+          "snippet": "\"/images/co-hoc/tam-thuc.jpeg\","
+        },
         {
           "file": "src/data/tamThucData.ts",
           "line": 9,
@@ -285,8 +393,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/bai-viet/page.tsx",
-          "line": 52,
+          "line": 53,
           "snippet": "art: \"/images/co-hoc/ung-dung-gioi-han-tranh-co.svg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 25,
+          "snippet": "\"/images/co-hoc/ung-dung-gioi-han-tranh-co.svg\","
         }
       ]
     },
@@ -298,8 +411,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ung-dung-va-gioi-han/page.tsx",
-          "line": 23,
-          "snippet": "src=\"/images/co-hoc/ung-dung-va-gioi-han.jpeg\""
+          "line": 25,
+          "snippet": "src={getSafeImageSrc(\"/images/co-hoc/ung-dung-va-gioi-han.jpeg\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 26,
+          "snippet": "\"/images/co-hoc/ung-dung-va-gioi-han.jpeg\","
         }
       ]
     },
@@ -311,8 +429,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 38,
+          "line": 40,
           "snippet": "const heroImage = \"/images/heroes/co-hoc-hero-main.png\";"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 27,
+          "snippet": "\"/images/heroes/co-hoc-hero-main.png\","
         }
       ]
     },
@@ -324,8 +447,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 51,
-          "snippet": "src=\"/images/heroes/ngu-thuat-hero-main.png\""
+          "line": 53,
+          "snippet": "src={getSafeImageSrc(\"/images/heroes/ngu-thuat-hero-main.png\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 28,
+          "snippet": "\"/images/heroes/ngu-thuat-hero-main.png\","
         }
       ]
     },
@@ -335,6 +463,11 @@
       "basename": "anh-den-truoc-san-nha-dem-mat-dien.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 29,
+          "snippet": "\"/images/ke-chuyen/anh-den-truoc-san-nha-dem-mat-dien.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 252,
@@ -349,6 +482,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 30,
+          "snippet": "\"/images/ke-chuyen/ben-do-cu-qua-mot-mua-mua.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 94,
           "snippet": "coverImage: \"/images/ke-chuyen/ben-do-cu-qua-mot-mua-mua.png\","
@@ -361,6 +499,11 @@
       "basename": "chuyen-nguoi-qua-cau-tre.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 31,
+          "snippet": "\"/images/ke-chuyen/chuyen-nguoi-qua-cau-tre.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 182,
@@ -375,6 +518,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 32,
+          "snippet": "\"/images/ke-chuyen/dem-nghe-tieng-nuoc-chay.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 123,
           "snippet": "coverImage: \"/images/ke-chuyen/dem-nghe-tieng-nuoc-chay.png\","
@@ -388,8 +536,13 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 33,
+          "snippet": "\"/images/ke-chuyen/ke-chuyen-hero.png\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 43,
+          "line": 44,
           "snippet": "heroStory: createResolvedLocalImage(\"ke-chuyen-hero\", \"/images/ke-chuyen/ke-chuyen-hero.png\", [\"/images/brand/hero-story.png\", FALLBACK_STORY], FALLBACK_STORY),"
         }
       ]
@@ -400,6 +553,11 @@
       "basename": "mot-buoi-cho-que-tan-muon.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 34,
+          "snippet": "\"/images/ke-chuyen/mot-buoi-cho-que-tan-muon.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 215,
@@ -414,6 +572,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 35,
+          "snippet": "\"/images/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 152,
           "snippet": "coverImage: \"/images/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.png\","
@@ -427,6 +590,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 36,
+          "snippet": "\"/images/ke-chuyen/nguoi-va-xuong-o-me-son.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 289,
           "snippet": "coverImage: \"/images/ke-chuyen/nguoi-va-xuong-o-me-son.png\","
@@ -438,7 +606,13 @@
       "localPath": "/images/logo-4.jpg",
       "basename": "logo-4.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 37,
+          "snippet": "\"/images/logo-4.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/anh-mai-ben-em.png",
@@ -446,6 +620,11 @@
       "basename": "anh-mai-ben-em.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 38,
+          "snippet": "\"/images/poems/anh-mai-ben-em.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1461,
@@ -463,14 +642,26 @@
       "localPath": "/images/poems/anh-yeu-em.jpeg",
       "basename": "anh-yeu-em.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 39,
+          "snippet": "\"/images/poems/anh-yeu-em.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/ban-tay.jpeg",
       "localPath": "/images/poems/ban-tay.jpeg",
       "basename": "ban-tay.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 40,
+          "snippet": "\"/images/poems/ban-tay.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/ben-do.jpeg",
@@ -478,6 +669,11 @@
       "basename": "ben-do.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 41,
+          "snippet": "\"/images/poems/ben-do.jpeg\","
+        },
         {
           "file": "src/data/i18n.ts",
           "line": 278,
@@ -490,7 +686,7 @@
         },
         {
           "file": "src/lib/image.ts",
-          "line": 24,
+          "line": 25,
           "snippet": "const FALLBACK_POEM = \"/images/poems/ben-do.jpeg\";"
         }
       ]
@@ -501,6 +697,11 @@
       "basename": "ben-song-xua.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 42,
+          "snippet": "\"/images/poems/ben-song-xua.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 699,
@@ -520,6 +721,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 43,
+          "snippet": "\"/images/poems/bi-ngan-hoa.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 2016,
           "snippet": "cardImage: \"/images/poems/bi-ngan-hoa.png\","
@@ -538,6 +744,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 44,
+          "snippet": "\"/images/poems/buon.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1687,
           "snippet": "cardImage: \"/images/poems/buon.png\","
@@ -554,21 +765,39 @@
       "localPath": "/images/poems/cam-hoa.jpeg",
       "basename": "cam-hoa.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 45,
+          "snippet": "\"/images/poems/cam-hoa.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/cam-on-tinh-yeu.jpeg",
       "localPath": "/images/poems/cam-on-tinh-yeu.jpeg",
       "basename": "cam-on-tinh-yeu.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 46,
+          "snippet": "\"/images/poems/cam-on-tinh-yeu.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/chi-can-co-vay.jpeg",
       "localPath": "/images/poems/chi-can-co-vay.jpeg",
       "basename": "chi-can-co-vay.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 47,
+          "snippet": "\"/images/poems/chi-can-co-vay.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/cho-anh-goi.jpeg",
@@ -576,6 +805,11 @@
       "basename": "cho-anh-goi.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 48,
+          "snippet": "\"/images/poems/cho-anh-goi.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 849,
@@ -595,6 +829,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 49,
+          "snippet": "\"/images/poems/cho-trong.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 999,
           "snippet": "cardImage: \"/images/poems/cho-trong.jpeg\","
@@ -612,6 +851,11 @@
       "basename": "chuyen-do.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 50,
+          "snippet": "\"/images/poems/chuyen-do.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1149,
@@ -631,6 +875,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 51,
+          "snippet": "\"/images/poems/co-don.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1975,
           "snippet": "cardImage: \"/images/poems/co-don.png\","
@@ -648,6 +897,11 @@
       "basename": "co-nhieu-luc.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 52,
+          "snippet": "\"/images/poems/co-nhieu-luc.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1836,
@@ -667,6 +921,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 53,
+          "snippet": "\"/images/poems/dau-can-noi-chi-em.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 729,
           "snippet": "cardImage: \"/images/poems/dau-can-noi-chi-em.jpeg\","
@@ -684,6 +943,11 @@
       "basename": "dau-chua.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 54,
+          "snippet": "\"/images/poems/dau-chua.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1785,
@@ -703,6 +967,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 55,
+          "snippet": "\"/images/poems/di-nguoc-mat-troi.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1418,
           "snippet": "cardImage: \"/images/poems/di-nguoc-mat-troi.png\","
@@ -720,6 +989,11 @@
       "basename": "dong-song.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 56,
+          "snippet": "\"/images/poems/dong-song.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 111,
@@ -739,6 +1013,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 57,
+          "snippet": "\"/images/poems/dung-than-nhien-nhu-the.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 2054,
           "snippet": "cardImage: \"/images/poems/dung-than-nhien-nhu-the.png\","
@@ -756,6 +1035,11 @@
       "basename": "em-huong-xua.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 58,
+          "snippet": "\"/images/poems/em-huong-xua.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1921,
@@ -798,6 +1082,11 @@
           "file": "src/data/brandPagesI18n.ts",
           "line": 140,
           "snippet": "heroImage: \"/images/poems/em-mua-xuan-ve.jpeg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 59,
+          "snippet": "\"/images/poems/em-mua-xuan-ve.jpeg\","
         }
       ]
     },
@@ -806,7 +1095,13 @@
       "localPath": "/images/poems/em-trong-anh.jpeg",
       "basename": "em-trong-anh.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 60,
+          "snippet": "\"/images/poems/em-trong-anh.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/giac-mo.png",
@@ -814,6 +1109,11 @@
       "basename": "giac-mo.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 61,
+          "snippet": "\"/images/poems/giac-mo.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1283,
@@ -833,6 +1133,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 62,
+          "snippet": "\"/images/poems/goi-lai-em.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1089,
           "snippet": "cardImage: \"/images/poems/goi-lai-em.jpeg\","
@@ -851,6 +1156,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 63,
+          "snippet": "\"/images/poems/hanh-phuc.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 759,
           "snippet": "cardImage: \"/images/poems/hanh-phuc.jpeg\","
@@ -867,14 +1177,26 @@
       "localPath": "/images/poems/hoa-buom.jpeg",
       "basename": "hoa-buom.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 64,
+          "snippet": "\"/images/poems/hoa-buom.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/hoa-luc-binh.jpeg",
       "localPath": "/images/poems/hoa-luc-binh.jpeg",
       "basename": "hoa-luc-binh.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 65,
+          "snippet": "\"/images/poems/hoa-luc-binh.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/hue-trang.jpeg",
@@ -883,8 +1205,13 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 66,
+          "snippet": "\"/images/poems/hue-trang.jpeg\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 47,
+          "line": 48,
           "snippet": "[\"/images/brand/hero-spiritual.png\", \"/images/poems/hue-trang.jpeg\", FALLBACK_STORY],"
         }
       ]
@@ -895,6 +1222,11 @@
       "basename": "khi-yeu-nguoi-ta-ra-sao.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 67,
+          "snippet": "\"/images/poems/khi-yeu-nguoi-ta-ra-sao.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1880,
@@ -912,7 +1244,13 @@
       "localPath": "/images/poems/khoang-cach-vo-hinh.jpeg",
       "basename": "khoang-cach-vo-hinh.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 68,
+          "snippet": "\"/images/poems/khoang-cach-vo-hinh.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/long-trinh-nu.jpeg",
@@ -920,6 +1258,11 @@
       "basename": "long-trinh-nu.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 69,
+          "snippet": "\"/images/poems/long-trinh-nu.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 171,
@@ -939,6 +1282,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 70,
+          "snippet": "\"/images/poems/mo-dao-vuon-xuan.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1179,
           "snippet": "cardImage: \"/images/poems/mo-dao-vuon-xuan.jpeg\","
@@ -956,6 +1304,11 @@
       "basename": "mo-tro-ve.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 71,
+          "snippet": "\"/images/poems/mo-tro-ve.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 789,
@@ -975,6 +1328,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 72,
+          "snippet": "\"/images/poems/mo-uoc.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1029,
           "snippet": "cardImage: \"/images/poems/mo-uoc.jpeg\","
@@ -991,7 +1349,13 @@
       "localPath": "/images/poems/mot-thoang.jpeg",
       "basename": "mot-thoang.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 73,
+          "snippet": "\"/images/poems/mot-thoang.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/mua-hen.jpeg",
@@ -999,6 +1363,11 @@
       "basename": "mua-hen.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 74,
+          "snippet": "\"/images/poems/mua-hen.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 969,
@@ -1018,6 +1387,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 75,
+          "snippet": "\"/images/poems/mua-thu-la-do.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1559,
           "snippet": "cardImage: \"/images/poems/mua-thu-la-do.png\","
@@ -1035,6 +1409,11 @@
       "basename": "muon-con-hon-khong.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 76,
+          "snippet": "\"/images/poems/muon-con-hon-khong.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1059,
@@ -1054,6 +1433,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 77,
+          "snippet": "\"/images/poems/neu-co-mot-ngay.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1604,
           "snippet": "cardImage: \"/images/poems/neu-co-mot-ngay.png\","
@@ -1071,6 +1455,11 @@
       "basename": "ngam.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 78,
+          "snippet": "\"/images/poems/ngam.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 879,
@@ -1100,8 +1489,13 @@
           "snippet": "companionImage: \"/images/poems/ngang-ben-song-xua.jpeg\","
         },
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 79,
+          "snippet": "\"/images/poems/ngang-ben-song-xua.jpeg\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 25,
+          "line": 26,
           "snippet": "const FALLBACK_STORY = \"/images/poems/ngang-ben-song-xua.jpeg\";"
         }
       ]
@@ -1112,6 +1506,11 @@
       "basename": "ngay-ay.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 80,
+          "snippet": "\"/images/poems/ngay-ay.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1239,
@@ -1131,6 +1530,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 81,
+          "snippet": "\"/images/poems/nguoi-dung.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1322,
           "snippet": "cardImage: \"/images/poems/nguoi-dung.png\","
@@ -1148,6 +1552,11 @@
       "basename": "nhin-trang.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 82,
+          "snippet": "\"/images/poems/nhin-trang.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 939,
@@ -1167,6 +1576,11 @@
       "ext": ".jpeg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 83,
+          "snippet": "\"/images/poems/nho-lam-ngay-xua.jpeg\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 819,
           "snippet": "cardImage: \"/images/poems/nho-lam-ngay-xua.jpeg\","
@@ -1183,7 +1597,13 @@
       "localPath": "/images/poems/nho.jpeg",
       "basename": "nho.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 84,
+          "snippet": "\"/images/poems/nho.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/nho.png",
@@ -1191,6 +1611,11 @@
       "basename": "nho.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 85,
+          "snippet": "\"/images/poems/nho.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 2100,
@@ -1208,7 +1633,13 @@
       "localPath": "/images/poems/qua-mien-thuong-nho.jpeg",
       "basename": "qua-mien-thuong-nho.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 86,
+          "snippet": "\"/images/poems/qua-mien-thuong-nho.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/qua-voi-bau.jpeg",
@@ -1216,6 +1647,11 @@
       "basename": "qua-voi-bau.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 87,
+          "snippet": "\"/images/poems/qua-voi-bau.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 909,
@@ -1234,6 +1670,11 @@
       "basename": "ron-rang.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 88,
+          "snippet": "\"/images/poems/ron-rang.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1209,
@@ -1261,6 +1702,11 @@
           "file": "src/data/brandPagesI18n.ts",
           "line": 148,
           "snippet": "authorImage: \"/images/poems/t-g.jpg\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 89,
+          "snippet": "\"/images/poems/t-g.jpg\","
         }
       ]
     },
@@ -1269,7 +1715,13 @@
       "localPath": "/images/poems/tac-gia.png",
       "basename": "tac-gia.png",
       "ext": ".png",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 90,
+          "snippet": "\"/images/poems/tac-gia.png\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/tam-long.jpeg",
@@ -1277,6 +1729,11 @@
       "basename": "tam-long.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 91,
+          "snippet": "\"/images/poems/tam-long.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 141,
@@ -1296,6 +1753,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 92,
+          "snippet": "\"/images/poems/tien-ai.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1646,
           "snippet": "cardImage: \"/images/poems/tien-ai.png\","
@@ -1312,7 +1774,13 @@
       "localPath": "/images/poems/tieng-keu-chim-le-ban.jpeg",
       "basename": "tieng-keu-chim-le-ban.jpeg",
       "ext": ".jpeg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 93,
+          "snippet": "\"/images/poems/tieng-keu-chim-le-ban.jpeg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/poems/to-tinh.jpeg",
@@ -1320,6 +1788,11 @@
       "basename": "to-tinh.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 94,
+          "snippet": "\"/images/poems/to-tinh.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 201,
@@ -1339,6 +1812,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 95,
+          "snippet": "\"/images/poems/trong-trai.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1372,
           "snippet": "cardImage: \"/images/poems/trong-trai.png\","
@@ -1356,6 +1834,11 @@
       "basename": "vu-vo.jpeg",
       "ext": ".jpeg",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 96,
+          "snippet": "\"/images/poems/vu-vo.jpeg\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1119,
@@ -1375,6 +1858,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 97,
+          "snippet": "\"/images/poems/xa-nhau-qua.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 1736,
           "snippet": "cardImage: \"/images/poems/xa-nhau-qua.png\","
@@ -1393,6 +1881,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 98,
+          "snippet": "\"/images/poems/xin-loi.png\","
+        },
+        {
           "file": "src/data/poems.ts",
           "line": 2148,
           "snippet": "cardImage: \"/images/poems/xin-loi.png\","
@@ -1410,6 +1903,11 @@
       "basename": "xuan.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 99,
+          "snippet": "\"/images/poems/xuan.png\","
+        },
         {
           "file": "src/data/poems.ts",
           "line": 1506,
@@ -1430,8 +1928,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 35,
+          "line": 37,
           "snippet": "image: \"/images/sections/co-hoc/co-hoc-card-bai-viet.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 100,
+          "snippet": "\"/images/sections/co-hoc/co-hoc-card-bai-viet.png\","
         }
       ]
     },
@@ -1443,8 +1946,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 15,
+          "line": 17,
           "snippet": "image: \"/images/sections/co-hoc/co-hoc-card-ngu-thuat.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 101,
+          "snippet": "\"/images/sections/co-hoc/co-hoc-card-ngu-thuat.png\","
         }
       ]
     },
@@ -1456,8 +1964,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 9,
+          "line": 11,
           "snippet": "image: \"/images/sections/co-hoc/co-hoc-card-nhap-mon.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 102,
+          "snippet": "\"/images/sections/co-hoc/co-hoc-card-nhap-mon.png\","
         }
       ]
     },
@@ -1469,8 +1982,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 21,
+          "line": 23,
           "snippet": "image: \"/images/sections/co-hoc/co-hoc-card-tam-thuc.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 103,
+          "snippet": "\"/images/sections/co-hoc/co-hoc-card-tam-thuc.png\","
         }
       ]
     },
@@ -1482,8 +2000,13 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/page.tsx",
-          "line": 27,
+          "line": 29,
           "snippet": "image: \"/images/sections/co-hoc/co-hoc-card-ung-dung-gioi-han.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 104,
+          "snippet": "\"/images/sections/co-hoc/co-hoc-card-ung-dung-gioi-han.png\","
         }
       ]
     },
@@ -1495,13 +2018,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/boc/page.tsx",
-          "line": 22,
-          "snippet": "src=\"/images/sections/ngu-thuat/ngu-thuat-card-boc.png\""
+          "line": 24,
+          "snippet": "src={getSafeImageSrc(\"/images/sections/ngu-thuat/ngu-thuat-card-boc.png\")}"
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 18,
+          "line": 20,
           "snippet": "image: \"/images/sections/ngu-thuat/ngu-thuat-card-boc.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 105,
+          "snippet": "\"/images/sections/ngu-thuat/ngu-thuat-card-boc.png\","
         }
       ]
     },
@@ -1513,13 +2041,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/menh/page.tsx",
-          "line": 22,
-          "snippet": "src=\"/images/sections/ngu-thuat/ngu-thuat-card-menh.png\""
+          "line": 24,
+          "snippet": "src={getSafeImageSrc(\"/images/sections/ngu-thuat/ngu-thuat-card-menh.png\")}"
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 23,
+          "line": 25,
           "snippet": "image: \"/images/sections/ngu-thuat/ngu-thuat-card-menh.png\","
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 106,
+          "snippet": "\"/images/sections/ngu-thuat/ngu-thuat-card-menh.png\","
         }
       ]
     },
@@ -1531,13 +2064,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 8,
+          "line": 10,
           "snippet": "image: \"/images/sections/ngu-thuat/ngu-thuat-card-son.png\","
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/son/page.tsx",
-          "line": 22,
-          "snippet": "src=\"/images/sections/ngu-thuat/ngu-thuat-card-son.png\""
+          "line": 24,
+          "snippet": "src={getSafeImageSrc(\"/images/sections/ngu-thuat/ngu-thuat-card-son.png\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 107,
+          "snippet": "\"/images/sections/ngu-thuat/ngu-thuat-card-son.png\","
         }
       ]
     },
@@ -1549,13 +2087,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 28,
+          "line": 30,
           "snippet": "image: \"/images/sections/ngu-thuat/ngu-thuat-card-tuong.png\","
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/tuong/page.tsx",
-          "line": 22,
-          "snippet": "src=\"/images/sections/ngu-thuat/ngu-thuat-card-tuong.png\""
+          "line": 24,
+          "snippet": "src={getSafeImageSrc(\"/images/sections/ngu-thuat/ngu-thuat-card-tuong.png\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 108,
+          "snippet": "\"/images/sections/ngu-thuat/ngu-thuat-card-tuong.png\","
         }
       ]
     },
@@ -1567,13 +2110,18 @@
       "calledFrom": [
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx",
-          "line": 13,
+          "line": 15,
           "snippet": "image: \"/images/sections/ngu-thuat/ngu-thuat-card-y.png\","
         },
         {
           "file": "src/app/huyen-mon-tham-khao/ngu-thuat/y/page.tsx",
-          "line": 22,
-          "snippet": "src=\"/images/sections/ngu-thuat/ngu-thuat-card-y.png\""
+          "line": 24,
+          "snippet": "src={getSafeImageSrc(\"/images/sections/ngu-thuat/ngu-thuat-card-y.png\")}"
+        },
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 109,
+          "snippet": "\"/images/sections/ngu-thuat/ngu-thuat-card-y.png\","
         }
       ]
     },
@@ -1582,287 +2130,533 @@
       "localPath": "/images/sections/tam-thuc/fallback-tam-thuc.jpg",
       "basename": "fallback-tam-thuc.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 110,
+          "snippet": "\"/images/sections/tam-thuc/fallback-tam-thuc.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/hero-tam-thuc.jpg",
       "localPath": "/images/sections/tam-thuc/hero-tam-thuc.jpg",
       "basename": "hero-tam-thuc.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 111,
+          "snippet": "\"/images/sections/tam-thuc/hero-tam-thuc.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/fallback-tam-thuc.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/fallback-tam-thuc.jpg",
       "basename": "fallback-tam-thuc.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 112,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/fallback-tam-thuc.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/hero-tam-thuc.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/hero-tam-thuc.jpg",
       "basename": "hero-tam-thuc.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 113,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/hero-tam-thuc.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-cach-tiep-can.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-cach-tiep-can.jpg",
       "basename": "tam-thuc-cach-tiep-can.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 114,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-cach-tiep-can.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ky-mon.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ky-mon.jpg",
       "basename": "tam-thuc-ky-mon.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 115,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ky-mon.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-luc-nham.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-luc-nham.jpg",
       "basename": "tam-thuc-luc-nham.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 116,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-luc-nham.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nghien-cuu.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nghien-cuu.jpg",
       "basename": "tam-thuc-nghien-cuu.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 117,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nghien-cuu.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nhap-mon.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nhap-mon.jpg",
       "basename": "tam-thuc-nhap-mon.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 118,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nhap-mon.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-so-sanh.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-so-sanh.jpg",
       "basename": "tam-thuc-so-sanh.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 119,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-so-sanh.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-thai-at.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-thai-at.jpg",
       "basename": "tam-thuc-thai-at.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 120,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-thai-at.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ung-dung.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ung-dung.jpg",
       "basename": "tam-thuc-ung-dung.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 121,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ung-dung.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/tam-thuc-preview.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/tam-thuc-preview.jpg",
       "basename": "tam-thuc-preview.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 122,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/tam-thuc-preview.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/fallback-tam-thuc-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/fallback-tam-thuc-thumb.jpg",
       "basename": "fallback-tam-thuc-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 123,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/fallback-tam-thuc-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/hero-tam-thuc-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/hero-tam-thuc-thumb.jpg",
       "basename": "hero-tam-thuc-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 124,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/hero-tam-thuc-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
       "basename": "tam-thuc-cach-tiep-can-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 125,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-cach-tiep-can-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ky-mon-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ky-mon-thumb.jpg",
       "basename": "tam-thuc-ky-mon-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 126,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ky-mon-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-luc-nham-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-luc-nham-thumb.jpg",
       "basename": "tam-thuc-luc-nham-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 127,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-luc-nham-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nghien-cuu-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nghien-cuu-thumb.jpg",
       "basename": "tam-thuc-nghien-cuu-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 128,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nghien-cuu-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nhap-mon-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nhap-mon-thumb.jpg",
       "basename": "tam-thuc-nhap-mon-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 129,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nhap-mon-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-so-sanh-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-so-sanh-thumb.jpg",
       "basename": "tam-thuc-so-sanh-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 130,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-so-sanh-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-thai-at-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-thai-at-thumb.jpg",
       "basename": "tam-thuc-thai-at-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 131,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-thai-at-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ung-dung-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ung-dung-thumb.jpg",
       "basename": "tam-thuc-ung-dung-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 132,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ung-dung-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg",
       "basename": "tam-thuc-cach-tiep-can.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 133,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-ky-mon.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-ky-mon.jpg",
       "basename": "tam-thuc-ky-mon.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 134,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-ky-mon.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-luc-nham.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-luc-nham.jpg",
       "basename": "tam-thuc-luc-nham.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 135,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-luc-nham.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg",
       "basename": "tam-thuc-nghien-cuu.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 136,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
       "basename": "tam-thuc-nhap-mon.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 137,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-so-sanh.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-so-sanh.jpg",
       "basename": "tam-thuc-so-sanh.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 138,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-so-sanh.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-thai-at.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-thai-at.jpg",
       "basename": "tam-thuc-thai-at.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 139,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-thai-at.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/tam-thuc-ung-dung.jpg",
       "localPath": "/images/sections/tam-thuc/tam-thuc-ung-dung.jpg",
       "basename": "tam-thuc-ung-dung.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 140,
+          "snippet": "\"/images/sections/tam-thuc/tam-thuc-ung-dung.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/fallback-tam-thuc-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/fallback-tam-thuc-thumb.jpg",
       "basename": "fallback-tam-thuc-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 141,
+          "snippet": "\"/images/sections/tam-thuc/thumb/fallback-tam-thuc-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/hero-tam-thuc-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/hero-tam-thuc-thumb.jpg",
       "basename": "hero-tam-thuc-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 142,
+          "snippet": "\"/images/sections/tam-thuc/thumb/hero-tam-thuc-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
       "basename": "tam-thuc-cach-tiep-can-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 143,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-cach-tiep-can-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-ky-mon-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-ky-mon-thumb.jpg",
       "basename": "tam-thuc-ky-mon-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 144,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-ky-mon-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-luc-nham-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-luc-nham-thumb.jpg",
       "basename": "tam-thuc-luc-nham-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 145,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-luc-nham-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-nghien-cuu-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-nghien-cuu-thumb.jpg",
       "basename": "tam-thuc-nghien-cuu-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 146,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-nghien-cuu-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-nhap-mon-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-nhap-mon-thumb.jpg",
       "basename": "tam-thuc-nhap-mon-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 147,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-nhap-mon-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-so-sanh-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-so-sanh-thumb.jpg",
       "basename": "tam-thuc-so-sanh-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 148,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-so-sanh-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg",
       "basename": "tam-thuc-thai-at-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 149,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg",
       "localPath": "/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg",
       "basename": "tam-thuc-ung-dung-thumb.jpg",
       "ext": ".jpg",
-      "calledFrom": []
+      "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 150,
+          "snippet": "\"/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg\","
+        }
+      ]
     },
     {
       "relativePath": "public/images/support/qr-bank.jpg",
@@ -1871,11 +2665,23 @@
       "ext": ".jpg",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 151,
+          "snippet": "\"/images/support/qr-bank.jpg\","
+        },
+        {
           "file": "src/lib/image.ts",
-          "line": 54,
+          "line": 55,
           "snippet": "supportQr: createResolvedLocalImage(\"qr-bank\", \"/images/support/qr-bank.jpg\", [], FALLBACK_GLOBAL),"
         }
       ]
+    },
+    {
+      "relativePath": "public/images/tam-linh/hero-tam-linh.png",
+      "localPath": "/images/tam-linh/hero-tam-linh.png",
+      "basename": "hero-tam-linh.png",
+      "ext": ".png",
+      "calledFrom": []
     },
     {
       "relativePath": "public/images/tam-linh/hoc-tho-cham-giua-ngay-dai.png",
@@ -1883,6 +2689,11 @@
       "basename": "hoc-tho-cham-giua-ngay-dai.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 152,
+          "snippet": "\"/images/tam-linh/hoc-tho-cham-giua-ngay-dai.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 485,
@@ -1897,6 +2708,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 153,
+          "snippet": "\"/images/tam-linh/mot-ngay-im-lang-ben-song.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 456,
           "snippet": "coverImage: \"/images/tam-linh/mot-ngay-im-lang-ben-song.png\","
@@ -1909,6 +2725,11 @@
       "basename": "mot-sang-quet-la-trong-san-chua.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 154,
+          "snippet": "\"/images/tam-linh/mot-sang-quet-la-trong-san-chua.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 519,
@@ -1923,6 +2744,11 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 155,
+          "snippet": "\"/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 399,
           "snippet": "coverImage: \"/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png\","
@@ -1935,6 +2761,11 @@
       "basename": "ngoi-yen-nghe-mua-cham-mai-hien.png",
       "ext": ".png",
       "calledFrom": [
+        {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 156,
+          "snippet": "\"/images/tam-linh/ngoi-yen-nghe-mua-cham-mai-hien.png\","
+        },
         {
           "file": "src/data/contentLibrary.ts",
           "line": 596,
@@ -1949,13 +2780,18 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 157,
+          "snippet": "\"/images/tam-linh/tam-linh-hero.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 428,
           "snippet": "coverImage: \"/images/tam-linh/tam-linh-hero.png\","
         },
         {
           "file": "src/lib/image.ts",
-          "line": 46,
+          "line": 47,
           "snippet": "\"/images/tam-linh/tam-linh-hero.png\","
         }
       ]
@@ -1967,11 +2803,23 @@
       "ext": ".png",
       "calledFrom": [
         {
+          "file": "src/data/cloudImageManifest.ts",
+          "line": 158,
+          "snippet": "\"/images/tam-linh/thap-den-nho-truoc-khi-ngu.png\","
+        },
+        {
           "file": "src/data/contentLibrary.ts",
           "line": 557,
           "snippet": "coverImage: \"/images/tam-linh/thap-den-nho-truoc-khi-ngu.png\","
         }
       ]
+    },
+    {
+      "relativePath": "public/logo.jpg",
+      "localPath": "/logo.jpg",
+      "basename": "logo.jpg",
+      "ext": ".jpg",
+      "calledFrom": []
     }
   ],
   "dynamicReferences": [
@@ -1984,73 +2832,11 @@
       "file": "src/data/tamThucData.ts",
       "line": 8,
       "snippet": "const TAM_THUC_IMAGE_DIR = \"/images/sections/tam-thuc\";"
-    },
-    {
-      "file": "src/lib/image.ts",
-      "line": 75,
-      "snippet": "if (value.startsWith(\"/images/\")) return value;"
     }
   ],
   "referencedButMissingInRepo": [],
   "existingButNotReferenced": [
-    "/images/4.webp",
-    "/images/co-hoc/bai-viet-tranh-co.svg",
-    "/images/co-hoc/ngu-thuat.jpeg",
-    "/images/logo-4.jpg",
-    "/images/poems/anh-yeu-em.jpeg",
-    "/images/poems/ban-tay.jpeg",
-    "/images/poems/cam-hoa.jpeg",
-    "/images/poems/cam-on-tinh-yeu.jpeg",
-    "/images/poems/chi-can-co-vay.jpeg",
-    "/images/poems/em-trong-anh.jpeg",
-    "/images/poems/hoa-buom.jpeg",
-    "/images/poems/hoa-luc-binh.jpeg",
-    "/images/poems/khoang-cach-vo-hinh.jpeg",
-    "/images/poems/mot-thoang.jpeg",
-    "/images/poems/nho.jpeg",
-    "/images/poems/qua-mien-thuong-nho.jpeg",
-    "/images/poems/tac-gia.png",
-    "/images/poems/tieng-keu-chim-le-ban.jpeg",
-    "/images/sections/tam-thuc/fallback-tam-thuc.jpg",
-    "/images/sections/tam-thuc/hero-tam-thuc.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/fallback-tam-thuc.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/hero-tam-thuc.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-cach-tiep-can.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ky-mon.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-luc-nham.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nghien-cuu.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-nhap-mon.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-so-sanh.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-thai-at.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/main/tam-thuc-ung-dung.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/tam-thuc-preview.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/fallback-tam-thuc-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/hero-tam-thuc-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ky-mon-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-luc-nham-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nghien-cuu-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-nhap-mon-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-so-sanh-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-thai-at-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-assets-da-tao-va-cat/tam-thuc-assets/thumb/tam-thuc-ung-dung-thumb.jpg",
-    "/images/sections/tam-thuc/tam-thuc-cach-tiep-can.jpg",
-    "/images/sections/tam-thuc/tam-thuc-ky-mon.jpg",
-    "/images/sections/tam-thuc/tam-thuc-luc-nham.jpg",
-    "/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg",
-    "/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
-    "/images/sections/tam-thuc/tam-thuc-so-sanh.jpg",
-    "/images/sections/tam-thuc/tam-thuc-thai-at.jpg",
-    "/images/sections/tam-thuc/tam-thuc-ung-dung.jpg",
-    "/images/sections/tam-thuc/thumb/fallback-tam-thuc-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/hero-tam-thuc-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-cach-tiep-can-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-ky-mon-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-luc-nham-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-nghien-cuu-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-nhap-mon-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-so-sanh-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-thai-at-thumb.jpg",
-    "/images/sections/tam-thuc/thumb/tam-thuc-ung-dung-thumb.jpg"
+    "/images/tam-linh/hero-tam-linh.png",
+    "/logo.jpg"
   ]
 }

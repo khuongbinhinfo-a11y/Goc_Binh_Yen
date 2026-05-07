@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import { getCloudImageUrl } from "@/data/cloudImageManifest";
+
 export const SITE_NAME = "Hồn Thơ";
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hontho.com";
 
@@ -15,10 +17,19 @@ function toAbsoluteUrl(value: string) {
   return new URL(value, SITE_URL).toString();
 }
 
+export function resolveMetadataImageUrl(image: string) {
+  if (/^https?:\/\//i.test(image)) return image;
+
+  const cloudImageUrl = getCloudImageUrl(image);
+  if (cloudImageUrl) return cloudImageUrl;
+
+  return toAbsoluteUrl(image);
+}
+
 export function createRouteMetadata({ title, description, path, image }: RouteMetadataInput): Metadata {
   const canonicalPath = path.startsWith("/") ? path : `/${path}`;
   const canonicalUrl = toAbsoluteUrl(canonicalPath);
-  const imageUrl = toAbsoluteUrl(image);
+  const imageUrl = resolveMetadataImageUrl(image);
 
   return {
     title,

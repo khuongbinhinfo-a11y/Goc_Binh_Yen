@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-07T16:02:39.268Z",
-  "totalImagesInRepo": 155,
-  "totalUploaded": 155,
+  "generatedAt": "2026-05-07T16:46:05.282Z",
+  "totalImagesInRepo": 157,
+  "totalUploaded": 157,
   "totalUploadFailed": 0,
   "totalVerifyFailed": 0,
   "totalReferencedButMissingInRepo": 0,
-  "totalExistingButNotReferenced": 59,
+  "totalExistingButNotReferenced": 2,
   "backupDestination": "F:\\1_A_Disk_D\\Khương Bình\\hồn Thơ\\images-backup\\images",
   "reports": {
     "inventory": "content_exports/r2-image-inventory.json",

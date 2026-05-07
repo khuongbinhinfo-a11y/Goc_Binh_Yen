@@ -43,8 +43,8 @@ export const LOCAL_IMAGE_MAP = {
   heroPoetry: createResolvedLocalImage("hero-poetry", "/images/brand/hero-poetry.png", [FALLBACK_POEM], FALLBACK_POEM),
   heroStory: createResolvedLocalImage("ke-chuyen-hero", "/images/ke-chuyen/ke-chuyen-hero.png", ["/images/brand/hero-story.png", FALLBACK_STORY], FALLBACK_STORY),
   heroSpiritual: createResolvedLocalImage(
-    "tam-linh-hero",
-    "/images/tam-linh/tam-linh-hero.png",
+    "hero-tam-linh",
+    "/images/tam-linh/hero-tam-linh.png",
     ["/images/brand/hero-spiritual.png", "/images/poems/hue-trang.jpeg", FALLBACK_STORY],
     FALLBACK_STORY,
   ),
@@ -77,7 +77,7 @@ export function getSafeImageCandidates(src: string | null | undefined, fallback:
   if (!value) return [fallback];
 
   if (isRemoteImage(value)) return [value];
-  if (value.startsWith("/images/")) {
+  if (value.startsWith("/")) {
     return getCloudImageCandidates(value);
   }
 

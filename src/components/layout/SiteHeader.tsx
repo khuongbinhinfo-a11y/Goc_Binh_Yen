@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FACEBOOK_URL, YOUTUBE_URL } from "@/data/homepageData";
 import { Locale } from "@/data/i18n";
 import { useLocale } from "@/hooks/useLocale";
+import { getSafeImageSrc } from "@/lib/image";
 
 function PenIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   return (
@@ -172,7 +173,7 @@ export default function SiteHeader() {
         <div className="flex items-center justify-between gap-3 py-2 md:hidden">
           <a href="/#trang-chu" className="group flex min-w-0 items-center gap-2.5" onClick={closeMobileMenu}>
             <Image
-              src="/logo.jpg"
+              src={getSafeImageSrc("/logo.jpg")}
               alt={`Logo ${t.brandName}`}
               width={42}
               height={42}
@@ -276,7 +277,7 @@ export default function SiteHeader() {
         <div className="hidden min-h-[74px] items-center justify-between gap-4 py-2.5 md:flex">
           <a href="/#trang-chu" className="group flex items-center gap-3">
             <Image
-              src="/logo.jpg"
+              src={getSafeImageSrc("/logo.jpg")}
               alt={`Logo ${t.brandName}`}
               width={58}
               height={58}
