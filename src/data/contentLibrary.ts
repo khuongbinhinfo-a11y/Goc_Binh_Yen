@@ -624,6 +624,55 @@ additionalSpiritualPosts.push({
   isFeatured: false,
 });
 
+additionalSpiritualPosts.push({
+  title: "Nhân Quả Không Ở Đâu Xa",
+  slug: "nhan-qua-khong-o-dau-xa",
+  contentType: "spiritual",
+  category: "Tâm linh",
+  excerpt:
+    "Một góc chiêm nghiệm đời thường về nhân quả: điều ta nghĩ, nói và làm mỗi ngày đang âm thầm tạo nên ngày mai.",
+  coverImage: "/images/tam-linh/nhan-qua-khong-o-dau-xa.png",
+  voiceBy: "Hồng Tâm",
+  readingTime: "9 phút",
+  publishedAt: "Mỹ Tho, tháng 05/2026",
+  content: [
+    "Nhân quả không ở đâu xa",
+    "",
+    "Có những lúc trong đời, người ta tự hỏi vì sao có những điều đến với mình quá bất ngờ: một nỗi buồn không báo trước, một sự mất mát không gọi tên, hay ngược lại, một sự giúp đỡ đến đúng lúc giữa những ngày tưởng như không còn lối mở. Khi chưa hiểu, ta thường nghĩ đó là may rủi. Nhưng càng đi qua nhiều hơn, càng sống chậm lại hơn, ta sẽ thấy có những điều không hoàn toàn ngẫu nhiên. Có khi, đó là một dạng nhân quả đang âm thầm vận hành.",
+    "",
+    "Nhân quả không phải là câu chuyện để dọa ai sống cho ngay ngắn. Nó cũng không phải cây thước cứng nhắc để phán xét người khác. Nhân quả, nếu nhìn bằng lòng bình tĩnh, là cách đời sống trả lời lại những gì ta đã gieo vào trong nó: bằng hành động, bằng lời nói, bằng cách nghĩ, và cả bằng những điều âm thầm ta nuôi trong lòng mỗi ngày.",
+    "",
+    "Một lời nói dịu có thể không làm thay đổi cả cuộc đời ai đó ngay lập tức, nhưng nó gieo một hạt lành. Một lần nhẫn lại thay vì đáp trả, một lần nghĩ tốt thay vì nghĩ xấu, một lần giúp người mà không mong nhớ ơn, tất cả đều là những hạt gieo. Có hạt nảy mầm sớm, có hạt nằm rất lâu dưới đất. Nhưng điều gì đã gieo, thường không mất đi. Nó ở đó, chờ đủ duyên để thành hình.",
+    "",
+    "Người ta hay nghĩ nhân quả là chuyện xa xôi, như phải đợi đến một lúc nào đó rất lớn mới thấy. Thực ra không hẳn vậy. Có những nhân quả rất gần. Sống nóng nảy lâu ngày, lòng mình mệt trước. Sống hơn thua mãi, giấc ngủ cũng khó yên. Sống chân thành với người, chưa chắc được đáp lại ngay, nhưng trong lòng đỡ nặng. Có khi quả không đến từ bên ngoài trước, mà đến trong chính tâm mình trước: bình an hơn, nhẹ hơn, sáng hơn, hay ngược lại, tối hơn và mỏi hơn.",
+    "",
+    "Điều đáng quý của việc hiểu nhân quả không nằm ở nỗi sợ bị báo ứng. Điều đáng quý là từ đó, con người biết sống cẩn trọng hơn với từng điều mình tạo ra. Biết rằng mỗi ý nghĩ quá cay nghiệt cũng để lại một dấu. Mỗi lần làm điều tốt bằng lòng trong sáng cũng để lại một dấu. Hiểu như vậy, ta bớt trách đời hơn, bớt trách người hơn, và bắt đầu quay về nhìn lại chính mình nhiều hơn.",
+    "",
+    "Có những chuyện trong hiện tại, ta không thể biết hết gốc rễ từ đâu mà thành. Không phải mọi đau buồn đều có thể giải thích ngay. Không phải mọi bất công đều nhìn thấy câu trả lời lập tức. Nhưng tin vào nhân quả không phải để ép mình giải thích hết mọi điều. Tin vào nhân quả, đôi khi chỉ là tin rằng sống hiền lành, sống có ý thức, sống bớt làm tổn thương người khác, sớm muộn cũng là con đường đúng.",
+    "",
+    "Nhân quả cũng dạy ta một điều rất sâu: đừng vội nhìn một đoạn ngắn mà kết luận cả một đời người. Có người hôm nay thuận lợi, chưa chắc đã là kết thúc. Có người hôm nay lận đận, cũng chưa chắc là mãi mãi. Mọi thứ vẫn đang chuyển động. Điều quan trọng là từ giây phút này, ta đang tiếp tục gieo gì cho ngày mai của mình.",
+    "",
+    "Nếu đã lỡ gieo điều chưa lành, cũng không cần tuyệt vọng. Chỉ cần từ hôm nay bắt đầu sống khác đi một chút. Bớt một lời nặng. Thêm một ý tốt. Chậm một cơn nóng. Giữ một lòng ngay. Nhân quả không chỉ là sự trả lại của đời, mà còn là cơ hội để con người sửa mình trong từng ngày còn sống.",
+    "",
+    "Rốt cuộc, nhân quả không ở đâu xa. Nó ở trong cách ta nhìn người, cách ta đối diện với việc mình làm, và cách ta giữ lòng giữa bao điều biến động. Mỗi ngày sống là một ngày gieo. Gieo điều gì, rồi sẽ gặp điều ấy ở một hình thức nào đó. Hiểu được như vậy, con người sẽ bớt sống vội, và biết quý hơn từng ý nghĩ, từng lời nói, từng việc làm đi qua đời mình.",
+  ].join("\n\n"),
+  analysis: {
+    emotionFlow:
+      "Bài viết đi từ những trải nghiệm đời thường đến chiêm nghiệm sâu về nhân quả, rồi kết lại ở lựa chọn sống cẩn trọng mỗi ngày.",
+    standoutImages:
+      "Hình ảnh hạt gieo, mầm nảy và những dấu âm thầm trong tâm tạo nên trục ẩn dụ nhất quán cho toàn bài.",
+    meaning:
+      "Nhân quả không xa vời hay để phán xét, mà là lời nhắc sống có ý thức trong từng ý nghĩ, lời nói và hành động hiện tại.",
+    memorableLine:
+      "Mỗi ngày sống là một ngày gieo.",
+  },
+  relatedPosts: ["dot-nhang-truoc-hien-nha", "mot-ngay-im-lang-ben-song", "hoc-tho-cham-giua-ngay-dai"],
+  audioUrl: "/audio/tam-linh/nhan-qua-khong-o-dau-xa.m4a",
+  hasAudio: true,
+  hasVideo: false,
+  isFeatured: false,
+});
+
 const spiritualRelatedOverrides: Partial<Record<string, string[]>> = {
   "mua-chuong-chieu-trong-san-chua-nho": ["mot-sang-quet-la-trong-san-chua", "ngoi-yen-nghe-mua-cham-mai-hien", "dot-nhang-truoc-hien-nha"],
   "dot-nhang-truoc-hien-nha": ["thap-den-nho-truoc-khi-ngu", "mot-sang-quet-la-trong-san-chua", "mot-ngay-im-lang-ben-song"],

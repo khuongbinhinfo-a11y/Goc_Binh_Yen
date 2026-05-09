@@ -154,6 +154,7 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/tam-linh/mot-ngay-im-lang-ben-song.png",
   "/images/tam-linh/mot-sang-quet-la-trong-san-chua.png",
   "/images/tam-linh/mua-chuong-chieu-trong-san-chua-nho.png",
+  "/images/tam-linh/nhan-qua-khong-o-dau-xa.png",
   "/images/tam-linh/ngoi-yen-nghe-mua-cham-mai-hien.png",
   "/images/tam-linh/tam-linh-hero.png",
   "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png",
