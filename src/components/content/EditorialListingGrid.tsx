@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { LocalizedContentItem } from "@/data/localizedContent";
-import { getContentFallbackCandidates, getContentFallbackImage } from "@/lib/image";
+import { resolveSearchCardImage } from "@/lib/image";
 
 type EditorialListingGridProps = {
   items: LocalizedContentItem[];
@@ -24,6 +24,7 @@ export default function EditorialListingGrid({
   return (
     <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {items.map((item, index) => {
+        const image = resolveSearchCardImage(item);
         const isLead = index === 0;
         const isWide = index > 1 && index % 4 === 2;
         const cardClass = isWide
@@ -44,9 +45,9 @@ export default function EditorialListingGrid({
             <div className={isWide ? "md:grid md:grid-cols-[1.12fr_0.88fr]" : ""}>
               <div className={imageClass}>
                 <SafeImage
-                  src={item.coverImage}
-                  srcCandidates={getContentFallbackCandidates(item.contentType)}
-                  fallbackSrc={getContentFallbackImage(item.contentType)}
+                  src={image.src}
+                  srcCandidates={image.srcCandidates}
+                  fallbackSrc={image.fallbackSrc}
                   alt={item.title}
                   fill
                   className="object-cover"

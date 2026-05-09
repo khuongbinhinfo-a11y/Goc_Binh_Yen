@@ -8,6 +8,22 @@ export type ResolvedLocalImage = {
   fallback: string;
 };
 
+export type SearchImageContentType = ContentType | "doc-tho" | "ke-chuyen" | "tam-linh";
+
+export type SearchCardImageInput = {
+  contentType?: SearchImageContentType | string | null;
+  image?: string | null;
+  coverImage?: string | null;
+  cardImage?: string | null;
+  heroImage?: string | null;
+};
+
+export type ResolvedSearchCardImage = {
+  src: string;
+  srcCandidates: string[];
+  fallbackSrc: string;
+};
+
 function uniqueStrings(values: string[]) {
   const seen = new Set<string>();
   const result: string[] = [];
@@ -19,6 +35,17 @@ function uniqueStrings(values: string[]) {
   });
 
   return result;
+}
+
+function normalizeSearchContentType(contentType?: SearchImageContentType | string | null): ContentType | undefined {
+  const value = (contentType ?? "").trim().toLowerCase();
+  if (!value) return undefined;
+
+  if (value === "poem" || value === "doc-tho") return "poem";
+  if (value === "story" || value === "ke-chuyen") return "story";
+  if (value === "spiritual" || value === "tam-linh") return "spiritual";
+
+  return undefined;
 }
 
 const FALLBACK_GLOBAL = "/logo.jpg";
@@ -94,4 +121,34 @@ export function getContentFallbackCandidates(contentType: ContentType) {
   if (contentType === "poem") return LOCAL_IMAGE_MAP.fallbackPoem.candidates;
   if (contentType === "story") return LOCAL_IMAGE_MAP.fallbackStorySpiritual.candidates;
   return LOCAL_IMAGE_MAP.fallbackStorySpiritual.candidates;
+}
+
+export function getSearchBranchFallbackCandidates(contentType?: SearchImageContentType | string | null) {
+  const normalizedType = normalizeSearchContentType(contentType);
+
+  if (normalizedType === "poem") return LOCAL_IMAGE_MAP.heroPoetry.candidates;
+  if (normalizedType === "story") return LOCAL_IMAGE_MAP.heroStory.candidates;
+  if (normalizedType === "spiritual") return LOCAL_IMAGE_MAP.heroSpiritual.candidates;
+
+  return LOCAL_IMAGE_MAP.heroHome.candidates;
+}
+
+export function resolveSearchCardImage(item: SearchCardImageInput): ResolvedSearchCardImage {
+  const globalFallback = LOCAL_IMAGE_MAP.heroHome.fallback;
+  const branchCandidates = getSearchBranchFallbackCandidates(item.contentType);
+  const branchFallback = branchCandidates[0] ?? globalFallback;
+
+  const itemPrimaryImage = [item.image, item.coverImage, item.cardImage, item.heroImage]
+    .map((value) => (value ?? "").trim())
+    .find(Boolean);
+
+  const itemCandidates = getSafeImageCandidates(itemPrimaryImage, branchFallback);
+  const src = itemCandidates[0] ?? branchFallback;
+  const srcCandidates = uniqueStrings([...itemCandidates, ...branchCandidates, ...LOCAL_IMAGE_MAP.heroHome.candidates]);
+
+  return {
+    src,
+    srcCandidates,
+    fallbackSrc: globalFallback,
+  };
 }
