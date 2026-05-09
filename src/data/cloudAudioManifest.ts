@@ -96,11 +96,21 @@ function branchByType(type: CloudAudioType) {
   return "tam-linh";
 }
 
+const spiritualM4aSlugs = new Set<string>([
+  "dot-nhang-truoc-hien-nha",
+  "nhan-qua-khong-o-dau-xa",
+]);
+
+function extBySlug(type: CloudAudioType, slug: string) {
+  if (type === "spiritual" && spiritualM4aSlugs.has(slug)) return "m4a";
+  return "mp3";
+}
+
 export function hasCloudAudio(type: CloudAudioType, slug: string) {
   return slugSets[type].has(slug);
 }
 
 export function getCloudAudioUrl(type: CloudAudioType, slug: string) {
   if (!hasCloudAudio(type, slug)) return undefined;
-  return CLOUD_AUDIO_BASE_URL + "/audio/" + branchByType(type) + "/" + slug + ".mp3";
+  return CLOUD_AUDIO_BASE_URL + "/audio/" + branchByType(type) + "/" + slug + "." + extBySlug(type, slug);
 }
