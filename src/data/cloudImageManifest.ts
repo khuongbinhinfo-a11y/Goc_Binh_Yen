@@ -25,6 +25,7 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/co-hoc/ung-dung-gioi-han-tranh-co.svg",
   "/images/co-hoc/ung-dung-va-gioi-han.jpeg",
   "/images/heroes/co-hoc-hero-main.png",
+  "/images/doc-tho/cay-roi-may.png",
   "/images/heroes/ngu-thuat-hero-main.png",
   "/images/ke-chuyen/anh-den-truoc-san-nha-dem-mat-dien.png",
   "/images/ke-chuyen/ben-do-cu-qua-mot-mua-mua.png",

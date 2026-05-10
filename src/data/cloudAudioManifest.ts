@@ -11,6 +11,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "buon",
   "cam-hoa",
   "cam-on-tinh-yeu",
+  "cay-roi-may",
   "chi-can-co-vay",
   "cho-anh-goi",
   "cho-trong",
@@ -101,8 +102,13 @@ const spiritualM4aSlugs = new Set<string>([
   "nhan-qua-khong-o-dau-xa",
 ]);
 
+const poemM4aSlugs = new Set<string>([
+  "cay-roi-may",
+]);
+
 function extBySlug(type: CloudAudioType, slug: string) {
   if (type === "spiritual" && spiritualM4aSlugs.has(slug)) return "m4a";
+  if (type === "poem" && poemM4aSlugs.has(slug)) return "m4a";
   return "mp3";
 }
 

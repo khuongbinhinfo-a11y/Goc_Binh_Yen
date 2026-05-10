@@ -2192,7 +2192,36 @@ Cai Lậy, ngày 30/4/2017`,
       licenseNote: "Dùng ảnh local xin-loi.png đã có trong thư mục poems.",
     },
   },
-];
+  {
+    slug: "cay-roi-may",
+    title: "CÂY ROI MÂY",
+    tag: "Thơ quê",
+    summary: "Cha lôi con đi, con lôi cái cặp\nCha quay đi, miệng lóp, ngóp con vào",
+    author: "",
+    locationDate: "Cai Lậy, ngày 24/8/2019",
+    cardImage: "/images/doc-tho/cay-roi-may.png",
+    heroImage: "/images/doc-tho/cay-roi-may.png",
+    hasAudio: true,
+    content:
+        "CÂY ROI MÂY\n\nCha lôi con đi, con lôi cái cặp\nCha quay đi, miệng lóp, ngóp con vào\nLời cha còn đeo mãi phía sau\n- Ráng mà học: Cha một đời đót nát\nCây roi mây thầy đưa lên cao\nDạy con vật lộn với từng con chữ\nXếp chúng theo ngăn, cất lại trong đầu\nHam chơi chúng bỏ đi đâu\nThầy gọi chúng về, con đau quằn đít\nCây roi mây thầy làm tay gươm\nDẫn con đi qua núi, qua rừng\nCho con nghe tiếng vó ngựa phi dồn dập\n\nKèn thúc quân vang dội trên đồi\nCâu thơ Kiều giọng mẹ hát à ơi...\nCon gù gật bay theo sóng lúa\nRa biển Đông nhìn cá giỡn sóng bạc đầu\nCây roi mây bóng mướt màu nâu\nRoi trên vai bàn chân con nóng ướt...\nSáng hôm nay, sân trường xưa nhẹ bước\nLục tìm bao kỷ niệm phủ rêu dày\nGốc phượng già vết khắc vẫn còn đây\nĐâu lũ bạn bắn cung, đánh trống\nĐánh vật, chơi u, hò reo lạc giọng...\nHãy về đây khóc tiễn biệt thầy\nĐôi câu thơ con vấn lên đầu\nNhớ công ơn xây nền khai trí\nGió nhẹ lay cành phượng già chợt gãy\nRơi lên vai, tưởng roi mây, con nhớ đến thầy.\n\nCai Lậy, ngày 24/8/2019",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ ký ức thời thơ ấu theo cha đến trường, qua hình ảnh cây roi mây của thầy dẫn dắt tri thức, rồi lắng lại ở cảm xúc tiễn biệt thầy với lòng biết ơn sâu sắc.",
+      standoutImages:
+        "Cây roi mây, gốc phượng già, tiếng vó ngựa phi, câu thơ Kiều giọng mẹ hát — những hình ảnh gắn liền với tuổi học trò miền quê.",
+      meaning:
+        "Bài thơ là lời tri ân người thầy đã dùng kỷ luật và tình thương để khai sáng tâm trí, để lại dấu ấn theo suốt cuộc đời người học trò.",
+      memorableLine: "Rơi lên vai, tưởng roi mây, con nhớ đến thầy.",
+    },
+    imageResearch: {
+      moodKeywords: ["thầy giáo", "kỷ niệm", "trường xưa", "cây roi", "phượng già"],
+      referenceLinks: [],
+      recommendedScene: "Sân trường làng xưa buổi sáng, cây phượng già, không gian hoài niệm tuổi thơ.",
+      licenseNote: "Dùng ảnh cloud doc-tho/cay-roi-may.png đã upload lên R2.",
+    },
+  },
+  ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
 
