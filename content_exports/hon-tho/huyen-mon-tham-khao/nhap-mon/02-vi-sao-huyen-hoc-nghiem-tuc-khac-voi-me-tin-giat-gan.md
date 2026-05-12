@@ -1,6 +1,6 @@
 # Vì sao huyền học nghiêm túc khác với mê tín giật gân?
 
-Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan
+Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/bai-nen/vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png
 
 ## 1. Mở bài ngắn, sáng nghĩa
 

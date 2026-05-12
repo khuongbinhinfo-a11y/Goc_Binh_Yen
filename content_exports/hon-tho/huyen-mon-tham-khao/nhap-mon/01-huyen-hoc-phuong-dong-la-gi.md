@@ -1,6 +1,6 @@
 # Huyền học phương Đông là gì?
 
-Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi
+Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/bai-nen/huyen-hoc-phuong-dong-la-gi.png
 
 ## 1. Mở bài ngắn, sáng nghĩa
 

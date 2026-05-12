@@ -2,9 +2,10 @@ export const CLOUD_IMAGE_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac822
 
 export const CLOUD_IMAGE_PATHS = [
   "/images/4.webp",
-  "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp",
-  "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi.webp",
-  "/images/articles/huyen-mon-tham-khao/cover-ngu-thuat-trong-truyen-thong-phuong-dong.webp",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/huyen-hoc-phuong-dong-la-gi.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png",
   "/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg",
   "/images/brand/fallback-poem.png",
   "/images/brand/fallback-story-spiritual.png",

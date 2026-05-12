@@ -8,21 +8,24 @@ export const coHocIntroArticles: CoHocIntroArticle[] = [
   {
     slug: "01-huyen-hoc-phuong-dong-la-gi",
     title: "Huyền học phương Đông là gì?",
-    coverImage: "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-phuong-dong-la-gi.webp",
+    coverImage: "/images/articles/huyen-mon-tham-khao/bai-nen/huyen-hoc-phuong-dong-la-gi.png",
   },
   {
     slug: "02-vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan",
     title: "Vì sao huyền học nghiêm túc khác với mê tín giật gân?",
-    coverImage: "/images/articles/huyen-mon-tham-khao/cover-huyen-hoc-nghiem-tuc-va-me-tin-giat-gan.webp",
+    coverImage:
+      "/images/articles/huyen-mon-tham-khao/bai-nen/vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png",
   },
   {
     slug: "03-ngu-thuat-la-gi-trong-truyen-thong-phuong-dong",
     title: "Ngũ thuật là gì trong truyền thống phương Đông?",
-    coverImage: "/images/articles/huyen-mon-tham-khao/cover-ngu-thuat-trong-truyen-thong-phuong-dong.webp",
+    coverImage:
+      "/images/articles/huyen-mon-tham-khao/bai-nen/ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.png",
   },
   {
-    slug: "04-tam-thuc-la-gi-vi-sao-thuong-bi-hieu-sai",
-    title: "Tam thức là gì, vì sao thường bị hiểu sai?",
-    coverImage: "/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg",
+    slug: "04-ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi",
+    title: "Ranh giới giữa biểu tượng, kinh nghiệm và niềm tin tuyệt đối",
+    coverImage:
+      "/images/articles/huyen-mon-tham-khao/bai-nen/ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi.png",
   },
 ];

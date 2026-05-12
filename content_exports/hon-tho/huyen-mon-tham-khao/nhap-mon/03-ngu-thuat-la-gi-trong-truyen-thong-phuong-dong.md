@@ -1,6 +1,6 @@
 # Ngũ thuật là gì trong truyền thống phương Đông?
 
-Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/cover-ngu-thuat-trong-truyen-thong-phuong-dong
+Ảnh bìa đề xuất: /images/articles/huyen-mon-tham-khao/bai-nen/ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.png
 
 ## 1. Mở bài ngắn, sáng nghĩa
 
