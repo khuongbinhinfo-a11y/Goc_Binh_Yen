@@ -3,31 +3,33 @@ import Image from "next/image";
 
 import { getSafeImageSrc } from "@/lib/image";
 
+const HERO_IMAGE = "/images/articles/huyen-mon-tham-khao/ngu-thuat/ngu-thuat-hero.png";
+
 const branches = [
   {
     title: "Sơn",
     href: "/huyen-mon-tham-khao/ngu-thuat/son",
-    image: "/images/sections/ngu-thuat/ngu-thuat-card-son.png",
+    image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/son-card-bg.png",
   },
   {
     title: "Y",
     href: "/huyen-mon-tham-khao/ngu-thuat/y",
-    image: "/images/sections/ngu-thuat/ngu-thuat-card-y.png",
+    image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/y-card-bg.png",
   },
   {
     title: "Bốc",
     href: "/huyen-mon-tham-khao/ngu-thuat/boc",
-    image: "/images/sections/ngu-thuat/ngu-thuat-card-boc.png",
+    image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/boc-card-bg.png",
   },
   {
     title: "Mệnh",
     href: "/huyen-mon-tham-khao/ngu-thuat/menh",
-    image: "/images/sections/ngu-thuat/ngu-thuat-card-menh.png",
+    image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/menh-card-bg.png",
   },
   {
     title: "Tướng",
     href: "/huyen-mon-tham-khao/ngu-thuat/tuong",
-    image: "/images/sections/ngu-thuat/ngu-thuat-card-tuong.png",
+    image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/tuong-card-bg.png",
   },
 ];
 
@@ -46,15 +48,15 @@ export default function HuyenMonNguThuatPage() {
           <h1 className="text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">Ngũ thuật</h1>
           <p className="mt-4 text-sm leading-7 text-[#654939] sm:text-base">
             Khung Ngũ thuật dưới đây nhằm giúp phân biệt phạm vi từng nhánh và tránh trộn lẫn phương pháp.
-            Mỗi mục hiện là trang khung ngắn, chưa triển khai bài dài.
+            Mỗi nhánh có các bài đọc ngắn — điềm tĩnh, đời thường, có ranh giới an toàn rõ ràng.
           </p>
-          <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
+          <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-xl border border-[#e9d8c6] bg-[#f7efe3] sm:aspect-[2/1]">
             <Image
-              src={getSafeImageSrc("/images/heroes/ngu-thuat-hero-main.png")}
+              src={getSafeImageSrc(HERO_IMAGE)}
               alt="Ngũ thuật"
-              width={1600}
-              height={900}
-              className="h-52 w-full object-cover object-center sm:h-[320px]"
+              fill
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-contain object-center"
               priority
             />
           </div>
@@ -63,21 +65,23 @@ export default function HuyenMonNguThuatPage() {
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {branches.map((item) => (
             <article key={item.href} className="soft-panel relative overflow-hidden bg-[#fffaf4] p-5">
-              <div className="mb-4 overflow-hidden rounded-xl border border-[#dcc5ae]">
-                <div className="relative h-24">
-                  <Image src={getSafeImageSrc(item.image)} alt={item.title} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover object-center" />
+              <div className="mb-4 overflow-hidden rounded-xl border border-[#dcc5ae] bg-[#f7efe3]">
+                <div className="relative aspect-[3/1] w-full">
+                  <Image
+                    src={getSafeImageSrc(item.image)}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-contain object-center"
+                  />
                 </div>
-                <div
-                  className="h-1.5 bg-cover bg-center opacity-70"
-                  style={{ backgroundImage: `url(${getSafeImageSrc("/images/co-hoc/ngu-thuat-tranh-co.svg")})` }}
-                />
               </div>
               <h2 className="text-2xl font-semibold text-[#4a2f20]">{item.title}</h2>
               <Link
                 href={item.href}
                 className="mt-3 inline-flex rounded-full border border-[#c79f7d] px-3 py-1.5 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
               >
-                Xem khung
+                Vào nhóm
               </Link>
             </article>
           ))}

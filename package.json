@@ -11,6 +11,8 @@
     "media:migrate:csv": "node scripts/export-poem-media-migration-map.mjs",
     "media:r2:images": "node scripts/r2-migrate-images.mjs",
     "media:r2:cohoc-bai-nen": "node scripts/r2-upload-cohoc-bai-nen.mjs",
+    "media:r2:cohoc-ngu-thuat": "node scripts/r2-upload-cohoc-ngu-thuat.mjs",
+    "media:r2:cohoc-ngu-thuat-hub": "node scripts/r2-upload-cohoc-ngu-thuat-hub.mjs",
     "media:r2:smoke": "node scripts/r2-smoke-test.mjs"
   },
   "dependencies": {
