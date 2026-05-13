@@ -2,10 +2,16 @@ export const CLOUD_IMAGE_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac822
 
 export const CLOUD_IMAGE_PATHS = [
   "/images/4.webp",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/co-hoc-co-the-ho-tro-tu-quan-sat-ban-than-den-dau.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/co-nen-ung-dung-co-hoc-vao-chon-ngay-gio-khong.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/giua-loi-khuyen-thuc-te-va-loi-phan-doan-co-hoc-nen-dat-trong-tam-o-dau.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/hoc-co-hoc-de-sang-hon-hay-de-le-thuoc-hon.png",
   "/images/articles/huyen-mon-tham-khao/bai-nen/huyen-hoc-phuong-dong-la-gi.png",
   "/images/articles/huyen-mon-tham-khao/bai-nen/ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.png",
   "/images/articles/huyen-mon-tham-khao/bai-nen/ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/vai-tro-cua-dao-duc-nguoi-hoc-co-hoc.png",
   "/images/articles/huyen-mon-tham-khao/bai-nen/vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png",
+  "/images/articles/huyen-mon-tham-khao/bai-nen/vi-sao-khong-nen-dung-co-hoc-de-hu-doa-nguoi-khac.png",
   "/images/articles/huyen-mon-tham-khao/cover-tam-thuc-la-gi-va-vi-sao-thuong-bi-hieu-sai.jpg",
   "/images/articles/huyen-mon-tham-khao/ngu-thuat/boc-card-bg.png",
   "/images/articles/huyen-mon-tham-khao/ngu-thuat/menh-card-bg.png",

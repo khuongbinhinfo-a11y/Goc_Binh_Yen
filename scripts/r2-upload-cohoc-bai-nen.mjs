@@ -6,10 +6,16 @@ import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 const root = resolve(process.cwd());
 
 const FILES = [
+  "co-hoc-co-the-ho-tro-tu-quan-sat-ban-than-den-dau.png",
+  "co-nen-ung-dung-co-hoc-vao-chon-ngay-gio-khong.png",
+  "giua-loi-khuyen-thuc-te-va-loi-phan-doan-co-hoc-nen-dat-trong-tam-o-dau.png",
+  "hoc-co-hoc-de-sang-hon-hay-de-le-thuoc-hon.png",
   "huyen-hoc-phuong-dong-la-gi.png",
-  "vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png",
   "ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.png",
   "ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi.png",
+  "vai-tro-cua-dao-duc-nguoi-hoc-co-hoc.png",
+  "vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.png",
+  "vi-sao-khong-nen-dung-co-hoc-de-hu-doa-nguoi-khac.png",
 ];
 
 const R2_KEY_PREFIX = "images/articles/huyen-mon-tham-khao/bai-nen";

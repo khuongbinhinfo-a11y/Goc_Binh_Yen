@@ -41,6 +41,9 @@ export default function HuyenMonNhapMonPage() {
                 </div>
                 <div className="p-5">
                   <h2 className="text-lg font-semibold leading-7 text-[#4a2f20]">{article.title}</h2>
+                  {article.description ? (
+                    <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#654939]">{article.description}</p>
+                  ) : null}
                   <p className="mt-3 text-sm font-semibold text-[#7b5437]">Đọc bài →</p>
                 </div>
               </Link>

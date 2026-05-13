@@ -116,6 +116,10 @@ export default async function CoHocIntroArticlePage({ params }: PageProps) {
         <article className="soft-panel mt-4 bg-[#fffaf4] p-6 sm:p-8">
           <h1 className="text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{article.title}</h1>
 
+          {article.description ? (
+            <p className="mt-4 text-sm leading-8 text-[#654939] sm:text-base">{article.description}</p>
+          ) : null}
+
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e3d1be]">
             <Image
               src={getSafeImageSrc(article.coverImage)}
@@ -127,7 +131,24 @@ export default async function CoHocIntroArticlePage({ params }: PageProps) {
             />
           </div>
 
+          {article.disclaimer ? (
+            <aside className="mt-6 rounded-lg border border-[#e3d1be] bg-[#fff5eb] p-4 text-sm leading-7 text-[#5e4332] sm:text-base">
+              {article.disclaimer}
+            </aside>
+          ) : null}
+
           <div className="mt-6">{contentBlocks}</div>
+
+          {article.reflectionQuestions && article.reflectionQuestions.length > 0 ? (
+            <div className="mt-10 border-t border-[#e3d1be] pt-8">
+              <h2 className="text-2xl font-semibold leading-tight text-[#4a2f20] sm:text-3xl">Câu hỏi suy ngẫm</h2>
+              <ul className="mt-4 list-disc space-y-2 pl-6 text-sm leading-8 text-[#5e4332] sm:text-base">
+                {article.reflectionQuestions.map((q, idx) => (
+                  <li key={`reflection-${idx}`}>{q}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </article>
       </div>
     </section>
