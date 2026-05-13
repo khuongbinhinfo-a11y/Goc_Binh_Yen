@@ -28,7 +28,7 @@ export default function HuyenMonUngDungVaGioiHanHubPage() {
           </aside>
           <div className="mt-6 overflow-hidden rounded-xl border border-[#e9d8c6]">
             <Image
-              src={getSafeImageSrc("/images/co-hoc/ung-dung-va-gioi-han.jpeg")}
+              src={getSafeImageSrc("/images/articles/huyen-mon-tham-khao/ung-dung-va-gioi-han/ung-dung-va-gioi-han-hero.png")}
               alt="Ứng dụng và giới hạn"
               width={1600}
               height={900}

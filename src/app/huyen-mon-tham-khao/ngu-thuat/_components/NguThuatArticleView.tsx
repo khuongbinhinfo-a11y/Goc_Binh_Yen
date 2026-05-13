@@ -11,6 +11,7 @@ import {
   nguThuatGroupLabel,
 } from "@/data/coHocNguThuatArticles";
 import { getSafeImageSrc } from "@/lib/image";
+import { CoHocRelatedArticles } from "@/components/co-hoc/CoHocRelatedArticles";
 
 type Props = {
   group: NguThuatGroupId;
@@ -86,21 +87,17 @@ export function NguThuatArticleView({ group, slug }: Props) {
           ) : null}
 
           {related.length > 0 ? (
-            <div className="mt-10 border-t border-[#e0d5ca] pt-8">
-              <h2 className="text-lg font-semibold text-[#4a2f20]">Cùng nhóm {nguThuatGroupLabel(group)}</h2>
-              <ul className="mt-4 space-y-3">
-                {related.map((item) => (
-                  <li key={item.slug}>
-                    <Link
-                      href={nguThuatArticleHref(group, item.slug)}
-                      className="text-sm font-semibold text-[#7f5e49] underline-offset-4 hover:text-[#4a2f20] hover:underline"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <CoHocRelatedArticles
+              title={`Bài cùng nhóm ${nguThuatGroupLabel(group)}`}
+              currentSlug={slug}
+              items={related.map((item) => ({
+                slug: item.slug,
+                title: item.title,
+                description: item.description,
+                coverImage: item.coverImage,
+                href: nguThuatArticleHref(group, item.slug),
+              }))}
+            />
           ) : null}
         </article>
       </div>

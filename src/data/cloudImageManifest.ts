@@ -69,6 +69,7 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/co-hoc/tam-thuc.jpeg",
   "/images/co-hoc/ung-dung-gioi-han-tranh-co.svg",
   "/images/co-hoc/ung-dung-va-gioi-han.jpeg",
+  "/images/articles/huyen-mon-tham-khao/ung-dung-va-gioi-han/ung-dung-va-gioi-han-hero.png",
   "/images/heroes/co-hoc-hero-main.png",
   "/images/doc-tho/cay-roi-may.png",
   "/images/heroes/ngu-thuat-hero-main.png",

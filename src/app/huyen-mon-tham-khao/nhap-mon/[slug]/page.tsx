@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 
 import { coHocIntroArticles } from "@/data/coHocIntroArticles";
 import { getSafeImageSrc } from "@/lib/image";
+import { CoHocRelatedArticles } from "@/components/co-hoc/CoHocRelatedArticles";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -100,6 +101,15 @@ export default async function CoHocIntroArticlePage({ params }: PageProps) {
 
   flushList();
 
+  const relatedArticles = coHocIntroArticles
+    .filter((item) => item.slug !== slug)
+    .map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      coverImage: item.coverImage,
+      href: `/huyen-mon-tham-khao/nhap-mon/${item.slug}`,
+    }));
+
   return (
     <section className="py-12 sm:py-14">
       <div className="site-shell max-w-4xl">
@@ -149,6 +159,12 @@ export default async function CoHocIntroArticlePage({ params }: PageProps) {
               </ul>
             </div>
           ) : null}
+
+          <CoHocRelatedArticles
+            title="Bài cùng nhóm"
+            currentSlug={slug}
+            items={relatedArticles}
+          />
         </article>
       </div>
     </section>
