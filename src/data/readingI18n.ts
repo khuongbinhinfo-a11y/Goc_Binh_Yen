@@ -13,6 +13,23 @@ type ListingCopy = {
   gridTitle: string;
   readButton: string;
   fallbackNotice: string;
+  mobileLabel: string;
+  mobileCountSuffix: string;
+  audioFilterActive: string;
+  audioFilterInactive: string;
+  mobileFilterBtn: string;
+  audioFilterFull: string;
+  allTagsLabel: string;
+  clearFilters: string;
+  searchLabel: string;
+  searchPlaceholder: string;
+  countActive: string;
+  countAll: string;
+  loadMore: string;
+  backToFilters: string;
+  emptyTitle: string;
+  emptyBody: string;
+  emptyReset: string;
 };
 
 type DetailCopy = {
@@ -74,6 +91,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Đọc bài",
         fallbackNotice:
           "Một số bài đang được hoàn thiện bản dịch Anh, nên hiện có thể còn hiển thị tiếng Việt.",
+        mobileLabel: "Đọc thơ",
+        mobileCountSuffix: "bài phù hợp",
+        audioFilterActive: "Đang lọc audio",
+        audioFilterInactive: "Có audio",
+        mobileFilterBtn: "Tìm và lọc",
+        audioFilterFull: "Có audio",
+        allTagsLabel: "Tất cả",
+        clearFilters: "Xoá bộ lọc",
+        searchLabel: "Tìm theo tên bài, tác giả",
+        searchPlaceholder: "Ví dụ: Thêm, Lê Dung, Thơ đêm",
+        countActive: "Đang hiện {visible}/{total} bài sau khi lọc.",
+        countAll: "Đang hiện {visible}/{total} bài trong kho thơ.",
+        loadMore: "Xem thêm 9 bài",
+        backToFilters: "Quay lại bộ lọc",
+        emptyTitle: "Chưa tìm thấy bài phù hợp",
+        emptyBody: "Thử đổi từ khoá tìm kiếm hoặc mở rộng bộ lọc để thấy thêm bài thơ.",
+        emptyReset: "Xoá bộ lọc",
       },
       detail: {
         breadcrumb: "Đọc thơ",
@@ -127,6 +161,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Đọc bài",
         fallbackNotice:
           "Một số bài đang được hoàn thiện bản dịch Anh, nên hiện có thể còn hiển thị tiếng Việt.",
+        mobileLabel: "Kể chuyện",
+        mobileCountSuffix: "bài phù hợp",
+        audioFilterActive: "Đang lọc audio",
+        audioFilterInactive: "Có audio",
+        mobileFilterBtn: "Tìm và lọc",
+        audioFilterFull: "Có audio",
+        allTagsLabel: "Tất cả",
+        clearFilters: "Xoá bộ lọc",
+        searchLabel: "Tìm theo tên bài, tác giả",
+        searchPlaceholder: "Ví dụ: Bến đò, mùa mưa",
+        countActive: "Đang hiện {visible}/{total} bài sau khi lọc.",
+        countAll: "Đang hiện {visible}/{total} bài trong kho chuyện.",
+        loadMore: "Xem thêm 9 bài",
+        backToFilters: "Quay lại bộ lọc",
+        emptyTitle: "Chưa tìm thấy bài phù hợp",
+        emptyBody: "Thử đổi từ khoá tìm kiếm hoặc mở rộng bộ lọc để thấy thêm bài.",
+        emptyReset: "Xoá bộ lọc",
       },
       detail: {
         breadcrumb: "Kể chuyện",
@@ -175,6 +226,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Đọc bài",
         fallbackNotice:
           "Một số bài đang được hoàn thiện bản dịch Anh, nên hiện có thể còn hiển thị tiếng Việt.",
+        mobileLabel: "Tâm linh",
+        mobileCountSuffix: "bài phù hợp",
+        audioFilterActive: "Đang lọc audio",
+        audioFilterInactive: "Có audio",
+        mobileFilterBtn: "Tìm và lọc",
+        audioFilterFull: "Có audio",
+        allTagsLabel: "Tất cả",
+        clearFilters: "Xoá bộ lọc",
+        searchLabel: "Tìm theo tên bài",
+        searchPlaceholder: "Ví dụ: im lặng, nghe nước",
+        countActive: "Đang hiện {visible}/{total} bài sau khi lọc.",
+        countAll: "Đang hiện {visible}/{total} bài trong kho tâm linh.",
+        loadMore: "Xem thêm 9 bài",
+        backToFilters: "Quay lại bộ lọc",
+        emptyTitle: "Chưa tìm thấy bài phù hợp",
+        emptyBody: "Thử đổi từ khoá tìm kiếm hoặc mở rộng bộ lọc để thấy thêm bài.",
+        emptyReset: "Xoá bộ lọc",
       },
       detail: {
         breadcrumb: "Tâm linh",
@@ -225,6 +293,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Read poem",
         fallbackNotice:
           "Some entries are still being translated, so parts may appear in Vietnamese for now.",
+        mobileLabel: "Poetry",
+        mobileCountSuffix: "matching",
+        audioFilterActive: "Filtering audio",
+        audioFilterInactive: "Has audio",
+        mobileFilterBtn: "Search & filter",
+        audioFilterFull: "Has audio",
+        allTagsLabel: "All",
+        clearFilters: "Clear filters",
+        searchLabel: "Search by title or author",
+        searchPlaceholder: "e.g. River, Evening, Dusk",
+        countActive: "Showing {visible}/{total} poems after filtering.",
+        countAll: "Showing {visible}/{total} poems in the collection.",
+        loadMore: "Load 9 more",
+        backToFilters: "Back to filters",
+        emptyTitle: "No poems found",
+        emptyBody: "Try different keywords or remove some filters to see more poems.",
+        emptyReset: "Clear filters",
       },
       detail: {
         breadcrumb: "Poetry",
@@ -278,6 +363,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Read story",
         fallbackNotice:
           "Some entries are still being translated, so parts may appear in Vietnamese for now.",
+        mobileLabel: "Stories",
+        mobileCountSuffix: "matching",
+        audioFilterActive: "Filtering audio",
+        audioFilterInactive: "Has audio",
+        mobileFilterBtn: "Search & filter",
+        audioFilterFull: "Has audio",
+        allTagsLabel: "All",
+        clearFilters: "Clear filters",
+        searchLabel: "Search by title",
+        searchPlaceholder: "e.g. River, Rain, Dock",
+        countActive: "Showing {visible}/{total} stories after filtering.",
+        countAll: "Showing {visible}/{total} stories in the collection.",
+        loadMore: "Load 9 more",
+        backToFilters: "Back to filters",
+        emptyTitle: "No stories found",
+        emptyBody: "Try different keywords or remove some filters to see more stories.",
+        emptyReset: "Clear filters",
       },
       detail: {
         breadcrumb: "Stories",
@@ -326,6 +428,23 @@ const readingTranslations: Record<Locale, ReadingTranslation> = {
         readButton: "Read piece",
         fallbackNotice:
           "Some entries are still being translated, so parts may appear in Vietnamese for now.",
+        mobileLabel: "Spirituality",
+        mobileCountSuffix: "matching",
+        audioFilterActive: "Filtering audio",
+        audioFilterInactive: "Has audio",
+        mobileFilterBtn: "Search & filter",
+        audioFilterFull: "Has audio",
+        allTagsLabel: "All",
+        clearFilters: "Clear filters",
+        searchLabel: "Search by title",
+        searchPlaceholder: "e.g. silence, river, stillness",
+        countActive: "Showing {visible}/{total} pieces after filtering.",
+        countAll: "Showing {visible}/{total} pieces in the collection.",
+        loadMore: "Load 9 more",
+        backToFilters: "Back to filters",
+        emptyTitle: "No pieces found",
+        emptyBody: "Try different keywords or remove some filters to see more pieces.",
+        emptyReset: "Clear filters",
       },
       detail: {
         breadcrumb: "Spirituality",

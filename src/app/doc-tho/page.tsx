@@ -102,8 +102,8 @@ export default function DocThoPage() {
         <section className="sticky top-16 z-20 border-y border-[#e2ccb4] bg-[#f7ede1]/95 py-3 backdrop-blur md:hidden">
           <div className="site-shell flex items-center justify-between gap-3">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">Doc tho</p>
-              <p className="text-sm font-semibold text-[#4a2f20]">{filteredItems.length} bai phu hop</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileLabel}</p>
+              <p className="text-sm font-semibold text-[#4a2f20]">{filteredItems.length} {copy.mobileCountSuffix}</p>
             </div>
             <div className="flex gap-2">
               <button
@@ -111,14 +111,14 @@ export default function DocThoPage() {
                 onClick={() => setAudioOnly((value) => !value)}
                 className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${audioOnly ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-[#fff8f0] text-[#7d5439]"}`}
               >
-                {audioOnly ? "Dang loc audio" : "Co audio"}
+                {audioOnly ? copy.audioFilterActive : copy.audioFilterInactive}
               </button>
               <button
                 type="button"
                 onClick={scrollToControls}
                 className="rounded-full border border-[#d6b695] bg-[#fff8f0] px-3 py-2 text-xs font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
               >
-                Tim va loc
+                {copy.mobileFilterBtn}
               </button>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function DocThoPage() {
                     </span>
                     {featured.hasAudio ? (
                       <span className="inline-flex rounded-full border border-[#d7b596] bg-[#fff7ef] px-3 py-1 text-xs font-semibold text-[#7d5439]">
-                        Co audio
+                        {copy.audioFilterInactive}
                       </span>
                     ) : null}
                   </div>
@@ -168,21 +168,21 @@ export default function DocThoPage() {
             <div ref={controlsRef} className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">Tim va loc</p>
-                  <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">Tim bai phu hop de doc nhanh hon</h2>
-                  <p className="mt-2 text-sm leading-7 text-[#654939]">Loc theo ten bai, chu de va audio de tranh cuon qua dai khi kho tho mo rong.</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileFilterBtn}</p>
+                  <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">{copy.gridTitle}</h2>
+                  <p className="mt-2 text-sm leading-7 text-[#654939]">{copy.intro}</p>
                 </div>
-                <div className="text-sm text-[#7a5a45]">{filteredItems.length} bai phu hop</div>
+                <div className="text-sm text-[#7a5a45]">{filteredItems.length} {copy.mobileCountSuffix}</div>
               </div>
 
               <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
                 <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-[#6d4b36]">Tim theo ten bai, tac gia</span>
+                  <span className="mb-2 block text-sm font-semibold text-[#6d4b36]">{copy.searchLabel}</span>
                   <input
                     type="search"
                     value={searchQuery}
                     onChange={(event) => setSearchQuery(event.target.value)}
-                    placeholder="Vi du: Them, Le Dung, Tho dem"
+                    placeholder={copy.searchPlaceholder}
                     className="w-full rounded-2xl border border-[#d5b89f] bg-white px-4 py-3 text-sm text-[#4a2f20] outline-none transition placeholder:text-[#9b7a63] focus:border-[#b9835f]"
                   />
                 </label>
@@ -194,7 +194,7 @@ export default function DocThoPage() {
                       onClick={clearFilters}
                       className="rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                     >
-                      Xoa bo loc
+                      {copy.clearFilters}
                     </button>
                   ) : null}
                 </div>
@@ -207,7 +207,7 @@ export default function DocThoPage() {
                     onClick={() => setAudioOnly((value) => !value)}
                     className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${audioOnly ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"}`}
                   >
-                    {audioOnly ? "✓ Co audio" : "Co audio"}
+                    {audioOnly ? `✓ ${copy.audioFilterFull}` : copy.audioFilterFull}
                   </button>
                   <div className="mx-1 shrink-0 self-stretch border-l border-[#d5b89f]" />
                   <button
@@ -215,7 +215,7 @@ export default function DocThoPage() {
                     onClick={() => setSelectedTag("all")}
                     className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${selectedTag === "all" ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"}`}
                   >
-                    Tat ca
+                    {copy.allTagsLabel}
                   </button>
                   {availableTags.map((tag) => (
                     <button
@@ -235,7 +235,9 @@ export default function DocThoPage() {
               <div>
                 <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
                 <p className="mt-2 text-sm leading-7 text-[#654939]">
-                  {hasActiveFilters ? `Dang hien ${visibleItems.length}/${filteredItems.length} bai sau khi loc.` : `Dang hien ${visibleItems.length}/${listItems.length} bai trong kho tho.`}
+                  {hasActiveFilters
+                    ? copy.countActive.replace("{visible}", String(visibleItems.length)).replace("{total}", String(filteredItems.length))
+                    : copy.countAll.replace("{visible}", String(visibleItems.length)).replace("{total}", String(listItems.length))}
                 </p>
               </div>
               {hasMoreItems ? (
@@ -244,21 +246,21 @@ export default function DocThoPage() {
                   onClick={() => setVisibleCount((count) => count + 9)}
                   className="inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                 >
-                  Xem them 9 bai
+                  {copy.loadMore}
                 </button>
               ) : null}
             </div>
 
             {filteredItems.length === 0 ? (
               <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-6 text-center">
-                <h3 className="text-2xl font-semibold text-[#4a2f20]">Chua tim thay bai phu hop</h3>
-                <p className="mt-3 text-sm leading-7 text-[#654939]">Thu doi tu khoa tim kiem hoac mo rong bo loc de thay them bai tho.</p>
+                <h3 className="text-2xl font-semibold text-[#4a2f20]">{copy.emptyTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#654939]">{copy.emptyBody}</p>
                 <button
                   type="button"
                   onClick={clearFilters}
                   className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                 >
-                  Xoa bo loc
+                  {copy.emptyReset}
                 </button>
               </div>
             ) : (
@@ -278,7 +280,7 @@ export default function DocThoPage() {
                   onClick={() => setVisibleCount((count) => count + 9)}
                   className="inline-flex rounded-full border border-[#c79f7d] px-5 py-3 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
                 >
-                  Xem them
+                  {copy.loadMore}
                 </button>
               </div>
             ) : null}
@@ -289,7 +291,7 @@ export default function DocThoPage() {
                 onClick={scrollToControls}
                 className="inline-flex rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
               >
-                Quay lai bo loc
+                {copy.backToFilters}
               </button>
             </div>
           </div>

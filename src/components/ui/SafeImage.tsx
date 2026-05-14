@@ -5,6 +5,9 @@ import { useEffect, useMemo, useState } from "react";
 
 import { getSafeImageCandidates, getSafeImageSrc, IMAGE_FALLBACKS } from "@/lib/image";
 
+const BLUR_DATA_URL =
+  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2U4ZDhjYSIvPjwvc3ZnPg==";
+
 type SafeImageProps = Omit<ImageProps, "src"> & {
   src: string;
   fallbackSrc?: string;
@@ -29,7 +32,9 @@ function uniqueCandidates(values: string[]) {
   return output;
 }
 
-export default function SafeImage({ src, fallbackSrc, srcCandidates, onError, ...props }: SafeImageProps) {
+export default function SafeImage({ src, fallbackSrc, srcCandidates, onError, placeholder, blurDataURL, ...props }: SafeImageProps) {
+  const resolvedPlaceholder = placeholder ?? (props.fill ? undefined : "blur");
+  const resolvedBlurDataURL = blurDataURL ?? BLUR_DATA_URL;
   const resolvedFallback = useMemo(
     () => getSafeImageSrc(fallbackSrc, IMAGE_FALLBACKS.global),
     [fallbackSrc],
@@ -59,6 +64,8 @@ export default function SafeImage({ src, fallbackSrc, srcCandidates, onError, ..
   return (
     <Image
       {...props}
+      placeholder={resolvedPlaceholder}
+      blurDataURL={resolvedPlaceholder === "blur" ? resolvedBlurDataURL : undefined}
       src={currentSrc}
       onError={(event) => {
         const nextIndex = candidateIndex + 1;

@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Be_Vietnam_Pro, Lora } from "next/font/google";
 
 import { LocaleProvider } from "@/components/providers/LocaleProvider";
 import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { resolveMetadataImageUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 import "./globals.css";
+
+const headingFont = Lora({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-heading",
+  weight: ["400", "600", "700"],
+});
 
 const bodyFont = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -53,7 +59,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className={`${bodyFont.variable} antialiased`}>
+      <body className={`${bodyFont.variable} ${headingFont.variable} antialiased`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#8b5e3c] focus:px-4 focus:py-2 focus:text-white"
+        >
+          Chuyển đến nội dung chính
+        </a>
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

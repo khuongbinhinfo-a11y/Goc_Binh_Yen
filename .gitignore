@@ -27,6 +27,16 @@ pnpm-debug.log*
 .vercel
 .env*.local
 
+# Build artifacts and local exports
+/backups/
+/content_exports/
+
+# Loose image files in repo root
+/*.png
+/*.jpg
+/*.jpeg
+/*.webp
+
 # Cloud-backed public images
 /public/logo.jpg
 /public/images/**/*.png
