@@ -1,22 +1,22 @@
 # Kế hoạch tracking bài viết – Cổ học
 
-## Phase 1 – Bài nền bắt buộc (8 bài)
+## Phase 1 – Bài nền bắt buộc (11 bài)
 
 | # | Tiêu đề | Slug | Trạng thái | Progress | Đợt xuất bản |
 |---|---------|------|-----------|----------|----------------|
-| 1 | Cổ học phương Đông là gì? | hoc-tro-dong-la-gi | Published | 100% | Đợt 1 |
-| 2 | Vì sao cổ học nghiêm túc khác với mê tín giật gân? | hoc-tro-khac-voi-me-tin | Published | 100% | Đợt 1 |
-| 3 | Ngũ thuật là gì trong truyền thống phương Đông? | ngu-thuat-la-gi | Published | 100% | Đợt 1 |
-| 4 | Ranh giới giữa biểu tượng, kinh nghiệm, và niềm tin tuyệt đối | ranh-gioi-bieu-tuong | Published | 100% | Đợt 1 |
-| 5 | Tam thức là gì, vì sao thường bị hiểu sai? | tam-thuc-la-gi | Published | 100% | Đợt 1 |
-| 6 | Có nên ứng dụng cổ học vào chọn ngày giờ không? | ung-dung-chon-ngay-gio | Published | 100% | Phase 1 |
-| 7 | Cổ học có thể hỗ trợ tự quan sát bản thân đến đâu? | tu-quan-sat-ban-than | Published | 100% | Phase 1 |
-| 8 | Vì sao không nên dùng cổ học để hù dọa người khác? | khong-dung-hu-doa | Published | 100% | Phase 1 |
-| 9 | Giữa lời khuyên thực tế và lời phán đoán cổ học, nên đặt trọng tâm ở đâu? | loi-khuyen-vs-phan-doan | Published | 100% | Phase 1 |
-| 10 | Vai trò của đạo đức người học cổ học | dao-duc-nguoi-hoc | Published | 100% | Phase 1 |
-| 11 | Học cổ học để sáng hơn hay để lệ thuộc hơn? | sang-hay-le-thuoc | Published | 100% | Phase 1 |
+| 1 | Cổ học phương Đông là gì? | 01-huyen-hoc-phuong-dong-la-gi | Published | 100% | Đợt 1 |
+| 2 | Vì sao cổ học nghiêm túc khác với mê tín giật gân? | 02-vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan | Published | 100% | Đợt 1 |
+| 3 | Ngũ thuật là gì trong truyền thống phương Đông? | 03-ngu-thuat-la-gi-trong-truyen-thong-phuong-dong | Published | 100% | Đợt 1 |
+| 4 | Ranh giới giữa biểu tượng, kinh nghiệm, và niềm tin tuyệt đối | 04-ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi | Published | 100% | Đợt 1 |
+| 5 | Tam thức là gì, vì sao thường bị hiểu sai? | 05-tam-thuc-la-gi-vi-sao-thuong-bi-hieu-sai | Published | 100% | Đợt 1 |
+| 6 | Có nên ứng dụng cổ học vào chọn ngày giờ không? | co-nen-ung-dung-co-hoc-vao-chon-ngay-gio-khong | Published | 100% | Phase 1 |
+| 7 | Cổ học có thể hỗ trợ tự quan sát bản thân đến đâu? | co-hoc-co-the-ho-tro-tu-quan-sat-ban-than-den-dau | Published | 100% | Phase 1 |
+| 8 | Vì sao không nên dùng cổ học để hù dọa người khác? | vi-sao-khong-nen-dung-co-hoc-de-hu-doa-nguoi-khac | Published | 100% | Phase 1 |
+| 9 | Giữa lời khuyên thực tế và lời phán đoán cổ học, nên đặt trọng tâm ở đâu? | giua-loi-khuyen-thuc-te-va-loi-phan-doan-co-hoc-nen-dat-trong-tam-o-dau | Published | 100% | Phase 1 |
+| 10 | Vai trò của đạo đức người học cổ học | vai-tro-cua-dao-duc-nguoi-hoc-co-hoc | Published | 100% | Phase 1 |
+| 11 | Học cổ học để sáng hơn hay để lệ thuộc hơn? | hoc-co-hoc-de-sang-hon-hay-de-le-thuoc-hon | Published | 100% | Phase 1 |
 
-## Phase 2 – Ngũ thuật (10 bài)
+## Phase 2 – Ngũ thuật (20 bài)
 
 ### Sơn
 | # | Tiêu đề | Slug | Trạng thái | Progress | Đợt xuất bản |
@@ -170,16 +170,22 @@
 **Giai đoạn 2 (Phase 3):** Mở rộng các cụm còn lại
 **Giai đoạn 3 (Phase 3):** Chuyên sâu và dị bản
 
-## Phase 4 – Ứng dụng và giới hạn (6 bài)
+## Phase 4 – Ứng dụng và giới hạn (12 bài)
 
 | # | Tiêu đề | Slug | Trạng thái | Progress | Đợt xuất bản |
 |---|---------|------|-----------|----------|----------------|
-| 1 | Có nên ứng dụng cổ học vào chọn ngày giờ không? | ung-dung-chon-ngay-gio | Published | 100% | Phase 1 |
-| 2 | Cổ học có thể hỗ trợ tự quan sát bản thân đến đâu? | tuan-sat-ban-than | Published | 100% | Phase 1 |
-| 3 | Vì sao không nên dùng cổ học để hù dọa người khác? | khong-dung-hu-doa | Published | 100% | Phase 1 |
-| 4 | Giữa lời khuyên thực tế và lời phán đoán cổ học, nên đặt trọng tâm ở đâu? | loi-khuyen-vs-phan-doan | Published | 100% | Phase 1 |
-| 5 | Vai trò của đạo đức người học cổ học | dao-duc-nguoi-hoc | Published | 100% | Phase 1 |
-| 6 | Học cổ học để sáng hơn hay để lệ thuộc hơn? | sang-hay-le-thuoc | Published | 100% | Phase 1 |
+| 1 | Có nên ứng dụng cổ học vào chọn ngày giờ không? | co-nen-ung-dung-co-hoc-vao-chon-ngay-gio-khong | Published | 100% | Phase 1 |
+| 2 | Cổ học có thể hỗ trợ tự quan sát bản thân đến đâu? | co-hoc-co-the-ho-tro-tu-quan-sat-ban-than-den-dau | Published | 100% | Phase 1 |
+| 3 | Vì sao không nên dùng cổ học để hù dọa người khác? | vi-sao-khong-nen-dung-co-hoc-de-hu-doa-nguoi-khac | Published | 100% | Phase 1 |
+| 4 | Giữa lời khuyên thực tế và lời phán đoán cổ học, nên đặt trọng tâm ở đâu? | giua-loi-khuyen-thuc-te-va-loi-phan-doan-co-hoc-nen-dat-trong-tam-o-dau | Published | 100% | Phase 1 |
+| 5 | Vai trò của đạo đức người học cổ học | vai-tro-cua-dao-duc-nguoi-hoc-co-hoc | Published | 100% | Phase 1 |
+| 6 | Học cổ học để sáng hơn hay để lệ thuộc hơn? | hoc-co-hoc-de-sang-hon-hay-de-le-thuoc-hon | Published | 100% | Phase 1 |
+| 7 | Cổ học và cách giữ mình giữa đời nhiều biến động | co-hoc-va-cach-giu-minh-giua-doi-nhieu-bien-dong | Published | 100% | Phase 4 |
+| 8 | Khi gặp việc không thuận, nên nhìn lại điều gì? | khi-gap-viec-khong-thuan-nen-nhin-lai-dieu-gi | Published | 100% | Phase 4 |
+| 9 | Cổ học và nghệ thuật sống chậm | co-hoc-va-nghe-thuat-song-cham | Published | 100% | Phase 4 |
+| 10 | Từ biết mình đến biết cách đối nhân xử thế | tu-biet-minh-den-biet-cach-doi-nhan-xu-the | Published | 100% | Phase 4 |
+| 11 | Vì sao người xưa coi trọng thời điểm và hoàn cảnh? | vi-sao-nguoi-xua-coi-trong-thoi-diem-va-hoan-canh | Published | 100% | Phase 4 |
+| 12 | Đừng lấy vận hạn làm cái cớ để trốn trách nhiệm | dung-lay-van-han-lam-cai-co-de-tron-trach-nhiem | Published | 100% | Phase 4 |
 
 ## Tóm tắt tiến độ
 

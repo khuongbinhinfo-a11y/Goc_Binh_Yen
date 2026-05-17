@@ -1,7 +1,7 @@
 # Lệnh pass cho Claude – Đợt 1 Huyền môn tham khảo
 
 ## Mục tiêu
-Hãy lấy **4 file markdown đã hoàn thiện** trong thư mục dưới đây và post lên repo/web đúng vào nhánh mới **Huyền môn tham khảo**.
+Hãy lấy **5 file markdown đã hoàn thiện** trong thư mục dưới đây và post lên repo/web đúng vào nhánh mới **Huyền môn tham khảo**.
 
 ## Thư mục nguồn
 `content_exports/hon-tho/huyen-mon-tham-khao/nhap-mon/`
@@ -14,7 +14,7 @@ Hãy lấy **4 file markdown đã hoàn thiện** trong thư mục dưới đây
 5. `05-tam-thuc-la-gi-vi-sao-thuong-bi-hieu-sai.md`
 
 ## Yêu cầu rất quan trọng
-- Chỉ post đúng 4 bài trên
+- Chỉ post đúng 5 bài trên
 - Chỉ làm trong nhánh **Huyền môn tham khảo**
 - Không sửa lan các nhánh cũ
 - Không refactor toàn site
