@@ -6,11 +6,12 @@ Hãy lấy **4 file markdown đã hoàn thiện** trong thư mục dưới đây
 ## Thư mục nguồn
 `content_exports/hon-tho/huyen-mon-tham-khao/nhap-mon/`
 
-## Danh sách file cần post
+## Danh sách file cần post (đã cập nhật đúng thứ tự thư mục)
 1. `01-huyen-hoc-phuong-dong-la-gi.md`
 2. `02-vi-sao-huyen-hoc-nghiem-tuc-khac-voi-me-tin-giat-gan.md`
 3. `03-ngu-thuat-la-gi-trong-truyen-thong-phuong-dong.md`
-4. `04-tam-thuc-la-gi-vi-sao-thuong-bi-hieu-sai.md`
+4. `04-ranh-gioi-giua-bieu-tuong-kinh-nghiem-va-niem-tin-tuyet-doi.md`
+5. `05-tam-thuc-la-gi-vi-sao-thuong-bi-hieu-sai.md`
 
 ## Yêu cầu rất quan trọng
 - Chỉ post đúng 4 bài trên
