@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type AppHubBannerProps = {
   title: string;
@@ -75,18 +75,55 @@ export function AppHubBanner({
 
   if (!visible) return null;
 
+  const cardStyle: React.CSSProperties = {
+    background: "linear-gradient(135deg, #5c3418 0%, #7a4f2b 100%)",
+    borderColor: "rgba(226,190,128,0.35)",
+  };
+
   return (
     <div
       role="complementary"
       aria-label={title}
-      className="fixed bottom-4 right-4 z-40 w-[calc(100vw-2rem)] max-w-[300px] sm:bottom-6 sm:right-6 sm:w-72"
+      className="fixed z-40 bottom-3 left-3 right-3 sm:bottom-6 sm:left-auto sm:right-6 sm:w-72"
     >
+      {/* ── MOBILE: pill bar ── */}
       <div
-        className="rounded-2xl border shadow-[0_8px_32px_rgba(30,12,4,0.35)]"
-        style={{
-          background: "linear-gradient(135deg, #5c3418 0%, #7a4f2b 100%)",
-          borderColor: "rgba(226,190,128,0.35)",
-        }}
+        className="flex items-center gap-2 rounded-full border px-3 py-2 shadow-[0_4px_20px_rgba(20,8,2,0.4)] sm:hidden"
+        style={cardStyle}
+      >
+        <span className="shrink-0" style={{ color: "#e2be80" }}>
+          {icon === "book" ? <BookIcon /> : <CompassIcon />}
+        </span>
+
+        <p className="min-w-0 flex-1 truncate text-xs font-semibold" style={{ color: "#fff8ec" }}>
+          {title}
+        </p>
+
+        <a
+          href={primaryHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold transition hover:opacity-90"
+          style={{ background: "#e2be80", color: "#3d1f0a" }}
+        >
+          Mở
+        </a>
+
+        <button
+          type="button"
+          onClick={handleDismiss}
+          aria-label="Đóng thông báo"
+          className="flex h-5 w-5 shrink-0 items-center justify-center text-base leading-none transition"
+          style={{ color: "rgba(230,200,160,0.55)" }}
+        >
+          ×
+        </button>
+      </div>
+
+      {/* ── DESKTOP: full card ── */}
+      <div
+        className="hidden rounded-2xl border shadow-[0_8px_32px_rgba(30,12,4,0.35)] sm:block"
+        style={cardStyle}
       >
         <div className="flex items-start justify-between gap-2 px-4 pt-4">
           <div className="flex items-center gap-2">
