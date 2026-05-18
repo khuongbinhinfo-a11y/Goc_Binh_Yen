@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
@@ -7,6 +9,15 @@ import {
   tamThucFoundationSections,
   tamThucSystemSections,
 } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Tam thức · Cổ học",
+  description:
+    "Khung tham chiếu ba hệ Thái Ất, Kỳ Môn, Lục Nhâm của huyền học phương Đông — trình bày theo tầng nhập môn và chuyên sâu, thái độ thận trọng.",
+  path: "/huyen-mon-tham-khao/tam-thuc",
+  image: "/images/sections/tam-thuc/hero-tam-thuc.jpg",
+});
 
 export default function HuyenMonTamThucPage() {
   return (

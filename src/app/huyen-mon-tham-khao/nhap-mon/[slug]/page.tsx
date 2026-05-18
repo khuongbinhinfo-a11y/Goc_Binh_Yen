@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import Image from "next/image";
@@ -9,6 +10,7 @@ import { notFound } from "next/navigation";
 import { coHocIntroArticles } from "@/data/coHocIntroArticles";
 import { getSafeImageSrc } from "@/lib/image";
 import { CoHocRelatedArticles } from "@/components/co-hoc/CoHocRelatedArticles";
+import { createRouteMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -16,6 +18,18 @@ type PageProps = {
 
 export async function generateStaticParams() {
   return coHocIntroArticles.map((article) => ({ slug: article.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = coHocIntroArticles.find((item) => item.slug === slug);
+  if (!article) return {};
+  return createRouteMetadata({
+    title: `${article.title} · Nhập môn · Cổ học`,
+    description: article.description ?? "Bài nhập môn Cổ học phương Đông — trình bày điềm tĩnh, rõ tầng, không thần bí hóa.",
+    path: `/huyen-mon-tham-khao/nhap-mon/${slug}`,
+    image: article.coverImage,
+  });
 }
 
 export default async function CoHocIntroArticlePage({ params }: PageProps) {

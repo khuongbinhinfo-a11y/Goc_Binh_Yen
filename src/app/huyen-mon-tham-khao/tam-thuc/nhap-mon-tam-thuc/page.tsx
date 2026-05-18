@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Nhập môn Tam thức · Cổ học",
+  description:
+    "Nền tảng khái niệm, phạm vi đọc hiểu và cách tiếp cận Tam thức ở mức cơ bản, dành cho người mới bắt đầu.",
+  path: "/huyen-mon-tham-khao/tam-thuc/nhap-mon-tam-thuc",
+  image: "/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
+});
 
 export default function NhapMonTamThucPage() {
   return (

@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 import Image from "next/image";
 
 import { coHocIntroArticles } from "@/data/coHocIntroArticles";
 import { getSafeImageSrc } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Nhập môn Cổ học",
+  description:
+    "Nền tảng khái niệm, mục tiêu học đúng tầng và cách đọc tài liệu có kiểm chứng — dành cho người mới tiếp cận Cổ học phương Đông.",
+  path: "/huyen-mon-tham-khao/nhap-mon",
+  image: "/images/co-hoc/Nhap-mon.jpeg",
+});
 
 export default function HuyenMonNhapMonPage() {
   return (

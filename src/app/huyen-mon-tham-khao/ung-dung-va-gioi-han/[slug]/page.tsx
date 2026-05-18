@@ -1,5 +1,6 @@
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import Image from "next/image";
@@ -11,6 +12,7 @@ import {
   getCoHocUngDungRelatedArticles,
 } from "@/data/coHocUngDungGioiHanArticles";
 import { getSafeImageSrc } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -18,6 +20,18 @@ type PageProps = {
 
 export async function generateStaticParams() {
   return coHocUngDungGioiHanArticles.map((article) => ({ slug: article.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const article = coHocUngDungGioiHanArticles.find((item) => item.slug === slug);
+  if (!article) return {};
+  return createRouteMetadata({
+    title: `${article.title} · Ứng dụng và giới hạn · Cổ học`,
+    description: article.description,
+    path: `/huyen-mon-tham-khao/ung-dung-va-gioi-han/${slug}`,
+    image: article.coverImage,
+  });
 }
 
 export default async function CoHocUngDungGioiHanArticlePage({ params }: PageProps) {

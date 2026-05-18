@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Chuyên sâu định hướng nghiên cứu · Tam thức · Cổ học",
+  description:
+    "Đi sâu vào biểu tượng, dị bản, cổ thư và những lớp nghĩa cần được nghiên cứu trong bối cảnh hiện đại.",
+  path: "/huyen-mon-tham-khao/tam-thuc/chuyen-sau-dinh-huong",
+  image: "/images/sections/tam-thuc/tam-thuc-nghien-cuu.jpg",
+});
 
 export default function ChuyenSauDinhHuongPage() {
   return (

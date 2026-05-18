@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 import Image from "next/image";
 
 import { coHocUngDungGioiHanArticles } from "@/data/coHocUngDungGioiHanArticles";
 import { getSafeImageSrc } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Ứng dụng và giới hạn · Cổ học",
+  description:
+    "Cụm bài giúp hiểu cổ học có thể ứng dụng vào đời sống thế nào và giới hạn nên giữ để không rơi vào mê tín, sợ hãi hay lệ thuộc.",
+  path: "/huyen-mon-tham-khao/ung-dung-va-gioi-han",
+  image: "/images/articles/huyen-mon-tham-khao/ung-dung-va-gioi-han/ung-dung-va-gioi-han-hero.png",
+});
 
 const HUB_DISCLAIMER =
   "Các bài trong mục này mang tinh thần tham khảo đời sống: giúp đọc cổ học với độ tỉnh táo, phân biệt giữa gợi mở và áp đặt. Nội dung không thay cho quyết định chuyên môn, pháp lý hay y tế khi bạn cần.";

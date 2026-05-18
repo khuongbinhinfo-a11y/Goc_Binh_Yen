@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 import Image from "next/image";
 
 import { getSafeImageSrc } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Ngũ thuật · Cổ học",
+  description:
+    "Khung Ngũ thuật phương Đông: Sơn, Y, Bốc, Mệnh, Tướng — giới thiệu phạm vi từng nhánh theo tinh thần điềm tĩnh, có ranh giới an toàn rõ ràng.",
+  path: "/huyen-mon-tham-khao/ngu-thuat",
+  image: "/images/articles/huyen-mon-tham-khao/ngu-thuat/ngu-thuat-hero.png",
+});
 
 const HERO_IMAGE = "/images/articles/huyen-mon-tham-khao/ngu-thuat/ngu-thuat-hero.png";
 

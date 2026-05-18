@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Kỳ Môn Độn Giáp · Tam thức · Cổ học",
+  description:
+    "Hệ nhìn tình huống theo thời điểm, không gian và thế cục — tham khảo thời cơ hành động với thái độ thận trọng.",
+  path: "/huyen-mon-tham-khao/tam-thuc/ky-mon-don-giap",
+  image: "/images/sections/tam-thuc/tam-thuc-ky-mon.jpg",
+});
 
 export default function KyMonDonGiapPage() {
   return (

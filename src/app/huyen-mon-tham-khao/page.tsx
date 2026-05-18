@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Image from "next/image";
 import Link from "next/link";
 
 import { getSafeImageSrc } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Cổ học · Huyền môn tham khảo",
+  description:
+    "Không gian Cổ học với bốn nhánh Nhập môn, Ngũ thuật, Tam thức và Ứng dụng và giới hạn — trình bày điềm tĩnh, rõ tầng, không thần bí hóa.",
+  path: "/huyen-mon-tham-khao",
+  image: "/images/heroes/co-hoc-hero-main.png",
+});
 
 const primaryBranches = [
   {

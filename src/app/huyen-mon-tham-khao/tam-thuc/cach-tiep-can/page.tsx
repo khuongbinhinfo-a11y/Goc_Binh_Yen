@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Cách tiếp cận đúng · Tam thức · Cổ học",
+  description:
+    "Phân biệt tri thức nền, diễn giải và giới hạn áp dụng trong Tam thức — để tránh rơi vào niềm tin tuyệt đối.",
+  path: "/huyen-mon-tham-khao/tam-thuc/cach-tiep-can",
+  image: "/images/sections/tam-thuc/tam-thuc-nhap-mon.jpg",
+});
 
 export default function CachTiepCanPage() {
   return (

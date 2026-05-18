@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Ứng dụng và giới hạn Tam thức · Cổ học",
+  description:
+    "Giữ ranh giới giữa tham khảo và lệ thuộc, giữa soi sáng nhận thức và quyết định thay con người trong Tam thức.",
+  path: "/huyen-mon-tham-khao/tam-thuc/ung-dung-va-gioi-han-tam-thuc",
+  image: "/images/sections/tam-thuc/tam-thuc-ung-dung.jpg",
+});
 
 export default function UngDungVaGioiHanPage() {
   return (

@@ -189,7 +189,7 @@ export default function UngHoPage() {
       const payload: { ok?: boolean; paid?: boolean; email?: string; error?: string } = await response.json().catch(() => ({}));
 
       if (!response.ok || !payload.ok) {
-        throw new Error(payload.error || "Không thể kiểm tra trạng thái thanh toán.");
+        throw new Error(payload.error || "Không thể kiểm tra trạng thái ủng hộ.");
       }
 
       setLastStatusCheckedAt(new Date().toLocaleTimeString("vi-VN"));
@@ -201,7 +201,7 @@ export default function UngHoPage() {
       }
     } catch (error) {
       if (mode === "manual") {
-        setStatusError(error instanceof Error ? error.message : "Không thể kiểm tra trạng thái thanh toán.");
+        setStatusError(error instanceof Error ? error.message : "Không thể kiểm tra trạng thái ủng hộ.");
       }
     } finally {
       if (mode === "manual") {
@@ -359,7 +359,7 @@ export default function UngHoPage() {
                       {copiedAccount ? copy.copiedButton : copy.copyButton}
                     </button>
                   </div>
-                  <p className="mt-3 text-xs text-[#8a6a57] sm:text-sm">Nhấn "Ủng hộ ngay" để mở popup và quét mã QR chuyển khoản.</p>
+                  <p className="mt-3 text-xs text-[#8a6a57] sm:text-sm">Nhấn "Ủng hộ ngay" để mở popup và quét mã QR gửi ủng hộ.</p>
 
                   <button
                     type="button"
@@ -438,7 +438,7 @@ export default function UngHoPage() {
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h3 className="text-lg font-semibold text-[#3f2b20] sm:text-xl">Ủng hộ Hồn Thơ</h3>
-                <p className="mt-1 text-xs leading-6 text-[#6f5240] sm:text-sm">Quét QR để chuyển khoản. Vui lòng điền Tên - Email - Lời nhắn để hệ thống gửi thư cảm ơn chính xác.</p>
+                <p className="mt-1 text-xs leading-6 text-[#6f5240] sm:text-sm">Quét QR để gửi ủng hộ. Vui lòng điền Tên - Email - Lời nhắn để hệ thống gửi thư cảm ơn chính xác.</p>
               </div>
               <button
                 type="button"
@@ -476,7 +476,7 @@ export default function UngHoPage() {
             </dl>
 
             <div className="mt-4 rounded-2xl border border-[#d9bea4] bg-white/70 p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7b5439]">Nội dung chuyển khoản</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7b5439]">Nội dung ghi chú</p>
               <p className="mt-2 rounded-xl border border-[#ecdac9] bg-white px-3 py-2 text-sm font-medium text-[#4a2f20]">{transferNarrativeDisplay}</p>
               <p className="mt-2 text-[11px] text-[#7b5439] sm:text-xs">Mã ủng hộ: {donationId || "Đang tạo..."}</p>
               <button
@@ -484,7 +484,7 @@ export default function UngHoPage() {
                 onClick={handleCopyTransferContent}
                 className="mt-3 inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
               >
-                {copiedTransfer ? "Đã sao chép nội dung" : "Sao chép nội dung chuyển khoản"}
+                {copiedTransfer ? "Đã sao chép nội dung" : "Sao chép nội dung ghi chú"}
               </button>
               <button
                 type="button"
@@ -562,7 +562,7 @@ export default function UngHoPage() {
                     onClick={() => void checkPaymentStatusOnce()}
                     className="inline-flex rounded-full border border-[#c9a488] px-4 py-2 text-xs font-semibold text-[#7a5236] transition hover:bg-[#f2dfcb] sm:text-sm"
                   >
-                    {checkingStatus ? "Đang kiểm tra..." : "Kiểm tra trạng thái thanh toán"}
+                    {checkingStatus ? "Đang kiểm tra..." : "Kiểm tra trạng thái ủng hộ"}
                   </button>
                 </div>
               </div>
@@ -580,7 +580,7 @@ export default function UngHoPage() {
             ) : null}
 
             {!paymentConfirmed ? (
-              <p className="mt-4 text-xs leading-6 text-[#6f5240] sm:text-sm">Sau khi bạn chuyển khoản thành công, popup sẽ tự động cập nhật lời cảm ơn.</p>
+              <p className="mt-4 text-xs leading-6 text-[#6f5240] sm:text-sm">Sau khi bạn gửi ủng hộ thành công, popup sẽ tự động cập nhật lời cảm ơn.</p>
             ) : null}
           </article>
         </div>

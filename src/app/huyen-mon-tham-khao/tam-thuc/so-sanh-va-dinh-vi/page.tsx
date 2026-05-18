@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "So sánh và định vị · Tam thức · Cổ học",
+  description:
+    "Định vị Tam thức trong tương quan với Ngũ thuật và làm rõ khác biệt giữa Thái Ất, Kỳ Môn và Lục Nhâm.",
+  path: "/huyen-mon-tham-khao/tam-thuc/so-sanh-va-dinh-vi",
+  image: "/images/sections/tam-thuc/tam-thuc-so-sanh.jpg",
+});
 
 export default function SoSanhVaDinhViPage() {
   return (

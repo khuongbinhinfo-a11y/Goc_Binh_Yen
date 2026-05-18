@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Thái Ất Thần Kinh · Tam thức · Cổ học",
+  description:
+    "Hệ quan sát vĩ mô của thời cuộc và thế thượng — Thái Ất nhìn từ chiều rộng và chiều dài của vận động lịch sử.",
+  path: "/huyen-mon-tham-khao/tam-thuc/thai-at-than-kinh",
+  image: "/images/sections/tam-thuc/tam-thuc-thai-at.jpg",
+});
 
 export default function ThaiAtThanKinhPage() {
   return (

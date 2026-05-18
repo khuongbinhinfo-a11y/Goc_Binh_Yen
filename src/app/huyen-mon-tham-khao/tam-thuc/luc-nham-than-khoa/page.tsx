@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
 import { getTamThucImageProps } from "@/data/tamThucData";
+import { createRouteMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createRouteMetadata({
+  title: "Lục Nhâm Thần Khóa · Tam thức · Cổ học",
+  description:
+    "Hệ quan sát diễn biến và quan hệ giữa các dấu hiệu — đòi hỏi thái độ học tập rất cẩn trọng, tránh áp đặt cơ học.",
+  path: "/huyen-mon-tham-khao/tam-thuc/luc-nham-than-khoa",
+  image: "/images/sections/tam-thuc/tam-thuc-luc-nham.jpg",
+});
 
 export default function LucNhamThanKhoaPage() {
   return (
