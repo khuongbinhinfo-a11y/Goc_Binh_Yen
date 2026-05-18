@@ -573,14 +573,7 @@ export default function UngHoPage() {
             ) : null}
 
             {!paymentConfirmed ? (
-              <p className="mt-3 rounded-xl border border-[#e7d3bf] bg-[#fff8f0] px-3 py-2 text-xs text-[#704f3a] sm:text-sm">
-                Đang theo dõi mã: {donationId || "..."}. {lastStatusCheckedAt ? `Lần kiểm tra gần nhất: ${lastStatusCheckedAt}.` : "Đang chờ lần kiểm tra đầu tiên."}
-                {lastPaidSnapshot === false ? " Trạng thái hiện tại: chưa xác nhận." : ""}
-              </p>
-            ) : null}
-
-            {!paymentConfirmed ? (
-              <p className="mt-4 text-xs leading-6 text-[#6f5240] sm:text-sm">Sau khi bạn gửi ủng hộ thành công, popup sẽ tự động cập nhật lời cảm ơn.</p>
+              <p className="mt-4 text-xs leading-6 text-[#6f5240] sm:text-sm">Cảm ơn bạn đã đồng hành cùng Hồn Thơ. Ủng hộ là hoàn toàn tự nguyện.</p>
             ) : null}
           </article>
         </div>
