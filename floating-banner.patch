@@ -1,0 +1,202 @@
+﻿From cf205f6aa3361321edb535c930163b5beaa0d98a Mon Sep 17 00:00:00 2001
+From: ungdungthongminh-info <khuongbinh.info@gmail.com>
+Date: Mon, 18 May 2026 20:33:49 +0700
+Subject: [PATCH] fix: AppHubBanner floating fixed card nau tram, dismiss
+ sessionStorage
+
+---
+ .../huyen-mon-tham-khao/ngu-thuat/page.tsx    |  6 +-
+ src/app/huyen-mon-tham-khao/tam-thuc/page.tsx |  6 +-
+ src/components/huyen-mon/AppHubBanner.tsx     | 91 ++++++++++++++-----
+ 3 files changed, 74 insertions(+), 29 deletions(-)
+
+diff --git a/src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx b/src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx
+index 387a3a0..0e22bf1 100644
+--- a/src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx
++++ b/src/app/huyen-mon-tham-khao/ngu-thuat/page.tsx
+@@ -76,14 +76,14 @@ export default function HuyenMonNguThuatPage() {
+ 
+         <AppHubBanner
+           title="Khu ß╗⌐ng dß╗Ñng Ng┼⌐ thuß║¡t"
+-          description="S╞ín ┬╖ Y ┬╖ Mß╗çnh ┬╖ Bß╗æc ┬╖ T╞░ß╗¢ng sß║╜ c├│ khu ß╗⌐ng dß╗Ñng ri├¬ng ─æß╗â tra cß╗⌐u, l╞░u hß╗ô s╞í v├á mß╗ƒ rß╗Öng bß║ún n├óng cao."
++          description="S╞ín ┬╖ Y ┬╖ Mß╗çnh ┬╖ Bß╗æc ┬╖ T╞░ß╗¢ng sß║╜ c├│ khu ß╗⌐ng dß╗Ñng ri├¬ng ─æß╗â tra cß╗⌐u v├á l╞░u hß╗ô s╞í."
+           primaryLabel="Mß╗ƒ khu ß╗⌐ng dß╗Ñng"
+           primaryHref="https://app.hontho.com/nguthuat"
+-          secondaryLabel="ß╗₧ lß║íi ─æß╗ìc nß╗Öi dung"
+           icon="compass"
++          dismissKey="apphub-ngu-thuat-dismissed"
+         />
+ 
+-        <div className="mt-6 clear-both grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
++        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+           {branches.map((item) => (
+             <article key={item.href} className="soft-panel relative overflow-hidden bg-[#fffaf4] p-5">
+               <div className="mb-4 overflow-hidden rounded-xl border border-[#dcc5ae] bg-[#f7efe3]">
+diff --git a/src/app/huyen-mon-tham-khao/tam-thuc/page.tsx b/src/app/huyen-mon-tham-khao/tam-thuc/page.tsx
+index 2a7948d..f504250 100644
+--- a/src/app/huyen-mon-tham-khao/tam-thuc/page.tsx
++++ b/src/app/huyen-mon-tham-khao/tam-thuc/page.tsx
+@@ -51,15 +51,15 @@ export default function HuyenMonTamThucPage() {
+ 
+         <AppHubBanner
+           title="Khu ß╗⌐ng dß╗Ñng Tam thß╗⌐c"
+-          description="C├íc c├┤ng cß╗Ñ thß╗▒c h├ánh v├á tra cß╗⌐u Tam thß╗⌐c sß║╜ ─æ╞░ß╗úc ─æß║╖t trong khu ß╗⌐ng dß╗Ñng ri├¬ng ─æß╗â dß╗à d├╣ng v├á l╞░u lß╗ïch sß╗¡."
++          description="C├íc c├┤ng cß╗Ñ tra cß╗⌐u Tam thß╗⌐c sß║╜ ─æ╞░ß╗úc ─æß║╖t trong khu ß╗⌐ng dß╗Ñng ri├¬ng ─æß╗â dß╗à d├╣ng v├á l╞░u lß╗ïch sß╗¡."
+           primaryLabel="Mß╗ƒ khu ß╗⌐ng dß╗Ñng"
+           primaryHref="https://app.hontho.com/tam-thuc"
+-          secondaryLabel="ß╗₧ lß║íi ─æß╗ìc nß╗Öi dung"
+           icon="book"
++          dismissKey="apphub-tam-thuc-dismissed"
+         />
+ 
+         {/* Tß║ºng nß╗ün */}
+-        <div className="mt-8 clear-both">
++        <div className="mt-8">
+           <h2 className="text-2xl font-semibold text-[#4a2f20] mb-4">Tß║ºng nß╗ün: Tiß║┐p cß║¡n Tam thß╗⌐c</h2>
+           <div className="grid gap-4 md:grid-cols-3">
+             {tamThucFoundationSections.map((item) => (
+diff --git a/src/components/huyen-mon/AppHubBanner.tsx b/src/components/huyen-mon/AppHubBanner.tsx
+index ff72690..94ddd3f 100644
+--- a/src/components/huyen-mon/AppHubBanner.tsx
++++ b/src/components/huyen-mon/AppHubBanner.tsx
+@@ -1,18 +1,22 @@
++"use client";
++
++import { useEffect, useState } from "react";
++
+ type AppHubBannerProps = {
+   title: string;
+   description: string;
+   primaryLabel: string;
+   primaryHref: string;
+-  secondaryLabel: string;
+   icon?: "compass" | "book";
++  dismissKey: string;
+ };
+ 
+ function CompassIcon() {
+   return (
+     <svg
+       aria-hidden="true"
+-      width="20"
+-      height="20"
++      width="16"
++      height="16"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+@@ -30,8 +34,8 @@ function BookIcon() {
+   return (
+     <svg
+       aria-hidden="true"
+-      width="20"
+-      height="20"
++      width="16"
++      height="16"
+       viewBox="0 0 24 24"
+       fill="none"
+       stroke="currentColor"
+@@ -50,41 +54,82 @@ export function AppHubBanner({
+   description,
+   primaryLabel,
+   primaryHref,
+-  secondaryLabel,
+   icon = "compass",
++  dismissKey,
+ }: AppHubBannerProps) {
++  const [visible, setVisible] = useState(false);
++
++  useEffect(() => {
++    if (typeof sessionStorage !== "undefined") {
++      const dismissed = sessionStorage.getItem(dismissKey);
++      if (!dismissed) setVisible(true);
++    }
++  }, [dismissKey]);
++
++  function handleDismiss() {
++    setVisible(false);
++    if (typeof sessionStorage !== "undefined") {
++      sessionStorage.setItem(dismissKey, "1");
++    }
++  }
++
++  if (!visible) return null;
++
+   return (
+-    <aside className="mt-5 sm:float-right sm:clear-right sm:ml-6 sm:mb-2 sm:mt-0 sm:w-72">
+-      <div className="rounded-2xl border border-[#c9a97a] bg-[#fdf6e8] shadow-[0_2px_12px_rgba(90,55,20,0.08)]">
+-        <div className="flex items-start gap-3 px-4 pt-4">
+-          <span className="mt-0.5 shrink-0 text-[#8a6340]">
+-            {icon === "book" ? <BookIcon /> : <CompassIcon />}
+-          </span>
+-          <div className="min-w-0">
+-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8a6340]">
++    <div
++      role="complementary"
++      aria-label={title}
++      className="fixed bottom-4 right-4 z-40 w-[calc(100vw-2rem)] max-w-[300px] sm:bottom-6 sm:right-6 sm:w-72"
++    >
++      <div
++        className="rounded-2xl border shadow-[0_8px_32px_rgba(30,12,4,0.35)]"
++        style={{
++          background: "linear-gradient(135deg, #5c3418 0%, #7a4f2b 100%)",
++          borderColor: "rgba(226,190,128,0.35)",
++        }}
++      >
++        <div className="flex items-start justify-between gap-2 px-4 pt-4">
++          <div className="flex items-center gap-2">
++            <span style={{ color: "#e2be80" }}>
++              {icon === "book" ? <BookIcon /> : <CompassIcon />}
++            </span>
++            <p className="text-[10px] font-semibold uppercase tracking-[0.14em]" style={{ color: "#e2be80" }}>
+               Khu ß╗⌐ng dß╗Ñng
+             </p>
+-            <h2 className="mt-0.5 text-sm font-semibold leading-snug text-[#3f2b1a]">
+-              {title}
+-            </h2>
+           </div>
++          <button
++            type="button"
++            onClick={handleDismiss}
++            aria-label="─É├│ng th├┤ng b├ío"
++            className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-sm transition"
++            style={{ color: "rgba(230,200,160,0.6)" }}
++          >
++            ├ù
++          </button>
+         </div>
+ 
+-        <p className="mt-2 px-4 text-xs leading-6 text-[#5e4030]">{description}</p>
++        <div className="px-4 pt-2 pb-1">
++          <h2 className="text-sm font-semibold leading-snug" style={{ color: "#fff8ec" }}>
++            {title}
++          </h2>
++          <p className="mt-1 text-xs leading-5" style={{ color: "rgba(246,234,212,0.75)" }}>
++            {description}
++          </p>
++        </div>
+ 
+-        <div className="mt-3 flex items-center justify-between gap-2 border-t border-[#e8d4b8] px-4 py-3">
++        <div className="px-4 pb-4 pt-3">
+           <a
+             href={primaryHref}
+             target="_blank"
+             rel="noopener noreferrer"
+-            className="inline-flex items-center gap-1 rounded-full border border-[#a07240] bg-[#7a5030] px-3 py-1.5 text-xs font-semibold text-[#fdf5e8] transition hover:bg-[#6a4228]"
++            className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold transition hover:opacity-90"
++            style={{ background: "#e2be80", color: "#3d1f0a" }}
+           >
+             {primaryLabel}
+-            <span aria-hidden="true">Γåù</span>
++            <span aria-hidden="true" className="text-[10px]">Γåù</span>
+           </a>
+-          <p className="text-right text-[11px] text-[#9a7255]">{secondaryLabel}</p>
+         </div>
+       </div>
+-    </aside>
++    </div>
+   );
+ }
+-- 
+2.53.0.windows.2
+
