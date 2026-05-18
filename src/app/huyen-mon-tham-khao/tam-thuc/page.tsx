@@ -51,15 +51,15 @@ export default function HuyenMonTamThucPage() {
 
         <AppHubBanner
           title="Khu ứng dụng Tam thức"
-          description="Các công cụ thực hành và tra cứu Tam thức sẽ được đặt trong khu ứng dụng riêng để dễ dùng và lưu lịch sử."
+          description="Các công cụ tra cứu Tam thức sẽ được đặt trong khu ứng dụng riêng để dễ dùng và lưu lịch sử."
           primaryLabel="Mở khu ứng dụng"
           primaryHref="https://app.hontho.com/tam-thuc"
-          secondaryLabel="Ở lại đọc nội dung"
           icon="book"
+          dismissKey="apphub-tam-thuc-dismissed"
         />
 
         {/* Tầng nền */}
-        <div className="mt-8 clear-both">
+        <div className="mt-8">
           <h2 className="text-2xl font-semibold text-[#4a2f20] mb-4">Tầng nền: Tiếp cận Tam thức</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {tamThucFoundationSections.map((item) => (

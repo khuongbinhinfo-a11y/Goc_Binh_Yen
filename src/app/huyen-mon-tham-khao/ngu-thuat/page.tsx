@@ -76,14 +76,14 @@ export default function HuyenMonNguThuatPage() {
 
         <AppHubBanner
           title="Khu ứng dụng Ngũ thuật"
-          description="Sơn · Y · Mệnh · Bốc · Tướng sẽ có khu ứng dụng riêng để tra cứu, lưu hồ sơ và mở rộng bản nâng cao."
+          description="Sơn · Y · Mệnh · Bốc · Tướng sẽ có khu ứng dụng riêng để tra cứu và lưu hồ sơ."
           primaryLabel="Mở khu ứng dụng"
           primaryHref="https://app.hontho.com/nguthuat"
-          secondaryLabel="Ở lại đọc nội dung"
           icon="compass"
+          dismissKey="apphub-ngu-thuat-dismissed"
         />
 
-        <div className="mt-6 clear-both grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {branches.map((item) => (
             <article key={item.href} className="soft-panel relative overflow-hidden bg-[#fffaf4] p-5">
               <div className="mb-4 overflow-hidden rounded-xl border border-[#dcc5ae] bg-[#f7efe3]">
