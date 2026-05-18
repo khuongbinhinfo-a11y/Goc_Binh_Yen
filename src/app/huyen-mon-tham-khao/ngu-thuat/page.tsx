@@ -5,6 +5,7 @@ import Image from "next/image";
 
 import { getSafeImageSrc } from "@/lib/image";
 import { createRouteMetadata } from "@/lib/seo";
+import { AppHubBanner } from "@/components/huyen-mon/AppHubBanner";
 
 export const metadata: Metadata = createRouteMetadata({
   title: "Ngũ thuật · Cổ học",
@@ -72,6 +73,14 @@ export default function HuyenMonNguThuatPage() {
             />
           </div>
         </article>
+
+        <AppHubBanner
+          title="Khu ứng dụng Ngũ thuật"
+          description="Các công cụ Sơn · Y · Mệnh · Bốc · Tướng đang được tách sang khu ứng dụng riêng để dễ sử dụng, lưu hồ sơ và mở rộng bản nâng cao sau này."
+          primaryLabel="Mở khu ứng dụng Ngũ thuật"
+          primaryHref="https://app.hontho.com/nguthuat"
+          secondaryLabel="Ở lại đọc nội dung"
+        />
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {branches.map((item) => (

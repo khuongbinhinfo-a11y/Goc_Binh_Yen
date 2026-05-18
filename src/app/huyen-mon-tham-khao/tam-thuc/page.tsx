@@ -10,6 +10,7 @@ import {
   tamThucSystemSections,
 } from "@/data/tamThucData";
 import { createRouteMetadata } from "@/lib/seo";
+import { AppHubBanner } from "@/components/huyen-mon/AppHubBanner";
 
 export const metadata: Metadata = createRouteMetadata({
   title: "Tam thức · Cổ học",
@@ -47,6 +48,14 @@ export default function HuyenMonTamThucPage() {
             />
           </div>
         </article>
+
+        <AppHubBanner
+          title="Khu ứng dụng Tam thức"
+          description="Các công cụ thực hành và tra cứu thuộc nhánh Tam thức sẽ được đặt trong khu ứng dụng riêng để dễ sử dụng, lưu hồ sơ và mở rộng tính năng sau này."
+          primaryLabel="Mở khu ứng dụng Tam thức"
+          primaryHref="https://app.hontho.com/tam-thuc"
+          secondaryLabel="Ở lại đọc nội dung"
+        />
 
         {/* Tầng nền */}
         <div className="mt-8">
