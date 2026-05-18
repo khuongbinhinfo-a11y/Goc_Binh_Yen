@@ -244,6 +244,23 @@ export default function SiteHeader() {
                 );
               })}
 
+              <a
+                href="https://app.hontho.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobileMenu}
+                className="mt-1 flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-medium text-[#c49a5a] transition hover:bg-[#f6e7d7]"
+              >
+                <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+                Ứng dụng cổ học
+                <svg aria-hidden="true" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-auto shrink-0 opacity-50">
+                  <path d="M7 7h10v10M7 17 17 7" />
+                </svg>
+              </a>
+
               <div className="mt-1.5 border-t border-[#e2c7ad] px-3 py-2.5">
                 <LocaleSwitch locale={locale} setLocale={setLocale} />
               </div>
@@ -325,6 +342,20 @@ export default function SiteHeader() {
             </nav>
 
             <LocaleSwitch locale={locale} setLocale={setLocale} />
+
+            <a
+              href="https://app.hontho.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition hover:opacity-85"
+              style={{ borderColor: "rgba(196,154,90,0.5)", background: "#5c3418", color: "#e2be80" }}
+            >
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Ứng dụng cổ học
+            </a>
 
             <div className="flex items-center gap-2">
               <a
