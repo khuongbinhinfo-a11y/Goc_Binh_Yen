@@ -2,6 +2,12 @@
 
 Muc tieu: kiem tra nhanh cac route moi va luong dieu huong truoc khi push.
 
+## Luu y quan trong
+
+- File Cloudflare key se luu o local root: `F:\1_A_Disk_D\khuong-binh\cloudflare-database-key.md`.
+- Tuyet doi khong commit hoac push file nay vao git.
+- File nay chi dung cho local dev va cac lan chay sau.
+
 ## 1) Chay local
 
 ```bash

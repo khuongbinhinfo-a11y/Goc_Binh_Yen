@@ -62,6 +62,7 @@ const AVAILABLE_LOCAL_POEM_IMAGES = new Set([
   "tieng-keu-chim-le-ban.jpeg",
   "mua-hen.jpeg",
   "cho-trong.jpeg",
+  "bat-canh-rau.jpeg",
   "mo-uoc.jpeg",
   "muon-con-hon-khong.jpeg",
   "goi-lai-em.jpeg",
@@ -219,6 +220,57 @@ export const poems: PoemItem[] = [
       referenceLinks: [],
       recommendedScene: "Không gian chiều nhẹ, có sắc hoa và cảm giác ngập ngừng trước khi nói lời thật.",
       licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "bat-canh-rau",
+    title: "Bát Canh Rau",
+    tag: "Thơ về mẹ",
+    summary:
+      "Một bát canh quê mở ra cả miền ký ức về mẹ, mảnh vườn, con cá dưới mương và nỗi thương nhớ sau ngày mẹ đi xa.",
+    author: "Khương",
+    locationDate: "Cai Lậy, 15/02/2017",
+    cardImage: "/images/poems/bat-canh-rau.jpeg",
+    heroImage: "/images/poems/bat-canh-rau.jpeg",
+    content: `Ra sau vườn, hái mớ rau tươi
+Đọt bồ ngót, lá mồng tơi xanh mượt
+Rau má xanh màu xanh phơn phớt
+Hồn quê hương, trong bát canh đầy
+Nhớ mẹ liêu xiêu, vóc nhỏ, vai gầy
+Tát mương, mò tôm, bắt cá
+Hái rau vườn, nuôi mấy chị - em con
+Vô tư, ăn hết cái canh
+Còn những nước dành phần cho mẹ
+Chúng con lớn lên, mỗi đứa một phương
+
+Mẹ ở lại với mảnh vườn xưa cũ
+Tù hú kêu, bạc trắng mái đầu
+Hôm chạy về, đứng dưới hàng cau
+Con gọi mãi, vội vàng chi vậy mẹ
+Con bơ vơ, dòng đời trôi lặng lẽ
+Mất mẹ rồi, đời quanh quẽ buồn hiu
+Mảnh vườn xưa trống vắng tiêu điều
+Rau trong vườn cũng lụi dần..., vắng mẹ
+Con cá cũng thôi ăn móng dưới mương nhà
+Tưởng niệm, ngày buồn, mẹ đã đi xa
+Bát canh rau ấm áp lòng thương nhớ
+Mẹ hiền ơi! Miền cực lạc trở về.`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ đi từ ký ức bữa canh rau nghèo mà ấm, sang hình bóng mẹ tảo tần, rồi lắng xuống ở nỗi trống vắng khi mẹ không còn.",
+      standoutImages:
+        "Bát canh rau, mảnh vườn xưa, hàng cau, con cá dưới mương nhà.",
+      meaning:
+        "Bài thơ nhắc lại tình mẹ qua những điều rất bình dị: rau vườn, bữa ăn quê, phần dành cho mẹ và nỗi nhớ sau ngày xa cách.",
+      memorableLine: "Bát canh rau ấm áp lòng thương nhớ",
+    },
+    imageResearch: {
+      moodKeywords: ["bát canh rau", "vườn quê", "mẹ hiền", "mương nhà", "hoài niệm"],
+      referenceLinks: [],
+      recommendedScene:
+        "Một mâm cơm quê có bát canh rau, nền là mảnh vườn cũ hoặc hàng cau, ánh sáng mềm và buồn nhẹ.",
+      licenseNote: "Dùng ảnh tự có hoặc ảnh đã kiểm tra quyền sử dụng.",
     },
   },
 {

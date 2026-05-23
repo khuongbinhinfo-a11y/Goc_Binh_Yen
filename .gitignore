@@ -24,6 +24,8 @@ dev-server.log
 
 # local files
 *.tsbuildinfo
+cloudflare-database-key.md
+cloudflare-database-key.txt
 
 .vercel
 .env*.local

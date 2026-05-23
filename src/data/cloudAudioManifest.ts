@@ -5,6 +5,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "anh-mai-ben-em",
   "anh-yeu-em",
   "ban-tay",
+  "bat-canh-rau",
   "ben-do",
   "ben-song-xua",
   "bi-ngan-hoa",
