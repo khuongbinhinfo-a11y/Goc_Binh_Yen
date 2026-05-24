@@ -1,5 +1,6 @@
 import { poems as rawPoems } from "@/data/poems";
 import { getCloudAudioUrl, hasCloudAudio } from "@/data/cloudAudioManifest";
+import { markdownSpiritualPosts, markdownStoryPosts } from "@/data/markdownContent";
 
 export type ContentType = "poem" | "story" | "spiritual";
 
@@ -371,7 +372,7 @@ const storyPostExpansions: Record<string, { readingTime: string; extraParagraphs
   },
 };
 
-const storyPostsSeed: ContentItem[] = [...baseStoryPosts, ...additionalStoryPosts].map((item) => ({
+const storyPostsSeed: ContentItem[] = [...baseStoryPosts, ...additionalStoryPosts, ...markdownStoryPosts].map((item) => ({
   ...item,
   relatedPosts: storyRelatedOverrides[item.slug] ?? item.relatedPosts,
 }));
@@ -727,7 +728,7 @@ const spiritualPostExpansions: Record<string, { readingTime: string; extraParagr
   },
 };
 
-const spiritualPostsSeed: ContentItem[] = [...baseSpiritualPosts, ...additionalSpiritualPosts].map((item) => ({
+const spiritualPostsSeed: ContentItem[] = [...baseSpiritualPosts, ...additionalSpiritualPosts, ...markdownSpiritualPosts].map((item) => ({
   ...item,
   relatedPosts: spiritualRelatedOverrides[item.slug] ?? item.relatedPosts,
 }));

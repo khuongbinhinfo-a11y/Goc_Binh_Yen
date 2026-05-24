@@ -1,0 +1,91 @@
+{
+  "branch": "Tâm Linh",
+  "baseRoute": "/tam-linh",
+  "r2ImagePath": "images/tam-linh/",
+  "generatedAt": "2025-05-24",
+  "totalPosts": 10,
+  "targetWordCount": "1000-1600",
+  "estimatedAudioDuration": "7-10 phút",
+  "posts": [
+    {
+      "order": 1,
+      "title": "Bớt Một Lời Nặng Lòng Nhẹ Hơn",
+      "slug": "bot-mot-loi-nang-long-nhe-hon",
+      "file": "01-bot-mot-loi-nang-long-nhe-hon.md",
+      "image": "images/tam-linh/01-bot-mot-loi-nang-long-nhe-hon.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 2,
+      "title": "Khi Không Còn Muốn Hơn Thua",
+      "slug": "khi-khong-con-muon-hon-thua",
+      "file": "02-khi-khong-con-muon-hon-thua.md",
+      "image": "images/tam-linh/02-khi-khong-con-muon-hon-thua.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 3,
+      "title": "Một Nén Hương Cho Người Đã Khuất",
+      "slug": "mot-nen-huong-cho-nguoi-da-khuat",
+      "file": "03-mot-nen-huong-cho-nguoi-da-khuat.md",
+      "image": "images/tam-linh/03-mot-nen-huong-cho-nguoi-da-khuat.png",
+      "readingTime": "9 phút"
+    },
+    {
+      "order": 4,
+      "title": "Buông Xuống Một Chuyện Không Thể Giữ",
+      "slug": "buong-xuong-mot-chuyen-khong-the-giu",
+      "file": "04-buong-xuong-mot-chuyen-khong-the-giu.md",
+      "image": "images/tam-linh/04-buong-xuong-mot-chuyen-khong-the-giu.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 5,
+      "title": "Sống Hiền Không Phải Là Yếu Đuối",
+      "slug": "song-hien-khong-phai-la-yeu-duoi",
+      "file": "05-song-hien-khong-phai-la-yeu-duoi.md",
+      "image": "images/tam-linh/05-song-hien-khong-phai-la-yeu-duoi.png",
+      "readingTime": "9 phút"
+    },
+    {
+      "order": 6,
+      "title": "Có Những Ngày Chỉ Cần Ngồi Yên",
+      "slug": "co-nhung-ngay-chi-can-ngoi-yen",
+      "file": "06-co-nhung-ngay-chi-can-ngoi-yen.md",
+      "image": "images/tam-linh/06-co-nhung-ngay-chi-can-ngoi-yen.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 7,
+      "title": "Nhân Quả Trong Một Bữa Cơm",
+      "slug": "nhan-qua-trong-mot-bua-com",
+      "file": "07-nhan-qua-trong-mot-bua-com.md",
+      "image": "images/tam-linh/07-nhan-qua-trong-mot-bua-com.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 8,
+      "title": "Lạy Phật Không Chỉ Ở Chùa",
+      "slug": "lay-phat-khong-chi-o-chua",
+      "file": "08-lay-phat-khong-chi-o-chua.md",
+      "image": "images/tam-linh/08-lay-phat-khong-chi-o-chua.png",
+      "readingTime": "8 phút"
+    },
+    {
+      "order": 9,
+      "title": "Người Biết Im Lặng Thường Sâu",
+      "slug": "nguoi-biet-im-lang-thuong-sau",
+      "file": "09-nguoi-biet-im-lang-thuong-sau.md",
+      "image": "images/tam-linh/09-nguoi-biet-im-lang-thuong-sau.png",
+      "readingTime": "9 phút"
+    },
+    {
+      "order": 10,
+      "title": "Một Đêm Nghe Chuông Xa",
+      "slug": "mot-dem-nghe-chuong-xa",
+      "file": "10-mot-dem-nghe-chuong-xa.md",
+      "image": "images/tam-linh/10-mot-dem-nghe-chuong-xa.png",
+      "readingTime": "9 phút"
+    }
+  ]
+}
