@@ -93,6 +93,7 @@ export default function SiteHeader() {
   const { locale, setLocale, t } = useLocale();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAppPopupOpen, setIsAppPopupOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("#trang-chu");
 
   const menuLabel = locale === "vi" ? "Mở menu" : "Open menu";
@@ -244,6 +245,21 @@ export default function SiteHeader() {
                 );
               })}
 
+              <button
+                type="button"
+                onClick={() => {
+                  closeMobileMenu();
+                  setIsAppPopupOpen(true);
+                }}
+                className="mt-1 flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-[#c49a5a] transition hover:bg-[#f6e7d7]"
+              >
+                <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+                Ứng dụng cổ học
+              </button>
+
               <div className="mt-1.5 border-t border-[#e2c7ad] px-3 py-2.5">
                 <LocaleSwitch locale={locale} setLocale={setLocale} />
               </div>
@@ -326,6 +342,19 @@ export default function SiteHeader() {
 
             <LocaleSwitch locale={locale} setLocale={setLocale} />
 
+            <button
+              type="button"
+              onClick={() => setIsAppPopupOpen(true)}
+              className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition hover:opacity-85"
+              style={{ borderColor: "rgba(196,154,90,0.5)", background: "#5c3418", color: "#e2be80" }}
+            >
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+              </svg>
+              Ứng dụng cổ học
+            </button>
+
             <div className="flex items-center gap-2">
               <a
                 href={FACEBOOK_URL}
@@ -349,6 +378,39 @@ export default function SiteHeader() {
           </div>
         </div>
       </div>
+
+      {/* Popup Ứng dụng cổ học */}
+      {isAppPopupOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+          onClick={() => setIsAppPopupOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="app-popup-title"
+        >
+          <div
+            className="max-w-sm rounded-2xl border border-[#e2c7ad] bg-[#fffaf3] p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3
+              id="app-popup-title"
+              className="text-center text-lg font-semibold text-[#4a2f20]"
+            >
+              Ứng dụng cổ học sắp ra mắt
+            </h3>
+            <p className="mt-3 text-center text-sm leading-6 text-[#654939]">
+              Cánh cửa nhỏ của Hồn Thơ đang được thắp đèn. Tứ Trụ, Phong thủy an cư và những công cụ cổ học sẽ mở dần, nhẹ nhàng mà rõ lối.
+            </p>
+            <button
+              type="button"
+              onClick={() => setIsAppPopupOpen(false)}
+              className="mx-auto mt-5 block rounded-full bg-[#8b5e3c] px-6 py-2 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
+            >
+              Đã hiểu
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
