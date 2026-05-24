@@ -1,0 +1,87 @@
+=== HON THO - KE CHUYEN CONTENT EXPANDED ===
+Branch: Kể Chuyện
+Base Route: /ke-chuyen
+R2 Image Path: images/ke-chuyen/
+Generated: 2025-05-24
+Total Posts: 10
+Target Word Count: 1000-1600 words per post
+Estimated Audio Duration: 7-10 minutes
+
+--- POST LIST ---
+
+1. Title: Bà Bán Bánh Ít Ở Góc Chợ Xưa
+   Slug: ba-ban-banh-it-o-goc-cho-xua
+   File: 01-ba-ban-banh-it-o-goc-cho-xua.md
+   Image: images/ke-chuyen/01-ba-ban-banh-it-o-goc-cho-xua.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+2. Title: Ông Ngoại Và Chiếc Võng Dưới Hàng Dừa
+   Slug: ong-ngoai-va-chiec-vong-duoi-hang-dua
+   File: 02-ong-ngoai-va-chiec-vong-duoi-hang-dua.md
+   Image: images/ke-chuyen/02-ong-ngoai-va-chiec-vong-duoi-hang-dua.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+3. Title: Con Đường Đất Sau Mùa Nước Nổi
+   Slug: con-duong-dat-sau-mua-nuoc-noi
+   File: 03-con-duong-dat-sau-mua-nuoc-noi.md
+   Image: images/ke-chuyen/03-con-duong-dat-sau-mua-nuoc-noi.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+4. Title: Bữa Cơm Chiều Có Mắm Kho
+   Slug: bua-com-chieu-co-mam-kho
+   File: 04-bua-com-chieu-co-mam-kho.md
+   Image: images/ke-chuyen/04-bua-com-chieu-co-mam-kho.png
+   Category: Kể chuyện
+   Reading Time: 8 phút
+
+5. Title: Tiếng Gà Trưa Bên Mái Nhà Cũ
+   Slug: tieng-ga-trua-ben-mai-nha-cu
+   File: 05-tieng-ga-trua-ben-mai-nha-cu.md
+   Image: images/ke-chuyen/05-tieng-ga-trua-ben-mai-nha-cu.png
+   Category: Kể chuyện
+   Reading Time: 8 phút
+
+6. Title: Người Đưa Thư Qua Những Xóm Nhỏ
+   Slug: nguoi-dua-thu-qua-nhung-xom-nho
+   File: 06-nguoi-dua-thu-qua-nhung-xom-nho.md
+   Image: images/ke-chuyen/06-nguoi-dua-thu-qua-nhung-xom-nho.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+7. Title: Chiếc Xuồng Neo Dưới Bến Xưa
+   Slug: chiec-xuong-neo-duoi-ben-xua
+   File: 07-chiec-xuong-neo-duoi-ben-xua.md
+   Image: images/ke-chuyen/07-chiec-xuong-neo-duoi-ben-xua.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+8. Title: Mùi Rơm Mới Sau Ngày Gặt
+   Slug: mui-rom-moi-sau-ngay-gat
+   File: 08-mui-rom-moi-sau-ngay-gat.md
+   Image: images/ke-chuyen/08-mui-rom-moi-sau-ngay-gat.png
+   Category: Kể chuyện
+   Reading Time: 9 phút
+
+9. Title: Đêm Mưa Trong Căn Nhà Lá
+   Slug: dem-mua-trong-can-nha-la
+   File: 09-dem-mua-trong-can-nha-la.md
+   Image: images/ke-chuyen/09-dem-mua-trong-can-nha-la.png
+   Category: Kể chuyện
+   Reading Time: 8 phút
+
+10. Title: Chợ Sớm Bên Dòng Kênh Nhỏ
+    Slug: cho-som-ben-dong-kenh-nho
+    File: 10-cho-som-ben-dong-kenh-nho.md
+    Image: images/ke-chuyen/10-cho-som-ben-dong-kenh-nho.png
+    Category: Kể chuyện
+    Reading Time: 9 phút
+
+--- NOTES ---
+- All images should be uploaded to R2 at: images/ke-chuyen/
+- Audio: Not yet recorded (placeholder hasAudio: false)
+- Content style: Rural stories, childhood memories, slow pace
+- Voice: Hồng Tâm
+- Format: Markdown with YAML frontmatter
