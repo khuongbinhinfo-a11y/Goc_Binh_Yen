@@ -291,19 +291,21 @@ export default function SiteHeader() {
         )}
 
         <div className="hidden min-h-[74px] items-center justify-between gap-4 py-2.5 md:flex">
-          <a href="/#trang-chu" className="group flex items-center gap-3">
-            <Image
-              src={getSafeImageSrc("/logo.jpg")}
-              alt={`Logo ${t.brandName}`}
-              width={58}
-              height={58}
-              className="h-[52px] w-[52px] rounded-2xl border border-[#d8b89b] object-cover shadow-[0_8px_18px_rgba(74,47,32,0.12)]"
-              priority
-            />
+          <div className="group flex items-center gap-3">
+            <a href="/#trang-chu" className="flex items-center">
+              <Image
+                src={getSafeImageSrc("/logo.jpg")}
+                alt={`Logo ${t.brandName}`}
+                width={58}
+                height={58}
+                className="h-[52px] w-[52px] rounded-2xl border border-[#d8b89b] object-cover shadow-[0_8px_18px_rgba(74,47,32,0.12)]"
+                priority
+              />
+            </a>
             <div>
-              <div className="text-[29px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+              <a href="/#trang-chu" className="text-[29px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33] hover:no-underline">
                 {t.brandName}
-              </div>
+              </a>
               <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">
                 <a
                   href={poetMenuUrl}
@@ -318,7 +320,7 @@ export default function SiteHeader() {
                 </span>
               </div>
             </div>
-          </a>
+          </div>
 
           <div className="items-center gap-6 md:flex">
             <nav aria-label={mainNavLabel} className="flex items-center gap-6 text-[13.5px]">
