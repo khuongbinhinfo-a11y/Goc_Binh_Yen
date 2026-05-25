@@ -58,6 +58,22 @@ function withCloudAudio(item: ContentItem): ContentItem {
   };
 }
 
+const localAudioOverrides: Partial<Record<`${ContentType}:${string}`, string>> = {
+  "story:ba-ban-banh-it-o-goc-cho-xua": "/audio/ke-chuyen/ba-ban-banh-it-o-goc-cho-xua.mp3",
+  "spiritual:bot-mot-loi-nang-long-nhe-hon": "/audio/tam-linh/bot-mot-loi-nang-long-nhe-hon.mp3",
+};
+
+function withLocalAudioOverride(item: ContentItem): ContentItem {
+  const audioUrl = localAudioOverrides[`${item.contentType}:${item.slug}`];
+  if (!audioUrl) return item;
+
+  return {
+    ...item,
+    audioUrl,
+    hasAudio: true,
+  };
+}
+
 const poetryBase: ContentItem[] = rawPoems
   .filter((item) => item.status === "published")
   .map((item, index, source) => ({
@@ -380,13 +396,13 @@ const storyPostsSeed: ContentItem[] = [...baseStoryPosts, ...additionalStoryPost
 export const storyPosts: ContentItem[] = storyPostsSeed.map((item) => {
   const expansion = storyPostExpansions[item.slug];
 
-  if (!expansion) return withCloudAudio(item);
+  if (!expansion) return withLocalAudioOverride(withCloudAudio(item));
 
-  return withCloudAudio({
+  return withLocalAudioOverride(withCloudAudio({
     ...item,
     readingTime: expansion.readingTime,
     content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
-  });
+  }));
 });
 
 const baseSpiritualPosts: ContentItem[] = [
@@ -736,13 +752,13 @@ const spiritualPostsSeed: ContentItem[] = [...baseSpiritualPosts, ...additionalS
 export const spiritualPosts: ContentItem[] = spiritualPostsSeed.map((item) => {
   const expansion = spiritualPostExpansions[item.slug];
 
-  if (!expansion) return withCloudAudio(item);
+  if (!expansion) return withLocalAudioOverride(withCloudAudio(item));
 
-  return withCloudAudio({
+  return withLocalAudioOverride(withCloudAudio({
     ...item,
     readingTime: expansion.readingTime,
     content: `${item.content}\n\n${expansion.extraParagraphs.join("\n\n")}`,
-  });
+  }));
 });
 
 export const poetryPosts: ContentItem[] = poetryBase.map((item) => {
