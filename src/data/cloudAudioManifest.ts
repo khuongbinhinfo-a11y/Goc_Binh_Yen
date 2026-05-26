@@ -69,14 +69,14 @@ export const CLOUD_AUDIO_FILES = {
     "ben-do-cu-qua-mot-mua-mua": "mp3",
     "chuyen-nguoi-qua-cau-tre": "mp3",
     "dem-nghe-tieng-nuoc-chay": "mp3",
-    "ba-ban-banh-it-o-goc-cho-xua": "mp3",
+    "ba-ban-banh-it-o-goc-cho-xua": "m4a",
     "mui-khoi-bep-len-tu-xom-nho": "mp3",
     "nguoi-va-xuong-o-me-song": "mp3"
   },
   spiritual: {
     "dot-nhang-truoc-hien-nha": "mp3",
     "hoc-tho-cham-giua-ngay-dai": "mp3",
-    "bot-mot-loi-nang-long-nhe-hon": "mp3",
+    "bot-mot-loi-nang-long-nhe-hon": "m4a",
     "mot-ngay-im-lang-ben-song": "mp3",
     "mot-sang-quet-la-trong-san-chua": "mp3",
     "mua-chuong-chieu-trong-san-chua-nho": "mp3",
