@@ -1,4 +1,5 @@
-﻿import TamLinhListingClient from "./TamLinhListingClient";
+import TamLinhListingClient from "./TamLinhListingClient";
+import { getLocalizedContentList } from "@/data/localizedContent";
 
 export const metadata = {
   title: "Tâm Linh | Hồn Thơ",
@@ -21,6 +22,35 @@ export const metadata = {
 };
 
 export default function TamLinhPage() {
-  return <TamLinhListingClient />;
-}
+  const listingItems = {
+    vi: getLocalizedContentList("spiritual", "vi").map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      excerpt: item.excerpt,
+      category: item.category,
+      publishedAt: item.publishedAt,
+      hasAudio: item.hasAudio,
+      coverImage: item.coverImage,
+      isFeatured: item.isFeatured,
+      contentType: item.contentType,
+      tag: item.tag,
+      author: item.author,
+    })),
+    en: getLocalizedContentList("spiritual", "en").map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      excerpt: item.excerpt,
+      category: item.category,
+      publishedAt: item.publishedAt,
+      hasAudio: item.hasAudio,
+      coverImage: item.coverImage,
+      isFeatured: item.isFeatured,
+      contentType: item.contentType,
+      tag: item.tag,
+      author: item.author,
+    })),
+  };
+  const hasFallbackContent = getLocalizedContentList("spiritual", "en").some((item) => item.i18nStatus.hasFallback);
 
+  return <TamLinhListingClient itemsByLocale={listingItems} hasFallbackContent={hasFallbackContent} />;
+}

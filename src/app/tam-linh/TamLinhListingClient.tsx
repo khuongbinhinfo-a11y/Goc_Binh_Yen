@@ -1,25 +1,93 @@
 "use client";
 
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
-import EditorialListingGrid from "@/components/content/EditorialListingGrid";
+import EditorialListingGrid, { type EditorialCardItem } from "@/components/content/EditorialListingGrid";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import { getContentRoutePrefix, getLocalizedContentList } from "@/data/localizedContent";
 import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
 import { getContentFallbackCandidates, getContentFallbackImage, LOCAL_IMAGE_MAP } from "@/lib/image";
 
-export default function TamLinhListingClient() {
+const spiritualTagBySlug: Record<string, string> = {
+  "mua-chuong-chieu-trong-san-chua-nho": "Chùa làng",
+  "dot-nhang-truoc-hien-nha": "Nếp nhà",
+  "mot-ngay-im-lang-ben-song": "Tĩnh lặng",
+  "hoc-tho-cham-giua-ngay-dai": "Hơi thở",
+  "mot-sang-quet-la-trong-san-chua": "Chánh niệm",
+  "thap-den-nho-truoc-khi-ngu": "Ngọn đèn",
+  "ngoi-yen-nghe-mua-cham-mai-hien": "Lắng nghe",
+  "nhan-qua-khong-o-dau-xa": "Nhân quả",
+};
+
+type TamLinhListingClientProps = {
+  itemsByLocale: Partial<Record<"vi" | "en", TamLinhListingItem[]>>;
+  hasFallbackContent: boolean;
+};
+
+type TamLinhListingItem = EditorialCardItem & {
+  isFeatured?: boolean;
+  i18nStatus?: {
+    hasFallback: boolean;
+  };
+};
+
+export default function TamLinhListingClient({ itemsByLocale, hasFallbackContent }: TamLinhListingClientProps) {
   const { locale } = useLocale();
   const copy = getReadingCopy(locale, "spiritual").listing;
-  const routePrefix = getContentRoutePrefix("spiritual");
-  const items = getLocalizedContentList("spiritual", locale);
-  const featured = items.find((item) => item.isFeatured) ?? items[0];
-  const listItems = items.filter((item) => item.slug !== featured.slug);
-  const hasFallback = items.some((item) => item.i18nStatus.hasFallback);
+  const routePrefix = "/tam-linh";
+  const items = itemsByLocale[locale] ?? itemsByLocale.vi ?? [];
+  const taggedItems = useMemo(
+    () =>
+      items.map((item) => ({
+        ...item,
+        tag: spiritualTagBySlug[item.slug] ?? item.category,
+      })),
+    [items],
+  );
+  const featured = taggedItems.find((item) => item.isFeatured) ?? taggedItems[0];
+  const listItems = taggedItems.filter((item) => item.slug !== featured.slug);
   const spiritualFallbackCandidates = getContentFallbackCandidates("spiritual");
+  const featuredCoverImage = featured.coverImage ?? getContentFallbackImage("spiritual");
+  const controlsRef = useRef<HTMLDivElement | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string>("all");
+  const [audioOnly, setAudioOnly] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(9);
+  const deferredSearchQuery = useDeferredValue(searchQuery);
+
+  const availableTags = useMemo(() => {
+    return Array.from(new Set(listItems.map((item) => item.tag).filter(Boolean))) as string[];
+  }, [listItems]);
+
+  const normalizedSearch = deferredSearchQuery.trim().toLowerCase();
+  const filteredItems = listItems.filter((item) => {
+    const matchesTag = selectedTag === "all" ? true : item.tag === selectedTag;
+    const matchesAudio = audioOnly ? item.hasAudio : true;
+    const matchesSearch = normalizedSearch ? item.title.toLowerCase().includes(normalizedSearch) : true;
+
+    return matchesTag && matchesAudio && matchesSearch;
+  });
+
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const hasActiveFilters = Boolean(normalizedSearch) || selectedTag !== "all" || audioOnly;
+  const hasMoreItems = visibleCount < filteredItems.length;
+
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [normalizedSearch, selectedTag, audioOnly]);
+
+  function scrollToControls() {
+    controlsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function clearFilters() {
+    setSearchQuery("");
+    setSelectedTag("all");
+    setAudioOnly(false);
+  }
 
   return (
     <div className="min-h-screen bg-[#f3eadf] text-[#3d2a1f]">
@@ -51,7 +119,7 @@ export default function TamLinhListingClient() {
           <div className="site-shell">
             <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
               <p className="text-sm leading-7 text-[#654939] sm:text-base">{copy.intro}</p>
-              {locale === "en" && hasFallback ? (
+              {locale === "en" && hasFallbackContent ? (
                 <p className="mt-3 rounded-xl border border-[#d8b89b] bg-[#fff6ea] px-3 py-2 text-xs text-[#77533b]">
                   {copy.fallbackNotice}
                 </p>
@@ -60,42 +128,224 @@ export default function TamLinhListingClient() {
           </div>
         </section>
 
-        <section className="pb-12 sm:pb-14">
-          <div className="site-shell">
-            <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
-              <div className="relative min-h-[260px]">
-                <SafeImage
-                  src={featured.coverImage}
-                  srcCandidates={spiritualFallbackCandidates}
-                  fallbackSrc={getContentFallbackImage("spiritual")}
-                  alt={featured.title}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#3f271b]/38 to-transparent" />
-              </div>
-              <div className="p-6 sm:p-7">
-                <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
-                  {copy.featuredTag}
-                </span>
-                <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{featured.excerpt}</p>
-                <p className="mt-1 text-xs text-[#876756]">{featured.publishedAt}</p>
-                <Link href={`${routePrefix}/${featured.slug}`} className="soft-button mt-6 inline-flex">
-                  {copy.readButton}
-                </Link>
-              </div>
-            </article>
+        <section className="sticky top-16 z-20 border-y border-[#e2ccb4] bg-[#f7ede1]/95 py-3 backdrop-blur md:hidden">
+          <div className="site-shell flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileLabel}</p>
+              <p className="text-sm font-semibold text-[#4a2f20]">
+                {filteredItems.length} {copy.mobileCountSuffix}
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={() => setAudioOnly((value) => !value)}
+                className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${
+                  audioOnly
+                    ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]"
+                    : "border-[#d6b695] bg-[#fff8f0] text-[#7d5439]"
+                }`}
+              >
+                {audioOnly ? copy.audioFilterActive : copy.audioFilterInactive}
+              </button>
+              <button
+                type="button"
+                onClick={scrollToControls}
+                className="rounded-full border border-[#d6b695] bg-[#fff8f0] px-3 py-2 text-xs font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+              >
+                {copy.mobileFilterBtn}
+              </button>
+            </div>
           </div>
         </section>
 
+        {!hasActiveFilters ? (
+          <section className="pb-12 sm:pb-14">
+            <div className="site-shell">
+              <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
+                <div className="relative min-h-[260px]">
+                  <SafeImage
+                    src={featuredCoverImage}
+                    srcCandidates={spiritualFallbackCandidates}
+                    fallbackSrc={getContentFallbackImage("spiritual")}
+                    alt={featured.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#3f271b]/38 to-transparent" />
+                </div>
+                <div className="p-6 sm:p-7">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="inline-flex rounded-full bg-[#f1dfcc] px-3 py-1 text-xs font-semibold text-[#865a3c]">
+                      {copy.featuredTag}
+                    </span>
+                    {featured.tag ? (
+                      <span className="inline-flex rounded-full border border-[#d7b596] bg-[#fff7ef] px-3 py-1 text-xs font-semibold text-[#7d5439]">
+                        {featured.tag}
+                      </span>
+                    ) : null}
+                    {featured.hasAudio ? (
+                      <span className="inline-flex rounded-full border border-[#d7b596] bg-[#fff7ef] px-3 py-1 text-xs font-semibold text-[#7d5439]">
+                        {copy.audioFilterInactive}
+                      </span>
+                    ) : null}
+                  </div>
+                  <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{featured.excerpt}</p>
+                  <p className="mt-1 text-xs text-[#876756]">{featured.publishedAt}</p>
+                  <Link href={`${routePrefix}/${featured.slug}`} className="soft-button mt-6 inline-flex">
+                    {copy.readButton}
+                  </Link>
+                </div>
+              </article>
+            </div>
+          </section>
+        ) : null}
+
         <section className="pb-20">
           <div className="site-shell">
-            <div className="mb-6">
-              <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
+            <div ref={controlsRef} className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileFilterBtn}</p>
+                  <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">{copy.gridTitle}</h2>
+                  <p className="mt-2 text-sm leading-7 text-[#654939]">{copy.intro}</p>
+                </div>
+                <div className="text-sm text-[#7a5a45]">
+                  {filteredItems.length} {copy.mobileCountSuffix}
+                </div>
+              </div>
+
+              <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+                <label className="block">
+                  <span className="mb-2 block text-sm font-semibold text-[#6d4b36]">{copy.searchLabel}</span>
+                  <input
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder={copy.searchPlaceholder}
+                    className="w-full rounded-2xl border border-[#d5b89f] bg-white px-4 py-3 text-sm text-[#4a2f20] outline-none transition placeholder:text-[#9b7a63] focus:border-[#b9835f]"
+                  />
+                </label>
+
+                <div className="flex flex-col justify-end gap-3 sm:flex-row sm:items-center sm:justify-end">
+                  {hasActiveFilters ? (
+                    <button
+                      type="button"
+                      onClick={clearFilters}
+                      className="rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                    >
+                      {copy.clearFilters}
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="mt-5 -mx-5 sm:-mx-6">
+                <div className="flex gap-2 overflow-x-auto px-5 pb-3 sm:px-6 [&::-webkit-scrollbar]:hidden">
+                  <button
+                    type="button"
+                    onClick={() => setAudioOnly((value) => !value)}
+                    className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                      audioOnly
+                        ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]"
+                        : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"
+                    }`}
+                  >
+                    {audioOnly ? `✓ ${copy.audioFilterFull}` : copy.audioFilterFull}
+                  </button>
+                  <div className="mx-1 shrink-0 self-stretch border-l border-[#d5b89f]" />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTag("all")}
+                    className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                      selectedTag === "all"
+                        ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]"
+                        : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"
+                    }`}
+                  >
+                    {copy.allTagsLabel}
+                  </button>
+                  {availableTags.map((tag) => (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={() => setSelectedTag(tag)}
+                      className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${
+                        selectedTag === tag
+                          ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]"
+                          : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"
+                      }`}
+                    >
+                      {tag}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <EditorialListingGrid items={listItems} routePrefix={routePrefix} readButtonLabel={copy.readButton} />
+            <div className="mb-6 mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
+                <p className="mt-2 text-sm leading-7 text-[#654939]">
+                  {hasActiveFilters
+                    ? copy.countActive.replace("{visible}", String(visibleItems.length)).replace("{total}", String(filteredItems.length))
+                    : copy.countAll.replace("{visible}", String(visibleItems.length)).replace("{total}", String(listItems.length))}
+                </p>
+              </div>
+              {hasMoreItems ? (
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount((count) => count + 9)}
+                  className="inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                >
+                  {copy.loadMore}
+                </button>
+              ) : null}
+            </div>
+
+            {filteredItems.length === 0 ? (
+              <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-6 text-center">
+                <h3 className="text-2xl font-semibold text-[#4a2f20]">{copy.emptyTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#654939]">{copy.emptyBody}</p>
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                >
+                  {copy.emptyReset}
+                </button>
+              </div>
+            ) : (
+              <EditorialListingGrid
+                items={visibleItems}
+                routePrefix={routePrefix}
+                readButtonLabel={copy.readButton}
+                showAudioBadge
+              />
+            )}
+
+            {filteredItems.length > 0 && hasMoreItems ? (
+              <div className="mt-8 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => setVisibleCount((count) => count + 9)}
+                  className="inline-flex rounded-full border border-[#c79f7d] px-5 py-3 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                >
+                  {copy.loadMore}
+                </button>
+              </div>
+            ) : null}
+
+            <div className="mt-8 hidden justify-end md:flex">
+              <button
+                type="button"
+                onClick={scrollToControls}
+                className="inline-flex rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+              >
+                {copy.backToFilters}
+              </button>
+            </div>
           </div>
         </section>
       </main>
