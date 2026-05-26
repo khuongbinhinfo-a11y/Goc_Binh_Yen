@@ -70,9 +70,8 @@ export default function InlineAudioPlayer({
     const audio = audioRef.current;
     if (!audio || !shouldAutoplayRef.current) return;
 
-    shouldAutoplayRef.current = false;
-
     const tryPlay = async () => {
+      shouldAutoplayRef.current = false;
       try {
         await audio.play();
       } catch {
@@ -80,7 +79,29 @@ export default function InlineAudioPlayer({
       }
     };
 
-    void tryPlay();
+    const handleLoadedMetadata = () => {
+      void tryPlay();
+    };
+
+    let rafId = 0;
+    let cancelled = false;
+    const pollUntilReady = () => {
+      if (cancelled || !shouldAutoplayRef.current) return;
+      if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
+        void tryPlay();
+        return;
+      }
+
+      rafId = window.requestAnimationFrame(pollUntilReady);
+    };
+
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata, { once: true });
+    rafId = window.requestAnimationFrame(pollUntilReady);
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(rafId);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+    };
   }, [audioUrl, currentSlug]);
 
   useEffect(() => {
