@@ -3,11 +3,22 @@
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
-import { LocalizedContentItem } from "@/data/localizedContent";
+import type { SearchCardImageInput } from "@/lib/image";
 import { resolveSearchCardImage } from "@/lib/image";
 
+export type EditorialCardItem = SearchCardImageInput & {
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  publishedAt: string;
+  hasAudio: boolean;
+  tag?: string;
+  author?: string;
+};
+
 type EditorialListingGridProps = {
-  items: LocalizedContentItem[];
+  items: EditorialCardItem[];
   routePrefix: string;
   readButtonLabel: string;
   showAuthor?: boolean;
