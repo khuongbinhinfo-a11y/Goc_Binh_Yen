@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import type { AudioQueueItem } from "@/lib/audio";
 
@@ -27,9 +27,7 @@ export default function InlineAudioPlayer({
   labels,
 }: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const audioRef = useRef<HTMLAudioElement>(null);
-  const autoplayNextRef = useRef(false);
   const [autoplayNext, setAutoplayNext] = useState(false);
 
   const currentIndex = queue.findIndex((item) => item.slug === currentSlug);
@@ -37,11 +35,17 @@ export default function InlineAudioPlayer({
   const normalizedIndex = currentIndex >= 0 ? currentIndex : 0;
   const prevItem = queueHasNavigation ? queue[(normalizedIndex - 1 + queue.length) % queue.length] : null;
   const nextItem = queueHasNavigation ? queue[(normalizedIndex + 1) % queue.length] : null;
-  const shouldAutoplayFromQuery = searchParams.get("autoplay") === "1";
-  const shouldAutoNextFromQuery = searchParams.get("autonext") === "1";
+
+  function getCurrentQuery() {
+    if (typeof window === "undefined") {
+      return new URLSearchParams();
+    }
+
+    return new URLSearchParams(window.location.search);
+  }
 
   function buildTrackHref(targetSlug: string, options?: { autoplay?: boolean; autonext?: boolean }) {
-    const query = new URLSearchParams(searchParams.toString());
+    const query = getCurrentQuery();
 
     if (options?.autoplay) {
       query.set("autoplay", "1");
@@ -60,18 +64,23 @@ export default function InlineAudioPlayer({
   }
 
   useEffect(() => {
-    setAutoplayNext(shouldAutoNextFromQuery);
-  }, [shouldAutoNextFromQuery, currentSlug]);
+    const query = getCurrentQuery();
+    setAutoplayNext(query.get("autonext") === "1");
+  }, [currentSlug]);
 
   useEffect(() => {
-    autoplayNextRef.current = autoPlayOnMount || shouldAutoplayFromQuery;
     const audio = audioRef.current;
-    if (!audio || !autoplayNextRef.current) return;
+    if (!audio) return;
+
+    const shouldAutoplayFromQuery = getCurrentQuery().get("autoplay") === "1";
+    if (!autoPlayOnMount && !shouldAutoplayFromQuery) return;
 
     let cancelled = false;
+    let playAttempted = false;
 
-    const tryPlay = async () => {
-      if (cancelled) return;
+    const tryPlayOnce = async () => {
+      if (cancelled || playAttempted) return;
+      playAttempted = true;
       try {
         await audio.play();
       } catch {
@@ -79,12 +88,10 @@ export default function InlineAudioPlayer({
       }
     };
 
-    const handleLoadedMetadata = () => {
-      void tryPlay();
-    };
+    const handleLoadedMetadata = () => void tryPlayOnce();
 
     if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
-      void tryPlay();
+      void tryPlayOnce();
     } else {
       audio.addEventListener("loadedmetadata", handleLoadedMetadata, { once: true });
     }
@@ -93,7 +100,7 @@ export default function InlineAudioPlayer({
       cancelled = true;
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
     };
-  }, [audioUrl, autoPlayOnMount, currentSlug, shouldAutoplayFromQuery]);
+  }, [audioUrl, autoPlayOnMount, currentSlug]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -106,11 +113,11 @@ export default function InlineAudioPlayer({
 
     audio.addEventListener("ended", handleEnded);
     return () => audio.removeEventListener("ended", handleEnded);
-  }, [autoplayNext, nextItem, router, searchParams, routePrefix]);
+  }, [autoplayNext, nextItem, router, routePrefix]);
 
   return (
     <div className="space-y-3">
-      <audio ref={audioRef} controls preload="metadata" src={audioUrl} className="w-full" />
+      <audio ref={audioRef} controls preload="metadata" playsInline src={audioUrl} className="w-full" />
       {queueHasNavigation && (
         <div className="flex flex-wrap items-center gap-3">
           <button
