@@ -152,6 +152,20 @@ export default function KeChuyenDetailClient({ story }: KeChuyenDetailClientProp
     setIsManualShareOpen((prev) => !prev);
   };
 
+  const handleListenClick = () => {
+    document.getElementById("nghe-xem")?.scrollIntoView({ behavior: "smooth" });
+    const audio = document.querySelector<HTMLAudioElement>("#nghe-xem audio");
+
+    if (audio) {
+      audio.autoplay = true;
+      void audio.play().catch(() => {
+        // Mobile browsers may still require a second explicit tap on native controls.
+      });
+    }
+
+    window.history.replaceState(null, "", `${routePrefix}/${story.slug}?autoplay=1#nghe-xem`);
+  };
+
   const handleCopyArticleLink = async () => {
     const copied = await copyToClipboard(getArticleUrl());
     if (copied) showCopiedToast("Đã copy link bài viết");
@@ -223,12 +237,13 @@ export default function KeChuyenDetailClient({ story }: KeChuyenDetailClientProp
                 {copy.actionRead}
               </a>
               {story.hasAudio && story.audioUrl && (
-                <Link
-                  href={`${routePrefix}/${story.slug}?autoplay=1#nghe-xem`}
+                <button
+                  type="button"
+                  onClick={handleListenClick}
                   className="inline-flex rounded-full border border-[#c89f7f] bg-[#fff8ee] px-4 py-2 text-sm font-semibold text-[#6d4733] transition hover:bg-[#f6e6d3]"
                 >
                   {copy.actionListen}
-                </Link>
+                </button>
               )}
               {story.hasVideo && story.youtubeUrl && (
                 <a

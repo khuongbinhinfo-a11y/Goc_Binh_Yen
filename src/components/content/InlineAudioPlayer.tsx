@@ -72,40 +72,6 @@ export default function InlineAudioPlayer({
     const audio = audioRef.current;
     if (!audio) return;
 
-    const shouldAutoplayFromQuery = getCurrentQuery().get("autoplay") === "1";
-    if (!autoPlayOnMount && !shouldAutoplayFromQuery) return;
-
-    let cancelled = false;
-    let playAttempted = false;
-
-    const tryPlayOnce = async () => {
-      if (cancelled || playAttempted) return;
-      playAttempted = true;
-      try {
-        await audio.play();
-      } catch {
-        // Ignore autoplay blocking or transient navigation aborts.
-      }
-    };
-
-    const handleLoadedMetadata = () => void tryPlayOnce();
-
-    if (audio.readyState >= HTMLMediaElement.HAVE_METADATA) {
-      void tryPlayOnce();
-    } else {
-      audio.addEventListener("loadedmetadata", handleLoadedMetadata, { once: true });
-    }
-
-    return () => {
-      cancelled = true;
-      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
-    };
-  }, [audioUrl, autoPlayOnMount, currentSlug]);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
     const handleEnded = () => {
       if (!autoplayNext || !nextItem) return;
 
@@ -123,7 +89,18 @@ export default function InlineAudioPlayer({
 
   return (
     <div className="space-y-3">
-      <audio ref={audioRef} controls preload="metadata" playsInline src={audioUrl} className="w-full" />
+      <audio
+        ref={audioRef}
+        controls
+        preload="metadata"
+        playsInline
+        autoPlay={autoPlayOnMount}
+        src={audioUrl}
+        className="w-full"
+      />
+      {autoPlayOnMount && (
+        <p className="text-xs text-[#865a3c]">Nhan play de nghe tren mobile neu trinh duyet chan tu phat.</p>
+      )}
       {queueHasNavigation && (
         <div className="flex flex-wrap items-center gap-3">
           <button
