@@ -31,9 +31,32 @@ export default function InlineAudioPlayer({
   const audioRef = useRef<HTMLAudioElement>(null);
   const shouldAutoplayRef = useRef(false);
   const [autoplay, setAutoplay] = useState(false);
+  const [playbackNotice, setPlaybackNotice] = useState<string | null>(null);
+  const [playbackError, setPlaybackError] = useState<string | null>(null);
 
   const shouldAutoPlayFromQuery = searchParams.get("autoplay") === "1";
   const shouldAutoNextFromQuery = searchParams.get("autonext") === "1";
+  const AUTOPLAY_NOTICE = "Trình duyệt chặn tự phát. Bấm Nghe để phát.";
+  const AUDIO_ERROR_MESSAGE = "Lỗi file âm thanh. Vui lòng thử lại hoặc chuyển bài khác.";
+  const MEDIA_ERR_SRC_NOT_SUPPORTED = 4;
+  const MEDIA_ERR_NETWORK = 2;
+  const NETWORK_NO_SOURCE = 3;
+
+  function isAutoplayBlockedError(error: unknown) {
+    if (!error || typeof error !== "object") return false;
+    const name = "name" in error ? String((error as { name?: unknown }).name) : "";
+    return name === "NotAllowedError" || name === "AbortError";
+  }
+
+  function hasRealAudioSourceError(audio: HTMLAudioElement) {
+    const mediaError = audio.error;
+    if (!mediaError) return false;
+    if (mediaError.code === MEDIA_ERR_SRC_NOT_SUPPORTED) return true;
+    if (mediaError.code === MEDIA_ERR_NETWORK) return true;
+    if (audio.networkState === NETWORK_NO_SOURCE) return true;
+    if (!audio.currentSrc) return true;
+    return false;
+  }
 
   const currentIndex = queue.findIndex((q) => q.slug === currentSlug);
   const prevItem = currentIndex > 0 ? queue[currentIndex - 1] : null;
@@ -64,18 +87,31 @@ export default function InlineAudioPlayer({
 
   useEffect(() => {
     shouldAutoplayRef.current = autoPlayOnMount || shouldAutoPlayFromQuery;
+    setPlaybackNotice(null);
+    setPlaybackError(null);
   }, [autoPlayOnMount, shouldAutoPlayFromQuery, currentSlug]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio || !shouldAutoplayRef.current) return;
+    setPlaybackNotice(AUTOPLAY_NOTICE);
 
     const tryPlay = async () => {
       shouldAutoplayRef.current = false;
       try {
         await audio.play();
-      } catch {
-        // Browser may block autoplay without a gesture; keep UI stable and playable by user.
+        setPlaybackNotice(null);
+      } catch (error) {
+        if (isAutoplayBlockedError(error)) {
+          setPlaybackNotice(AUTOPLAY_NOTICE);
+          setPlaybackError(null);
+          return;
+        }
+
+        if (hasRealAudioSourceError(audio)) {
+          setPlaybackError(AUDIO_ERROR_MESSAGE);
+          setPlaybackNotice(null);
+        }
       }
     };
 
@@ -84,6 +120,7 @@ export default function InlineAudioPlayer({
     };
 
     let rafId = 0;
+    let noticeTimer = 0;
     let cancelled = false;
     const pollUntilReady = () => {
       if (cancelled || !shouldAutoplayRef.current) return;
@@ -96,13 +133,40 @@ export default function InlineAudioPlayer({
     };
 
     audio.addEventListener("loadedmetadata", handleLoadedMetadata, { once: true });
+    const handleTimeUpdate = () => {
+      if (audio.currentTime <= 0 || audio.paused) return;
+      setPlaybackNotice(null);
+      if (!hasRealAudioSourceError(audio)) {
+        setPlaybackError(null);
+      }
+    };
+    const handleAudioError = () => {
+      if (hasRealAudioSourceError(audio)) {
+        setPlaybackError(AUDIO_ERROR_MESSAGE);
+        setPlaybackNotice(null);
+      }
+    };
+
+    audio.addEventListener("playing", handleTimeUpdate);
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("error", handleAudioError);
     rafId = window.requestAnimationFrame(pollUntilReady);
+    noticeTimer = window.setTimeout(() => {
+      if (cancelled || playbackError) return;
+      if (hasRealAudioSourceError(audio)) return;
+      if (audio.currentTime > 0 || !audio.paused) return;
+      setPlaybackNotice((current) => current ?? AUTOPLAY_NOTICE);
+    }, 1200);
     return () => {
       cancelled = true;
       window.cancelAnimationFrame(rafId);
+      window.clearTimeout(noticeTimer);
       audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("playing", handleTimeUpdate);
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("error", handleAudioError);
     };
-  }, [audioUrl, currentSlug]);
+  }, [audioUrl, currentSlug, playbackError]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -121,6 +185,11 @@ export default function InlineAudioPlayer({
   return (
     <div className="space-y-3">
       <audio ref={audioRef} controls preload="metadata" src={audioUrl} className="w-full" />
+      {(playbackNotice || playbackError) && (
+        <p className={`text-sm leading-6 ${playbackError ? "text-[#9c382f]" : "text-[#7d5439]"}`}>
+          {playbackError ?? playbackNotice}
+        </p>
+      )}
       {queue.length > 1 && (
         <div className="flex flex-wrap items-center gap-3">
           <button
