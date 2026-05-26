@@ -108,12 +108,18 @@ export default function InlineAudioPlayer({
 
     const handleEnded = () => {
       if (!autoplayNext || !nextItem) return;
-      router.push(buildTrackHref(nextItem.slug, { autoplay: true, autonext: true }));
+
+      audio.src = nextItem.audioUrl;
+      audio.load();
+      void audio.play().catch(() => {
+        // Keep the player interactive if the follow-up play is blocked.
+      });
+      window.history.replaceState(null, "", buildTrackHref(nextItem.slug, { autoplay: false, autonext: true }));
     };
 
     audio.addEventListener("ended", handleEnded);
     return () => audio.removeEventListener("ended", handleEnded);
-  }, [autoplayNext, nextItem, router, routePrefix]);
+  }, [autoplayNext, nextItem, routePrefix]);
 
   return (
     <div className="space-y-3">
