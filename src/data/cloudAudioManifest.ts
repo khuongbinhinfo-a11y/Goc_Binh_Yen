@@ -1,125 +1,105 @@
 export const CLOUD_AUDIO_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac8226.r2.dev" as const;
 
-export const CLOUD_AUDIO_SLUGS = {
-  poem: [
-  "anh-mai-ben-em",
-  "anh-yeu-em",
-  "ban-tay",
-  "bat-canh-rau",
-  "ben-do",
-  "ben-song-xua",
-  "bi-ngan-hoa",
-  "buon",
-  "cam-hoa",
-  "cam-on-tinh-yeu",
-  "cay-roi-may",
-  "chi-can-co-vay",
-  "cho-anh-goi",
-  "cho-trong",
-  "chuyen-do",
-  "co-don",
-  "co-nhieu-luc",
-  "dau-can-noi-chi-em",
-  "dau-chua",
-  "di-nguoc-mat-troi",
-  "dong-song",
-  "dung-than-nhien-nhu-the",
-  "em-huong-xua",
-  "em-mua-xuan-ve",
-  "em-trong-anh",
-  "giac-mo",
-  "goi-lai-em",
-  "hanh-phuc",
-  "hoa-buom",
-  "hoa-luc-binh",
-  "hue-trang",
-  "khi-yeu-nguoi-ta-ra-sao",
-  "khoang-cach-vo-hinh",
-  "long-trinh-nu",
-  "mo-dao-vuon-xuan",
-  "mo-tro-ve",
-  "mo-uoc",
-  "mot-thoang",
-  "mua-hen",
-  "mua-thu-la-do",
-  "muon-con-hon-khong",
-  "neu-co-mot-ngay",
-  "ngam",
-  "ngang-ben-song-xua",
-  "ngay-ay",
-  "nguoi-dung",
-  "nhin-trang",
-  "nho",
-  "nho-lam-ngay-xua",
-  "qua-mien-thuong-nho",
-  "qua-voi-bau",
-  "ron-rang",
-  "tam-long",
-  "them",
-  "tien-ai",
-  "tieng-keu-chim-le-ban",
-  "to-tinh",
-  "trong-trai",
-  "vu-vo",
-  "xa-nhau-qua",
-  "xin-loi",
-  "xuan"
-],
-  story: [
-  "ben-do-cu-qua-mot-mua-mua",
-  "chuyen-nguoi-qua-cau-tre",
-  "dem-nghe-tieng-nuoc-chay",
-  "ba-ban-banh-it-o-goc-cho-xua",
-  "mui-khoi-bep-len-tu-xom-nho",
-  "nguoi-va-xuong-o-me-song"
-],
-  spiritual: [
-  "dot-nhang-truoc-hien-nha",
-  "hoc-tho-cham-giua-ngay-dai",
-  "bot-mot-loi-nang-long-nhe-hon",
-  "mot-ngay-im-lang-ben-song",
-  "mot-sang-quet-la-trong-san-chua",
-  "mua-chuong-chieu-trong-san-chua-nho",
-  "nhan-qua-khong-o-dau-xa",
-  "ngoi-yen-nghe-mua-cham-mai-hien",
-  "thap-den-nho-truoc-khi-ngu"
-],
+export const CLOUD_AUDIO_FILES = {
+  poem: {
+    "anh-mai-ben-em": "mp3",
+    "anh-yeu-em": "mp3",
+    "ban-tay": "mp3",
+    "bat-canh-rau": "mp3",
+    "ben-do": "mp3",
+    "ben-song-xua": "mp3",
+    "bi-ngan-hoa": "mp3",
+    "buon": "mp3",
+    "cam-hoa": "mp3",
+    "cam-on-tinh-yeu": "mp3",
+    "cay-roi-may": "m4a",
+    "chi-can-co-vay": "mp3",
+    "cho-anh-goi": "mp3",
+    "cho-trong": "mp3",
+    "chuyen-do": "mp3",
+    "co-don": "mp3",
+    "co-nhieu-luc": "mp3",
+    "dau-can-noi-chi-em": "mp3",
+    "dau-chua": "mp3",
+    "di-nguoc-mat-troi": "mp3",
+    "dong-song": "mp3",
+    "dung-than-nhien-nhu-the": "mp3",
+    "em-huong-xua": "mp3",
+    "em-mua-xuan-ve": "mp3",
+    "em-trong-anh": "mp3",
+    "giac-mo": "mp3",
+    "goi-lai-em": "mp3",
+    "hanh-phuc": "mp3",
+    "hoa-buom": "mp3",
+    "hoa-luc-binh": "mp3",
+    "hue-trang": "mp3",
+    "khi-yeu-nguoi-ta-ra-sao": "mp3",
+    "khoang-cach-vo-hinh": "mp3",
+    "long-trinh-nu": "mp3",
+    "mo-dao-vuon-xuan": "mp3",
+    "mo-tro-ve": "mp3",
+    "mo-uoc": "mp3",
+    "mot-thoang": "mp3",
+    "mua-hen": "mp3",
+    "mua-thu-la-do": "mp3",
+    "muon-con-hon-khong": "mp3",
+    "neu-co-mot-ngay": "mp3",
+    "ngam": "mp3",
+    "ngang-ben-song-xua": "mp3",
+    "ngay-ay": "mp3",
+    "nguoi-dung": "mp3",
+    "nhin-trang": "mp3",
+    "nho": "mp3",
+    "nho-lam-ngay-xua": "mp3",
+    "qua-mien-thuong-nho": "mp3",
+    "qua-voi-bau": "mp3",
+    "ron-rang": "mp3",
+    "tam-long": "mp3",
+    "them": "mp3",
+    "tien-ai": "mp3",
+    "tieng-keu-chim-le-ban": "mp3",
+    "to-tinh": "mp3",
+    "trong-trai": "mp3",
+    "vu-vo": "mp3",
+    "xa-nhau-qua": "mp3",
+    "xin-loi": "mp3",
+    "xuan": "mp3"
+  },
+  story: {
+    "ben-do-cu-qua-mot-mua-mua": "mp3",
+    "chuyen-nguoi-qua-cau-tre": "mp3",
+    "dem-nghe-tieng-nuoc-chay": "mp3",
+    "ba-ban-banh-it-o-goc-cho-xua": "mp3",
+    "mui-khoi-bep-len-tu-xom-nho": "mp3",
+    "nguoi-va-xuong-o-me-song": "mp3"
+  },
+  spiritual: {
+    "dot-nhang-truoc-hien-nha": "mp3",
+    "hoc-tho-cham-giua-ngay-dai": "mp3",
+    "bot-mot-loi-nang-long-nhe-hon": "mp3",
+    "mot-ngay-im-lang-ben-song": "mp3",
+    "mot-sang-quet-la-trong-san-chua": "mp3",
+    "mua-chuong-chieu-trong-san-chua-nho": "mp3",
+    "nhan-qua-khong-o-dau-xa": "mp3",
+    "ngoi-yen-nghe-mua-cham-mai-hien": "mp3",
+    "thap-den-nho-truoc-khi-ngu": "mp3"
+  }
 } as const;
 
-export type CloudAudioType = keyof typeof CLOUD_AUDIO_SLUGS;
-
-const slugSets: Record<CloudAudioType, Set<string>> = {
-  poem: new Set(CLOUD_AUDIO_SLUGS.poem),
-  story: new Set(CLOUD_AUDIO_SLUGS.story),
-  spiritual: new Set(CLOUD_AUDIO_SLUGS.spiritual),
-};
-
-function branchByType(type: CloudAudioType) {
-  if (type === "poem") return "doc-tho";
-  if (type === "story") return "ke-chuyen";
-  return "tam-linh";
-}
-
-const spiritualM4aSlugs = new Set<string>([
-  "dot-nhang-truoc-hien-nha",
-  "nhan-qua-khong-o-dau-xa",
-]);
-
-const poemM4aSlugs = new Set<string>([
-  "cay-roi-may",
-]);
-
-function extBySlug(type: CloudAudioType, slug: string) {
-  if (type === "spiritual" && spiritualM4aSlugs.has(slug)) return "m4a";
-  if (type === "poem" && poemM4aSlugs.has(slug)) return "m4a";
-  return "mp3";
-}
+export type CloudAudioType = keyof typeof CLOUD_AUDIO_FILES;
 
 export function hasCloudAudio(type: CloudAudioType, slug: string) {
-  return slugSets[type].has(slug);
+  return Boolean(CLOUD_AUDIO_FILES[type]?.[slug as keyof typeof CLOUD_AUDIO_FILES[typeof type]]);
 }
 
 export function getCloudAudioUrl(type: CloudAudioType, slug: string) {
-  if (!hasCloudAudio(type, slug)) return undefined;
-  return CLOUD_AUDIO_BASE_URL + "/audio/" + branchByType(type) + "/" + slug + "." + extBySlug(type, slug);
+  const ext = CLOUD_AUDIO_FILES[type]?.[slug as keyof typeof CLOUD_AUDIO_FILES[typeof type]];
+  if (!ext) return undefined;
+
+  const branch =
+    type === "poem" ? "doc-tho" :
+    type === "story" ? "ke-chuyen" :
+    "tam-linh";
+
+  return `${CLOUD_AUDIO_BASE_URL}/audio/${branch}/${slug}.${ext}`;
 }
