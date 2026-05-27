@@ -1,25 +1,19 @@
-�---
-title: "M�"t Đêm Nghe Chuông Xa"
+---
+title: "Một Đêm Nghe Chuông Xa"
 slug: "mot-dem-nghe-chuong-xa"
 contentType: "spiritual"
 category: "Tâm linh"
-excerpt: "M�"t �êm nghe tiếng chuông chùa từ xa vọng lại, m�x ra khoảng tĩnh lặng và những suy ngẫm về sự cô �ơn, kết n�i và bình an n�"i tâm."
-coverImage: "/images/tam-linh/10-mot-dem-nghe-chuong-xa.png"
-voiceBy: "H�ng Tâm"
+excerpt: "Đêm ấy, từ rất xa, tiếng chuông chùa vọng tới qua lớp sương mỏng. Tôi đang nằm mà bỗng ngồi dậy. Âm thanh ấy không lớn, nhưng nó đi rất sâu, như thể chạm vào một vùng tĩnh lặng..."
+coverImage: "/images/tam-linh/mot-dem-nghe-chuong-xa.png"
+voiceBy: "Hồng Tâm"
 readingTime: "9 phút"
 publishedAt: "Mỹ Tho, tháng 03/2026"
 hasAudio: false
 hasVideo: false
-isFeatured: false
 relatedPosts:
   - "co-nhung-ngay-chi-can-ngoi-yen"
   - "nguoi-biet-im-lang-thuong-sau"
   - "mot-nen-huong-cho-nguoi-da-khuat"
-analysis:
-  emotionFlow: "Bài viết �i từ �êm trằn trọc �ến nghe tiếng chuông xa, qua suy ngẫm về cô �ơn và kết n�i, r�i kết lại bằng quyết tâm tìm kiếm sự tĩnh lặng."
-  standoutImages: "Tiếng chuông trong �êm tĩnh, mạng lư�:i người cùng nghe và sương trên lá cỏ sáng mai tạo nên các hình ảnh �ẹp và sâu sắc."
-  meaning: "Trong sự cô �ơn và �êm t�i, những âm thanh và khoảnh khắc tĩnh lặng có thỒ dẫn ta về v�:i chính mình và cảm nhận sự kết n�i."
-  memorableLine: "Trong �êm t�i nhất, vẫn có âm thanh dẫn �ường."
 ---
 
 # Một Đêm Nghe Chuông Xa

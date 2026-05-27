@@ -1,25 +1,19 @@
-�---
-title: "Khi Không Còn Mu�n Hơn Thua"
+---
+title: "Khi Không Còn Muốn Hơn Thua"
 slug: "khi-khong-con-muon-hon-thua"
 contentType: "spiritual"
 category: "Tâm linh"
-excerpt: "M�"t góc chiêm nghi�!m về sự m�!t mỏi của vi�!c luôn mu�n thắng và cách lòng mình nhẹ �i khi buông bỏ thói quen so �o."
-coverImage: "/images/tam-linh/02-khi-khong-con-muon-hon-thua.png"
-voiceBy: "H�ng Tâm"
+excerpt: "Tôi từng sống trong trạng thái phải đúng, phải hơn, phải giữ phần thắng cho mình. Cứ như thể nếu mình nhường một chút, mình sẽ nhỏ lại rất nhiều. Nhưng hóa ra, thứ làm mình mệt..."
+coverImage: "/images/tam-linh/khi-khong-con-muon-hon-thua.png"
+voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Cai Lậy, tháng 07/2025"
 hasAudio: false
 hasVideo: false
-isFeatured: false
 relatedPosts:
   - "bot-mot-loi-nang-long-nhe-hon"
   - "song-hien-khong-phai-la-yeu-duoi"
   - "co-nhung-ngay-chi-can-ngoi-yen"
-analysis:
-  emotionFlow: "Bài viết bắt �ầu từ thói quen tranh thắng, �i qua sự nhận ra m�!t mỏi, thử thay ��"i và kết lại bằng cảm giác tự do khi buông bỏ cái tôi."
-  standoutImages: "Tranh luận về hư�:ng quạt, cảm giác kiến bò khi không nói ra và hình ảnh cây mây không tranh tạo nên các �iỒm nhấn sâu sắc."
-  meaning: "Buông bỏ thói quen phải thắng không phải là thua cu�"c, mà là chọn lựa khôn ngoan �Ồ giữ bình yên n�"i tâm."
-  memorableLine: "Cu�"c �ời không phải m�"t trận �ấu."
 ---
 
 # Khi Không Còn Muốn Hơn Thua

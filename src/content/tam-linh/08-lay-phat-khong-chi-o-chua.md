@@ -1,25 +1,19 @@
-�---
-title: "Lạy Phật Không Ch�0 �~ Chùa"
+---
+title: "Lạy Phật Không Chỉ Ở Chùa"
 slug: "lay-phat-khong-chi-o-chua"
 contentType: "spiritual"
 category: "Tâm linh"
-excerpt: "M�"t bài chiêm nghi�!m về vi�!c thực hành �ạo Phật không phải ch�0 qua nghi l�& mà qua cách s�ng hàng ngày v�:i lòng biết ơn và từ bi."
-coverImage: "/images/tam-linh/08-lay-phat-khong-chi-o-chua.png"
-voiceBy: "H�ng Tâm"
+excerpt: "Tôi có một người dì chưa từng đi chùa thường xuyên, nhưng ai trong xóm cũng quý. Dì không nói lời nặng, không thích ngồi kể xấu ai, và luôn là người đầu tiên đưa tay khi hàng..."
+coverImage: "/images/tam-linh/lay-phat-khong-chi-o-chua.png"
+voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Mỹ Tho, tháng 01/2026"
 hasAudio: false
 hasVideo: false
-isFeatured: false
 relatedPosts:
   - "nhan-qua-trong-mot-bua-com"
   - "mot-nen-huong-cho-nguoi-da-khuat"
   - "nguoi-biet-im-lang-thuong-sau"
-analysis:
-  emotionFlow: "Bài viết �i từ ��9nh kiến về nghi thức lạy �ến nhận ra ý nghĩa thực sự của vi�!c thực hành Phật pháp trong �ời s�ng hàng ngày."
-  standoutImages: "Người dì không biết chữ nhưng s�ng hiền, cách lạy qua hành ��"ng từ bi và chùa �ược xây trong lòng tạo nên các �iỒm nhấn sâu sắc."
-  meaning: "Lạy Phật thực sự là thực hành lời Phật dạy trong cu�"c s�ng hàng ngày, không ch�0 là nghi thức �x chùa."
-  memorableLine: "M�i hành ��"ng từ bi, m�i lời nói hiền hòa �ều là m�"t lạy thật sự."
 ---
 
 # Lạy Phật Không Chỉ Ở Chùa

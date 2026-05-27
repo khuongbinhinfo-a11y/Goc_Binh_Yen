@@ -208,7 +208,33 @@ export const CLOUD_IMAGE_PATHS = [
   "/logo.jpg"
 ] as const;
 
-const cloudImagePathSet = new Set<string>(CLOUD_IMAGE_PATHS);
+const CLOUD_IMAGE_ALIASES: Record<string, string> = {
+  "/images/ke-chuyen/ba-ban-banh-it-o-goc-cho-xua.png": "/images/ke-chuyen/01-ba-ban-banh-it-o-goc-cho-xua.png",
+  "/images/ke-chuyen/ong-ngoai-va-chiec-vong-duoi-hang-dua.png": "/images/ke-chuyen/02-ong-ngoai-va-chiec-vong-duoi-hang-dua.png",
+  "/images/ke-chuyen/con-duong-dat-sau-mua-nuoc-noi.png": "/images/ke-chuyen/03-con-duong-dat-sau-mua-nuoc-noi.png",
+  "/images/ke-chuyen/bua-com-chieu-co-mam-kho.png": "/images/ke-chuyen/04-bua-com-chieu-co-mam-kho.png",
+  "/images/ke-chuyen/tieng-ga-trua-ben-mai-nha-cu.png": "/images/ke-chuyen/05-tieng-ga-trua-ben-mai-nha-cu.png",
+  "/images/ke-chuyen/nguoi-dua-thu-qua-nhung-xom-nho.png": "/images/ke-chuyen/06-nguoi-dua-thu-qua-nhung-xom-nho.png",
+  "/images/ke-chuyen/chiec-xuong-neo-duoi-ben-xua.png": "/images/ke-chuyen/07-chiec-xuong-neo-duoi-ben-xua.png",
+  "/images/ke-chuyen/mui-rom-moi-sau-ngay-gat.png": "/images/ke-chuyen/08-mui-rom-moi-sau-ngay-gat.png",
+  "/images/ke-chuyen/dem-mua-trong-can-nha-la.png": "/images/ke-chuyen/09-dem-mua-trong-can-nha-la.png",
+  "/images/ke-chuyen/cho-som-ben-dong-kenh-nho.png": "/images/ke-chuyen/10-cho-som-ben-dong-kenh-nho.png",
+  "/images/tam-linh/bot-mot-loi-nang-long-nhe-hon.png": "/images/tam-linh/01-bot-mot-loi-nang-long-nhe-hon.png",
+  "/images/tam-linh/khi-khong-con-muon-hon-thua.png": "/images/tam-linh/02-khi-khong-con-muon-hon-thua.png",
+  "/images/tam-linh/mot-nen-huong-cho-nguoi-da-khuat.png": "/images/tam-linh/03-mot-nen-huong-cho-nguoi-da-khuat.png",
+  "/images/tam-linh/buong-xuong-mot-chuyen-khong-the-giu.png": "/images/tam-linh/04-buong-xuong-mot-chuyen-khong-the-giu.png",
+  "/images/tam-linh/song-hien-khong-phai-la-yeu-duoi.png": "/images/tam-linh/05-song-hien-khong-phai-la-yeu-duoi.png",
+  "/images/tam-linh/co-nhung-ngay-chi-can-ngoi-yen.png": "/images/tam-linh/06-co-nhung-ngay-chi-can-ngoi-yen.png",
+  "/images/tam-linh/nhan-qua-trong-mot-bua-com.png": "/images/tam-linh/07-nhan-qua-trong-mot-bua-com.png",
+  "/images/tam-linh/lay-phat-khong-chi-o-chua.png": "/images/tam-linh/08-lay-phat-khong-chi-o-chua.png",
+  "/images/tam-linh/nguoi-biet-im-lang-thuong-sau.png": "/images/tam-linh/09-nguoi-biet-im-lang-thuong-sau.png",
+  "/images/tam-linh/mot-dem-nghe-chuong-xa.png": "/images/tam-linh/10-mot-dem-nghe-chuong-xa.png",
+};
+
+const cloudImagePathSet = new Set<string>([
+  ...CLOUD_IMAGE_PATHS,
+  ...Object.keys(CLOUD_IMAGE_ALIASES),
+]);
 
 function normalizeLocalImagePath(localPath: string) {
   const normalized = localPath.trim();
@@ -216,6 +242,10 @@ function normalizeLocalImagePath(localPath: string) {
   if (normalized.startsWith("http://") || normalized.startsWith("https://")) return "";
   if (normalized.startsWith("/")) return normalized;
   return "/" + normalized.replace(/^\/+/, "");
+}
+
+function resolveCloudImagePath(localPath: string) {
+  return CLOUD_IMAGE_ALIASES[localPath] || localPath;
 }
 
 export function hasCloudImage(localPath: string) {
@@ -229,7 +259,7 @@ export function getCloudImageUrl(localPath: string) {
   if (!normalized) return undefined;
   if (!CLOUD_IMAGE_BASE_URL) return undefined;
   if (!hasCloudImage(normalized)) return undefined;
-  return CLOUD_IMAGE_BASE_URL + normalized;
+  return CLOUD_IMAGE_BASE_URL + resolveCloudImagePath(normalized);
 }
 
 export function getCloudImageCandidates(localPath: string) {
