@@ -71,7 +71,8 @@ export const CLOUD_AUDIO_FILES = {
     "dem-nghe-tieng-nuoc-chay": "mp3",
     "ba-ban-banh-it-o-goc-cho-xua": "m4a",
     "mui-khoi-bep-len-tu-xom-nho": "mp3",
-    "nguoi-va-xuong-o-me-song": "mp3"
+    "nguoi-va-xuong-o-me-song": "mp3",
+    "ong-ngoai-va-chiec-vong-duoi-hang-dua": "m4a"
   },
   spiritual: {
     "dot-nhang-truoc-hien-nha": "mp3",
@@ -82,7 +83,8 @@ export const CLOUD_AUDIO_FILES = {
     "mua-chuong-chieu-trong-san-chua-nho": "mp3",
     "nhan-qua-khong-o-dau-xa": "mp3",
     "ngoi-yen-nghe-mua-cham-mai-hien": "mp3",
-    "thap-den-nho-truoc-khi-ngu": "mp3"
+    "thap-den-nho-truoc-khi-ngu": "mp3",
+    "khi-khong-con-muon-hon-thua": "m4a"
   }
 } as const;
 
