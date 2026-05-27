@@ -1,11 +1,23 @@
 import fs from 'fs';
 import path from 'path';
 
+function normalizeSourceContent(content: string) {
+  const withoutBom = content.replace(/^\uFEFF/, '');
+  const firstFence = withoutBom.indexOf('---');
+
+  if (firstFence > 0) {
+    return withoutBom.slice(firstFence);
+  }
+
+  return withoutBom;
+}
+
 // Simple frontmatter parser
 function parseFrontmatter(content: string): { data: any; content: string } {
-  const match = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/);
+  const normalized = normalizeSourceContent(content);
+  const match = normalized.match(/^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/);
   if (!match) {
-    return { data: {}, content };
+    return { data: {}, content: normalized };
   }
   
   const frontmatter = match[1];
@@ -80,6 +92,13 @@ function parseFrontmatter(content: string): { data: any; content: string } {
   return { data, content: body };
 }
 
+function normalizeSlug(file: string, slug?: string) {
+  const fallbackSlug = file.replace(/\.md$/, '');
+  const rawSlug = (slug || fallbackSlug).trim();
+
+  return rawSlug.replace(/^\d+-/, '');
+}
+
 function processContentDir(dirName: string, contentType: string) {
   const contentDir = path.join(process.cwd(), 'src', 'content', dirName);
   
@@ -93,13 +112,14 @@ function processContentDir(dirName: string, contentType: string) {
     const filePath = path.join(contentDir, file);
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const { data, content } = parseFrontmatter(fileContent);
+    const slug = normalizeSlug(file, data.slug);
     
     const words = content.replace(/\n/g, ' ').split(/\s+/).filter(Boolean).length;
     const minutes = Math.max(2, Math.round(words / 170));
     
     return {
       title: data.title || '',
-      slug: data.slug || file.replace('.md', ''),
+      slug,
       contentType: contentType,
       category: data.category || (contentType === 'spiritual' ? 'Tâm linh' : 'Kể chuyện'),
       excerpt: data.excerpt || '',
