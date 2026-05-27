@@ -22,29 +22,10 @@ analysis:
   memorableLine: "Chợ là nơi �ảm bảo cu�"c s�ng, nên không bao giờ thực sự ngh�0."
 ---
 
-Chợ nhỏ bên dòng kênh họp từ lúc trời còn mờ t�i. Ghe thuyền từ các xóm ��" về, ch�x �ầy rau củ, cá tôm tươi rói. Tiếng nói cười, tiếng chèo thuyền, tiếng chó sủa hòa lên thành m�"t bản nhạc chợ s�:m �ặc trưng.
+# Chợ Sớm Bên Dòng Kênh Nhỏ
 
-Tôi theo má �i chợ từ khi còn bé. Sáng s�:m, sương còn bay mờ ảo trên mặt kênh. Những chiếc ghe nhỏ neo �ậu san sát, thân ghe chạm vào nhau kêu cọc cọc. Người bán ng�i trên ghe, hàng hóa bày trên mui, trên thành, trên cả tấm ván g� �ặt ngang.
+Chợ sớm bên kênh nhỏ bắt đầu khi trời còn tối hơn tiếng nói. Những chiếc ghe neo sát bờ, đèn vàng hắt xuống mặt nước, làm cả dòng kênh như có thêm một dải sáng mềm. Người bán, người mua, người đứng ngóng hàng, ai cũng quen với cái nhịp thức dậy rất nhẹ của chợ quê.
 
-Má tôi �i từ ghe này sang ghe khác, chọn mua từng thứ. Cá phải còn tươi, mắt trong, mang �ỏ. Rau phải còn sáng, không dập. Tôi ng�i trên bờ kênh, chân thòng xu�ng nư�:c, nghe má mặc cả. Giọng má d�9u nhưng kiên quyết, người bán cũng cười ��ng ý.
+Tôi thích nhất quầy bánh bèo của một bà cụ ngồi trên ghe con. Bà gói từng chén bằng lá chuối, tay nhanh mà mắt vẫn luôn nhìn khách rất hiền. Lần nào mẹ mua cho tôi, bà cũng thêm một ít mỡ hành, bảo ăn lúc còn nóng mới thấy hết mùi của buổi sáng. Từ đó, chợ không chỉ là nơi mua bán, mà còn là nơi người ta trao cho nhau một chút tử tế không cần ghi tên.
 
-Tôi thích nhất là xem người ta mua bán bằng cách trao ��"i. Bà bán rau ��"i bó rau lấy con cá. Chú bán trái cây ��"i m�: xoài lấy ít rau mu�ng. Họ không dùng tiền, dùng sản vật của mình �Ồ có thứ cần. Tôi thấy �ó là cách s�ng thông minh, không phải lúc nào cũng cần tiền m�:i có �ược thứ mình mu�n.
-
-Có m�"t bà cụ bán bánh bèo trên ghe nhỏ. Bà gói bánh bằng lá chu�i, ��" nư�:c c�t dừa từ ấm nhôm. Tôi hay �ược má mua cho Ēn khi �i chợ về. V�9 bánh bèo nóng, mềm, thơm mùi lá chu�i. Tôi ng�i trên bờ kênh Ēn, nhìn ghe thuyền qua lại, thấy mình là m�"t phần của cu�"c s�ng này.
-
-Chợ s�:m tan khi nắng lên. Ghe thuyền rời �i, kênh nư�:c lại yên ả. Những lá bắp rơi trên mặt nư�:c trôi theo dòng. Tôi theo má về, gánh hàng trên vai má nặng trĩu, nhưng má vui vì mua �ược �� tươi ngon, giá hợp lý.
-
-Có lần mưa l�:n, chợ ch�0 có vài ghe. Nhưng người ta vẫn họp, vẫn mua bán, vẫn cười nói. Tôi hỏi má sao mưa còn �i chợ. Má nói mưa hay nắng, người ta vẫn phải Ēn, vẫn phải s�ng. Chợ là nơi �ảm bảo �iều �ó, nên không bao giờ thực sự ngh�0.
-
-Bây giờ chợ s�:m bên kênh vẫn còn, nhưng �ã khác. Nhiều người bán bằng thúng mủng, không còn ghe thuyền. Nhiều người dùng �i�!n thoại chuyỒn khoản, không còn trao ��"i bằng hi�!n vật. Nhưng hơi th�x của chợ vẫn vậy: h�i hả nhưng bình d�9, cạnh tranh nhưng thân thi�!n.
-
-Tôi về quê lần nào cũng dậy s�:m �i chợ. Không mua gì nhiều, ch�0 �Ồ ngắm, �Ồ nghe, �Ồ nh�:. Nh�: tu�"i thơ ng�i bên kênh, nh�: v�9 bánh bèo nóng, nh�: tiếng má mặc cả, và nh�: cảm giác �ược s�ng trong m�"t c�"ng ��ng nhỏ nơi mọi người biết mặt nhau, biết chuy�!n nhau, và sẵn sàng giúp �ỡ nhau khi cần.
-
-Tôi nh�: lại những khoảnh khắc tu�"i thơ, khi thế gi�:i còn r�"ng l�:n và �ầy �iều kỳ di�!u. M�i con �ường, m�i góc ph� �ều chứa �ựng những câu chuy�!n riêng. Người l�:n v�"i vã �i qua, nhưng trẻ con thì dừng lại, nhìn ngắm, và lắng nghe. Tôi học �ược từ những ngày tháng ấy rằng sự chậm rãi là m�"t món quà, rằng vi�!c quan sát kỹ lưỡng mang lại hiỒu biết sâu sắc hơn là vi�!c v�"i vàng �ánh giá.
-
-Có những người �i qua �ời ta ch�0 trong phút ch�c, nhưng �Ồ lại dấu ấn lâu dài. M�"t lời nói tử tế �úng lúc có thỒ thay ��"i cả ngày của ai �ó, thậm chí cả cu�"c �ời họ. Tôi từng �ược nhận những lời nói như vậy, và tôi mu�n trao tặng lại. Không cần phải làm gì to tát, ch�0 cần hi�!n di�!n v�:i sự chân thành, lắng nghe v�:i sự quan tâm, và �áp lại v�:i sự nhẹ nhàng.
-
-Mùa về, lá rụng, và cu�"c s�ng cứ thế trôi. Những giá tr�9 xưa cũ như lòng t�t, sự chia sẻ, và cảm thông dường như �ang phai nhạt trong nh�9p s�ng hi�!n �ại. Nhưng tôi tin chúng vẫn còn �ó, trong những con người biết trân trọng kỷ ni�!m, biết giữ gìn truyền th�ng t�t �ẹp. M�i câu chuy�!n kỒ lại là m�"t sợi dây n�i quá khứ v�:i hi�!n tại, giữ cho ngọn lửa tình người không bao giờ tắt.
-
-Giờ �ây, khi ng�i viết những dòng này, tôi cảm thấy biết ơn. Biết ơn vì �ã �ược s�ng, �ược trải nghi�!m, �ược yêu thương. Biết ơn những người �ã cho tôi cái nôi �Ồ l�:n lên, những bài học �Ồ trư�xng thành, và những kỷ ni�!m �Ồ nâng niu. Tôi mong rằng qua những câu chuy�!n này, người nghe cũng tìm thấy phần nào của mình, của quê hương, và của những giá tr�9 mình từng có.
-
+Bây giờ, chợ đã đông hơn, tiếng máy lớn hơn, nhiều sạp đã lên bờ. Nhưng mỗi khi đi ngang dòng kênh ấy, tôi vẫn nghe như có tiếng chèo khua và tiếng chào mời rất mềm. Có những góc chợ nhỏ xíu, vậy mà giữ được cả một miền ký ức. Chỉ cần nhớ lại, là ngày mới như sáng thêm một ít.
