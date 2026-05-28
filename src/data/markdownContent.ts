@@ -52,7 +52,7 @@ export const markdownSpiritualPosts: ContentItem[] = [
       "co-nhung-ngay-chi-can-ngoi-yen",
       "nguoi-biet-im-lang-thuong-sau"
     ],
-    "hasAudio": false,
+    "hasAudio": true,
     "hasVideo": false,
     "isFeatured": false
   },
@@ -315,7 +315,7 @@ export const markdownStoryPosts: ContentItem[] = [
       "tieng-ga-trua-ben-mai-nha-cu",
       "cho-som-ben-dong-kenh-nho"
     ],
-    "hasAudio": false,
+    "hasAudio": true,
     "hasVideo": false,
     "isFeatured": false
   },

@@ -8,7 +8,7 @@ coverImage: "/images/ke-chuyen/bua-com-chieu-co-mam-kho.png"
 voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Mỹ Tho, tháng 07/2025"
-hasAudio: false
+hasAudio: true
 hasVideo: false
 relatedPosts:
   - "ba-ban-banh-it-o-goc-cho-xua"

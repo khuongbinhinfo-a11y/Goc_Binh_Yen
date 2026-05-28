@@ -8,7 +8,7 @@ coverImage: "/images/tam-linh/buong-xuong-mot-chuyen-khong-the-giu.png"
 voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Tân Phong, tháng 09/2025"
-hasAudio: false
+hasAudio: true
 hasVideo: false
 relatedPosts:
   - "mot-nen-huong-cho-nguoi-da-khuat"
