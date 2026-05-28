@@ -1,6 +1,8 @@
 ﻿import { getLocalizedContentBySlug, getLocalizedContentList } from "@/data/localizedContent";
 import { notFound } from "next/navigation";
 import KeChuyenDetailClient from "./KeChuyenDetailClient";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
+import { resolveMetadataImageUrl } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const items = getLocalizedContentList("story", "vi");
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
   const title = story.title;
   const description = story.excerpt || story.content.slice(0, 160).replace(/#/g, "").trim();
   const url = `https://www.hontho.com/ke-chuyen/${story.slug}`;
-  const image = story.coverImage || "https://www.hontho.com/images/ke-chuyen/ke-chuyen-hero.png";
+  const image = story.coverImage ? resolveMetadataImageUrl(story.coverImage) : LOCAL_IMAGE_MAP.heroStory.fallback;
 
   return {
     title: `${title} | Kể Chuyện | Hồn Thơ`,

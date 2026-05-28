@@ -1,6 +1,8 @@
 ﻿import { getLocalizedContentBySlug, getLocalizedContentList } from "@/data/localizedContent";
 import { notFound } from "next/navigation";
 import TamLinhDetailClient from "./TamLinhDetailClient";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
+import { resolveMetadataImageUrl } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const items = getLocalizedContentList("spiritual", "vi");
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
   const title = post.title;
   const description = post.excerpt || post.content.slice(0, 160).replace(/#/g, "").trim();
   const url = `https://www.hontho.com/tam-linh/${post.slug}`;
-  const image = post.coverImage || "https://www.hontho.com/images/tam-linh/hero-tam-linh.png";
+  const image = post.coverImage ? resolveMetadataImageUrl(post.coverImage) : LOCAL_IMAGE_MAP.heroSpiritual.fallback;
 
   return {
     title: `${title} | Tâm Linh | Hồn Thơ`,

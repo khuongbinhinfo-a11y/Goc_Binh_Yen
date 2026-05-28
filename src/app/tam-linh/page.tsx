@@ -1,25 +1,14 @@
 import TamLinhListingClient from "./TamLinhListingClient";
 import { getLocalizedContentList } from "@/data/localizedContent";
+import { LOCAL_IMAGE_MAP } from "@/lib/image";
+import { createRouteMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createRouteMetadata({
   title: "Tâm Linh | Hồn Thơ",
   description: "Những bài viết về tâm linh, triết lý sống, và những suy ngẫm sâu sắc về cuộc đời.",
-  openGraph: {
-    title: "Tâm Linh | Hồn Thơ",
-    description: "Những bài viết về tâm linh, triết lý sống, và những suy ngẫm sâu sắc về cuộc đời.",
-    url: "https://www.hontho.com/tam-linh",
-    siteName: "Hồn Thơ",
-    images: [{ url: "https://www.hontho.com/images/tam-linh/hero-tam-linh.png", width: 1200, height: 630, alt: "Tâm Linh | Hồn Thơ" }],
-    locale: "vi_VN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tâm Linh | Hồn Thơ",
-    description: "Những bài viết về tâm linh, triết lý sống, và những suy ngẫm sâu sắc về cuộc đời.",
-    images: ["https://www.hontho.com/images/tam-linh/hero-tam-linh.png"],
-  },
-};
+  path: "/tam-linh",
+  image: LOCAL_IMAGE_MAP.heroSpiritual.fallback,
+});
 
 export default function TamLinhPage() {
   const listingItems = {
