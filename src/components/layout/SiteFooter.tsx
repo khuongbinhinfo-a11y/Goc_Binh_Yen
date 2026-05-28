@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
 
+import SafeImage from "@/components/ui/SafeImage";
 import { useLocale } from "@/hooks/useLocale";
 import { getSafeImageSrc, LOCAL_IMAGE_MAP } from "@/lib/image";
 
@@ -90,27 +90,19 @@ function FooterLinkIcon({ id }: { id: FooterLinkIconId }) {
 }
 
 function FooterOrnamentImage({ alt }: { alt: string }) {
-  const candidates = useMemo(() => LOCAL_IMAGE_MAP.footerOrnament.candidates, []);
-  const [index, setIndex] = useState(0);
-  const [hidden, setHidden] = useState(false);
+  const imagePath = LOCAL_IMAGE_MAP.footerOrnament.fallback;
 
-  if (hidden || candidates.length === 0) {
+  if (!imagePath) {
     return null;
   }
 
   return (
-    <img
-      src={candidates[index]}
+    <SafeImage
+      src={imagePath}
       alt={alt}
+      width={120}
+      height={40}
       className="h-10 w-auto rounded-lg object-contain opacity-85"
-      onError={() => {
-        const nextIndex = index + 1;
-        if (nextIndex < candidates.length) {
-          setIndex(nextIndex);
-          return;
-        }
-        setHidden(true);
-      }}
     />
   );
 }

@@ -1,13 +1,12 @@
 import TamLinhListingClient from "./TamLinhListingClient";
 import { getLocalizedContentList } from "@/data/localizedContent";
-import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { createRouteMetadata } from "@/lib/seo";
 
 export const metadata = createRouteMetadata({
   title: "Tâm Linh | Hồn Thơ",
   description: "Những bài viết về tâm linh, triết lý sống, và những suy ngẫm sâu sắc về cuộc đời.",
   path: "/tam-linh",
-  image: LOCAL_IMAGE_MAP.heroSpiritual.fallback,
+  image: "/images/tam-linh/hero-tam-linh.png",
 });
 
 export default function TamLinhPage() {
