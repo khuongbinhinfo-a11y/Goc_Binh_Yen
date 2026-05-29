@@ -35,6 +35,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "hue-trang",
   "khi-yeu-nguoi-ta-ra-sao",
   "khoang-cach-vo-hinh",
+  "khoc-cuoi",
   "long-trinh-nu",
   "mo-dao-vuon-xuan",
   "mo-tro-ve",
@@ -113,6 +114,7 @@ const spiritualM4aSlugs = new Set<string>([
 
 const poemM4aSlugs = new Set<string>([
   "cay-roi-may",
+  "khoc-cuoi",
 ]);
 
 function extBySlug(type: CloudAudioType, slug: string) {

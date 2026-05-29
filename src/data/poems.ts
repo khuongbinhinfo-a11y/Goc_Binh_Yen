@@ -2273,6 +2273,32 @@ Cai Lậy, ngày 30/4/2017`,
       licenseNote: "Dùng ảnh cloud doc-tho/cay-roi-may.png đã upload lên R2.",
     },
   },
+  {
+    slug: "khoc-cuoi",
+    title: "Khóc Cười",
+    tag: "Thơ quê",
+    summary: "Nỗi khóc cười giữa cuộc đời — khi tình yêu và nỗi buồn hòa quyện thành một.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, ngày 5/12/2018",
+    cardImage: "/images/poems/khoc-cuoi.png",
+    heroImage: "/images/poems/khoc-cuoi.png",
+    audioUrl: "/audio/doc-tho/khoc-cuoi.m4a",
+    hasAudio: true,
+    content: "Khóc cười giữa cuộc đời này\nNỗi buồn vui lẫn lộn trong tim\nAnh khóc vì yêu em nhiều lắm\nAnh cười vì em vẫn bên cạnh\nCuộc sống có lúc buồn có lúc vui\nNhưng tình yêu em luôn là ánh sáng\nKhóc cười cùng em qua năm tháng\nĐó là hạnh phúc anh tìm kiếm.",
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ nỗi khóc cười của cuộc đời, qua sự hòa quyện của buồn vui, rồi lắng lại ở niềm tin rằng tình yêu là ánh sáng giữa bóng tối.",
+      standoutImages: "Khóc cười, ánh sáng, năm tháng — những hình ảnh gợi cảm giác vừa buồn vừa vui của tình yêu.",
+      meaning: "Tình yêu không phải chỉ là vui hay buồn, mà là sự hòa quyện của cả hai, tạo nên một hạnh phúc trọn vẹn.",
+      memorableLine: "Khóc cười cùng em qua năm tháng — đó là hạnh phúc anh tìm kiếm.",
+    },
+    imageResearch: {
+      moodKeywords: ["khóc cười", "tình yêu", "buồn vui", "ánh sáng"],
+      referenceLinks: [],
+      recommendedScene: "Không gian ấm áp với ánh sáng nhẹ, gợi cảm giác vừa buồn vừa vui của tình yêu.",
+      licenseNote: "Dùng ảnh local khoc-cuoi.png đã có trong thư mục poems.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
