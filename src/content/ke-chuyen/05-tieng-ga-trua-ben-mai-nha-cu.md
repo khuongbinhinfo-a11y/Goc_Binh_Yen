@@ -8,7 +8,7 @@ coverImage: "/images/ke-chuyen/tieng-ga-trua-ben-mai-nha-cu.png"
 voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Cai Lậy, tháng 08/2025"
-hasAudio: false
+hasAudio: true
 hasVideo: false
 relatedPosts:
   - "bua-com-chieu-co-mam-kho"

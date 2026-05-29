@@ -8,7 +8,7 @@ coverImage: "/images/tam-linh/co-nhung-ngay-chi-can-ngoi-yen.png"
 voiceBy: "Hồng Tâm"
 readingTime: "8 phút"
 publishedAt: "Cai Lậy, tháng 11/2025"
-hasAudio: false
+hasAudio: true
 hasVideo: false
 relatedPosts:
   - "song-hien-khong-phai-la-yeu-duoi"
