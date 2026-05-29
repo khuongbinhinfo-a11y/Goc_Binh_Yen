@@ -2284,7 +2284,7 @@ Cai Lậy, ngày 30/4/2017`,
     heroImage: "/images/poems/khoc-cuoi.png",
     audioUrl: "/audio/doc-tho/khoc-cuoi.m4a",
     hasAudio: true,
-    content: "Khóc cười giữa cuộc đời này\nNỗi buồn vui lẫn lộn trong tim\nAnh khóc vì yêu em nhiều lắm\nAnh cười vì em vẫn bên cạnh\nCuộc sống có lúc buồn có lúc vui\nNhưng tình yêu em luôn là ánh sáng\nKhóc cười cùng em qua năm tháng\nĐó là hạnh phúc anh tìm kiếm.",
+    content: "Khoanh tay chào mẹ con đi\nMẹ rơm rớm khóc, con thì cười tươi\nBôn ba vạn dặm xứ người\nChén cơm, manh áo, khóc cười, nhục vinh\n\nMột hôm chợt nhớ, giật mình\nVề ôm mẹ khóc, mẹ cười ngẩn ngơ\nMột chặng đường, tựa một giấc mơ\nLung lay chuối chín, lơ thơ sương chiều\n\nVai gầy, dáng nhỏ liêu xiêu\nMột màu tóc trắng, sớm chiều quạnh hiu\nĐến khi đời đã xế chiều\nCuộc đời của mẹ mang nhiều sầu ưu\n\nNăm dài, tháng rộng, đêm thu...\nQuặn lòng đến nỗi vô ưu, vô sầu\nMột đời mỏi gối, chùn chân\nCon về với mẹ, mẹ về với cha\n\nMẹ đi mình mẹ đường xa\nCó thương, có khóc cũng là hư không\nĐắng cay cố nén trong lòng\nNhớ hoài tay mẹ bế bồng ngày xưa\n\nThương con dầu dãi nắng mưa\nNắm cơm mẹ vắt, lưỡi lửa cá xương\n\"Mẹ già như chuối ba hương\nGió lay mẹ rụng con thời mồ côi\nMồ côi khổ lắm ai ơi...\".",
     status: "published",
     analysis: {
       emotionFlow: "Bài thơ đi từ nỗi khóc cười của cuộc đời, qua sự hòa quyện của buồn vui, rồi lắng lại ở niềm tin rằng tình yêu là ánh sáng giữa bóng tối.",
