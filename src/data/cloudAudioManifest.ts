@@ -73,7 +73,8 @@ export const CLOUD_AUDIO_SLUGS = {
   "ba-ban-banh-it-o-goc-cho-xua",
   "mui-khoi-bep-len-tu-xom-nho",
   "nguoi-va-xuong-o-me-song",
-  "tieng-ga-trua-ben-mai-nha-cu"
+  "tieng-ga-trua-ben-mai-nha-cu",
+  "chiec-xuong-neo-duoi-ben-xua"
 ],
   spiritual: [
   "dot-nhang-truoc-hien-nha",
@@ -85,7 +86,8 @@ export const CLOUD_AUDIO_SLUGS = {
   "nhan-qua-khong-o-dau-xa",
   "ngoi-yen-nghe-mua-cham-mai-hien",
   "thap-den-nho-truoc-khi-ngu",
-  "co-nhung-ngay-chi-can-ngoi-yen"
+  "co-nhung-ngay-chi-can-ngoi-yen",
+  "song-hien-khong-phai-la-yeu-duoi"
 ],
 } as const;
 
