@@ -76,7 +76,9 @@ export const CLOUD_AUDIO_SLUGS = {
   "tieng-ga-trua-ben-mai-nha-cu",
   "chiec-xuong-neo-duoi-ben-xua",
   "cho-som-ben-dong-kenh-nho",
-  "con-duong-dat-sau-mua-nuoc-noi"
+  "con-duong-dat-sau-mua-nuoc-noi",
+  "mui-rom-moi-sau-ngay-gat",
+  "dem-mua-trong-can-nha-la"
 ],
   spiritual: [
   "dot-nhang-truoc-hien-nha",
