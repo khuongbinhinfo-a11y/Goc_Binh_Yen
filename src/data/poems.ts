@@ -133,6 +133,34 @@ export const poems: PoemItem[] = [
     },
   },
   {
+    slug: "cua-thien",
+    title: "Cửa Thiền",
+    tag: "Thơ chiêm nghiệm",
+    summary: "Khát vọng tìm lại bình yên, buông bỏ những nặng nợ trần gian.",
+    author: "Lê Dũng",
+    locationDate: "Mỹ Tho, ngày 5/12/2018",
+    cardImage: "/images/poems/cua-thien.png",
+    heroImage: "/images/poems/cua-thien.png",
+    content:
+      "Ta một đời nặng nợ nhân gian\nƯớc mơ trú ngụ thiền môn cuối đời\nĐể mong lòng được thảnh thơi\nTội kia cũng được đời phấn phối pha\nBỏ em giữa chợ phù hoa\nBơ vơ em đứng, ngã ba đường đời\nBèo mây, gió thổi, hoa trôi....\nLục bình tím ngắt, chiều rơi nghẹn ngào\nMong trời cho có kiếp sau\nĐể còn gặp lại, thương nhau.... ta mình\nViếng chùa, nghe tiếng câu kinh\nTiếng chuông, tiếng mõ âm thinh vỗ về\nLời thiền sư thức tâm mê\nLòng ta thanh tịnh, tâm sầu bỏ buông\nKhông không... sắc sắc lẽ thường\nCửa thiền đừng khép, nhân gian bớt sầu.\n\nMỹ Tho, ngày 5/12/2018",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ đi từ nặng nợ đời thường đến tìm cầu an yên qua không gian thiền môn, rồi khép lại bằng lời thả buông.",
+      standoutImages:
+        "Chợ phù hoa, lục bình tím, tiếng chuông mõ trong chùa và cửa thiền mở rộng.",
+      meaning:
+        "Tác giả bày tỏ khát vọng rời xa phiền muộn để tìm lại thanh thản nội tâm tại cửa thiền.",
+      memorableLine: "Cửa thiền đừng khép, nhân gian bớt sầu.",
+    },
+    imageResearch: {
+      moodKeywords: ["thiền", "an yên", "lục bình", "chùa"],
+      referenceLinks: [],
+      recommendedScene: "Một góc chùa buổi chiều, có lục bình trên ao và nắng dịu.",
+      licenseNote: "Dùng ảnh local cung cấp bởi tác giả.",
+    },
+  },
+  {
     slug: "tam-long",
     title: "Tấm lòng",
     tag: "Thơ tình",
