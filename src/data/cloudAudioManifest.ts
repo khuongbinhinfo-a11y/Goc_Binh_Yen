@@ -2,6 +2,7 @@ export const CLOUD_AUDIO_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac822
 
 export const CLOUD_AUDIO_SLUGS = {
   poem: [
+  "cua-thien",
   "anh-mai-ben-em",
   "anh-yeu-em",
   "ban-tay",
@@ -67,6 +68,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "xuan"
 ],
   story: [
+  "nguoi-dua-thu-qua-nhung-xom-nho",
   "ben-do-cu-qua-mot-mua-mua",
   "chuyen-nguoi-qua-cau-tre",
   "dem-nghe-tieng-nuoc-chay",

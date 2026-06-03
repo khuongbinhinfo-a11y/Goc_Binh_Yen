@@ -41,3 +41,7 @@ cloudflare-database-key.txt
 /public/images/**/*.avif
 /public/images/**/*.bmp
 /public/images/**/*.ico
+
+# Temporary upload scripts and files
+scripts/_tmp_upload*.mjs
+tmp_uploads/
