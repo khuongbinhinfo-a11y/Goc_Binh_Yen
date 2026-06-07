@@ -19,11 +19,12 @@ async function callDialogflow(params: {
   projectId: string;
   location: string;
   agentId: string;
+  sessionId?: string;
   languageCode?: string;
   serviceAccountJson: string;
   message: string;
 }) {
-  const { baseUrl, projectId, location, agentId, languageCode = "vi", serviceAccountJson, message } = params;
+  const { baseUrl, projectId, location, agentId, sessionId, languageCode = "vi", serviceAccountJson, message } = params;
 
   let credentials: Record<string, unknown>;
   try {
@@ -42,16 +43,26 @@ async function callDialogflow(params: {
   const accessToken = typeof tokenResponse === "string" ? tokenResponse : tokenResponse?.token;
   if (!accessToken) throw new Error("Không lấy được access token Google.");
 
-  const sessionId = `web-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
-  const url = `${normalizeUrl(baseUrl)}/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agents/${encodeURIComponent(agentId)}/sessions/${encodeURIComponent(sessionId)}:detectIntent`;
+  const usedSessionId = sessionId || `web-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  const url = `${normalizeUrl(baseUrl)}/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agents/${encodeURIComponent(agentId)}/sessions/${encodeURIComponent(usedSessionId)}:detectIntent`;
 
-  const resp = await fetch(url, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      queryInput: { text: { text: message, languageCode } },
-    }),
-  });
+  const controller = new AbortController();
+  const timeoutMs = 10000; // 10s timeout
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+  let resp;
+  try {
+    resp = await fetch(url, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        queryInput: { text: { text: message, languageCode } },
+      }),
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   if (!resp.ok) {
     const txt = await resp.text();
@@ -77,6 +88,7 @@ export async function POST(request: NextRequest) {
 
   const payload = body && typeof body === "object" ? (body as Record<string, unknown>) : {};
   const message = getString(payload.message);
+  const clientSessionId = getString(payload.sessionId) || "";
   const fullName = getString(payload.name) || "";
   const email = getString(payload.email) || "";
 
@@ -106,6 +118,16 @@ export async function POST(request: NextRequest) {
   const fallbackReply =
     "Hồn Thơ đã nhận lời nhắn của anh/chị. Anh/chị có thể để lại email hoặc số điện thoại để chúng tôi phản hồi sớm.";
 
+  if (!projectId || !location || !agentId || !serviceAccountJson) {
+    // not configured for Dialogflow/AI
+    try {
+      await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+    } catch (e) {
+      console.error("Telegram notification failed:", e);
+    }
+    return NextResponse.json({ ok: false, reason: "not_configured" });
+  }
+
   if (projectId && location && agentId && serviceAccountJson) {
     try {
       const reply = await callDialogflow({
@@ -113,6 +135,7 @@ export async function POST(request: NextRequest) {
         projectId,
         location,
         agentId,
+        sessionId: clientSessionId || undefined,
         languageCode,
         serviceAccountJson,
         message,
