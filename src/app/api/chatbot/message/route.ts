@@ -10,8 +10,20 @@ function getString(v: unknown) {
   return typeof v === "string" ? v.trim() : "";
 }
 
-async function callDialogflow(params: { projectId: string; location: string; agentId: string; languageCode?: string; serviceAccountJson: string; message: string; }) {
-  const { projectId, location, agentId, languageCode = "vi", serviceAccountJson, message } = params;
+function normalizeUrl(value: string) {
+  return value.replace(/\/+$/, "");
+}
+
+async function callDialogflow(params: {
+  baseUrl: string;
+  projectId: string;
+  location: string;
+  agentId: string;
+  languageCode?: string;
+  serviceAccountJson: string;
+  message: string;
+}) {
+  const { baseUrl, projectId, location, agentId, languageCode = "vi", serviceAccountJson, message } = params;
 
   let credentials: Record<string, unknown>;
   try {
@@ -30,8 +42,8 @@ async function callDialogflow(params: { projectId: string; location: string; age
   const accessToken = typeof tokenResponse === "string" ? tokenResponse : tokenResponse?.token;
   if (!accessToken) throw new Error("Không lấy được access token Google.");
 
-  const sessionId = `web-${Date.now()}-${Math.random().toString(36).slice(2,6)}`;
-  const url = `https://dialogflow.googleapis.com/v3/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agents/${encodeURIComponent(agentId)}/sessions/${encodeURIComponent(sessionId)}:detectIntent`;
+  const sessionId = `web-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+  const url = `${normalizeUrl(baseUrl)}/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agents/${encodeURIComponent(agentId)}/sessions/${encodeURIComponent(sessionId)}:detectIntent`;
 
   const resp = await fetch(url, {
     method: "POST",
@@ -43,11 +55,15 @@ async function callDialogflow(params: { projectId: string; location: string; age
 
   if (!resp.ok) {
     const txt = await resp.text();
-    throw new Error(`Dialogflow lỗi ${resp.status}: ${txt}`);
+    throw new Error(`Dialogflow trả lỗi ${resp.status}: ${txt}`);
   }
 
   const data = await resp.json();
-  const reply = data?.queryResult?.responseMessages?.find((m: any) => m.text)?.text?.text?.[0] || data?.queryResult?.fulfillmentText || "";
+  const reply =
+    data?.queryResult?.responseMessages?.find((m: any) => m.text)?.text?.text?.[0] ||
+    data?.queryResult?.fulfillmentText ||
+    "";
+
   return reply;
 }
 
@@ -59,7 +75,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Dữ liệu gửi lên không hợp lệ." }, { status: 400 });
   }
 
-  const payload = (body && typeof body === "object") ? (body as Record<string, unknown>) : {};
+  const payload = body && typeof body === "object" ? (body as Record<string, unknown>) : {};
   const message = getString(payload.message);
   const fullName = getString(payload.name) || "";
   const email = getString(payload.email) || "";
@@ -68,42 +84,61 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: "Tin nhắn không được để trống." }, { status: 400 });
   }
 
-  // store message for admin
   try {
-    await createIncomingMessage({ fullName: fullName || "Khách", email, subject: "Tin nhắn từ chat popup", message, source: "hontho_chat_widget" });
+    await createIncomingMessage({
+      fullName: fullName || "Khách",
+      email,
+      subject: "Tin nhắn từ chat popup",
+      message,
+      source: "hontho_chat_widget",
+    });
   } catch (err) {
-    // don't fail public API if storage fails; log server-side only
     console.error("createIncomingMessage failed:", err);
   }
 
-  // load chatbot config
+  const baseUrl = (await getIntegrationValue("chatbot_base_url")) || "https://dialogflow.googleapis.com/v3";
   const projectId = (await getIntegrationValue("chatbot_project_id")) || "";
   const location = (await getIntegrationValue("chatbot_location")) || "global";
   const agentId = (await getIntegrationValue("chatbot_agent_id")) || "";
   const serviceAccountJson = (await getIntegrationValue("chatbot_service_account_json")) || "";
   const languageCode = (await getIntegrationValue("chatbot_language_code")) || "vi";
 
-  // attempt to call Dialogflow if configured
+  const fallbackReply =
+    "Hồn Thơ đã nhận lời nhắn của anh/chị. Anh/chị có thể để lại email hoặc số điện thoại để chúng tôi phản hồi sớm.";
+
   if (projectId && location && agentId && serviceAccountJson) {
     try {
-      const reply = await callDialogflow({ projectId, location, agentId, languageCode, serviceAccountJson, message });
-      // optionally notify Telegram of the incoming message
+      const reply = await callDialogflow({
+        baseUrl,
+        projectId,
+        location,
+        agentId,
+        languageCode,
+        serviceAccountJson,
+        message,
+      });
       try {
-        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0,200)}` });
+        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
       } catch (e) {
-        // swallow telegram errors
+        console.error("Telegram notification failed:", e);
       }
-
-      return NextResponse.json({ ok: true, reply: reply || "Hôn Thơ đã nhận, sẽ phản hồi sớm." });
+      return NextResponse.json({ ok: true, reply: reply || fallbackReply });
     } catch (err) {
-      // if dialogflow fails, fallback gracefully
       console.error("Dialogflow call failed:", err instanceof Error ? err.message : err);
-      try { await sendTelegramNotification({ text: `Tin nhắn website (Dialogflow lỗi): ${message.slice(0,200)}` }); } catch {}
-      return NextResponse.json({ ok: true, reply: "Hồn Thơ chưa bật trợ lý tự động. Anh/chị có thể để lại lời nhắn, chúng tôi sẽ phản hồi sớm." });
+      try {
+        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+      } catch (e) {
+        console.error("Telegram notification failed:", e);
+      }
+      return NextResponse.json({ ok: true, reply: fallbackReply });
     }
   }
 
-  // fallback when not configured
-  try { await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0,200)}` }); } catch {}
-  return NextResponse.json({ ok: true, reply: "Hồn Thơ chưa bật trợ lý tự động. Anh/chị có thể để lại lời nhắn, chúng tôi sẽ phản hồi sớm." });
+  try {
+    await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+  } catch (e) {
+    console.error("Telegram notification failed:", e);
+  }
+
+  return NextResponse.json({ ok: true, reply: fallbackReply });
 }

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 
 export default function HonThoChatWidget() {
   const pathname = usePathname();
@@ -10,14 +10,16 @@ export default function HonThoChatWidget() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [sending, setSending] = useState(false);
-  const [status, setStatus] = useState("");
+  const [reply, setReply] = useState("");
 
   if (hide) return null;
 
-  async function sendMessage() {
-    setStatus("");
+  async function handleSend(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     if (!message.trim()) return;
+    setReply("");
     setSending(true);
+
     try {
       const resp = await fetch("/api/chatbot/message", {
         method: "POST",
@@ -26,19 +28,18 @@ export default function HonThoChatWidget() {
       });
       const body = await resp.json();
       if (!resp.ok) {
-        setStatus(body?.error || "Có lỗi khi gửi tin nhắn.");
+        setReply("Không gửi được. Vui lòng thử lại sau.");
       } else {
-        setStatus(body?.reply || "Cảm ơn, Hồn Thơ đã nhận tin nhắn của bạn.");
+        setReply(body?.reply || "Hồn Thơ đã nhận lời nhắn của anh/chị. Anh/chị có thể để lại email hoặc số điện thoại để chúng tôi phản hồi sớm.");
         setMessage("");
       }
     } catch (e) {
-      setStatus("Không gửi được. Vui lòng thử lại sau.");
+      setReply("Không gửi được. Vui lòng thử lại sau.");
     } finally {
       setSending(false);
     }
   }
 
-  // Collapsed button only shows when closed; when open, show popup only.
   return (
     <div>
       {!open ? (
@@ -51,33 +52,39 @@ export default function HonThoChatWidget() {
           <Image src="/logo.jpg" alt="Hồn Thơ" width={52} height={52} className="rounded-full object-cover" />
         </button>
       ) : (
-        <div className="fixed right-4 bottom-4 z-50 w-[360px] max-w-[92vw] rounded-lg bg-white border border-[#efe6db] shadow-lg">
+        <div className="fixed right-4 bottom-4 z-50 w-[360px] max-w-[92vw] rounded-3xl bg-white border border-[#efe6db] shadow-lg">
           <div className="flex items-center gap-3 px-3 py-2 border-b border-[#f3efe8]">
-            <Image src="/logo.jpg" alt="Hồn Thơ" width={36} height={36} className="rounded-full object-cover" />
+            <Image src="/logo.jpg" alt="Hồn Thơ" width={34} height={34} className="rounded-full object-cover" />
             <div className="flex-1">
               <div className="text-sm font-semibold text-[#3f2b20]">Hồn Thơ</div>
             </div>
             <button onClick={() => setOpen(false)} aria-label="Đóng" className="text-sm text-[#7a4f32]">✕</button>
           </div>
-          <div className="p-3">
-            <textarea
+          <form onSubmit={handleSend} className="p-3">
+            <label className="sr-only" htmlFor="hontho-chat-input">
+              Tin nhắn Hồn Thơ
+            </label>
+            <input
+              id="hontho-chat-input"
+              type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              rows={3}
-              className="w-full rounded-md border border-[#efecec] p-2 text-sm resize-none"
-              placeholder="Nhập câu hỏi hoặc để lại lời nhắn..."
+              enterKeyHint="send"
+              autoComplete="off"
+              className="w-full rounded-2xl border border-[#efecec] bg-[#fffdf9] px-3 py-3 text-sm text-[#3f2b20] outline-none transition focus:border-[#b58b65] focus:ring-2 focus:ring-[#f2e8dd]"
+              placeholder="Nhập tin nhắn..."
             />
-            {status ? <div className="mt-2 text-xs text-[#4a2f20]">{status}</div> : null}
-            <div className="mt-3 flex items-center">
+            <div className="mt-3 flex items-center gap-3">
               <button
-                onClick={sendMessage}
+                type="submit"
                 disabled={sending}
-                className="ml-auto inline-flex items-center rounded-full bg-[#8b5e3c] px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+                className="ml-auto inline-flex items-center justify-center rounded-full bg-[#8b5e3c] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#7a5234] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {sending ? "Đang gửi..." : "Gửi"}
               </button>
             </div>
-          </div>
+            {reply ? <div className="mt-3 rounded-2xl bg-[#f8f1e8] px-3 py-3 text-sm text-[#4a2f20]">{reply}</div> : null}
+          </form>
         </div>
       )}
     </div>

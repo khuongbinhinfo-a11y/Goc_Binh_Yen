@@ -136,7 +136,7 @@ export default function AdminIntegrationsClient() {
   }
 
   function getServiceAccountJsonToSend() {
-    return serviceAccountJsonRaw || serviceAccountJson.trim();
+    return serviceAccountJsonRaw;
   }
 
   async function loadAgents(projectIdOverride?: string, locationOverride?: string) {
