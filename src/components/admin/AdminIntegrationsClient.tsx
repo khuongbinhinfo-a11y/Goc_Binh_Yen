@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ChangeEvent } from "react";
 
 type ChatbotConfig = {
   baseUrl: string;
@@ -18,6 +18,13 @@ type TelegramConfig = {
   notifyOnDonation: boolean;
 };
 
+type AgentInfo = {
+  id: string;
+  displayName: string;
+  name: string;
+  location: string;
+};
+
 type IntegrationsResponse = {
   ok: boolean;
   chatbot: ChatbotConfig;
@@ -32,6 +39,19 @@ function buildInfoRow(label: string, value: string) {
       <span className="font-semibold text-[#4a2f20]">{value}</span>
     </div>
   );
+}
+
+function redactServiceAccountJson(rawJson: unknown) {
+  if (typeof rawJson !== "object" || rawJson === null) {
+    return "";
+  }
+
+  const redacted = { ...(rawJson as Record<string, unknown>) };
+  if (typeof redacted.private_key === "string") {
+    redacted.private_key = "***Đã ẩn***";
+  }
+
+  return JSON.stringify(redacted, null, 2);
 }
 
 export default function AdminIntegrationsClient() {
@@ -52,7 +72,10 @@ export default function AdminIntegrationsClient() {
     agentId: "",
     hasServiceAccountJson: false,
   });
+  const [serviceAccountJsonRaw, setServiceAccountJsonRaw] = useState("");
   const [serviceAccountJson, setServiceAccountJson] = useState("");
+  const [agentList, setAgentList] = useState<AgentInfo[]>([]);
+  const [loadingAgents, setLoadingAgents] = useState(false);
   const [savingTelegram, setSavingTelegram] = useState(false);
   const [testingTelegram, setTestingTelegram] = useState(false);
   const [savingChatbot, setSavingChatbot] = useState(false);
@@ -112,6 +135,78 @@ export default function AdminIntegrationsClient() {
     }
   }
 
+  function getServiceAccountJsonToSend() {
+    return serviceAccountJsonRaw || serviceAccountJson.trim();
+  }
+
+  async function loadAgents(projectIdOverride?: string, locationOverride?: string) {
+    setError("");
+    setStatusMessage("");
+    setLoadingAgents(true);
+    setAgentList([]);
+
+    const projectId = projectIdOverride || chatbotConfig.projectId;
+    const location = locationOverride || chatbotConfig.location;
+
+    try {
+      const payload = {
+        projectId,
+        location,
+        serviceAccountJson: getServiceAccountJsonToSend() || undefined,
+      };
+
+      const response = await fetch("/api/admin/integrations/chatbot/agents", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Không tải được danh sách agent.");
+      }
+      setAgentList(Array.isArray(result.agents) ? result.agents : []);
+      setStatusMessage("Danh sách Agent đã được tải.");
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : "Không tải được danh sách agent.");
+    } finally {
+      setLoadingAgents(false);
+    }
+  }
+
+  async function handleServiceAccountFile(event: ChangeEvent<HTMLInputElement>) {
+    setError("");
+    setStatusMessage("");
+    setAgentList([]);
+
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      const trimmed = JSON.stringify(parsed, null, 2);
+      const redacted = redactServiceAccountJson(parsed);
+
+      setServiceAccountJsonRaw(trimmed);
+      setServiceAccountJson(redacted);
+
+      const parsedProjectId = chatbotConfig.projectId || (typeof parsed.project_id === "string" ? parsed.project_id : "");
+      if (!chatbotConfig.projectId && parsedProjectId) {
+        setChatbotConfig((current) => ({ ...current, projectId: parsedProjectId }));
+      }
+
+      setStatusMessage("Đã đọc file JSON. Project ID tự động điền nếu trống.");
+
+      if (parsedProjectId) {
+        await loadAgents(parsedProjectId, chatbotConfig.location);
+      }
+    } catch (parseError) {
+      setError(parseError instanceof Error ? parseError.message : "Không đọc được file JSON.");
+    }
+  }
+
   async function testTelegram() {
     setError("");
     setStatusMessage("");
@@ -151,8 +246,9 @@ export default function AdminIntegrationsClient() {
         },
       };
 
-      if (serviceAccountJson.trim()) {
-        payloadBody.chatbot.serviceAccountJson = serviceAccountJson.trim();
+      const credentialsJson = getServiceAccountJsonToSend();
+      if (credentialsJson) {
+        payloadBody.chatbot.serviceAccountJson = credentialsJson;
       }
 
       const response = await fetch("/api/admin/integrations", {
@@ -165,9 +261,10 @@ export default function AdminIntegrationsClient() {
         throw new Error(payload.error || "Không lưu cấu hình Chatbot.");
       }
       setStatusMessage("Cấu hình Chatbot đã được lưu.");
-      if (serviceAccountJson.trim()) {
+      if (credentialsJson) {
         setChatbotConfig((current) => ({ ...current, hasServiceAccountJson: true }));
         setServiceAccountJson("");
+        setServiceAccountJsonRaw("");
       }
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : "Không lưu được cấu hình Chatbot.");
@@ -193,7 +290,7 @@ export default function AdminIntegrationsClient() {
             location: chatbotConfig.location,
             languageCode: chatbotConfig.languageCode,
             agentId: chatbotConfig.agentId,
-            serviceAccountJson: serviceAccountJson.trim() || undefined,
+            serviceAccountJson: getServiceAccountJsonToSend() || undefined,
           },
         }),
       });
@@ -250,7 +347,7 @@ export default function AdminIntegrationsClient() {
                 <input
                   value={chatbotConfig.projectId}
                   onChange={(event) => setChatbotConfig((current) => ({ ...current, projectId: event.target.value }))}
-                  placeholder="support-498415"
+                  placeholder="my-project-id"
                   className="mt-2 w-full rounded-2xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
                 />
               </label>
@@ -282,15 +379,50 @@ export default function AdminIntegrationsClient() {
                 />
               </label>
               <label className="block text-sm text-[#5f4332] lg:col-span-2">
+                <span>Chọn file JSON service account</span>
+                <input
+                  type="file"
+                  accept=".json,application/json"
+                  onChange={handleServiceAccountFile}
+                  className="mt-2 w-full rounded-2xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition file:cursor-pointer file:border-0 file:bg-[#e7d5b9] file:px-3 file:py-2 file:text-sm file:text-[#4a2f20] focus:ring"
+                />
+              </label>
+              <label className="block text-sm text-[#5f4332] lg:col-span-2">
                 <span>Google Cloud Credentials JSON</span>
                 <textarea
                   value={serviceAccountJson}
-                  onChange={(event) => setServiceAccountJson(event.target.value)}
+                  onChange={(event) => {
+                    setServiceAccountJson(event.target.value);
+                    setServiceAccountJsonRaw(event.target.value);
+                  }}
                   placeholder="Dán JSON service account ở đây để lưu hoặc kiểm tra kết nối"
                   rows={6}
                   className="mt-2 w-full rounded-3xl border border-[#d9bea4] bg-white px-3 py-3 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
                 />
               </label>
+              {agentList.length > 0 ? (
+                <label className="block text-sm text-[#5f4332] lg:col-span-2">
+                  <span>Chọn Agent</span>
+                  <select
+                    value={agentList.find((agent) => agent.id === chatbotConfig.agentId)?.name || ""}
+                    onChange={(event) => {
+                      const selectedName = event.target.value;
+                      const selectedAgent = agentList.find((agent) => agent.name === selectedName);
+                      if (selectedAgent) {
+                        setChatbotConfig((current) => ({ ...current, agentId: selectedAgent.id }));
+                      }
+                    }}
+                    className="mt-2 w-full rounded-2xl border border-[#d9bea4] bg-white px-3 py-2.5 text-sm text-[#3f2b20] outline-none ring-[#9f6b45] transition focus:ring"
+                  >
+                    <option value="">-- Chọn Agent --</option>
+                    {agentList.map((agent) => (
+                      <option key={agent.name} value={agent.name}>
+                        {agent.displayName}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : null}
             </div>
 
             {buildInfoRow(
@@ -298,7 +430,15 @@ export default function AdminIntegrationsClient() {
               chatbotConfig.hasServiceAccountJson ? "Đã cấu hình" : "Chưa cấu hình",
             )}
 
-            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                onClick={() => loadAgents()}
+                disabled={loadingAgents || !chatbotConfig.projectId || !chatbotConfig.location || !(serviceAccountJsonRaw || chatbotConfig.hasServiceAccountJson)}
+                className="inline-flex items-center justify-center rounded-full bg-[#8b5e3c] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#764f33] disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {loadingAgents ? "Đang tải danh sách..." : "Tải danh sách Agent"}
+              </button>
               <button
                 type="button"
                 onClick={saveChatbotConfig}
@@ -310,7 +450,7 @@ export default function AdminIntegrationsClient() {
               <button
                 type="button"
                 onClick={testChatbot}
-                disabled={testingChatbot}
+                disabled={testingChatbot || !chatbotConfig.projectId || !chatbotConfig.location || !chatbotConfig.agentId || !(serviceAccountJsonRaw || chatbotConfig.hasServiceAccountJson)}
                 className="inline-flex items-center justify-center rounded-full border border-[#b88763] bg-white px-5 py-3 text-sm font-semibold text-[#7a4f32] transition hover:bg-[#f3e4d4] disabled:cursor-not-allowed disabled:opacity-70"
               >
                 {testingChatbot ? "Đang kiểm tra..." : "Kiểm tra Chatbot"}

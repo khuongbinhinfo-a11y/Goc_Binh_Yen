@@ -52,10 +52,17 @@ export async function POST(request: NextRequest) {
     const baseUrl = getStringValue(chatbotPayload.baseUrl) || (await getStoredChatbotValue("chatbot_base_url")) || "https://dialogflow.googleapis.com/v3";
     const projectId = getStringValue(chatbotPayload.projectId) || (await getStoredChatbotValue("chatbot_project_id"));
     const location = getStringValue(chatbotPayload.location) || (await getStoredChatbotValue("chatbot_location")) || "global";
+    const agentId = getStringValue(chatbotPayload.agentId) || (await getStoredChatbotValue("chatbot_agent_id"));
     const serviceAccountJson = getStringValue(chatbotPayload.serviceAccountJson) || (await getStoredChatbotValue("chatbot_service_account_json"));
 
     if (!projectId) {
       return NextResponse.json({ ok: false, error: "Thiếu Project ID Chatbot." }, { status: 400 });
+    }
+    if (!location) {
+      return NextResponse.json({ ok: false, error: "Thiếu Location Chatbot." }, { status: 400 });
+    }
+    if (!agentId) {
+      return NextResponse.json({ ok: false, error: "Thiếu Agent ID Chatbot." }, { status: 400 });
     }
     if (!serviceAccountJson) {
       return NextResponse.json({ ok: false, error: "Thiếu Google Cloud service account JSON." }, { status: 400 });
@@ -81,7 +88,7 @@ export async function POST(request: NextRequest) {
         throw new Error("Không lấy được access token Google.");
       }
 
-      const agentUrl = `${normalizeUrl(baseUrl)}/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agent`;
+      const agentUrl = `${normalizeUrl(baseUrl)}/projects/${encodeURIComponent(projectId)}/locations/${encodeURIComponent(location)}/agents/${encodeURIComponent(agentId)}`;
       const response = await fetch(agentUrl, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
