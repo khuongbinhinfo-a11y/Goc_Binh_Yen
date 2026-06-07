@@ -38,30 +38,37 @@ export default function HonThoChatWidget() {
     }
   }
 
+  // Collapsed button only shows when closed; when open, show popup only.
   return (
     <div>
-      {open ? (
-        <div className="fixed right-4 bottom-20 z-50 w-[340px] max-w-[90vw] rounded-lg border border-[#e7d5b9] bg-white shadow-lg">
-          <div className="flex items-center gap-3 border-b border-[#efe1cf] px-4 py-3">
-            <Image src="/logo.jpg" alt="Hồn Thơ" width={40} height={40} className="rounded-full object-cover" />
-            <div>
-              <div className="font-semibold">Hồn Thơ</div>
-              <div className="text-xs text-[#6a4b38]">Bạn cần hỏi về thơ, bài viết, ủng hộ hoặc liên hệ?</div>
+      {!open ? (
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Mở chat Hồn Thơ"
+          className="fixed right-4 bottom-4 z-50 h-14 w-14 rounded-full bg-white border border-[#efe6db] shadow-md overflow-hidden flex items-center justify-center"
+          style={{ boxShadow: "0 6px 18px rgba(63,43,32,0.12)" }}
+        >
+          <Image src="/logo.jpg" alt="Hồn Thơ" width={52} height={52} className="rounded-full object-cover" />
+        </button>
+      ) : (
+        <div className="fixed right-4 bottom-4 z-50 w-[360px] max-w-[92vw] rounded-lg bg-white border border-[#efe6db] shadow-lg">
+          <div className="flex items-center gap-3 px-3 py-2 border-b border-[#f3efe8]">
+            <Image src="/logo.jpg" alt="Hồn Thơ" width={36} height={36} className="rounded-full object-cover" />
+            <div className="flex-1">
+              <div className="text-sm font-semibold text-[#3f2b20]">Hồn Thơ</div>
             </div>
-            <button onClick={() => setOpen(false)} aria-label="Đóng" className="ml-auto text-sm text-[#7a4f32]">Đóng</button>
+            <button onClick={() => setOpen(false)} aria-label="Đóng" className="text-sm text-[#7a4f32]">✕</button>
           </div>
           <div className="p-3">
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              rows={4}
-              className="w-full rounded-md border border-gray-200 p-2 text-sm"
+              rows={3}
+              className="w-full rounded-md border border-[#efecec] p-2 text-sm resize-none"
               placeholder="Nhập câu hỏi hoặc để lại lời nhắn..."
             />
-
             {status ? <div className="mt-2 text-xs text-[#4a2f20]">{status}</div> : null}
-
-            <div className="mt-3 flex gap-2">
+            <div className="mt-3 flex items-center">
               <button
                 onClick={sendMessage}
                 disabled={sending}
@@ -72,16 +79,7 @@ export default function HonThoChatWidget() {
             </div>
           </div>
         </div>
-      ) : null}
-
-      <button
-        onClick={() => setOpen((s) => !s)}
-        aria-label="Mở chat Hồn Thơ"
-        className="fixed right-4 bottom-4 z-50 flex items-center gap-3 rounded-full bg-[#fffaf5] border border-[#e7d5b9] px-4 py-2 shadow-lg"
-      >
-        <Image src="/logo.jpg" alt="Hồn Thơ" width={36} height={36} className="rounded-full object-cover" />
-        <span className="hidden sm:inline-block text-sm font-medium text-[#4a2f20]">Hỏi Hồn Thơ</span>
-      </button>
+      )}
     </div>
   );
 }
