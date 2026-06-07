@@ -6,6 +6,7 @@ import { LOCAL_IMAGE_MAP } from "@/lib/image";
 import { resolveMetadataImageUrl, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 import "./globals.css";
+import HonThoChatWidget from "@/components/chat/HonThoChatWidget";
 
 const bodyFont = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -54,7 +55,11 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={`${bodyFont.variable} antialiased`}>
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider>
+          {children}
+          {/* Chat widget mounted client-side; hidden on admin paths inside component */}
+          <HonThoChatWidget />
+        </LocaleProvider>
       </body>
     </html>
   );
