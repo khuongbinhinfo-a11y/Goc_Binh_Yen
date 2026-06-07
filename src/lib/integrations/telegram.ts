@@ -1,10 +1,23 @@
 import { getTelegramConfig } from "@/lib/admin/integrations-store";
 
-export async function sendTelegramNotification(options: { chatId?: string; text: string }) {
+type TelegramNotificationKind = "website" | "donation" | "test";
+
+export async function sendTelegramNotification(options: { chatId?: string; text: string; kind?: TelegramNotificationKind }) {
   try {
     const cfg = await getTelegramConfig();
     const token = cfg.token;
     const chatId = options.chatId || cfg.chatId;
+    const kind = options.kind || "website";
+
+    if (kind === "website" && !cfg.notifyOnWebsite) {
+      console.info("[telegram] website notifications disabled, skipping notification");
+      return false;
+    }
+
+    if (kind === "donation" && !cfg.notifyOnDonation) {
+      console.info("[telegram] donation notifications disabled, skipping notification");
+      return false;
+    }
 
     if (!token || !chatId) {
       console.warn("[telegram] missing token or chatId, skipping notification");

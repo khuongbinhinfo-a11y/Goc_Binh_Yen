@@ -318,7 +318,7 @@ export async function POST(request: NextRequest) {
         // Fire-and-forget Telegram notification for donation (non-blocking)
         (async () => {
           try {
-            await sendTelegramNotification({ text: messageBody });
+            await sendTelegramNotification({ text: messageBody, kind: "donation" });
           } catch (err) {
             console.error("[telegram] notify failed (sepay):", err);
           }

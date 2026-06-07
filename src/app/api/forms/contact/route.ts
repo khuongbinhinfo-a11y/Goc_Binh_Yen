@@ -230,7 +230,7 @@ export async function POST(request: NextRequest) {
     (async () => {
       try {
         const text = formatInternalText(payload);
-        await sendTelegramNotification({ text });
+        await sendTelegramNotification({ text, kind: "website" });
       } catch (err) {
         console.error("[telegram] notify failed (contact):", err);
       }

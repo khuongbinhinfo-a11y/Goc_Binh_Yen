@@ -21,11 +21,6 @@ const CHAT_GREETING =
   "Xin chào, mình là trợ lý của Hồn Thơ. Anh/chị cứ nhắn ngắn gọn điều mình cần nhé.";
 const CHAT_FALLBACK =
   "Cảm ơn anh/chị đã nhắn. Nếu cần, anh/chị có thể để lại số điện thoại hoặc email, chúng tôi sẽ phản hồi sớm.";
-const QUICK_PROMPTS = [
-  "Mình muốn hỏi thêm về nội dung trên website",
-  "Mình cần để lại lời nhắn cho quản trị",
-  "Mình muốn được hỗ trợ nhanh",
-];
 
 function createMessageId() {
   return `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -162,10 +157,6 @@ export default function HonThoChatWidget() {
     void submitMessage(message);
   }
 
-  function handlePrompt(prompt: string) {
-    void submitMessage(prompt);
-  }
-
   const avatarSrc = LOCAL_IMAGE_MAP.chatAvatar.src;
 
   return (
@@ -257,21 +248,6 @@ export default function HonThoChatWidget() {
                   </div>
                 </div>
               ))}
-
-              <div className="flex flex-wrap gap-2 pt-1">
-                {QUICK_PROMPTS.map((prompt) => (
-                  <button
-                    key={prompt}
-                    type="button"
-                    onClick={() => handlePrompt(prompt)}
-                    disabled={sending}
-                    className="rounded-full border border-[#e2c7ad] bg-[#fff8f0] px-3 py-2 text-left text-xs font-medium text-[#6a4b38] transition hover:bg-[#f8eadb] disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {prompt}
-                  </button>
-                ))}
-              </div>
-
               <div ref={endRef} />
             </div>
 

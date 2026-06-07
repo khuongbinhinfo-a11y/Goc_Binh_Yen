@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
   if (!projectId || !location || !agentId || !serviceAccountJson) {
     // not configured for Dialogflow/AI
     try {
-      await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+      await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}`, kind: "website" });
     } catch (e) {
       console.error("Telegram notification failed:", e);
     }
@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
         message,
       });
       try {
-        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}`, kind: "website" });
       } catch (e) {
         console.error("Telegram notification failed:", e);
       }
@@ -152,7 +152,7 @@ export async function POST(request: NextRequest) {
     } catch (err) {
       console.error("Dialogflow call failed:", err instanceof Error ? err.message : err);
       try {
-        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+        await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}`, kind: "website" });
       } catch (e) {
         console.error("Telegram notification failed:", e);
       }
@@ -161,7 +161,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}` });
+    await sendTelegramNotification({ text: `Tin nhắn website: ${message.slice(0, 200)}`, kind: "website" });
   } catch (e) {
     console.error("Telegram notification failed:", e);
   }

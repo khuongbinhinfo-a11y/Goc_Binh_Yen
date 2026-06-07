@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
   const type = getStringValue(payload.type);
 
   if (type === "telegram") {
-    const sent = await sendTelegramNotification({ text: "Kiểm tra Telegram Hồn Thơ" });
+    const sent = await sendTelegramNotification({ text: "Kiểm tra Telegram Hồn Thơ", kind: "test" });
     if (!sent) {
       return NextResponse.json({ ok: false, error: "Không gửi được tin nhắn kiểm tra Telegram." }, { status: 500 });
     }
