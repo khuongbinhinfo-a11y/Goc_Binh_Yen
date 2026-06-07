@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createIncomingMessage, ensureAdminSheetsReady, listMessages, updateMessageById } from "@/lib/admin/messages-store";
 import { getDonationById, markDonationPaidById } from "@/lib/admin/donations-store";
 import { getInternalRecipient, sendMail, wrapMailBodyHtml } from "@/lib/forms/mailer";
+import { sendTelegramNotification } from "@/lib/integrations/telegram";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -313,6 +314,15 @@ export async function POST(request: NextRequest) {
           });
           storedMessageId = created.id;
         }
+
+        // Fire-and-forget Telegram notification for donation (non-blocking)
+        (async () => {
+          try {
+            await sendTelegramNotification({ text: messageBody });
+          } catch (err) {
+            console.error("[telegram] notify failed (sepay):", err);
+          }
+        })();
 
         // BUOC 3: Gui email cam on cho nguoi ung ho
         if (donorEmail) {

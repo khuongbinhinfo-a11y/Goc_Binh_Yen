@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createIncomingMessage, ensureAdminSheetsReady, logMailReply } from "@/lib/admin/messages-store";
 import { contactSubmitSchema } from "@/lib/forms/form-schemas";
 import { getInternalRecipient, sendMail, wrapMailBodyHtml } from "@/lib/forms/mailer";
+import { sendTelegramNotification } from "@/lib/integrations/telegram";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -224,6 +225,16 @@ export async function POST(request: NextRequest) {
       resendEmailId: internalMail.resendEmailId,
       status: "sent",
     });
+
+    // Fire-and-forget Telegram notification (non-blocking)
+    (async () => {
+      try {
+        const text = formatInternalText(payload);
+        await sendTelegramNotification({ text });
+      } catch (err) {
+        console.error("[telegram] notify failed (contact):", err);
+      }
+    })();
   } catch (error) {
     const message = error instanceof Error ? error.message : "Không gửi được email nội bộ.";
 
