@@ -28,16 +28,45 @@ function getSpreadsheetId() {
 }
 
 const SHEET_NAME = "INTEGRATIONS";
+const INTEGRATIONS_HEADERS = ["key", "value"] as const;
+
+type IntegrationHeader = typeof INTEGRATIONS_HEADERS[number];
+
+async function ensureSheetExists(sheetName: string) {
+  const sheets = await getSheetsClient();
+  const spreadsheetId = getSpreadsheetId();
+  const workbook = await sheets.spreadsheets.get({ spreadsheetId, includeGridData: false });
+  const existingSheet = workbook.data.sheets?.find((item) => item.properties?.title === sheetName);
+  if (existingSheet) {
+    return;
+  }
+
+  await sheets.spreadsheets.batchUpdate({
+    spreadsheetId,
+    requestBody: {
+      requests: [
+        {
+          addSheet: {
+            properties: {
+              title: sheetName,
+            },
+          },
+        },
+      ],
+    },
+  });
+}
 
 export async function ensureIntegrationsSheetReady() {
   const sheets = await getSheetsClient();
   const spreadsheetId = getSpreadsheetId();
 
+  await ensureSheetExists(SHEET_NAME);
+
   const read = await sheets.spreadsheets.values.get({ spreadsheetId, range: `${SHEET_NAME}!A:Z` });
   const values = (read.data.values ?? []) as string[][];
 
   if (values.length === 0) {
-    // create header row: key, value
     await sheets.spreadsheets.values.append({
       spreadsheetId,
       range: `${SHEET_NAME}!A:Z`,
@@ -48,6 +77,8 @@ export async function ensureIntegrationsSheetReady() {
 }
 
 export async function listIntegrationRows(): Promise<Array<{ key: string; value: string }>> {
+  await ensureIntegrationsSheetReady();
+
   const sheets = await getSheetsClient();
   const spreadsheetId = getSpreadsheetId();
   const resp = await sheets.spreadsheets.values.get({ spreadsheetId, range: `${SHEET_NAME}!A:Z` });
@@ -64,6 +95,8 @@ export async function getIntegrationValue(key: string) {
 }
 
 export async function setIntegrationValue(key: string, value: string) {
+  await ensureIntegrationsSheetReady();
+
   const sheets = await getSheetsClient();
   const spreadsheetId = getSpreadsheetId();
 
@@ -71,7 +104,6 @@ export async function setIntegrationValue(key: string, value: string) {
   const values = (resp.data.values ?? []) as string[][];
 
   if (values.length === 0) {
-    // create header and append
     await sheets.spreadsheets.values.append({
       spreadsheetId,
       range: `${SHEET_NAME}!A:Z`,
