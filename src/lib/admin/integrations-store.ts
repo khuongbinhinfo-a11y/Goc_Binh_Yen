@@ -12,15 +12,30 @@ function normalizePrivateKey(rawValue: string) {
   return rawValue.replace(/\\n/g, "\n").trim();
 }
 
+type SheetsClient = Awaited<ReturnType<typeof google.sheets>>;
+
+let sheetsClientPromise: Promise<SheetsClient> | null = null;
+
 async function getSheetsClient() {
-  const auth = new google.auth.JWT({
-    email: requireEnv("GOOGLE_SERVICE_ACCOUNT_EMAIL"),
-    key: normalizePrivateKey(requireEnv("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")),
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  if (sheetsClientPromise) {
+    return sheetsClientPromise;
+  }
+
+  sheetsClientPromise = (async () => {
+    const auth = new google.auth.JWT({
+      email: requireEnv("GOOGLE_SERVICE_ACCOUNT_EMAIL"),
+      key: normalizePrivateKey(requireEnv("GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY")),
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    });
+
+    await auth.authorize();
+    return google.sheets({ version: "v4", auth });
+  })().catch((error) => {
+    sheetsClientPromise = null;
+    throw error;
   });
 
-  await auth.authorize();
-  return google.sheets({ version: "v4", auth });
+  return sheetsClientPromise;
 }
 
 function getSpreadsheetId() {
@@ -31,6 +46,29 @@ const SHEET_NAME = "INTEGRATIONS";
 const INTEGRATIONS_HEADERS = ["key", "value"] as const;
 
 type IntegrationHeader = typeof INTEGRATIONS_HEADERS[number];
+
+type IntegrationRow = { key: string; value: string };
+
+let cachedIntegrationRows: IntegrationRow[] | null = null;
+let cachedIntegrationRowsAt = 0;
+let inFlightIntegrationRowsPromise: Promise<IntegrationRow[]> | null = null;
+
+function clearIntegrationRowsCache() {
+  cachedIntegrationRows = null;
+  cachedIntegrationRowsAt = 0;
+  inFlightIntegrationRowsPromise = null;
+}
+
+function cacheIntegrationRows(rows: IntegrationRow[]) {
+  cachedIntegrationRows = rows;
+  cachedIntegrationRowsAt = Date.now();
+}
+
+function getCachedIntegrationRows(ttlMs = 10_000) {
+  if (!cachedIntegrationRows) return null;
+  if (Date.now() - cachedIntegrationRowsAt > ttlMs) return null;
+  return cachedIntegrationRows;
+}
 
 async function ensureSheetExists(sheetName: string) {
   const sheets = await getSheetsClient();
@@ -77,15 +115,42 @@ export async function ensureIntegrationsSheetReady() {
 }
 
 export async function listIntegrationRows(): Promise<Array<{ key: string; value: string }>> {
-  await ensureIntegrationsSheetReady();
+  const cachedRows = getCachedIntegrationRows();
+  if (cachedRows) {
+    return cachedRows;
+  }
 
-  const sheets = await getSheetsClient();
-  const spreadsheetId = getSpreadsheetId();
-  const resp = await sheets.spreadsheets.values.get({ spreadsheetId, range: `${SHEET_NAME}!A:Z` });
-  const values = (resp.data.values ?? []) as string[][];
-  if (values.length <= 1) return [];
-  const rows = values.slice(1).map((r) => ({ key: `${r[0] ?? ""}`.trim(), value: `${r[1] ?? ""}`.trim() }));
-  return rows.filter((r) => r.key !== "");
+  if (inFlightIntegrationRowsPromise) {
+    return inFlightIntegrationRowsPromise;
+  }
+
+  inFlightIntegrationRowsPromise = (async () => {
+    await ensureIntegrationsSheetReady();
+
+    const sheets = await getSheetsClient();
+    const spreadsheetId = getSpreadsheetId();
+    const resp = await sheets.spreadsheets.values.get({ spreadsheetId, range: `${SHEET_NAME}!A:Z` });
+    const values = (resp.data.values ?? []) as string[][];
+    if (values.length <= 1) {
+      const emptyRows: IntegrationRow[] = [];
+      cacheIntegrationRows(emptyRows);
+      return emptyRows;
+    }
+
+    const rows = values
+      .slice(1)
+      .map((r) => ({ key: `${r[0] ?? ""}`.trim(), value: `${r[1] ?? ""}`.trim() }))
+      .filter((r) => r.key !== "");
+
+    cacheIntegrationRows(rows);
+    return rows;
+  })();
+
+  try {
+    return await inFlightIntegrationRowsPromise;
+  } finally {
+    inFlightIntegrationRowsPromise = null;
+  }
 }
 
 export async function getIntegrationValue(key: string) {
@@ -110,6 +175,7 @@ export async function setIntegrationValue(key: string, value: string) {
       valueInputOption: "RAW",
       requestBody: { values: [["key", "value"], [key, value]] },
     });
+    clearIntegrationRowsCache();
     return;
   }
 
@@ -122,6 +188,7 @@ export async function setIntegrationValue(key: string, value: string) {
       valueInputOption: "RAW",
       requestBody: { values: [[key, value]] },
     });
+    clearIntegrationRowsCache();
     return;
   }
 
@@ -133,6 +200,7 @@ export async function setIntegrationValue(key: string, value: string) {
     valueInputOption: "RAW",
     requestBody: { values: [newRow] },
   });
+  clearIntegrationRowsCache();
 }
 
 export async function getTelegramConfig() {
