@@ -16,7 +16,7 @@ type ChatMessage = {
 };
 
 const CHAT_TITLE = "Trợ lý Hồn Thơ";
-const CHAT_SUBTITLE = "Chat nhanh trên website · AI + Telegram";
+const CHAT_SUBTITLE = "";
 const CHAT_GREETING =
   "Xin chào, mình là trợ lý của Hồn Thơ. Anh/chị cứ nhắn ngắn gọn điều mình cần nhé.";
 const CHAT_FALLBACK =
@@ -37,6 +37,46 @@ function TypingDots() {
       <span className="h-2 w-2 animate-bounce rounded-full bg-[#b78662]" />
       <span className="h-2 w-2 animate-bounce rounded-full bg-[#b78662]" style={{ animationDelay: "120ms" }} />
       <span className="h-2 w-2 animate-bounce rounded-full bg-[#b78662]" style={{ animationDelay: "240ms" }} />
+    </span>
+  );
+}
+
+function AvatarCircle({
+  size,
+  alt,
+  src,
+  fallbackLabel,
+  avatarError,
+  onError,
+  className = "",
+}: {
+  size: number;
+  alt: string;
+  src: string;
+  fallbackLabel: string;
+  avatarError: boolean;
+  onError: () => void;
+  className?: string;
+}) {
+  return (
+    <span
+      className={`relative shrink-0 overflow-hidden rounded-full bg-[#8b5e3c] ${className}`}
+      style={{ width: size, height: size }}
+    >
+      {!avatarError ? (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={`${size}px`}
+          className="object-cover object-center"
+          onError={onError}
+        />
+      ) : (
+        <span className="flex h-full w-full items-center justify-center text-sm font-semibold text-white">
+          {fallbackLabel}
+        </span>
+      )}
     </span>
   );
 }
@@ -137,21 +177,15 @@ export default function HonThoChatWidget() {
           aria-label="Mở chat Hồn Thơ"
           className="group flex items-center gap-3 rounded-full border border-[#ead7c4] bg-white/95 px-3 py-2.5 shadow-[0_18px_50px_rgba(78,50,33,0.18)] backdrop-blur transition hover:-translate-y-0.5 hover:shadow-[0_24px_60px_rgba(78,50,33,0.22)]"
         >
-          <span className="relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-[#eddac8] bg-[#f8efe6]">
-            {!avatarError ? (
-              <Image
-                src={avatarSrc}
-                alt={CHAT_TITLE}
-                width={48}
-                height={48}
-                className="h-full w-full object-cover"
-                onError={() => setAvatarError(true)}
-              />
-            ) : (
-              <span className="text-sm font-semibold text-[#7a4f32]">HT</span>
-            )}
+          <AvatarCircle
+            size={48}
+            alt={CHAT_TITLE}
+            src={avatarSrc}
+            fallbackLabel="HT"
+            avatarError={avatarError}
+            onError={() => setAvatarError(true)}
+          />
             <span className="absolute bottom-0.5 right-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500" />
-          </span>
           <span className="hidden min-w-0 text-left sm:block">
             <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[#a07b62]">
               Chat hỗ trợ
@@ -164,20 +198,14 @@ export default function HonThoChatWidget() {
           <div className="relative overflow-hidden bg-gradient-to-br from-[#5f371f] via-[#7d5135] to-[#a26d46] px-4 py-4 text-white">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.28),transparent_40%)]" />
             <div className="relative flex items-start gap-3">
-              <span className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/10">
-                {!avatarError ? (
-                  <Image
-                    src={avatarSrc}
-                    alt={CHAT_TITLE}
-                    width={48}
-                    height={48}
-                    className="h-full w-full object-cover"
-                    onError={() => setAvatarError(true)}
-                  />
-                ) : (
-                  <span className="text-sm font-semibold text-white">HT</span>
-                )}
-              </span>
+              <AvatarCircle
+                size={48}
+                alt={CHAT_TITLE}
+                src={avatarSrc}
+                fallbackLabel="HT"
+                avatarError={avatarError}
+                onError={() => setAvatarError(true)}
+              />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
                   <h2 className="truncate text-sm font-semibold">{CHAT_TITLE}</h2>
@@ -185,7 +213,7 @@ export default function HonThoChatWidget() {
                     Hoạt động
                   </span>
                 </div>
-                <p className="mt-1 text-xs leading-5 text-white/80">{CHAT_SUBTITLE}</p>
+                {CHAT_SUBTITLE ? <p className="mt-1 text-xs leading-5 text-white/80">{CHAT_SUBTITLE}</p> : null}
               </div>
               <button
                 type="button"
@@ -207,20 +235,15 @@ export default function HonThoChatWidget() {
               {messages.map((item) => (
                 <div key={item.id} className={`flex items-end gap-2 ${item.role === "user" ? "justify-end" : "justify-start"}`}>
                   {item.role === "assistant" ? (
-                    <span className="mb-1 flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#ead7c4] bg-[#f9f1e7]">
-                      {!avatarError ? (
-                        <Image
-                          src={avatarSrc}
-                          alt={CHAT_TITLE}
-                          width={28}
-                          height={28}
-                          className="h-full w-full object-cover"
-                          onError={() => setAvatarError(true)}
-                        />
-                      ) : (
-                        <span className="text-[10px] font-semibold text-[#7a4f32]">HT</span>
-                      )}
-                    </span>
+                    <AvatarCircle
+                      size={28}
+                      alt={CHAT_TITLE}
+                      src={avatarSrc}
+                      fallbackLabel="HT"
+                      avatarError={avatarError}
+                      onError={() => setAvatarError(true)}
+                      className="mb-1"
+                    />
                   ) : null}
                   <div
                     className={[
