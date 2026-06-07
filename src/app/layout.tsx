@@ -16,6 +16,10 @@ const bodyFont = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   title: {
     default: SITE_NAME,
     template: `%s | ${SITE_NAME}`,

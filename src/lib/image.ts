@@ -76,7 +76,7 @@ export const LOCAL_IMAGE_MAP = {
     FALLBACK_STORY,
   ),
   heroSupport: createResolvedLocalImage("hero-support", "/images/brand/hero-support.png"),
-  chatAvatar: createResolvedLocalImage("chat-avatar", "/logo.jpg", ["/hoa-luc-binh.jpeg", "/images/poems/hoa-luc-binh.jpeg"], "/logo.jpg"),
+  chatAvatar: createResolvedLocalImage("chat-avatar", "/hoa-luc-binh.jpeg", ["/images/poems/hoa-luc-binh.jpeg"], "/hoa-luc-binh.jpeg"),
   footerOrnament: createResolvedLocalImage("footer-ornament", "/images/brand/footer-ornament.png"),
   fallbackPoem: createResolvedLocalImage("fallback-poem", "/images/brand/fallback-poem.png", [FALLBACK_POEM], FALLBACK_POEM),
   fallbackStorySpiritual: createResolvedLocalImage("fallback-story-spiritual", "/images/brand/fallback-story-spiritual.png", [FALLBACK_STORY], FALLBACK_STORY),
