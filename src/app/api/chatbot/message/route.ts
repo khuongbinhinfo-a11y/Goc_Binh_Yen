@@ -56,7 +56,10 @@ async function callDialogflow(params: {
       method: "POST",
       headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        queryInput: { text: { text: message, languageCode } },
+        queryInput: {
+          text: { text: message },
+          languageCode,
+        },
       }),
       signal: controller.signal,
     });
