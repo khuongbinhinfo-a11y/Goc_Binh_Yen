@@ -12,7 +12,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[#8b5e3c]">Quản trị Hồn Thơ</p>
               <h1 className="mt-1 text-2xl font-semibold text-[#4a2f20]">Bảng điều khiển Admin</h1>
-              <p className="mt-2 text-sm text-[#6a4b38]">Chuyển nhanh giữa Lời nhắn, Nội dung và Tích hợp.</p>
+              <p className="mt-2 text-sm text-[#6a4b38]">Chuyển nhanh giữa Lời nhắn và Tích hợp.</p>
             </div>
             <div>
               <AdminShellNav />

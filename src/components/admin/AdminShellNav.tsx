@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 
 const tabs = [
   { label: "Lời nhắn", href: "/admin/messages" },
-  { label: "Nội dung", href: "/admin/content" },
   { label: "Tích hợp", href: "/admin/integrations" },
 ];
 
