@@ -36,7 +36,6 @@ export const CLOUD_AUDIO_SLUGS = {
   "hue-trang",
   "khi-yeu-nguoi-ta-ra-sao",
   "khoang-cach-vo-hinh",
-  "khoc-cuoi",
   "long-trinh-nu",
   "mo-dao-vuon-xuan",
   "mo-tro-ve",
@@ -66,6 +65,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "xa-nhau-qua",
   "xin-loi",
   "xuan"
+  ,"hop-lop-1"
 ],
   story: [
   "nguoi-dua-thu-qua-nhung-xom-nho",
@@ -75,12 +75,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "ba-ban-banh-it-o-goc-cho-xua",
   "mui-khoi-bep-len-tu-xom-nho",
   "nguoi-va-xuong-o-me-song",
-  "tieng-ga-trua-ben-mai-nha-cu",
-  "chiec-xuong-neo-duoi-ben-xua",
-  "cho-som-ben-dong-kenh-nho",
   "con-duong-dat-sau-mua-nuoc-noi",
-  "mui-rom-moi-sau-ngay-gat",
-  "dem-mua-trong-can-nha-la"
 ],
   spiritual: [
   "dot-nhang-truoc-hien-nha",
@@ -92,10 +87,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "nhan-qua-khong-o-dau-xa",
   "nhan-qua-trong-mot-bua-com",
   "ngoi-yen-nghe-mua-cham-mai-hien",
-  "thap-den-nho-truoc-khi-ngu",
-  "co-nhung-ngay-chi-can-ngoi-yen",
-  "song-hien-khong-phai-la-yeu-duoi",
-  "lay-phat-khong-chi-o-chua"
+  "thap-den-nho-truoc-khi-ngu"
 ],
 } as const;
 
@@ -113,10 +105,6 @@ function branchByType(type: CloudAudioType) {
   return "tam-linh";
 }
 
-const storyM4aSlugs = new Set<string>([
-  "tieng-ga-trua-ben-mai-nha-cu",
-]);
-
 const spiritualM4aSlugs = new Set<string>([
   "dot-nhang-truoc-hien-nha",
   "nhan-qua-khong-o-dau-xa",
@@ -124,11 +112,10 @@ const spiritualM4aSlugs = new Set<string>([
 
 const poemM4aSlugs = new Set<string>([
   "cay-roi-may",
-  "khoc-cuoi",
+  "hop-lop-1",
 ]);
 
 function extBySlug(type: CloudAudioType, slug: string) {
-  if (type === "story" && storyM4aSlugs.has(slug)) return "m4a";
   if (type === "spiritual" && spiritualM4aSlugs.has(slug)) return "m4a";
   if (type === "poem" && poemM4aSlugs.has(slug)) return "m4a";
   return "mp3";

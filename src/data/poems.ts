@@ -2327,6 +2327,70 @@ Cai Lậy, ngày 30/4/2017`,
       licenseNote: "Dùng ảnh local khoc-cuoi.png đã có trong thư mục poems.",
     },
   },
+  {
+    slug: "hop-lop-1",
+    title: "Họp lớp",
+    tag: "Thơ kỷ niệm",
+    summary:
+      "Một cuộc gặp lại sau bao năm xa cách, nơi bạn bè cũ bỏ lại phú quý, chức danh để trở về với nghĩa tình học trò.",
+    author: "Lê Dũng",
+    locationDate: "Cái Bè, 26/5/2019",
+    cardImage: "/images/poems/hop-lop-1.png",
+    heroImage: "/images/poems/hop-lop-1.png",
+    status: "published",
+    hasAudio: true,
+    content: `HỌP LỚP
+
+Mình tìm nhau, sau bao năm xa cách
+Gió cuốn, mây bay ngỡ khó thể tìm
+Mỗi đứa một đường, một không gian sống
+Một công việc riêng, một cuộc đời riêng
+Có đứa: Nổi danh đầy mình chữ nghĩa
+Có đứa: Giàu sang, lắm bạc, nhiều tiền
+Có đứa: Rỡ ràng tiền hô, hậu ủng
+Có đứa: An yên vui thú ruộng vườn
+Vậy mà bây giờ mình gặp lại nhau
+Thực hay hư, mình mơ hay tỉnh
+Sáu mươi năm một vòng đời lận đận
+Tóc đã điểm sương, đã hóa ông bà
+Bạn ơi nghèo giàu, dân quan là chuyện phù hoa
+Bỏ hết đi, tụi mình là bạn
+
+Đẹp biết bao cái thuở học trò
+Ôi tuổi thơ, đẹp những ước mơ
+Bao khát khao tình yêu cháy bỏng
+Những vô tư, chân chất nghĩa tình
+Bốn mươi năm trong lòng anh em vẫn tươi xinh
+Trong lòng em, anh vẫn hào hoa nho nhã
+Cây si xưa vẫn xanh ngát một màu
+Bạn ơi! Mình về lại với nhau
+Môi nở nụ cười, lệ rưng khóe mắt
+Thấy có gì kể còn người mất
+Nhớ ơn người ươm những ước mơ
+Bạn bè ơi thỏa dạ kiếm tìm
+Kỷ niệm này xin giữ mãi trong tim
+Bởi chưa chắc ngày mai còn gặp lại
+Yêu hết lòng, thương mãi thuở đồng môn
+Nắng mưa, thành bại dập dồn
+Vòng tay bè bạn yêu thương trọn đời.
+
+Cái Bè, 26/5/2019`,
+    analysis: {
+      emotionFlow:
+        "Mạch cảm xúc từ xa cách, gặp lại, nhớ thuở học trò, đến trân quý tình bạn.",
+      standoutImages:
+        "Tóc điểm sương, cây si xưa, nụ cười và lệ rưng khóe mắt.",
+      meaning: "Tình bạn học trò vượt qua nghèo giàu, chức danh, năm tháng.",
+      memorableLine: "Bỏ hết đi, tụi mình là bạn",
+    },
+    imageResearch: {
+      moodKeywords: ["họp lớp", "bạn cũ", "tuổi học trò", "kỷ niệm", "sân trường"],
+      referenceLinks: [],
+      recommendedScene:
+        "Sân trường cũ, cây lớn, nhóm bạn đã lớn tuổi gặp lại nhau trong không khí ấm áp.",
+      licenseNote: "Dùng ảnh R2 do chủ site cung cấp.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
