@@ -69,6 +69,7 @@ export type TranslationSchema = {
   };
   nav: {
     items: NavItem[];
+    support: string;
     facebook: string;
     youtube: string;
   };
@@ -211,6 +212,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Cổ học", href: "/huyen-mon-tham-khao" },
         { label: "Liên hệ", href: "/#lien-he" },
       ],
+      support: "Ủng hộ",
       facebook: "Facebook",
       youtube: "YouTube",
     },
@@ -531,6 +533,7 @@ export const translations: Record<Locale, TranslationSchema> = {
         { label: "Classical Studies", href: "/huyen-mon-tham-khao" },
         { label: "Contact", href: "/#lien-he" },
       ],
+      support: "Support",
       facebook: "Facebook",
       youtube: "YouTube",
     },

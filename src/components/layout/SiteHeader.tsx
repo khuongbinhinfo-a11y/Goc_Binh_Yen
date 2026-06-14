@@ -89,11 +89,12 @@ function LocaleSwitch({
 
 export default function SiteHeader() {
   const poetMenuUrl = "https://www.hontho.com/tu-sach";
+  const appHubUrl = "https://app.hontho.com";
+  const supportUrl = "/ung-ho";
   const pathname = usePathname();
   const { locale, setLocale, t } = useLocale();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAppPopupOpen, setIsAppPopupOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState("#trang-chu");
 
   const menuLabel = locale === "vi" ? "Mở menu" : "Open menu";
@@ -249,7 +250,7 @@ export default function SiteHeader() {
                 type="button"
                 onClick={() => {
                   closeMobileMenu();
-                  setIsAppPopupOpen(true);
+                  window.location.href = appHubUrl;
                 }}
                 className="mt-1 flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-[#c49a5a] transition hover:bg-[#f6e7d7]"
               >
@@ -260,6 +261,16 @@ export default function SiteHeader() {
                 Ứng dụng cổ học
               </button>
 
+              <a
+                href={supportUrl}
+                onClick={closeMobileMenu}
+                className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-[#caa584] bg-[#f6e7d7] px-3 py-2.5 text-sm font-semibold text-[#7a5237] transition hover:bg-[#efdcc8]"
+              >
+                <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 shrink-0" fill="none">
+                  <path d="M10 15.7 5 10.9a3 3 0 1 1 4.2-4.3L10 7.4l.8-.8a3 3 0 1 1 4.2 4.3l-5 4.8Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+                </svg>
+                {t.nav.support}
+              </a>
               <div className="mt-1.5 border-t border-[#e2c7ad] px-3 py-2.5">
                 <LocaleSwitch locale={locale} setLocale={setLocale} />
               </div>
@@ -346,7 +357,9 @@ export default function SiteHeader() {
 
             <button
               type="button"
-              onClick={() => setIsAppPopupOpen(true)}
+              onClick={() => {
+                window.location.href = appHubUrl;
+              }}
               className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition hover:opacity-85"
               style={{ borderColor: "rgba(196,154,90,0.5)", background: "#5c3418", color: "#e2be80" }}
             >
@@ -357,6 +370,15 @@ export default function SiteHeader() {
               Ứng dụng cổ học
             </button>
 
+            <a
+              href={supportUrl}
+              className="inline-flex items-center gap-1.5 rounded-full border border-[#caa584] bg-[#f6e7d7] px-3 py-1.5 text-[11px] font-semibold text-[#7a5237] transition hover:bg-[#efdcc8]"
+            >
+              <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
+                <path d="M10 15.7 5 10.9a3 3 0 1 1 4.2-4.3L10 7.4l.8-.8a3 3 0 1 1 4.2 4.3l-5 4.8Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+              </svg>
+              {t.nav.support}
+            </a>
             <div className="flex items-center gap-2">
               <a
                 href={FACEBOOK_URL}
@@ -381,38 +403,6 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Popup Ứng dụng cổ học */}
-      {isAppPopupOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
-          onClick={() => setIsAppPopupOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="app-popup-title"
-        >
-          <div
-            className="max-w-sm rounded-2xl border border-[#e2c7ad] bg-[#fffaf3] p-6 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3
-              id="app-popup-title"
-              className="text-center text-lg font-semibold text-[#4a2f20]"
-            >
-              Ứng dụng cổ học sắp ra mắt
-            </h3>
-            <p className="mt-3 text-center text-sm leading-6 text-[#654939]">
-              Cánh cửa nhỏ của Hồn Thơ đang được thắp đèn. Tứ Trụ, Phong thủy an cư và những công cụ cổ học sẽ mở dần, nhẹ nhàng mà rõ lối.
-            </p>
-            <button
-              type="button"
-              onClick={() => setIsAppPopupOpen(false)}
-              className="mx-auto mt-5 block rounded-full bg-[#8b5e3c] px-6 py-2 text-sm font-semibold text-white transition hover:bg-[#764a2f]"
-            >
-              Đã hiểu
-            </button>
-          </div>
-        </div>
-      )}
     </header>
   );
 }
