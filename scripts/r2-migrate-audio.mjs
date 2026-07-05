@@ -1,5 +1,5 @@
 import { readFileSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
-import { resolve } from "node:path";
+import { resolve, extname } from "node:path";
 
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 
@@ -194,6 +194,13 @@ const uploaded = {
   spiritual: [],
 };
 
+// keep track of uploaded file extensions per type/slug
+const uploadedExts = {
+  poem: {},
+  story: {},
+  spiritual: {},
+};
+
 const missingLocal = [];
 const failedUpload = [];
 const failedVerify = [];
@@ -206,7 +213,8 @@ for (const item of allMappings) {
   }
 
   const branch = contentTypeFromRawType(item.type);
-  const key = `${prefixAudio}/${branch}/${item.slug}.mp3`;
+  const ext = extname(localFile).toLowerCase() || ".mp3";
+  const key = `${prefixAudio}/${branch}/${item.slug}${ext}`;
   const body = readFileSync(localFile);
 
   try {
@@ -237,36 +245,61 @@ for (const item of allMappings) {
   }
 
   uploaded[item.type].push(item.slug);
+  uploadedExts[item.type][item.slug] = ext.replace(/^\./, "");
 }
 
 uploaded.poem.sort();
 uploaded.story.sort();
 uploaded.spiritual.sort();
 
-const manifestSource = `export const CLOUD_AUDIO_BASE_URL = ${JSON.stringify(publicDevUrl)} as const;\n\n` +
-`export const CLOUD_AUDIO_SLUGS = {\n` +
-`  poem: ${JSON.stringify(uploaded.poem, null, 2)},\n` +
-`  story: ${JSON.stringify(uploaded.story, null, 2)},\n` +
-`  spiritual: ${JSON.stringify(uploaded.spiritual, null, 2)},\n` +
-`} as const;\n\n` +
-`export type CloudAudioType = keyof typeof CLOUD_AUDIO_SLUGS;\n\n` +
-`const slugSets: Record<CloudAudioType, Set<string>> = {\n` +
-`  poem: new Set(CLOUD_AUDIO_SLUGS.poem),\n` +
-`  story: new Set(CLOUD_AUDIO_SLUGS.story),\n` +
-`  spiritual: new Set(CLOUD_AUDIO_SLUGS.spiritual),\n` +
-`};\n\n` +
-`function branchByType(type: CloudAudioType) {\n` +
-`  if (type === \"poem\") return \"doc-tho\";\n` +
-`  if (type === \"story\") return \"ke-chuyen\";\n` +
-`  return \"tam-linh\";\n` +
-`}\n\n` +
-`export function hasCloudAudio(type: CloudAudioType, slug: string) {\n` +
-`  return slugSets[type].has(slug);\n` +
-`}\n\n` +
-`export function getCloudAudioUrl(type: CloudAudioType, slug: string) {\n` +
-`  if (!hasCloudAudio(type, slug)) return undefined;\n` +
-`  return CLOUD_AUDIO_BASE_URL + "/${prefixAudio}/" + branchByType(type) + "/" + slug + ".mp3";\n` +
-`}\n`;
+const poemM4a = Object.entries(uploadedExts.poem)
+  .filter(([, e]) => e === "m4a")
+  .map(([s]) => s);
+const spiritualM4a = Object.entries(uploadedExts.spiritual)
+  .filter(([, e]) => e === "m4a")
+  .map(([s]) => s);
+
+const manifestSource = `export const CLOUD_AUDIO_BASE_URL = ${JSON.stringify(publicDevUrl)} as const;
+
+export const CLOUD_AUDIO_SLUGS = {
+  poem: ${JSON.stringify(uploaded.poem, null, 2)},
+  story: ${JSON.stringify(uploaded.story, null, 2)},
+  spiritual: ${JSON.stringify(uploaded.spiritual, null, 2)},
+} as const;
+
+export type CloudAudioType = keyof typeof CLOUD_AUDIO_SLUGS;
+
+const slugSets: Record<CloudAudioType, Set<string>> = {
+  poem: new Set(CLOUD_AUDIO_SLUGS.poem),
+  story: new Set(CLOUD_AUDIO_SLUGS.story),
+  spiritual: new Set(CLOUD_AUDIO_SLUGS.spiritual),
+};
+
+function branchByType(type: CloudAudioType) {
+  if (type === "poem") return "doc-tho";
+  if (type === "story") return "ke-chuyen";
+  return "tam-linh";
+}
+
+const spiritualM4aSlugs = new Set<string>(${JSON.stringify(spiritualM4a, null, 2)});
+
+const poemM4aSlugs = new Set<string>(${JSON.stringify(poemM4a, null, 2)});
+
+function extBySlug(type: CloudAudioType, slug: string) {
+  if (type === "spiritual" && spiritualM4aSlugs.has(slug)) return "m4a";
+  if (type === "poem" && poemM4aSlugs.has(slug)) return "m4a";
+  return "mp3";
+}
+
+export function hasCloudAudio(type: CloudAudioType, slug: string) {
+  return slugSets[type].has(slug);
+}
+
+export function getCloudAudioUrl(type: CloudAudioType, slug: string) {
+  if (!hasCloudAudio(type, slug)) return undefined;
+  return CLOUD_AUDIO_BASE_URL + "/${prefixAudio}/" + branchByType(type) + "/" + slug + "." + extBySlug(type, slug);
+}
+`;
 
 const manifestPath = resolve(root, "src/data/cloudAudioManifest.ts");
 writeFileSync(manifestPath, manifestSource, "utf8");

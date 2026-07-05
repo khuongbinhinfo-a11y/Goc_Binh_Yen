@@ -800,6 +800,52 @@ Mẹ hiền ơi! Miền cực lạc trở về.`,
     },
   },
   {
+    slug: "tinh-thu",
+    title: "TÌNH THU",
+    tag: "Thơ tình",
+    summary: "Tình yêu đầu mùa thu, nỗi nhớ và chiếc lá vàng làm phép ẩn dụ cho câu chuyện tình.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 8/8/2026",
+    cardImage: "/images/poems/tinh-thu-1.png",
+    heroImage: "/images/poems/tinh-thu-1.png",
+    audioUrl: "/audio/tinh-thu.m4a",
+    hasAudio: true,
+    content: `Lá vàng rơi , theo làn gió ...bay bay .
+Vô tình đậu xuống tóc mây bồng bềnh. 
+Ráng chiều vàng , nhuộm vạt áo tiều thư . 
+Hay là vạt lụa nhuộm vàng mắt tôi . 
+Không ! Thưa anh , trời đã vào thu rồi . 
+Trái tình yêu chín vàng ươm ngọt ngào.
+Em chờ anh , cha mẹ mang trầu cau.
+Thì sang dạm hỏi , đông thôi lạnh lùng. 
+Chiếc lá vàng run rẩy trên cành cây .
+Bay theo gió , anh mịt mù tăm hơi.
+Thu buồn , em gầy guộc , em hanh hao .
+Tiễn thu , tiễn cả tình theo lá vàng. 
+Tình đầu ngỡ đã ... mà vẫn đeo mang . 
+Gió gặp lại vẫn vàng thu đất trời.
+Thẫn thờ nhìn nhau , nhìn lá vàng rơi.
+Thương thì vẫn ... mà ta như lá vàng. 
+Giờ trách ai , chuyện cũ đã lò làng . 
+Ta làm tri kỷ trúc mai kiếp này .
+Giờ cho nhà một chiếc lá vàng bay ...
+Diêu bông giữ lấy, kiếp sau dễ tìm .`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Từ hình ảnh chiếc lá vàng thu điệu, bài thơ dệt nên mạch cảm xúc nhớ thương và tiếc nuối của tình đầu.",
+      standoutImages: "Chiếc lá vàng, ráng chiều, tóc mây và cảnh dạm hỏi truyền thống.",
+      meaning: "Chiếc lá vàng như biểu tượng cho sự lưu giữ, chia ly và hy vọng vào một kiếp sau.",
+      memorableLine: "Tiễn thu , tiễn cả tình theo lá vàng.",
+    },
+    imageResearch: {
+      moodKeywords: ["thu", "lá vàng", "hoài niệm", "tình đầu"],
+      referenceLinks: [],
+      recommendedScene: "Một con đường làng mùa thu với lá vàng rơi, ánh chiều dịu.",
+      licenseNote: "Ảnh do tác giả cung cấp, lưu trong /public/images/poems/.",
+    },
+  },
+  {
     slug: "dau-can-noi-chi-em",
     title: "Đâu cần nói chi em",
     tag: "Thơ tình",

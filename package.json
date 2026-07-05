@@ -15,6 +15,10 @@
     "media:r2:cohoc-ngu-thuat": "node scripts/r2-upload-cohoc-ngu-thuat.mjs",
     "media:r2:cohoc-ngu-thuat-hub": "node scripts/r2-upload-cohoc-ngu-thuat-hub.mjs",
     "media:r2:smoke": "node scripts/r2-smoke-test.mjs"
+    ,
+    "upload:audio:tinh-thu": "node ./scripts/upload-audio-tinh-thu.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/tinh-thu-1.m4a\""
+    ,
+    "upload:image:tinh-thu": "node ./scripts/upload-image-tinh-thu.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/tinh-thu-1.png\""
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.911.0",
