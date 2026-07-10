@@ -846,6 +846,55 @@ Diêu bông giữ lấy, kiếp sau dễ tìm .`,
     },
   },
   {
+    slug: "chut-tinh-xin-goi-cho-que",
+    title: "CHÚT TÌNH XIN GỞI CHO QUÊ",
+    tag: "Thơ quê",
+    summary: "Nhớ quê miệt vườn, thèm tiếng gà, nồi canh khoai và những hình bóng người xưa.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 2026",
+    cardImage: "/images/poems/chut-tinh-xin-goi-cho-que-1.png",
+    heroImage: "/images/poems/chut-tinh-xin-goi-cho-que-1.png",
+    audioUrl: "/audio/chut-tinh-xin-goi-cho-que.m4a",
+    hasAudio: true,
+    content: `Hoa lục bình tím ngát triền đê.
+Hàng thủy triều đong đưa cùng gió.
+Chim chuyền cành ríu rít gọi nhau.
+Sông xôn xao gợn sóng bạc đầu.
+Ngôi nhà xưa , vườn xưa chôn nhau.
+Tan biến, khi rời quê lên phố.
+Đêm mơ trèo cây ổi sau nhà.
+Thèm nghe tiếng con gà gáy sáng .
+Nồi canh khoai , chảo tép em rang .
+Mẻ kho khô sền sệt thơm thơm .
+Dề cơm cháy , nhai nghe rào rạo.
+Căng bụng rồi vẫn muốn ăn thêm .
+Lục tìm ... một bức hình thân quen.
+Bến nước em hay ngồi giặt áo .
+Ngỡ ngàng ... nàng Tây Thi giũ lụa .
+Thẫn thờ ! Phạm Lãi đứng chết trân .
+Đường quê vẫn rợp màu xanh thẫm .
+Sao nghe lòng trống trơn lạ lắm.
+Nhà xưa , người xưa xa lơ lắc .
+Mỗi mình ta , nên hắt hiu buồn.
+Ta gởi Sông Quê một nụ hôn .
+Kỹ niệm xưa vòng tay thân ái .
+Gởi người xưa tấm lòng chân chất .
+Giữ cho mình trăm nhớ ngàn thương.`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ là chuỗi ký ức quê nhà, chuyển hoá mong nhớ thành tình yêu đơn sơ và chân chất.",
+      standoutImages: "Lục bình tím, sông quê, cây ổi sau nhà và bến nước giặt áo.",
+      meaning: "Những ký ức bình dị về quê qua nồi canh khoai, tiếng gà và người xưa tạo thành một tình cảm đượm nỗi nhớ.",
+      memorableLine: "Giữ cho mình trăm nhớ ngàn thương.",
+    },
+    imageResearch: {
+      moodKeywords: ["quê", "khoai lang", "bến nước", "lục bình tím"],
+      referenceLinks: [],
+      recommendedScene: "Bến nước quê, lục bình tím và cây ổi sau nhà trong nắng chiều.",
+      licenseNote: "Ảnh local đã có trong thư mục poems và sẽ được upload lên R2.",
+    },
+  },
+  {
     slug: "dau-can-noi-chi-em",
     title: "Đâu cần nói chi em",
     tag: "Thơ tình",
