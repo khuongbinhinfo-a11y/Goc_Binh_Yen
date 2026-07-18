@@ -19,7 +19,9 @@
     "upload:audio:tinh-thu": "node ./scripts/upload-audio-tinh-thu.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/tinh-thu-1.m4a\"",
     "upload:image:tinh-thu": "node ./scripts/upload-image-tinh-thu.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/tinh-thu-1.png\"",
     "upload:audio:chut-tinh-xin-goi-cho-que": "node ./scripts/upload-audio-chut-tinh-xin-goi-cho-que.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/chut-tinh-xin-goi-cho-que-1.m4a\"",
-    "upload:image:chut-tinh-xin-goi-cho-que": "node ./scripts/upload-image-chut-tinh-xin-goi-cho-que.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/chut-tinh-xin-goi-cho-que-1.png\""
+    "upload:image:chut-tinh-xin-goi-cho-que": "node ./scripts/upload-image-chut-tinh-xin-goi-cho-que.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/chut-tinh-xin-goi-cho-que-1.png\"",
+    "upload:audio:vo-tinh": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/vo-tinh.m4a\" \"audio/doc-tho/vo-tinh.m4a\" audio/mp4",
+    "upload:image:vo-tinh": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/vo-tinh.png\" \"images/poems/vo-tinh.png\""
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.911.0",

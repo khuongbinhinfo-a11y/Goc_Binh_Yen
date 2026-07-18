@@ -251,6 +251,37 @@ export const poems: PoemItem[] = [
     },
   },
   {
+    slug: "vo-tinh",
+    title: "Vô tình",
+    tag: "Thơ tình",
+    summary: "Gió vô tình xô ngã cánh hoa xuân, nhưng lòng xuân vẫn phơi phới và trường tồn.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 15/07/2025",
+    cardImage: "/images/poems/vo-tinh.png",
+    heroImage: "/images/poems/vo-tinh.png",
+    audioUrl: "/audio/Vo-tinh.m4a",
+    hasAudio: true,
+    content:
+      "Gió vô tình xô ngã cánh hoa xuân\nKẻ vô tâm ngỡ xuân tàn hoa rơi rụng\nKhông! Sắc Xuân vẫn tràn ngập đất trời\nEm vẫn nồng nàn hỡi lãng tử chàng ơi.\nChốn xưa hơn bốn mươi năm.\nMột ngày gặp lại, tóc mây xưa, nay nhiều sợi đổi màu.\nLưng ông, dáng Ngọc chìm theo ngày tháng.\nLòng thì cứ Xuân, phơi phới, mặn mà.\nMắt nhìn nhau vẫn ngọt ngào, đằm thắm.\nGiọng ai êm như ru, tiếng lá xạc xào.\nTình đầu chỉ lớn lên, không già, không cũ. Tạm ngủ yên, không chết bao giờ.\nRạo rực tràn dâng nỗi niềm thương thương, tiếc tiếc.\nMới hay xuân tàn hoa rụng xuống.\nLòng xuân khó thể nhạt nhòa.\n\nLê Dũng\n15/07/2025",
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ đi từ nỗi nghi ngại xuân phai đến khẳng định sức sống bất diệt của tình đầu và lòng xuân.",
+      standoutImages:
+        "Hoa xuân rơi, tóc mây đổi màu, dáng Ngọc và tiếng lá xạc xào.",
+      meaning:
+        "Dẫu thời gian thay đổi, tình xuân vẫn phơi phới, khêu gợi nỗi nhớ và thương yêu bền bỉ.",
+      memorableLine: "Lòng xuân khó thể nhạt nhòa.",
+    },
+    imageResearch: {
+      moodKeywords: ["xuân", "thương thương", "kỷ niệm", "lãng tử", "tóc mây"],
+      referenceLinks: [],
+      recommendedScene:
+        "Một góc xuân mênh mang, cánh hoa rơi và hai người nhìn nhau trong nắng nhẹ.",
+      licenseNote: "Ảnh local mới tải lên R2, ưu tiên dùng đường dẫn /images/poems/vo-tinh.png.",
+    },
+  },
+  {
     slug: "bat-canh-rau",
     title: "Bát Canh Rau",
     tag: "Thơ về mẹ",
