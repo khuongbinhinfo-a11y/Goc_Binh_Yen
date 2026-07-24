@@ -71,6 +71,7 @@ const AVAILABLE_LOCAL_POEM_IMAGES = new Set([
   "mo-dao-vuon-xuan.jpeg",
   "ron-rang.jpeg",
   "xin-loi.png",
+  "song-sau-ben-lo-ben-boi.png",
 ]);
 
 function normalizeVietnameseText(value: string) {
@@ -130,6 +131,65 @@ export const poems: PoemItem[] = [
       referenceLinks: [],
       recommendedScene: "Bến sông quê lúc chiều xuống, màu trời dịu, có cảm giác lặng và sâu.",
       licenseNote: "Dùng ảnh local đã có trong thư mục poems.",
+    },
+  },
+  {
+    slug: "song-sau-ben-lo-ben-boi",
+    title: "Sông Sâu Bên Lở Bên Bồi",
+    tag: "Thơ quê",
+    summary:
+      "Nỗi nhớ mẹ, nhà xưa và tri kỷ lặng trôi theo dòng sông quê bên lở bên bồi.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 30/07/2025",
+    cardImage: "/images/poems/song-sau-ben-lo-ben-boi.png",
+    heroImage: "/images/poems/song-sau-ben-lo-ben-boi.png",
+    audioUrl: "/audio/song-sau-ben-lo-ben-boi.m4a",
+    hasAudio: true,
+    content: `Nhà của mẹ tôi ở ngay đây thôi.
+Sông lớn lên , nhà mẹ tôi mất hút.
+Giận con sông sao bên bồi , bên lỡ .
+Bờ lỡ mất nhà buồn quá sông ơi.
+Mẹ tôi buồn , người cũng đã về trời.
+Nương cửa Phật , hằng niệm câu Bồ Tát .
+Sông quê ơi , thèm ra đây tắm mát .
+Ngắm lục bình trôi , ngắm ánh trăng cười .
+Thèm níu lục bình , nhìn hoa tím ngát.
+Trôi theo dòng , về bến cũ nhà xưa.
+Giờ ngồi đây ... bần thần đếm những giọt mưa .
+Đếm thời gian , nỗi buồn “già” gặm nhấm .
+Tri kỷ ơi, từ nhà trôi , sông lỡ .
+Tri kỷ về đâu có nhớ Qua không.
+Qua nhớ mắt Bậu nhìn sâu thăm thẳm.
+Câu vọng cổ buồn , thương lục bình trôi .
+Sông sâu bên lở , bên bồi. Người đi đâu mất , con ngồi đợi ai.
+
+CAI LẬY 
+30/07/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ nỗi mất mát nhà xưa bên bờ sông lở, sang nỗi nhớ mẹ, nhớ quê, rồi lắng lại trong tiếng vọng tri kỷ và câu vọng cổ buồn.",
+      standoutImages:
+        "Dòng sông bên lở bên bồi, lục bình tím, ánh trăng cười, căn nhà mất hút và người con ngồi đợi bên bến cũ.",
+      meaning:
+        "Bài thơ gửi nỗi đau mất nhà, mất mẹ và mất dấu người thương vào hình tượng con sông quê; sông vừa cuốn đi, vừa giữ lại ký ức không thể phai.",
+      memorableLine:
+        "Sông sâu bên lở , bên bồi. Người đi đâu mất , con ngồi đợi ai.",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "sông quê",
+        "lục bình",
+        "nhớ mẹ",
+        "bên lở bên bồi",
+        "vọng cổ",
+        "hoài niệm",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Bến sông miền Tây chiều muộn hoặc đêm trăng, có lục bình tím trôi, mái nhà cũ bên bờ lở và dáng người ngồi lặng nhìn dòng nước.",
+      licenseNote: "Dùng ảnh local do chủ dự án cung cấp và upload lên R2.",
     },
   },
   {

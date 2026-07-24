@@ -60,6 +60,7 @@ export const CLOUD_AUDIO_SLUGS = {
   "tien-ai",
   "tieng-keu-chim-le-ban",
   "to-tinh",
+  "song-sau-ben-lo-ben-boi",
   "vo-tinh",
   "trong-trai",
   "vu-vo",
@@ -118,6 +119,7 @@ const poemM4aSlugs = new Set<string>([
   "hop-lop-1",
   "tinh-thu",
   "chut-tinh-xin-goi-cho-que",
+  "song-sau-ben-lo-ben-boi",
   "vo-tinh",
 ]);
 
