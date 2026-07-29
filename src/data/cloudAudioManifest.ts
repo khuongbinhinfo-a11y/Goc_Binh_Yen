@@ -24,6 +24,8 @@ export const CLOUD_AUDIO_SLUGS = {
   "dau-chua",
   "di-nguoc-mat-troi",
   "dong-song",
+  "hoai-niem",
+  "mo-long",
   "dung-than-nhien-nhu-the",
   "em-huong-xua",
   "em-mua-xuan-ve",
@@ -60,7 +62,6 @@ export const CLOUD_AUDIO_SLUGS = {
   "tien-ai",
   "tieng-keu-chim-le-ban",
   "to-tinh",
-  "song-sau-ben-lo-ben-boi",
   "vo-tinh",
   "trong-trai",
   "vu-vo",
@@ -119,8 +120,9 @@ const poemM4aSlugs = new Set<string>([
   "hop-lop-1",
   "tinh-thu",
   "chut-tinh-xin-goi-cho-que",
-  "song-sau-ben-lo-ben-boi",
   "vo-tinh",
+  "hoai-niem",
+  "mo-long",
 ]);
 
 function extBySlug(type: CloudAudioType, slug: string) {

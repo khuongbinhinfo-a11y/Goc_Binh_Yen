@@ -193,10 +193,139 @@ Lê Dũng`,
     },
   },
   {
+    slug: "hoai-niem",
+    title: "Hoài niệm",
+    tag: "Thơ hoài niệm",
+    summary:
+      "Dòng sông, bùn non, trái bần và những người xưa gọi về một miền ký ức cả đời không thể nào quên.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 01/07/2026",
+    cardImage: "/images/poems/hoai-niem.png",
+    heroImage: "/images/poems/hoai-niem.png",
+    audioUrl: "/audio/hoai-niem.m4a",
+    hasAudio: true,
+    content: `Những cánh cò sà xuống mặt sông.
+Nghe háo hức muốn ÙM theo tắm.
+Hò hét hốt bùn non chọi bạn .
+Ngụp lặn tìm kỷ niệm ngày xưa.
+Thủy Liễu ven bờ xanh mươn mướt .
+Trái bần chua những buổi tắm sông.
+Mùi tuổi thơ bùn non khét nắng.
+Quay lại tìm , tất cả trôi đi.
+Ngang những nơi thanh xuân đã từng .
+Gặp những người đồng cam cộng khổ .
+Lòng bổ dưng bổi hổi , bồi hồi .
+Chuyện thời gian nước chảy bèo trôi .
+Nhớ những mẹ xem mình ruột thịt.
+Thương chị em không tiếc ... sẵn lòng.
+Không quên đâu những người xưa củ .
+Chỉ không còn có thể ... ngẩn ngơ.
+Những góc khuất , khó lòng bày giãi .
+Từ trái tim hiểu được trái tim .
+Kỹ niệm ơi ! Người xưa ...nhớ mãi .
+Cả đời này , không thể nào quên .
+
+Cái Lậy
+01/07/2026
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ bắt đầu từ ký ức tắm sông tuổi nhỏ, đi qua những nơi từng gắn với thanh xuân và đồng đội, rồi lắng lại trong nỗi nhớ những người đã thương yêu, cưu mang tác giả.",
+      standoutImages:
+        "Cánh cò bên sông, bùn non khét nắng, trái bần chua, hàng thủy liễu và dòng nước chảy bèo trôi tạo nên một miền ký ức rất gần gũi.",
+      meaning:
+        "Bài thơ là lời tri ân đối với quê nhà và những con người từng đồng cam cộng khổ, đồng thời gợi nỗi bất lực khi thời gian đã cuốn nhiều điều đi xa.",
+      memorableLine: "Cả đời này , không thể nào quên .",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "hoài niệm",
+        "sông quê",
+        "tuổi thơ",
+        "cánh cò",
+        "trái bần",
+        "bùn non",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Bờ sông miền Tây trong nắng chiều, có cánh cò, hàng thủy liễu, trẻ nhỏ tắm sông và sắc màu hoài niệm.",
+      licenseNote:
+        "Dùng ảnh do chủ dự án cung cấp, được upload trực tiếp lên R2 tại /images/poems/hoai-niem.png.",
+    },
+  },
+  {
+    slug: "mo-long",
+    title: "Mở lòng",
+    tag: "Thơ tình",
+    summary:
+      "Lời bướm xin hoa mở lòng, cùng ở lại, che chở cho nhau qua những ngày mưa giông.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 30/07/2025",
+    cardImage: "/images/poems/mo-long.png",
+    heroImage: "/images/poems/mo-long.png",
+    audioUrl: "/audio/mo-long.m4a",
+    hasAudio: true,
+    content: `Góp gom chút nắng còn vướng lại .
+Gởi hết về bên kẻo lạnh lòng .
+Sa mưa giông
+chiều nay trút nước.
+Ướt lòng Qua , Bậu lạnh lắm không .
+Bên khung cửa trông ngồi trông đứng .
+Cánh chim trời biền biệt tâm hao .
+Thôi thì xem như thể chiêm bao.
+Đã đành ... níu kéo trông mong gì.
+Hoa chớm nở , dập dìu ong bướm .
+Sáng hỏi han , chiều tối ghé thăm.
+Tình đã ưa , duyên thắm mặn nồng .
+Đàn đứt đoạn giữa , giữa chừng chán chưa .
+Cánh chim phong vũ đẩy đưa .
+Phải đâu muốn thế .Tằng thưa : Đau lòng !
+Giờ xong một khoản nợ Trần .
+Bướm xin ở lại vui buồn cùng hoa .
+Trời mà đổ xuống phòng ba .
+Dang đôi cánh bướm che trời bảo giông .
+Xin hoa , hoa hãy mở lòng .
+Hoa cho bướm tráng những ngày mơ tiên .
+
+25/05/2025
+Lê Dũng
+
+CAI LẬY
+30/07/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ nỗi lo lắng trong mưa giông và cảnh chờ mong bên khung cửa, qua cảm giác tình duyên bị đứt đoạn, rồi khép lại bằng lời bướm xin hoa cho được ở lại và che chở.",
+      standoutImages:
+        "Chút nắng còn vướng, khung cửa chờ mong, cánh chim biền biệt, hoa chớm nở và đôi cánh bướm che giông là những hình ảnh xuyên suốt.",
+      meaning:
+        "Qua hình tượng hoa và bướm, bài thơ bày tỏ khát vọng được mở lòng, được đón nhận và cùng người thương đi qua những giông gió còn lại.",
+      memorableLine: "Xin hoa , hoa hãy mở lòng .",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "hoa và bướm",
+        "mưa giông",
+        "mở lòng",
+        "chờ mong",
+        "che chở",
+        "tình yêu",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Một đóa hoa bên khung cửa trong chiều mưa, có cánh bướm đang dang cánh che chở, ánh sáng dịu và giàu cảm xúc.",
+      licenseNote:
+        "Dùng ảnh do chủ dự án cung cấp, được upload trực tiếp lên R2 tại /images/poems/mo-long.png.",
+    },
+  },
+  {
     slug: "cua-thien",
     title: "Cửa Thiền",
     tag: "Thơ chiêm nghiệm",
     summary: "Khát vọng tìm lại bình yên, buông bỏ những nặng nợ trần gian.",
+
     author: "Lê Dũng",
     locationDate: "Mỹ Tho, ngày 5/12/2018",
     cardImage: "/images/poems/cua-thien.png",
