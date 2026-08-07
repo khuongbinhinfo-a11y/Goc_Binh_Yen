@@ -149,6 +149,8 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/poems/xuan.png",
   "/images/poems/hoai-niem.png",
   "/images/poems/mo-long.png",
+  "/images/poems/dong.png",
+  "/images/poems/mua-xuan.png",
   "/images/poems/hop-lop-1.png",
   "/images/poems/tinh-thu-1.png",
   "/images/poems/chut-tinh-xin-goi-cho-que-1.png",

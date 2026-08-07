@@ -321,6 +321,138 @@ Lê Dũng`,
     },
   },
   {
+    slug: "dong",
+    title: "Đông",
+    tag: "Thơ mùa đông",
+    summary:
+      "Cái lạnh trong bài thơ không đến từ gió rét mà từ cô đơn, lời hứa cũ và nỗi nhớ người thương còn neo nơi bến vắng.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy",
+    cardImage: "/images/poems/dong.png",
+    heroImage: "/images/poems/dong.png",
+    audioUrl: "/audio/dong.m4a",
+    hasAudio: true,
+    content: `Riết vòng tay, ôm chặt lòng mình
+Vẫn thấy lạnh, buồn cô đơn lắm
+Nhớ đôi tay thắp đèn, nhóm lửa
+Lạc trôi rồi vẫn nhớ người dưng
+
+Lạnh lẽo ùa về bởi cô đơn
+Nỗi buồn bắt đầu từ nhung nhớ
+Ray rứt lớn lên theo ngày tháng
+Nếu ai quên lời hứa của mình
+
+Sông quê vẫn lục bình tản mạn
+Trăng tắm sông, lồ lộ ngọc ngà
+Lạnh, không vì ngày đông tháng giá
+Vì chuyện xưa, ướt đẫm lòng ta
+
+Đông về nghe lạnh cóng vòng tay
+Thấm thía câu "sót xa tình lỡ"
+Em ơi nắng hồng xưa còn giữ
+Cho anh xin. ..không lạnh đông về
+
+Thêm đông này nữa đã mấy đông
+Thuyền em neo ở bến phòng không
+Nhớ ngày xưa, rưng rưng quặn thắt
+Xin từ rày sưởi ấm cho em
+
+CAI LẬY
+LÊ DŨNG`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ cảm giác co ro trong cô đơn, sang nỗi nhớ và ray rứt vì lời hứa cũ, rồi lắng lại trong ước mong được sưởi ấm cho người mình thương.",
+      standoutImages:
+        "Vòng tay tự ôm mình, đôi tay nhóm lửa, lục bình trên sông, trăng tắm sông và con thuyền neo ở bến phòng không là những hình ảnh đậm cảm xúc.",
+      meaning:
+        "Bài thơ cho thấy cái lạnh sâu nhất không nằm ở mùa đông mà nằm ở khoảng trống tình cảm, trong ký ức và trong sự chờ đợi chưa nguôi.",
+      memorableLine: "Lạnh, không vì ngày đông tháng giá",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "mùa đông",
+        "cô đơn",
+        "nhung nhớ",
+        "sông quê",
+        "lục bình",
+        "bến vắng",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Khung cảnh sông quê mùa lạnh, có lục bình, ánh trăng trên sông và cảm giác cô đơn, chờ đợi.",
+      licenseNote:
+        "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/dong.png.",
+    },
+  },
+  {
+    slug: "mua-xuan",
+    title: "Mùa xuân",
+    tag: "Thơ mùa xuân",
+    summary:
+      "Sen hồng, áo lụa, mai vàng và hồi ức cũ hòa vào nhau, làm thành một mùa xuân của thương nhớ và lời ngỏ vẫn còn đầy trong tim.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy",
+    cardImage: "/images/poems/mua-xuan.png",
+    heroImage: "/images/poems/mua-xuan.png",
+    audioUrl: "/audio/mua-xuan.m4a",
+    hasAudio: true,
+    content: `Đóa sen hồng dưới nắng mai hồng
+Từng cánh sen rung rung trong gió
+Bờ môi hồng run run thỏ thẻ
+Nghe chừng đà ướp mật ủ hương
+
+Nguyện làm chiếc lá che đóa hoa
+Phong nền cho hoa thêm xinh đẹp
+Tà lụa mềm...dáng em tha thước
+Mắt nhung huyền, tắm mát đời ai
+
+Tan trường về yến anh theo bước
+Trông vời... mong mắt biếc nhìn sang
+Chưa một lời hẹn hứa cùng nhau
+Mà một đời không quên... quay quắt
+
+Sáng nay sen hồng thơm ngan ngát
+Mai vàng bật nở đón chào xuân
+Cúc vàng, huệ trắng, hồng chúm chím
+Áo lụa bay... thấy nhớ quá chừng
+
+Nghe từ lòng mình còn xuân chán
+Tình trong tim dào dạt tràn đầy
+Gởi em một lời thương em nhé
+Đón mùa xuân, anh rước em về
+Hồi ức gọi, xưa mà không cũ
+Đến giờ vẫn nặng một chữ thương!
+
+CAI LẬY
+LÊ DŨNG`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Bài thơ mở ra bằng vẻ đẹp rạng rỡ của sen, gợi nhớ một mối tình học trò, rồi dâng lên thành cảm giác mùa xuân của ký ức và lời thương còn vẹn nguyên.",
+      standoutImages:
+        "Đóa sen hồng, tà áo lụa, mắt biếc, mai vàng, cúc vàng, huệ trắng và dáng người tan trường tạo nên một không gian xuân rất giàu màu sắc.",
+      meaning:
+        "Mùa xuân trong bài thơ không chỉ là mùa của cỏ cây mà còn là mùa của ký ức tình yêu, của điều xưa cũ nhưng chưa bao giờ phai nhạt.",
+      memorableLine: "Đến giờ vẫn nặng một chữ thương!",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "mùa xuân",
+        "sen hồng",
+        "áo lụa",
+        "ký ức",
+        "tình yêu",
+        "mai vàng",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Một không gian xuân dịu sáng, có sen hồng, mai vàng, tà áo lụa và cảm giác nhớ thương trong trẻo.",
+      licenseNote:
+        "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/mua-xuan.png.",
+    },
+  },
+  {
     slug: "cua-thien",
     title: "Cửa Thiền",
     tag: "Thơ chiêm nghiệm",
