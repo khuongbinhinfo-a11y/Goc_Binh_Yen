@@ -453,6 +453,74 @@ LÊ DŨNG`,
     },
   },
   {
+    slug: "chon-xua",
+    title: "Chốn xưa",
+    tag: "Thơ hoài niệm",
+    summary:
+      "Một lần trở về trường cũ, chùa Phổ Đức và miền ký ức năm xưa khơi lại tình yêu chưa kịp thành duyên nhưng chưa bao giờ nguôi.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 05/05/2025",
+    cardImage: "/images/poems/chon-xua.png",
+    heroImage: "/images/poems/chon-xua.png",
+    audioUrl: "/audio/chon-xua.m4a",
+    hasAudio: true,
+    content: `Mình đưa nhau về chốn củ xưa
+Mong góp gom nỗi niềm xưa cũ
+Chốn xưa gợi bao điều ấp ủ
+Thổn thức lòng , tay nắm chặt tay
+Mình cùng đi về chốn củ xưa
+Lặng PHỔ ĐỨC tiếng chuông chùa
+Tiếng ai trong veo cười ríu rít
+Ngôi trường Sư Phạm dấu yêu xưa
+Thương cho tình của anh , của em
+Không kịp lớn thành tình chồng vợ
+Chỉ kịp
+đề lòng ta trăn trở
+Bao năm rồi không thể nguôi ngoai
+Thầm mong sẽ có được một ngày
+Chung bước đưa nhau về chốn củ
+Dẫu đôi ta không còn trẻ nữa
+Yêu thương đâu phân biệt trẻ , già
+Hẹn hò nhau về chốn củ xưa
+Lần lựa e không còn kịp nữa
+Tóc xanh xưa giờ đã bạc màu
+Thương cho lòng không thể quên nhau
+Mình dắt nhau về chốn cũ xưa
+Thăm trường sư phạm , chùa PHỔ ĐỨC
+Tìm lời hứa xưa , đường tơ đứt
+Nối lại đường tơ , tiếng chuông chùa .
+
+Cai Lậy
+5/5/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ bắt đầu từ ước muốn cùng nhau trở về chốn cũ, đi qua ký ức trường Sư Phạm và chùa Phổ Đức, rồi lắng sâu vào nỗi tiếc nuối một tình yêu chưa kịp thành duyên trước khi khép lại bằng mong muốn nối lại đường tơ xưa.",
+      standoutImages:
+        "Tiếng chuông chùa Phổ Đức, ngôi trường Sư Phạm, đôi tay nắm chặt, mái tóc đã bạc màu và đường tơ đứt nối lại tạo thành những điểm neo của ký ức.",
+      meaning:
+        "Bài thơ là một cuộc trở về cả trong không gian lẫn ký ức, nơi những địa danh quen thuộc làm sống lại một mối tình cũ vẫn còn nguyên sức nặng sau nhiều năm.",
+      memorableLine:
+        "Nối lại đường tơ , tiếng chuông chùa .",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "chốn xưa",
+        "hoài niệm",
+        "trường Sư Phạm",
+        "chùa Phổ Đức",
+        "tiếng chuông chùa",
+        "tình xưa",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Không gian hoài niệm với ngôi trường cũ và mái chùa trong nắng chiều, hai người đã lớn tuổi cùng trở về nơi gắn với tuổi trẻ.",
+      licenseNote:
+        "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/chon-xua.png.",
+    },
+  },
+  {
     slug: "cua-thien",
     title: "Cửa Thiền",
     tag: "Thơ chiêm nghiệm",

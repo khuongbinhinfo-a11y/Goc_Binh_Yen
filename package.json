@@ -29,7 +29,9 @@
     "upload:audio:hoai-niem": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/hoai-niem.m4a\" \"audio/doc-tho/hoai-niem.m4a\" audio/mp4",
     "upload:image:hoai-niem": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/hoai-niem.png\" \"images/poems/hoai-niem.png\" image/png",
     "upload:audio:vo-tinh": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/vo-tinh.m4a\" \"audio/doc-tho/vo-tinh.m4a\" audio/mp4",
-    "upload:image:vo-tinh": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/vo-tinh.png\" \"images/poems/vo-tinh.png\""
+    "upload:image:vo-tinh": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/vo-tinh.png\" \"images/poems/vo-tinh.png\"",
+    "upload:audio:chon-xua": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/audio-backup-20260507-222627/tho/chon-xua.m4a\" \"audio/doc-tho/chon-xua.m4a\" audio/mp4",
+    "upload:image:chon-xua": "node ./scripts/upload-r2-file.mjs \"F:/1_A_Disk_D/khuong-binh/hồn Thơ/images-backup/images/poems/chon-xua.png\" \"images/poems/chon-xua.png\" image/png"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.911.0",
