@@ -2906,6 +2906,64 @@ Cái Bè, 26/5/2019`,
       licenseNote: "Dùng ảnh R2 do chủ site cung cấp.",
     },
   },
+  {
+    slug: "khong-nguoi",
+    title: "KHÔNG NGUÔI",
+    tag: "Thơ tình",
+    summary: "Một cuộc gặp lại sau mấy chục năm, khi tóc đã bạc mà lời hẹn và tình xưa vẫn không nguôi.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 21/03/2025",
+    cardImage: "/images/poems/khong-nguoi.png",
+    heroImage: "/images/poems/khong-nguoi.png",
+    audioUrl: "/audio/khong-nguoi.m4a",
+    hasAudio: true,
+    content: `Người ấy đã từng nói với tôi
+Chúng ta đã trót hẹn hò rồi
+Lời thương xin đừng bay theo gió
+Tay nắm tay rồi , đừng lạc trôi
+Không thể chung đường ... ừ! Thì thôi
+Dáng xưa , hình củ giữ trong tôi
+Người đi , nếu có lần nhớ lại
+Nghe rưng rưng lời hẹn gió bay
+Chiều ngắm hoàng hôn , tôi với tôi
+Nhớ hương xưa , bồ kết người ơi
+Tóc dài bồng bềnh bay theo gió
+Những ngón tay gầy, tay nắm tay
+Bao công chăm sóc , hoa không nở
+Mặc tình ...cỏ cứ xanh non tơ
+Người theo người về nơi xa ngái
+Thương một người khắc khoải chơi vơi
+Chiều nay hai đứa mình gặp lại
+Người xưa , tóc đã trắng một màu
+Chẳng nhớ thương không nhìn ra được
+Tình củ không hề theo gió bay
+Yêu nhau mà không gần nhau được
+Mấy chục năm rồi , khó thể quên
+Xa xa , mà lòng thương nhớ mãi
+Đôi mắt buồn nhìn nhau
+Không nguôi.
+
+Cái Lậy
+21/03/2025
+Lê Dũng
+`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ lời hẹn thuở xưa, qua chia xa và nhớ thương kéo dài nhiều thập niên, rồi dồn lại trong cuộc gặp khi cả hai đã bạc tóc nhưng tình cũ vẫn còn nguyên.",
+      standoutImages:
+        "Hoàng hôn, hương bồ kết, mái tóc dài trong gió, bàn tay nắm tay, mái tóc bạc và đôi mắt buồn khi gặp lại.",
+      meaning:
+        "Thời gian và khoảng cách có thể làm đổi thay dáng hình con người nhưng không dễ xóa một mối tình đã in sâu trong ký ức.",
+      memorableLine: "Không nguôi.",
+    },
+    imageResearch: {
+      moodKeywords: ["tình xưa", "hoài niệm", "hoàng hôn", "tóc bạc", "gặp lại"],
+      referenceLinks: [],
+      recommendedScene: "Cuộc gặp lại của hai người đã lớn tuổi trong ánh chiều, mang cảm giác hoài niệm và tình cảm còn nguyên",
+      licenseNote: "Ảnh do chủ dự án cung cấp, lưu trên R2 tại /images/poems/khong-nguoi.png",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
