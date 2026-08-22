@@ -2964,6 +2964,54 @@ Lê Dũng
       licenseNote: "Ảnh do chủ dự án cung cấp, lưu trên R2 tại /images/poems/khong-nguoi.png",
     },
   },
+  {
+    slug: "co-mot-ngay",
+    title: "Có một ngày",
+    tag: "Thơ tình",
+    summary: "Một giấc mơ yêu lạc nẻo qua những mùa mưa ngâu, để rồi niềm hy vọng duyên xưa được nối lại vẫn âm thầm sống dưới ánh trăng rằm.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 02/12/2022",
+    cardImage: "/images/poems/co-mot-ngay.png",
+    heroImage: "/images/poems/co-mot-ngay.png",
+    audioUrl: "/audio/co-mot-ngay.m4a",
+    hasAudio: true,
+    content: `Thằng khờ lặng lẽ ... giấc mơ yêu.
+Tấm cũng buồn rẽ sang lối khác
+Đầu , cuối sông Tương ...đường lạc nẻo
+Gió chướng buồn , lạnh lẽo mưa ngâu
+Tim luôn khắc khoải tìm lối củ
+Lòng những mong hiệp phố châu Trần
+Hoa Xuân nở mang mùa xuân đến
+Tình Xuân tắm mát lòng cổi cằn
+Đêm qua dưới ánh trăng rằm
+Nghe chừng Tơ Nguyệt đang tầm nối tơ
+Cầu mong sẽ kịp duyên mơ
+Cho đây với đó hết chờ đợi nhau
+
+Cai Lậy
+02/12/2022
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Mạch thơ bắt đầu từ một giấc mơ tình yêu lặng lẽ và cảnh đôi đường chia ngả, đi qua nỗi khắc khoải trong mưa ngâu, rồi dần sáng lên bằng hình ảnh mùa xuân, trăng rằm và niềm mong ước duyên xưa được nối lại.",
+      standoutImages: "Sông Tương, mưa ngâu, hoa Xuân, ánh trăng rằm và Tơ Nguyệt nối tơ là những hình ảnh gợi một mối duyên xa cách nhưng chưa thôi hy vọng.",
+      meaning: "Bài thơ diễn tả nỗi nhớ của một tình yêu từng lạc nẻo nhưng vẫn giữ niềm tin rằng duyên phận có thể một ngày được nối lại.",
+      memorableLine: "Cầu mong sẽ kịp duyên mơ",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "tình xưa",
+        "mưa ngâu",
+        "trăng rằm",
+        "sông Tương",
+        "duyên phận",
+        "mùa xuân",
+      ],
+      referenceLinks: [],
+      recommendedScene: "Không gian đêm trăng dịu trên sông, phảng phất mưa ngâu và sắc xuân, mang cảm giác chờ đợi một mối duyên được nối lại.",
+      licenseNote: "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/co-mot-ngay.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
