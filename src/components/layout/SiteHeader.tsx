@@ -4,54 +4,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
-import { FACEBOOK_URL, YOUTUBE_URL } from "@/data/homepageData";
 import { Locale } from "@/data/i18n";
 import { useLocale } from "@/hooks/useLocale";
 import { getSafeImageSrc } from "@/lib/image";
-
-function PenIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="none">
-      <path
-        d="M7 17.5 17.2 7.3a1.8 1.8 0 0 0 0-2.5l-.6-.6a1.8 1.8 0 0 0-2.5 0L4 14.4V20h5.6l1.4-1.4Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function VoiceIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className={className} fill="none">
-      <path d="M12 15a3 3 0 0 0 3-3V8a3 3 0 1 0-6 0v4a3 3 0 0 0 3 3Z" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M7 11.8a5 5 0 1 0 10 0M12 16.8V20"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function FacebookIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
-      <path d="M13.4 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V4a20.2 20.2 0 0 0-2.5-.1c-2.5 0-4.1 1.5-4.1 4.3V10H7.5v3h2.6v8h3.3Z" />
-    </svg>
-  );
-}
-
-function YoutubeIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
-      <path d="M21.2 8.5a2.8 2.8 0 0 0-2-2c-1.8-.5-7.2-.5-7.2-.5s-5.4 0-7.2.5a2.8 2.8 0 0 0-2 2C2.3 10.3 2.3 12 2.3 12s0 1.7.5 3.5a2.8 2.8 0 0 0 2 2c1.8.5 7.2.5 7.2.5s5.4 0 7.2-.5a2.8 2.8 0 0 0 2-2c.5-1.8.5-3.5.5-3.5s0-1.7-.5-3.5ZM10.2 14.5V9.5l4.6 2.5-4.6 2.5Z" />
-    </svg>
-  );
-}
 
 function LocaleSwitch({
   locale,
@@ -62,12 +17,12 @@ function LocaleSwitch({
   setLocale: (value: Locale) => void;
   compact?: boolean;
 }) {
-  const baseClass = compact
-    ? "rounded-full px-2 py-1 text-[10px] font-semibold"
-    : "rounded-full px-2.5 py-1 text-[11px] font-semibold";
-
   return (
-    <div className="inline-flex items-center gap-1 rounded-full border border-[#d8b89b] bg-[#fff9f1] p-1">
+    <div
+      className={`inline-flex items-center rounded-full border border-[#d7b99d]/80 bg-[#fffaf4]/80 p-0.5 ${
+        compact ? "gap-0" : "gap-0.5"
+      }`}
+    >
       {(["vi", "en"] as Locale[]).map((item) => {
         const isActive = locale === item;
         return (
@@ -75,8 +30,13 @@ function LocaleSwitch({
             key={item}
             type="button"
             onClick={() => setLocale(item)}
-            className={`${baseClass} transition ${
-              isActive ? "bg-[#8b5e3c] text-white" : "text-[#6b4a35] hover:bg-[#f2e1cf]"
+            aria-pressed={isActive}
+            className={`rounded-full font-semibold transition ${
+              compact ? "px-2 py-1 text-[10px]" : "px-2.5 py-1.5 text-[11px]"
+            } ${
+              isActive
+                ? "bg-[#6f472e] text-[#fffaf5] shadow-sm"
+                : "text-[#775641] hover:bg-[#f2e2d2] hover:text-[#4d3324]"
             }`}
           >
             {item.toUpperCase()}
@@ -87,8 +47,38 @@ function LocaleSwitch({
   );
 }
 
+function AppIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15.7 8.3-2.1 5.3-5.3 2.1 2.1-5.3 5.3-2.1Z" />
+    </svg>
+  );
+}
+
+function HeartIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className={className} fill="none">
+      <path
+        d="M10 15.7 5 10.9a3 3 0 1 1 4.2-4.3L10 7.4l.8-.8a3 3 0 1 1 4.2 4.3l-5 4.8Z"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function SiteHeader() {
-  const poetMenuUrl = "https://www.hontho.com/tu-sach";
   const appHubUrl = "https://app.hontho.com";
   const supportUrl = "/ung-ho";
   const pathname = usePathname();
@@ -101,6 +91,7 @@ export default function SiteHeader() {
   const closeLabel = locale === "vi" ? "Đóng menu" : "Close menu";
   const mobileNavLabel = locale === "vi" ? "Điều hướng mobile" : "Mobile navigation";
   const mainNavLabel = locale === "vi" ? "Điều hướng chính" : "Main navigation";
+  const appLabel = locale === "vi" ? "Ứng dụng" : "Apps";
 
   useEffect(() => {
     const updateCurrentHash = () => {
@@ -117,7 +108,7 @@ export default function SiteHeader() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1024) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -170,24 +161,28 @@ export default function SiteHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#ceb195]/70 bg-[#f3eadf]/88 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-[#d8c0a8]/75 bg-[#f7efe5]/95 shadow-[0_1px_10px_rgba(74,47,32,0.04)] backdrop-blur-md">
       <div className="site-shell">
-        <div className="flex items-center justify-between gap-3 py-2 md:hidden">
-          <a href="/#trang-chu" className="group flex min-w-0 items-center gap-2.5" onClick={closeMobileMenu}>
+        <div className="flex min-h-[68px] items-center justify-between gap-3 lg:hidden">
+          <a
+            href="/#trang-chu"
+            className="group flex min-w-0 items-center gap-2.5 hover:no-underline"
+            onClick={closeMobileMenu}
+          >
             <Image
               src={getSafeImageSrc("/logo.jpg")}
               alt={`Logo ${t.brandName}`}
               width={42}
               height={42}
-              className="h-10 w-10 rounded-xl border border-[#d8b89b] object-cover shadow-[0_6px_14px_rgba(74,47,32,0.12)]"
+              className="h-10 w-10 rounded-xl border border-[#d6b99e] object-cover shadow-[0_5px_14px_rgba(74,47,32,0.1)]"
               priority
             />
-            <span className="truncate text-[27px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33]">
+            <span className="truncate text-[26px] font-semibold leading-none text-[#4a2f20] transition group-hover:text-[#70472f]">
               {t.brandName}
             </span>
           </a>
 
-          <div className="flex items-center gap-1.5">
+          <div className="flex shrink-0 items-center gap-2">
             <LocaleSwitch locale={locale} setLocale={setLocale} compact />
             <button
               type="button"
@@ -195,7 +190,7 @@ export default function SiteHeader() {
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav-panel"
               onClick={() => setIsMobileMenuOpen((value) => !value)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#d8b79b] bg-[#fff8ef]/85 text-[#5f4331] transition hover:bg-[#fff2e4]"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#d6b99e] bg-[#fffaf4]/75 text-[#5b3e2c] transition hover:bg-[#f1e1d1]"
             >
               {isMobileMenuOpen ? (
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none">
@@ -210,199 +205,115 @@ export default function SiteHeader() {
           </div>
         </div>
 
-        <div className="mb-2 flex flex-wrap gap-1.5 pb-1 md:hidden">
-          <a
-            href={poetMenuUrl}
-            className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a] transition hover:bg-[#f6e7d7] hover:text-[#4f3223]"
-          >
-            <PenIcon className="h-3 w-3" />
-            {t.signature.poetry}
-          </a>
-          <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2 py-0.5 text-[10.5px] font-medium text-[#73503a]">
-            <VoiceIcon className="h-3 w-3" />
-            {t.signature.voice}
-          </span>
-        </div>
-
         {isMobileMenuOpen && (
-          <div id="mobile-nav-panel" className="pb-3 md:hidden">
+          <div id="mobile-nav-panel" className="pb-3 lg:hidden">
             <nav
               aria-label={mobileNavLabel}
-              className="rounded-2xl border border-[#d8b89b] bg-[#fff9f1] p-2 shadow-[0_14px_30px_rgba(74,47,32,0.14)]"
+              className="rounded-2xl border border-[#d8bea5] bg-[#fffaf4] p-2.5 shadow-[0_16px_34px_rgba(74,47,32,0.12)]"
             >
-              {navItems.map((item) => {
-                const isActive = isItemActive(item.href);
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={closeMobileMenu}
-                    className={`block rounded-xl px-3 py-2.5 text-sm font-medium transition ${
-                      isActive ? "bg-[#f0dfcd] text-[#4a2f20]" : "text-[#5f4230] hover:bg-[#f6e7d7]"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
-
-              <button
-                type="button"
-                onClick={() => {
-                  closeMobileMenu();
-                  window.location.href = appHubUrl;
-                }}
-                className="mt-1 flex w-full items-center gap-2 rounded-xl px-3 py-2.5 text-left text-sm font-medium text-[#c49a5a] transition hover:bg-[#f6e7d7]"
-              >
-                <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-                  <circle cx="12" cy="12" r="10" />
-                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                </svg>
-                Ứng dụng cổ học
-              </button>
-
-              <a
-                href={supportUrl}
-                onClick={closeMobileMenu}
-                className="mt-1 flex w-full items-center justify-center gap-2 rounded-xl border border-[#caa584] bg-[#f6e7d7] px-3 py-2.5 text-sm font-semibold text-[#7a5237] transition hover:bg-[#efdcc8]"
-              >
-                <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 shrink-0" fill="none">
-                  <path d="M10 15.7 5 10.9a3 3 0 1 1 4.2-4.3L10 7.4l.8-.8a3 3 0 1 1 4.2 4.3l-5 4.8Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-                </svg>
-                {t.nav.support}
-              </a>
-              <div className="mt-1.5 border-t border-[#e2c7ad] px-3 py-2.5">
-                <LocaleSwitch locale={locale} setLocale={setLocale} />
+              <div className="grid gap-1">
+                {navItems.map((item) => {
+                  const isActive = isItemActive(item.href);
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={closeMobileMenu}
+                      className={`rounded-xl px-3 py-2.5 text-sm font-medium transition ${
+                        isActive
+                          ? "bg-[#efe0d0] text-[#482f20]"
+                          : "text-[#654735] hover:bg-[#f6e9dc] hover:text-[#482f20]"
+                      }`}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                })}
               </div>
 
-              <div className="mt-1 grid grid-cols-2 gap-2 px-1 pb-1">
+              <div className="mt-2 grid grid-cols-2 gap-2 border-t border-[#e6d2bd] pt-2">
                 <a
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={appHubUrl}
                   onClick={closeMobileMenu}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#dcc2a7] bg-[#fffdf9] px-3 py-2 text-sm font-semibold text-[#6f4c38] transition hover:bg-[#f6e7d7]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#d8bea5] bg-[#fffdf9] px-3 py-2.5 text-sm font-semibold text-[#684833] transition hover:bg-[#f5e7d9]"
                 >
-                  <FacebookIcon />
-                  {t.nav.facebook}
+                  <AppIcon />
+                  {appLabel}
                 </a>
                 <a
-                  href={YOUTUBE_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={supportUrl}
                   onClick={closeMobileMenu}
-                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-[#dcc2a7] bg-[#fffdf9] px-3 py-2 text-sm font-semibold text-[#6f4c38] transition hover:bg-[#f6e7d7]"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#6f472e] px-3 py-2.5 text-sm font-semibold text-[#fffaf5] transition hover:bg-[#5e3b27]"
                 >
-                  <YoutubeIcon />
-                  {t.nav.youtube}
+                  <HeartIcon />
+                  {t.nav.support}
                 </a>
               </div>
             </nav>
           </div>
         )}
 
-        <div className="hidden min-h-[74px] items-center justify-between gap-4 py-2.5 md:flex">
-          <div className="group flex items-center gap-3">
-            <a href="/#trang-chu" className="flex items-center">
-              <Image
-                src={getSafeImageSrc("/logo.jpg")}
-                alt={`Logo ${t.brandName}`}
-                width={58}
-                height={58}
-                className="h-[52px] w-[52px] rounded-2xl border border-[#d8b89b] object-cover shadow-[0_8px_18px_rgba(74,47,32,0.12)]"
-                priority
-              />
-            </a>
-            <div>
-              <a href="/#trang-chu" className="text-[29px] font-semibold leading-[1.1] text-[#4a2f20] transition group-hover:text-[#7b4d33] hover:no-underline">
-                {t.brandName}
-              </a>
-              <div className="mt-1.5 flex flex-wrap gap-1.5 text-[11px] text-[#73503a]">
+        <div className="hidden h-[76px] items-center gap-6 lg:flex">
+          <a
+            href="/#trang-chu"
+            className="group flex shrink-0 items-center gap-2.5 hover:no-underline"
+          >
+            <Image
+              src={getSafeImageSrc("/logo.jpg")}
+              alt={`Logo ${t.brandName}`}
+              width={46}
+              height={46}
+              className="h-11 w-11 rounded-xl border border-[#d6b99e] object-cover shadow-[0_5px_14px_rgba(74,47,32,0.1)]"
+              priority
+            />
+            <span className="text-[28px] font-semibold leading-none tracking-[-0.02em] text-[#4a2f20] transition group-hover:text-[#70472f] xl:text-[30px]">
+              {t.brandName}
+            </span>
+          </a>
+
+          <nav
+            aria-label={mainNavLabel}
+            className="flex min-w-0 flex-1 items-center justify-center gap-4 text-[13.5px] xl:gap-7 xl:text-[15px]"
+          >
+            {navItems.map((item) => {
+              const isActive = isItemActive(item.href);
+              return (
                 <a
-                  href={poetMenuUrl}
-                  className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1 transition hover:bg-[#f6e7d7] hover:text-[#4f3223]"
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative whitespace-nowrap py-2 font-medium tracking-[0.005em] transition ${
+                    isActive ? "text-[#452c1e]" : "text-[#684a37] hover:text-[#452c1e]"
+                  } after:absolute after:inset-x-0 after:bottom-0 after:h-[2px] after:origin-center after:rounded-full after:bg-[#8b5e3c] after:transition-transform ${
+                    isActive ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"
+                  }`}
                 >
-                  <PenIcon />
-                  {t.signature.poetry}
+                  {item.label}
                 </a>
-                <span className="inline-flex items-center gap-1 rounded-full border border-[#d8b79b] bg-[#fff8ef] px-2.5 py-1">
-                  <VoiceIcon />
-                  {t.signature.voice}
-                </span>
-              </div>
-            </div>
-          </div>
+              );
+            })}
+          </nav>
 
-          <div className="items-center gap-6 md:flex">
-            <nav aria-label={mainNavLabel} className="flex items-center gap-6 text-[13.5px]">
-              {navItems.map((item) => {
-                const isActive = isItemActive(item.href);
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className={`relative whitespace-nowrap pb-1 font-medium leading-none tracking-[0.01em] transition ${
-                      isActive ? "text-[#4a2f20]" : "text-[#5f4230] hover:text-[#4a2f20]"
-                    } after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-left after:rounded-full after:bg-[#8b5e3c] after:transition-transform ${
-                      isActive ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100"
-                    }`}
-                  >
-                    {item.label}
-                  </a>
-                );
-              })}
-            </nav>
-
+          <div className="flex shrink-0 items-center gap-2">
             <LocaleSwitch locale={locale} setLocale={setLocale} />
-
-            <button
-              type="button"
-              onClick={() => {
-                window.location.href = appHubUrl;
-              }}
-              className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold transition hover:opacity-85"
-              style={{ borderColor: "rgba(196,154,90,0.5)", background: "#5c3418", color: "#e2be80" }}
+            <a
+              href={appHubUrl}
+              className="inline-flex h-9 items-center gap-1.5 rounded-full border border-[#d5b79b] bg-[#fffaf4]/65 px-3 text-[12px] font-semibold text-[#6a4934] transition hover:bg-[#efe0d0] hover:text-[#4d3324]"
             >
-              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-              </svg>
-              Ứng dụng cổ học
-            </button>
-
+              <AppIcon className="h-3.5 w-3.5" />
+              {appLabel}
+            </a>
             <a
               href={supportUrl}
-              className="inline-flex items-center gap-1.5 rounded-full border border-[#caa584] bg-[#f6e7d7] px-3 py-1.5 text-[11px] font-semibold text-[#7a5237] transition hover:bg-[#efdcc8]"
+              className="inline-flex h-9 items-center gap-1.5 rounded-full bg-[#6f472e] px-3.5 text-[12px] font-semibold text-[#fffaf5] shadow-[0_4px_12px_rgba(74,47,32,0.08)] transition hover:bg-[#5e3b27]"
             >
-              <svg aria-hidden="true" viewBox="0 0 20 20" className="h-3.5 w-3.5" fill="none">
-                <path d="M10 15.7 5 10.9a3 3 0 1 1 4.2-4.3L10 7.4l.8-.8a3 3 0 1 1 4.2 4.3l-5 4.8Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-              </svg>
+              <HeartIcon className="h-3.5 w-3.5" />
               {t.nav.support}
             </a>
-            <div className="flex items-center gap-2">
-              <a
-                href={FACEBOOK_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#d9bda3] bg-[#fffdf9]/80 px-3 py-1.5 text-[11px] font-semibold text-[#6f4c38] transition hover:bg-[#fffaf3] hover:text-[#4f3223]"
-              >
-                <FacebookIcon />
-                {t.nav.facebook}
-              </a>
-              <a
-                href={YOUTUBE_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-[#d9bda3] bg-[#fffdf9]/80 px-3 py-1.5 text-[11px] font-semibold text-[#6f4c38] transition hover:bg-[#fffaf3] hover:text-[#4f3223]"
-              >
-                <YoutubeIcon />
-                {t.nav.youtube}
-              </a>
-            </div>
           </div>
         </div>
       </div>
-
     </header>
   );
 }
