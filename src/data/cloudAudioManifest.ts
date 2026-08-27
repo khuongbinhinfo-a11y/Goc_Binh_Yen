@@ -3,6 +3,7 @@ export const CLOUD_AUDIO_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac822
 export const CLOUD_AUDIO_SLUGS = {
   poem: [
   "co-mot-ngay",
+  "dai-kho",
   "khong-nguoi",
   "cua-thien",
   "anh-mai-ben-em",
@@ -135,6 +136,7 @@ const poemM4aSlugs = new Set<string>([
   "chon-xua",
   "khong-nguoi",
   "co-mot-ngay",
+  "dai-kho",
 ]);
 
 function extBySlug(type: CloudAudioType, slug: string) {
