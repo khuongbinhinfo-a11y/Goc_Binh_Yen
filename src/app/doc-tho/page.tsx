@@ -1,6 +1,6 @@
 "use client";
 
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 
 import SafeImage from "@/components/ui/SafeImage";
@@ -13,16 +13,25 @@ import { getReadingCopy } from "@/data/readingI18n";
 import { useLocale } from "@/hooks/useLocale";
 import { getContentFallbackCandidates, getContentFallbackImage, LOCAL_IMAGE_MAP } from "@/lib/image";
 
+function normalizeSearchValue(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[đĐ]/g, "d")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export default function DocThoPage() {
   const { locale } = useLocale();
   const copy = getReadingCopy(locale, "poem").listing;
   const routePrefix = getContentRoutePrefix("poem");
   const poems = getLocalizedContentList("poem", locale);
   const featured = poems.find((item) => item.isFeatured) ?? poems[0];
-  const listItems = poems.filter((item) => item.slug !== featured.slug);
+  const listItems = featured ? poems.filter((item) => item.slug !== featured.slug) : poems;
   const hasFallback = poems.some((item) => item.i18nStatus.hasFallback);
   const poemFallbackCandidates = getContentFallbackCandidates("poem");
-  const controlsRef = useRef<HTMLDivElement | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string>("all");
   const [audioOnly, setAudioOnly] = useState(false);
@@ -30,29 +39,30 @@ export default function DocThoPage() {
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
   const availableTags = useMemo(() => {
-    return Array.from(new Set(listItems.map((item) => item.tag).filter(Boolean))) as string[];
-  }, [listItems]);
+    return Array.from(new Set(poems.map((item) => item.tag).filter(Boolean))) as string[];
+  }, [poems]);
 
-  const normalizedSearch = deferredSearchQuery.trim().toLowerCase();
-  const filteredItems = listItems.filter((item) => {
+  const normalizedSearch = normalizeSearchValue(deferredSearchQuery);
+  const hasActiveFilters = Boolean(normalizedSearch) || selectedTag !== "all" || audioOnly;
+  const filterSource = hasActiveFilters ? poems : listItems;
+
+  const filteredItems = filterSource.filter((item) => {
     const matchesTag = selectedTag === "all" ? true : item.tag === selectedTag;
     const matchesAudio = audioOnly ? item.hasAudio : true;
-    const matchesSearch = normalizedSearch ? item.title.toLowerCase().includes(normalizedSearch) : true;
+    const searchableText = normalizeSearchValue(
+      [item.title, item.author ?? "", item.excerpt ?? "", item.tag ?? "", item.publishedAt ?? ""].join(" "),
+    );
+    const matchesSearch = normalizedSearch ? searchableText.includes(normalizedSearch) : true;
 
     return matchesTag && matchesAudio && matchesSearch;
   });
 
   const visibleItems = filteredItems.slice(0, visibleCount);
-  const hasActiveFilters = Boolean(normalizedSearch) || selectedTag !== "all" || audioOnly;
   const hasMoreItems = visibleCount < filteredItems.length;
 
   useEffect(() => {
     setVisibleCount(9);
   }, [normalizedSearch, selectedTag, audioOnly]);
-
-  function scrollToControls() {
-    controlsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
 
   function clearFilters() {
     setSearchQuery("");
@@ -86,49 +96,97 @@ export default function DocThoPage() {
           </div>
         </section>
 
-        <section className="py-8">
+        <section className="py-8 sm:py-10">
           <div className="site-shell">
-            <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
-              <p className="text-sm leading-7 text-[#654939] sm:text-base">{copy.intro}</p>
-              {locale === "en" && hasFallback ? (
-                <p className="mt-3 rounded-xl border border-[#d8b89b] bg-[#fff6ea] px-3 py-2 text-xs text-[#77533b]">
-                  {copy.fallbackNotice}
-                </p>
-              ) : null}
+            <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileFilterBtn}</p>
+                <h2 className="mt-1 text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
+                <p className="mt-2 max-w-3xl text-sm leading-7 text-[#654939]">{copy.intro}</p>
+              </div>
+              <p className="shrink-0 text-sm font-medium text-[#7a5a45]">
+                {filteredItems.length} {copy.mobileCountSuffix}
+              </p>
             </div>
-          </div>
-        </section>
 
-        <section className="sticky top-16 z-20 border-y border-[#e2ccb4] bg-[#f7ede1]/95 py-3 backdrop-blur md:hidden">
-          <div className="site-shell flex items-center justify-between gap-3">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileLabel}</p>
-              <p className="text-sm font-semibold text-[#4a2f20]">{filteredItems.length} {copy.mobileCountSuffix}</p>
-            </div>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => setAudioOnly((value) => !value)}
-                className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${audioOnly ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-[#fff8f0] text-[#7d5439]"}`}
-              >
-                {audioOnly ? copy.audioFilterActive : copy.audioFilterInactive}
-              </button>
-              <button
-                type="button"
-                onClick={scrollToControls}
-                className="rounded-full border border-[#d6b695] bg-[#fff8f0] px-3 py-2 text-xs font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-              >
-                {copy.mobileFilterBtn}
-              </button>
-            </div>
-          </div>
-        </section>
+            {locale === "en" && hasFallback ? (
+              <p className="mb-4 rounded-xl border border-[#d8b89b] bg-[#fff6ea] px-3 py-2 text-xs text-[#77533b]">
+                {copy.fallbackNotice}
+              </p>
+            ) : null}
 
-        {!hasActiveFilters ? (
-          <section className="pb-12 sm:pb-14">
-            <div className="site-shell">
-              <article className="soft-panel overflow-hidden bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
-                <div className="relative min-h-[260px]">
+            <div className="rounded-[22px] border border-[#dcc0a5] bg-[#fbf4eb] p-4 shadow-[0_8px_24px_rgba(78,49,31,0.04)] sm:p-5">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-end">
+                <label className="min-w-0 flex-1">
+                  <span className="mb-2 block text-sm font-semibold text-[#6d4b36]">{copy.searchLabel}</span>
+                  <input
+                    type="search"
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder={copy.searchPlaceholder}
+                    className="w-full rounded-xl border border-[#d5b89f] bg-white px-4 py-2.5 text-sm text-[#4a2f20] outline-none transition placeholder:text-[#9b7a63] focus:border-[#a66f49] focus:ring-2 focus:ring-[#d8b89b]/30"
+                  />
+                </label>
+
+                {hasActiveFilters ? (
+                  <button
+                    type="button"
+                    onClick={clearFilters}
+                    className="self-start rounded-full px-1 py-2 text-sm font-semibold text-[#8a5b3b] underline decoration-[#cba98b] underline-offset-4 transition hover:text-[#5c3925] lg:self-end"
+                  >
+                    {copy.clearFilters}
+                  </button>
+                ) : null}
+              </div>
+
+              <div className="mt-4 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                <button
+                  type="button"
+                  aria-pressed={audioOnly}
+                  onClick={() => setAudioOnly((value) => !value)}
+                  className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                    audioOnly
+                      ? "border-[#9e6844] bg-[#6f452d] text-white"
+                      : "border-[#d8b99d] bg-white text-[#765038] hover:bg-[#f5e7d8]"
+                  }`}
+                >
+                  {audioOnly ? `✓ ${copy.audioFilterFull}` : copy.audioFilterFull}
+                </button>
+
+                <button
+                  type="button"
+                  aria-pressed={selectedTag === "all"}
+                  onClick={() => setSelectedTag("all")}
+                  className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                    selectedTag === "all"
+                      ? "border-[#b7835f] bg-[#efe0d0] text-[#5f3b27]"
+                      : "border-[#d8b99d] bg-white text-[#765038] hover:bg-[#f5e7d8]"
+                  }`}
+                >
+                  {copy.allTagsLabel}
+                </button>
+
+                {availableTags.map((tag) => (
+                  <button
+                    key={tag}
+                    type="button"
+                    aria-pressed={selectedTag === tag}
+                    onClick={() => setSelectedTag(tag)}
+                    className={`shrink-0 rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                      selectedTag === tag
+                        ? "border-[#b7835f] bg-[#efe0d0] text-[#5f3b27]"
+                        : "border-[#d8b99d] bg-white text-[#765038] hover:bg-[#f5e7d8]"
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {!hasActiveFilters && featured ? (
+              <article className="mt-8 overflow-hidden rounded-[24px] border border-[#dcc0a5] bg-white/80 md:grid md:grid-cols-[1.05fr_0.95fr] md:items-stretch">
+                <div className="relative min-h-[240px]">
                   <SafeImage
                     src={featured.coverImage}
                     srcCandidates={poemFallbackCandidates}
@@ -150,7 +208,7 @@ export default function DocThoPage() {
                       </span>
                     ) : null}
                   </div>
-                  <h2 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h2>
+                  <h3 className="mt-3 text-3xl font-semibold leading-tight text-[#4a2f20] sm:text-4xl">{featured.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#654939] sm:text-base">{featured.excerpt}</p>
                   {shouldRenderAuthor(featured) ? <p className="mt-2 text-sm text-[#745646]">{featured.author}</p> : null}
                   <p className="mt-1 text-xs text-[#876756]">{featured.publishedAt}</p>
@@ -159,140 +217,46 @@ export default function DocThoPage() {
                   </Link>
                 </div>
               </article>
-            </div>
-          </section>
-        ) : null}
-
-        <section className="pb-20">
-          <div className="site-shell">
-            <div ref={controlsRef} className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-5 sm:p-6">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8a6245]">{copy.mobileFilterBtn}</p>
-                  <h2 className="mt-2 text-2xl font-semibold leading-tight text-[#3f2b20] sm:text-3xl">{copy.gridTitle}</h2>
-                  <p className="mt-2 text-sm leading-7 text-[#654939]">{copy.intro}</p>
-                </div>
-                <div className="text-sm text-[#7a5a45]">{filteredItems.length} {copy.mobileCountSuffix}</div>
-              </div>
-
-              <div className="mt-5 grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
-                <label className="block">
-                  <span className="mb-2 block text-sm font-semibold text-[#6d4b36]">{copy.searchLabel}</span>
-                  <input
-                    type="search"
-                    value={searchQuery}
-                    onChange={(event) => setSearchQuery(event.target.value)}
-                    placeholder={copy.searchPlaceholder}
-                    className="w-full rounded-2xl border border-[#d5b89f] bg-white px-4 py-3 text-sm text-[#4a2f20] outline-none transition placeholder:text-[#9b7a63] focus:border-[#b9835f]"
-                  />
-                </label>
-
-                <div className="flex flex-col justify-end gap-3 sm:flex-row sm:items-center sm:justify-end">
-                  {hasActiveFilters ? (
-                    <button
-                      type="button"
-                      onClick={clearFilters}
-                      className="rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                    >
-                      {copy.clearFilters}
-                    </button>
-                  ) : null}
-                </div>
-              </div>
-
-              <div className="mt-5 -mx-5 sm:-mx-6">
-                <div className="flex gap-2 overflow-x-auto px-5 pb-3 sm:px-6 [&::-webkit-scrollbar]:hidden">
-                  <button
-                    type="button"
-                    onClick={() => setAudioOnly((value) => !value)}
-                    className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${audioOnly ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"}`}
-                  >
-                    {audioOnly ? `✓ ${copy.audioFilterFull}` : copy.audioFilterFull}
-                  </button>
-                  <div className="mx-1 shrink-0 self-stretch border-l border-[#d5b89f]" />
-                  <button
-                    type="button"
-                    onClick={() => setSelectedTag("all")}
-                    className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${selectedTag === "all" ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"}`}
-                  >
-                    {copy.allTagsLabel}
-                  </button>
-                  {availableTags.map((tag) => (
-                    <button
-                      key={tag}
-                      type="button"
-                      onClick={() => setSelectedTag(tag)}
-                      className={`shrink-0 rounded-full border px-3 py-2 text-xs font-semibold uppercase tracking-wide transition ${selectedTag === tag ? "border-[#a56d47] bg-[#f1ddc6] text-[#6b432c]" : "border-[#d6b695] bg-white text-[#7d5439] hover:bg-[#f4e4d2]"}`}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="mb-6 mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <h2 className="text-3xl font-semibold leading-tight text-[#3f2b20] sm:text-4xl">{copy.gridTitle}</h2>
-                <p className="mt-2 text-sm leading-7 text-[#654939]">
-                  {hasActiveFilters
-                    ? copy.countActive.replace("{visible}", String(visibleItems.length)).replace("{total}", String(filteredItems.length))
-                    : copy.countAll.replace("{visible}", String(visibleItems.length)).replace("{total}", String(listItems.length))}
-                </p>
-              </div>
-              {hasMoreItems ? (
-                <button
-                  type="button"
-                  onClick={() => setVisibleCount((count) => count + 9)}
-                  className="inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                >
-                  {copy.loadMore}
-                </button>
-              ) : null}
-            </div>
-
-            {filteredItems.length === 0 ? (
-              <div className="soft-panel border-[#dcc0a5] bg-[#fbf4eb] p-6 text-center">
-                <h3 className="text-2xl font-semibold text-[#4a2f20]">{copy.emptyTitle}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#654939]">{copy.emptyBody}</p>
-                <button
-                  type="button"
-                  onClick={clearFilters}
-                  className="mt-5 inline-flex rounded-full border border-[#c79f7d] px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                >
-                  {copy.emptyReset}
-                </button>
-              </div>
-            ) : (
-              <EditorialListingGrid
-                items={visibleItems}
-                routePrefix={routePrefix}
-                readButtonLabel={copy.readButton}
-                showAuthor
-                showAudioBadge
-              />
-            )}
-
-            {filteredItems.length > 0 && hasMoreItems ? (
-              <div className="mt-8 flex justify-center">
-                <button
-                  type="button"
-                  onClick={() => setVisibleCount((count) => count + 9)}
-                  className="inline-flex rounded-full border border-[#c79f7d] px-5 py-3 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-                >
-                  {copy.loadMore}
-                </button>
-              </div>
             ) : null}
 
-            <div className="mt-8 hidden justify-end md:flex">
-              <button
-                type="button"
-                onClick={scrollToControls}
-                className="inline-flex rounded-full border border-[#d6b695] bg-white px-4 py-2 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
-              >
-                {copy.backToFilters}
-              </button>
+            <div className="mt-8">
+              <p className="mb-4 text-sm text-[#745646]">
+                {hasActiveFilters
+                  ? copy.countActive.replace("{visible}", String(visibleItems.length)).replace("{total}", String(filteredItems.length))
+                  : copy.countAll.replace("{visible}", String(visibleItems.length)).replace("{total}", String(listItems.length))}
+              </p>
+
+              {filteredItems.length === 0 ? (
+                <div className="rounded-2xl border border-dashed border-[#d6b695] bg-[#faf2e8] px-5 py-6 text-left sm:flex sm:items-center sm:justify-between sm:gap-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-[#4a2f20]">{copy.emptyTitle}</h3>
+                    <p className="mt-1 text-sm leading-6 text-[#654939]">{copy.emptyBody}</p>
+                  </div>
+                  <p className="mt-3 text-xs font-medium uppercase tracking-[0.14em] text-[#9a7357] sm:mt-0">
+                    {normalizedSearch ? `“${deferredSearchQuery.trim()}”` : copy.mobileFilterBtn}
+                  </p>
+                </div>
+              ) : (
+                <EditorialListingGrid
+                  items={visibleItems}
+                  routePrefix={routePrefix}
+                  readButtonLabel={copy.readButton}
+                  showAuthor
+                  showAudioBadge
+                />
+              )}
+
+              {filteredItems.length > 0 && hasMoreItems ? (
+                <div className="mt-8 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setVisibleCount((count) => count + 9)}
+                    className="inline-flex rounded-full border border-[#c79f7d] bg-[#fff8f0] px-5 py-2.5 text-sm font-semibold text-[#7d5439] transition hover:bg-[#f4e4d2]"
+                  >
+                    {copy.loadMore}
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         </section>
