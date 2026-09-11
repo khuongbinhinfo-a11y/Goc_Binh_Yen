@@ -193,6 +193,105 @@ Lê Dũng`,
     },
   },
   {
+    slug: "gap-lai-nguoi-xua",
+    title: "GẶP LẠI NGƯỜI XƯA",
+    tag: "Thơ tình",
+    summary: "Gặp lại người xưa ở cuối đời, không còn là tình nhân thì làm tri kỷ, sẻ chia những điều còn có thể.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 22/09/2025",
+    cardImage: "/images/poems/gap-lai-nguoi-xua.png",
+    heroImage: "/images/poems/gap-lai-nguoi-xua.png",
+    audioUrl: "/audio/gap-lai-nguoi-xua.m4a",
+    hasAudio: true,
+    content: `Kiếp này ta lỡ bước lạc nhau .
+Người dưng , kiếp sau còn gặp lại.
+Từ xa nhau , lòng đau rạn vỡ.
+Quay quắt hoài , không lúc nào nguôi.
+Thanh xuân quấn quýt rồi biền biệt .
+Giờ gặp nhau , không muốn rời xa.
+Không tình nhân , mình làm tri kỷ .
+Sẻ chia , đâu phải cứ mặn mà.
+Cuối đời được trút cạn yêu thương.
+Kể nhau nghe được mất vui buồn.
+Nhắc nhau chiều lạnh nên mặc ấm.
+Chúc nhau vui khỏe giữ vô thường.
+Hai đứa mình cùng không thể quên.
+Mở lòng ra khi có thể còn .
+Ta cho nhau những gì ta có.
+Hống nhận , tri kỷ đã từng thương.
+
+Cái Lậy
+22/09/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ nỗi tiếc nuối vì đã lạc mất nhau, sang niềm xúc động của cuộc gặp lại, rồi lắng xuống ở mong muốn được làm tri kỷ và chăm sóc nhau bằng những điều nhỏ bé ở cuối đời.",
+      standoutImages:
+        "Thanh xuân quấn quýt rồi biền biệt, lời nhắc mặc ấm trong chiều lạnh, những câu chuyện được mất và hình ảnh hai người mở lòng ở cuối đời tạo nên chiều sâu hoài niệm.",
+      meaning:
+        "Bài thơ nhìn tình xưa bằng một cách dịu hơn: khi không thể trở lại làm tình nhân, hai người vẫn có thể giữ cho nhau một chỗ tri kỷ, sẻ chia và trân trọng quãng đời còn lại.",
+      memorableLine: "Không tình nhân , mình làm tri kỷ .",
+    },
+    imageResearch: {
+      moodKeywords: ["người xưa", "tri kỷ", "gặp lại", "thanh xuân", "hoài niệm", "cuối đời"],
+      referenceLinks: [],
+      recommendedScene:
+        "Hai người gặp lại trong không gian chiều dịu, mang sắc thái hoài niệm, bình yên và tri kỷ hơn là lãng mạn phô trương.",
+      licenseNote: "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/gap-lai-nguoi-xua.png.",
+    },
+  },
+  {
+    slug: "uoc-mo",
+    title: "ƯƠC MƠ",
+    tag: "Thơ tình",
+    summary:
+      "Một ước mơ về mái nhà chung, ao sen, cơm rau và cuộc đời bình an có nhau giữa phong ba.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 12/09/2025",
+    cardImage: "/images/poems/uoc-mo.png",
+    heroImage: "/images/poems/uoc-mo.png",
+    audioUrl: "/audio/uoc-mo.m4a",
+    hasAudio: true,
+    content: `Em sẽ về ... chung nhà cùng anh .
+Như con mèo nhỏ cứ loanh quanh .
+Anh , đôi chân phong Trần dừng lại .
+Kiếp sau của mình ! Vậy nghen em .
+Anh trồng nhiều hoa cho em ngắm.
+Ao sen , dành cúng PHẬT , viếng chùa .
+Cơm rau nước lả , ngày hai bữa .
+Kiếp sau của mình ! Vậy nghen em.
+Anh đặt em phía bên ngực trái.
+Chốn yên bình gác tía lầu son .
+Tay trong tay , ríu rít chim non .
+Miền hạnh phúc , đầy hoa , ngập nắng .
+Em cùng anh rông rủi khắp nơi.
+Miền an lạc bình an hạnh phúc.
+Mặc sự đời bão táp , mưa sa .
+Có nhau rồi , em đâu sợ phong ba .
+
+Cái Lậy
+12/09/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ mở bằng ước mong được chung một mái nhà, đi qua cuộc sống thanh đạm giữa hoa và ao sen, rồi mở rộng thành khát vọng cùng nhau đi qua những miền bình an và phong ba của cuộc đời.",
+      standoutImages:
+        "Con mèo nhỏ quanh nhà, vườn hoa, ao sen dành cúng Phật, vị trí bên ngực trái, đôi tay nắm nhau và miền đầy hoa ngập nắng tạo nên không gian vừa đời thường vừa mơ ước.",
+      meaning:
+        "Bài thơ gửi gắm ước mong về một đời sống có nhau, giản dị và an lạc; hạnh phúc không nằm ở gác tía lầu son mà ở sự đồng hành giữa những đổi thay của cuộc đời.",
+      memorableLine: "Có nhau rồi , em đâu sợ phong ba .",
+    },
+    imageResearch: {
+      moodKeywords: ["mái nhà chung", "ao sen", "hoa", "bình an", "đồng hành", "nắng"],
+      referenceLinks: [],
+      recommendedScene:
+        "Một mái nhà bình yên giữa vườn hoa và ao sen trong nắng dịu, có cảm giác đời sống thanh đạm, gần gũi và đồng hành.",
+      licenseNote: "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/uoc-mo.png.",
+    },
+  },
+  {
     slug: "hoai-niem",
     title: "Hoài niệm",
     tag: "Thơ hoài niệm",

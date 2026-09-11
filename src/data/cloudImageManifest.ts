@@ -121,6 +121,8 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/poems/mo-dao-vuon-xuan.jpeg",
   "/images/poems/mo-tro-ve.jpeg",
   "/images/poems/mo-uoc.jpeg",
+  "/images/poems/uoc-mo.png",
+  "/images/poems/gap-lai-nguoi-xua.png",
   "/images/poems/mot-thoang.jpeg",
   "/images/poems/mua-hen.jpeg",
   "/images/poems/mua-thu-la-do.png",
