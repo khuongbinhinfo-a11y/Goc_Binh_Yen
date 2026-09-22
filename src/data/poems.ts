@@ -3111,6 +3111,66 @@ Lê Dũng`,
       licenseNote: "Dùng ảnh do chủ dự án cung cấp, upload trực tiếp lên R2 tại /images/poems/co-mot-ngay.png.",
     },
   },
+  {
+    slug: "vang-trang-khuyet",
+    title: "VẦNG TRĂNG KHUYẾT",
+    tag: "Thơ tình",
+    summary:
+      "Vầng trăng khuyết gợi một mối tình không trọn, nơi nỗi nhớ nhiều năm vẫn hướng về ước mong giữ được một vầng trăng tròn.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 10/10/2024",
+    cardImage: "/images/poems/vang-trang-khuyet.png",
+    heroImage: "/images/poems/vang-trang-khuyet.png",
+    audioUrl: "/audio/vang-trang-khuyet.m4a",
+    hasAudio: true,
+    content: `(Trăng vàng vọt , nữa vầng đâu mất.
+Mộng không thành nên một nữa bơ vơ.)
+Trăng ơi! Em m chê chi nữa khuôn mặt ngọc .
+Ngắm em không tròn , dạ cứ xốn xang.
+Những đêm rằm , em trãi lụa trần gian .
+Nhuộm vàng những dòng sông, bờ bãi.
+Nhóm lữa lên cho lòng anh bốc cháy .
+Thầm ước mơ , khao khát một ngày .
+Đón trăng về nhà , giữ trăng trong tay .
+Thỏa cơn say , giỡn trăng đùa gió .
+Đèn phố thị không làm anh mờ mắt .
+Nhà cao tầng , không làm khuất ánh nhìn .
+Nhớ rỏ lắm những nụ cười tỏa sáng .
+Mấy chục năm rồi , không thể nguôi ngoai .
+Bao năm rồi mơ kỳ lạ lắm.
+Chỉ thấy toàn trăng khuyết không thôi.
+Mộng không thành nên vầng trăng mất nữa .
+Thèm giữ cho mình tròn cả vầng trăng .
+
+Cai Lậy
+10/10/2024
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ cảm giác xốn xang trước vầng trăng không tròn, qua khát vọng được giữ trăng trong tay, rồi lắng thành nỗi nhớ dai dẳng của một giấc mộng chưa thành.",
+      standoutImages:
+        "Nửa vầng trăng vàng vọt, ánh trăng trải trên sông bờ bãi, phố thị và ước muốn giữ trọn vầng trăng là những hình ảnh xuyên suốt.",
+      meaning:
+        "Vầng trăng khuyết trở thành ẩn dụ cho một mối tình không trọn; thời gian trôi qua nhưng mong muốn về sự viên mãn vẫn còn nguyên.",
+      memorableLine: "Thèm giữ cho mình tròn cả vầng trăng .",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "trăng khuyết",
+        "đêm trăng",
+        "sông quê",
+        "hoài niệm",
+        "tình không trọn",
+        "ánh vàng",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Đêm xanh sâu bên sông quê với vầng trăng khuyết vàng, ánh trăng phản chiếu trên mặt nước và cảm giác lặng, nhớ, chưa trọn vẹn.",
+      licenseNote:
+        "Ảnh do chủ dự án cung cấp và sẽ được chủ dự án upload thủ công lên R2 tại /images/poems/vang-trang-khuyet.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
