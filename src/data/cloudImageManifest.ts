@@ -222,6 +222,8 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/tam-linh/tam-linh-hero.png",
   "/images/tam-linh/thap-den-nho-truoc-khi-ngu.png",
   "/logo.jpg"
+  "/images/poems/vang-trang-khuyet.png",
+
 ] as const;
 
 const CLOUD_IMAGE_ALIASES: Record<string, string> = {
