@@ -3171,6 +3171,50 @@ Lê Dũng`,
         "Ảnh do chủ dự án cung cấp và sẽ được chủ dự án upload thủ công lên R2 tại /images/poems/vang-trang-khuyet.png.",
     },
   },
+  {
+    slug: "ve-tam-song-que",
+    title: "VỀ TẮM SÔNG QUÊ",
+    tag: "Thơ quê",
+    summary: "Một lần trở về sông quê để tìm lại ký ức tuổi thơ, phù sa, trăng nước và tình cảm bền lâu theo năm tháng.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 29/09/2025",
+    cardImage: "/images/poems/ve-tam-song-que.png",
+    heroImage: "/images/poems/ve-tam-song-que.png",
+    hasAudio: false,
+    content: `Em rủ anh về tắm sông quê.
+Tìm kỷ niệm xưa sông quê lưu giữ .
+Bắt con hến dưới bãi sông nằm ngủ.
+Nấu canh mồng tơi như sữa mẹ ngọt ngào.
+Sông quê ,sông quê ơi ! Sông quê.
+Nơi tắm mát tuổi thơ , giữ của tôi những giấc mơ đời.
+Ta mang sông trong tim , yêu sông mãi mãi .
+Suốt đời khắc khoải nhớ sông quê.
+Em rủ anh cùng nhau về tắm sông quê .
+Trăng đón ta , nhuộm vàng sông quê rồi đó.
+Hãy trút bỏ đi lớp vỏ của đời .
+Cho con sóng vổ về thân thể ! 
+Thịt da mình thấm đẫm phù sa .
+Tựa vào nhau , ngồi ngắm sông quê .
+Dòng nước củ mang tuổi thơ trôi đi mất biệt .
+Tắm sông quê với tuổi già mỏi mệt .
+Tình yêu của anh dành cho em mãi không già.
+Cái Lậy 
+29/09/2025
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ đi từ lời rủ trở về sông quê, mở ra ký ức tuổi thơ rồi lắng lại trong cảm nhận về thời gian và tuổi già.",
+      standoutImages: "Bãi sông, con hến, canh mồng tơi, trăng trên mặt nước và phù sa tạo nên không gian quê nhà gần gũi.",
+      meaning: "Dòng sông là nơi lưu giữ tuổi thơ, ký ức quê nhà và một tình cảm bền bỉ theo năm tháng.",
+      memorableLine: "Ta mang sông trong tim , yêu sông mãi mãi .",
+    },
+    imageResearch: {
+      moodKeywords: ["sông quê", "phù sa", "trăng", "tuổi thơ", "hoài niệm"],
+      referenceLinks: [],
+      recommendedScene: "Sông quê miền Tây dưới ánh trăng, có bãi bồi và mặt nước yên, gợi ký ức tuổi thơ và sự trở về.",
+      licenseNote: "Ảnh do chủ dự án upload thủ công lên R2 sau tại /images/poems/ve-tam-song-que.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
