@@ -3180,7 +3180,8 @@ Lê Dũng`,
     locationDate: "Cái Lậy, 29/09/2025",
     cardImage: "/images/poems/ve-tam-song-que.png",
     heroImage: "/images/poems/ve-tam-song-que.png",
-    hasAudio: false,
+    audioUrl: "/audio/ve-tam-song-que.m4a",
+    hasAudio: true,
     content: `Em rủ anh về tắm sông quê.
 Tìm kỷ niệm xưa sông quê lưu giữ .
 Bắt con hến dưới bãi sông nằm ngủ.
