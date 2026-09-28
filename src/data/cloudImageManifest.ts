@@ -224,6 +224,7 @@ export const CLOUD_IMAGE_PATHS = [
   "/logo.jpg",
   "/images/poems/vang-trang-khuyet.png",
   "/images/poems/ve-tam-song-que.png",
+  "/images/poems/dai-kho.png",
 
 ] as const;
 
