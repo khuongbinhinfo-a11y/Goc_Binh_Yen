@@ -3268,6 +3268,64 @@ Lê Dũng`,
     },
   },
 
+  {
+    slug: "vo-tinh-o-cuoc-tram-nam",
+    title: "VÔ TÌNH LỠ CUỘC TRĂM NĂM",
+    tag: "Thơ tình",
+    summary:
+      "Một mối tình đi qua năm tháng, để lại trong ánh trăng, lời nhắn gửi và đóa hồng sương sớm một nỗi thương nhớ dù đã lỡ cuộc trăm năm.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 21/08/2023",
+    cardImage: "/images/poems/vo-tinh-o-cuoc-tram-nam.png",
+    heroImage: "/images/poems/vo-tinh-o-cuoc-tram-nam.png",
+    audioUrl: "/audio/vo-tinh-o-cuoc-tram-nam.m4a",
+    hasAudio: true,
+    content: `Ngọn gió vô tình vạt áo bay .
+Ngẫn ngơ len lén gã khờ say.
+Một thoáng nhớ hoài ...ngày xưa ấy .
+Mơ dáng Kiều thơm ...tay trong tay.
+Giờ em là đóa hoa mãn khai .
+Anh ngất ngây vóc dáng trắng đài.
+Gần yêu lắm , xa thì nhung nhớ .
+Thoang  thoảng mùi hương theo gió bay .
+Bao năm rồi Qua nhìn trăng , nhìn sao .
+Nhắc Cụi chăm cây đa cho tốt .
+Bên Hằng Nga nói lời chân thật .
+Bậu có bao giờ nghe thấy không ?
+Gởi Bậu đóa hồng vương sương sớm .
+Để môi má Bậu mãi tươi hồng.
+Mắt Bậu màu trời lung linh sáng .
+Dẫu vô tình lỡ cuộc trăm năm .
+
+Cái Lậy
+21/08/2023
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ sự ngẩn ngơ của một gã khờ say, qua nỗi nhớ và những lời gửi gắm, rồi lắng lại ở cảm giác tiếc nuối khi một mối duyên đã lỡ.",
+      standoutImages:
+        "Vạt áo trong gió, dáng Kiều, ánh trăng và sao, Hằng Nga, đóa hồng vương sương sớm cùng đôi mắt màu trời tạo nên không gian vừa mộng vừa hoài niệm.",
+      meaning:
+        "Bài thơ là lời tự sự về một tình cảm sâu nặng nhưng không thành duyên, nơi người ở lại vẫn gửi thương nhớ qua những hình ảnh của trăng, hoa và ký ức.",
+      memorableLine: "Dẫu vô tình lỡ cuộc trăm năm .",
+    },
+    imageResearch: {
+      moodKeywords: [
+        "trăng sao",
+        "hoa hồng",
+        "sương sớm",
+        "hoài niệm",
+        "tình lỡ",
+        "mộng tình",
+      ],
+      referenceLinks: [],
+      recommendedScene:
+        "Không gian đêm thơ mộng với ánh trăng, hoa hồng vương sương sớm và sắc trời dịu, gợi một mối tình đẹp nhưng đã lỡ.",
+      licenseNote:
+        "Ảnh do chủ dự án cung cấp và đã được chủ dự án upload thủ công lên R2 tại /images/poems/vo-tinh-o-cuoc-tram-nam.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
