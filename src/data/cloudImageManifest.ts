@@ -82,6 +82,7 @@ export const CLOUD_IMAGE_PATHS = [
   "/images/ke-chuyen/mui-khoi-bep-len-tu-xom-nho.png",
   "/images/ke-chuyen/nguoi-va-xuong-o-me-son.png",
   "/images/logo-4.jpg",
+  "/images/poems/giu-cho-minh-chut-du-huong.png",
   "/images/poems/anh-mai-ben-em.png",
   "/images/poems/khong-nguoi.png",
   "/images/poems/cua-thien.png",
