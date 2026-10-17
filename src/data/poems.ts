@@ -3326,6 +3326,65 @@ Lê Dũng`,
         "Ảnh do chủ dự án cung cấp và đã được chủ dự án upload thủ công lên R2 tại /images/poems/vo-tinh-o-cuoc-tram-nam.png.",
     },
   },
+  {
+    slug: "giu-cho-minh-chut-du-huong",
+    title: "GIỮ CHO MÌNH CHÚT Được HƯƠNG",
+    tag: "Thơ tình",
+    summary:
+      "Một nỗi tình gần mà xa, nơi người viết tìm sự bình tâm trong Thiền nhưng cuối cùng chỉ mong giữ lại chút dư hương của người xưa.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 24/11/2024",
+    cardImage: "/images/poems/giu-cho-minh-chut-du-huong.png",
+    heroImage: "/images/poems/giu-cho-minh-chut-du-huong.png",
+    audioUrl: "/audio/giu-cho-minh-chut-du-huong.m4a",
+    hasAudio: true,
+    content: `Ta bên nhau im lặng nhìn nhau.
+Với tay không thể nào chạm được.
+Hun hút cả khoảng cách vô hình.
+Biết bao giờ “loan phụng hòa minh”.
+Đêm trôi , chim hót ngoài cửa sổ.
+Hoa chuyển mình mở nhuỵ khoe hương.
+Đang tay , mùi hương bay đi mất.
+Hoa rơi , gió cuốn đến vô tình.
+Trăng trên cao sao không với tới .
+Trăng dưới sông không thể chạm vào.
+Hương thơm không thể nào cầm lấy .
+Em rất gần , mà quá xa xôi .
+Tập ngồi Thiền mong lòng thanh tịnh .
+Giữ nhịp tim thôi không xao động .
+Tìm một nơi ẩn trú bình yên .
+Em là em , Thiền mãi là Thiền .
+Trách cao sanh tơ nguyệt phận duyên.
+Trách ta , tình yêu chưa đủ lớn ?
+Lạc mất rồi hối hả đi tìm .
+U buồn , không giữ được tình duyên .
+Tiếc dư hương , Hoài thương kỷ niệm .
+Nhớ người xưa , nhớ chuyện xa xưa .
+Hỏi ai , ai có nhớ ai không vậy ? 
+Không giữ được người , giữ dư hương .
+
+Cái Lậy
+24/11/2024
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow:
+        "Mạch thơ đi từ khoảng cách không thể chạm tới, qua những hình ảnh hương hoa, trăng và gió, rồi tìm chỗ lắng trong Thiền trước khi trở lại với nỗi tiếc duyên và ký ức người xưa.",
+      standoutImages:
+        "Hoa nở rồi hương bay, trăng trên cao và trăng dưới sông, nhịp tim trong lúc ngồi Thiền cùng chút dư hương còn lại tạo nên một chuỗi hình ảnh vừa mong manh vừa day dứt.",
+      meaning:
+        "Bài thơ nói về một tình cảm rất gần trong lòng nhưng xa trong thực tại; khi không thể giữ người và giữ duyên, điều còn lại là ký ức và chút dư hương để nâng niu.",
+      memorableLine: "Không giữ được người , giữ dư hương .",
+    },
+    imageResearch: {
+      moodKeywords: ["dư hương", "trăng", "hoa", "Thiền", "hoài niệm", "tình xa"],
+      referenceLinks: [],
+      recommendedScene:
+        "Đêm yên với ánh trăng phản chiếu trên mặt nước, một đóa hoa vừa nở và không gian tĩnh lặng gợi cảm giác gần mà xa, thanh tịnh nhưng còn vương nhớ.",
+      licenseNote:
+        "Ảnh do chủ dự án cung cấp và tự upload thủ công lên R2 tại /images/poems/giu-cho-minh-chut-du-huong.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
