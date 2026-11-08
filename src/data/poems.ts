@@ -3385,6 +3385,63 @@ Lê Dũng`,
         "Ảnh do chủ dự án cung cấp và tự upload thủ công lên R2 tại /images/poems/giu-cho-minh-chut-du-huong.png.",
     },
   },
+  {
+    slug: "nho-lam-ngay-xua-02",
+    title: "NHỚ LẮM NGÀY XƯA",
+    tag: "Thơ hoài niệm",
+    summary: "Một cuộc gặp lại người xưa giữa vườn sầu riêng, gợi nỗi chờ mong ngày cũ và niềm vui khi thấy người từng thương sống hạnh phúc.",
+    author: "Lê Dũng",
+    locationDate: "Cai Lậy, 24/13/2024",
+    cardImage: "/images/poems/nho-lam-ngay-xua-02.png",
+    heroImage: "/images/poems/nho-lam-ngay-xua-02.png",
+    audioUrl: "/audio/nho-lam-ngay-xua-02.m4a",
+    hasAudio: true,
+    content: `Nhớ khi xưa ta chờ nhau như ruộng hạn chờ mưa.
+Như ngày đông chờ mặt trời tỏa nắng .
+Chờ đò qua sông khi hoàng hôn buông xuống.
+Chờ nhau riết rồi hai con mắt đến mòn . 
+Ai có buồn ? Khi mỗi người lạc trôi về một hướng.
+Bận bịu lo toan chuyện của riêng mình .
+Còn có lúc chờ nhau lòng phấp phỏng ?
+Phụng phịu cho môi xinh nở nụ cười hiền.
+Có phải ai ? Chiều nay trên đường về thăm chốn củ.
+Ngang qua những miền sầu riêng .miền nhớ .
+Hương sắc hoa sầu riêng dậy một nỗi niềm .
+Tiếng của ai gọi cháu con nghe quen quá .
+Ngọt như giọng nói xưa “ lâu gì đâu, chờ đợi mỏi mòn “.
+Đúng ai rồi : người xưa của ngày xưa.
+Mấy mươi năm đứng nhận chừng có thể .
+Trong tim này một nét xuân xanh ...
+Lòng vui thay nhà người xưa trước trồng hoa kiểng . 
+Sau nhà vườn sầu riêng trĩu quả xum xuê .
+Cuộc sống người xưa đầm ấm đề huề .
+Người xưa nghe dâng lên niềm vui yên dạ .
+Người có biết , người xưa mang trong lòng nỗi buồn man mác?
+Những chiều nhìn xao xác cánh chim bay .
+Người xưa yêu người xưa không gì có thể .
+Như thần hồng âm ĩ cháy trong tro.
+Trời đũ nắng , hoa dầu riêng kết trái .
+Đủ yêu thương người xưa hạnh phúc đủ đầy .
+Người xưa chỉ mong người xưa được vậy .
+Như ngày xưa , người xưa yêu lắm người xưa .
+
+Cai Lậy 
+24/13/2024
+Lê Dũng`,
+    status: "published",
+    analysis: {
+      emotionFlow: "Từ ký ức những lần chờ nhau thuở trước, bài thơ chuyển sang bâng khuâng khi gặp lại người cũ, rồi lắng lại trong niềm an lòng trước cuộc sống đủ đầy của người ấy.",
+      standoutImages: "Ruộng hạn đợi mưa, bến đò chiều, vườn sầu riêng trĩu quả, cánh chim bay và ngọn lửa âm ỉ trong tro.",
+      meaning: "Tình thương còn lại không nhất thiết là mong níu giữ; người viết tìm được chút bình yên khi biết người xưa đang hạnh phúc.",
+      memorableLine: "Người xưa chỉ mong người xưa được vậy .",
+    },
+    imageResearch: {
+      moodKeywords: ["hoài niệm", "sầu riêng", "tình xưa", "miền Tây", "vườn cây", "bóng chiều"],
+      referenceLinks: [],
+      recommendedScene: "Lối nhỏ qua vườn sầu riêng trĩu trái vào buổi chiều miền Tây, gợi cuộc hội ngộ bất ngờ và nỗi nhớ âm thầm.",
+      licenseNote: "Ảnh do chủ dự án tự upload R2 với key images/poems/nho-lam-ngay-xua-02.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];

@@ -2,6 +2,7 @@ export const CLOUD_AUDIO_BASE_URL = "https://pub-a9e671dd309348caa85e940ff8ac822
 
 export const CLOUD_AUDIO_SLUGS = {
   poem: [
+  "nho-lam-ngay-xua-02",
   "giu-cho-minh-chut-du-huong",
   "vo-tinh-o-cuoc-tram-nam",
   "dai-kho",
@@ -129,6 +130,7 @@ const spiritualM4aSlugs = new Set<string>([
 ]);
 
 const poemM4aSlugs = new Set<string>([
+  "nho-lam-ngay-xua-02",
   "giu-cho-minh-chut-du-huong",
   "vo-tinh-o-cuoc-tram-nam",
   "dai-kho",
