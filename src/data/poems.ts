@@ -3442,6 +3442,32 @@ Lê Dũng`,
       licenseNote: "Ảnh do chủ dự án tự upload R2 với key images/poems/nho-lam-ngay-xua-02.png.",
     },
   },
+  {
+    slug: "nhu-la-em",
+    title: "NHƯ LÀ EM",
+    tag: "Thơ tình",
+    summary: "Lời hồi tưởng dịu dàng về dáng em, hương tóc bồ kết và tình yêu vẫn bền bỉ qua những năm tháng cách xa.",
+    author: "Lê Dũng",
+    locationDate: "Cái Lậy, 01/12/2024",
+    cardImage: "/images/poems/nhu-la-em.png",
+    heroImage: "/images/poems/nhu-la-em.png",
+    audioUrl: "/audio/nhu-la-em.m4a",
+    hasAudio: true,
+    content: "Như là em , đúng là em ,\nNghiêng nghiêng nón lá , tóc thề gió bay .\nThoảng hương bồ kết chân quê.\nSay lòng dạo ấy ... còn mê đến giờ .\nNgười xưa ơi ! Anh nhìn em .\nNét duyên ngày ấy bây giờ còn nguyên.\nNgọt ngào hương tóc anh quen .\nChớm Xuân một nụ ,cười duyên môi hồng.\nNgón tay gầy đến mỏng manh .\nĐủ mang hơi ấm , xua tan lạnh lùng.\nTrong veo cửa sổ tâm hồn.\nChứa bao âu yếm ... lòng không muốn rời .\nDáng hình em trong tim anh .\nGởi trong khúc nhạc , lời thơ dịu dàng.\nBao năm đầu bể cách ngăn .\nTrong tim ngọn lửa tình yêu không tàn .\nMong em hạnh phúc ngập tràn .\nMong mùa xuân mãi đong đầy mắt em .\nĐông về xuân cũng chực chờ .\nLời yêu thuở ấy , bây giờ còn nguyên.\nXa nhau là bởi phận duyên.\nTình yêu mình giữ riêng mình không phải .\nCái Lậy \n01/12/2024\nLê Dũng",
+    status: "published",
+    analysis: {
+      emotionFlow: "Bài thơ mở ra bằng ký ức dịu dàng về dáng vẻ và hương tóc người thương, đi qua những chi tiết thân thuộc rồi lắng lại trong tình yêu bền bỉ dù đôi người cách xa.",
+      standoutImages: "Nón lá nghiêng, mái tóc thoảng hương bồ kết, nụ cười đầu xuân, hơi ấm bàn tay và ngọn lửa tình yêu trong tim.",
+      meaning: "Tình cảm chân thành có thể còn nguyên qua năm tháng và khoảng cách; người viết gửi đến người xưa lời mong cầu hạnh phúc thay vì níu giữ.",
+      memorableLine: "Trong tim ngọn lửa tình yêu không tàn .",
+    },
+    imageResearch: {
+      moodKeywords: ["nón lá", "tóc bồ kết", "chớm xuân", "ký ức tình yêu", "miền quê Nam Bộ"],
+      referenceLinks: [],
+      recommendedScene: "Người phụ nữ đội nón lá bên hiên nhà miền quê trong làn gió đầu xuân, mái tóc đen nhẹ bay và ánh sáng dịu gợi một ký ức tình yêu xưa.",
+      licenseNote: "Ảnh do chủ dự án tự upload R2 với key images/poems/nhu-la-em.png.",
+    },
+  },
   ];
 
 export const featuredPoem = poems.find((item) => item.status === "published") ?? poems[0];
